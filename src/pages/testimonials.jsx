@@ -11,8 +11,8 @@ const staticTestimonials = [
     id: 1,
     rating: 5,
     testimonial_text: "Dr Grey's method completely changed my relationship with English. I went from being terrified to speak to actually enjoying conversations. The immersive approach made all the difference!",
-    student_name: "Maria Santos",
-    student_country: "Spain",
+    student_name: "Maria Samiou",
+    student_country: "Greece",
   },
   {
     id: 2,
