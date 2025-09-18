@@ -30,10 +30,10 @@ import {
 
 // --- Data ---
 const individualCoursesList = [
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Unlock Fluency Signature", description: "An intensive, intermediate-to-advanced fluency sprint to boost your fluency. This course is designed to build confidence in speaking spontaneously and expressing opinions clearly. Focuses on essential vocabulary, daily conversations, and real-life scenarios through guided discussions, role plays, and mini-debates. Includes a personalised 45-minute video consultation with Dr Grey at the end of the course.", length: "5 days", duration: "6 hours daily", participants: "6-16", format: "Online", price: "£200/230€" },
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Maintain Fluency", description: "A week-long evening course designed to strengthen fluency for real-life scenarios. Works well as a confidence booster, or to maintain fluency after the Unlock Fluency Signature course.", length: "5 days", duration: "3 hours daily", participants: "6-16", format: "Online", price: "£140/160€" },
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Weekend Boost", description: "A weekend immersion course designed to build consistent, practical fluency for everyday use. Works well as a refresher course and is the recommended next step after the Unlock Fluency Signature course.", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-16", format: "Online", price: "£170/200€" },
-    { level: 'mixed-levels', title: "Series Club", description: "Let's watch a popular English series together! This course is designed to improve listening comprehension, everyday expressions, and natural conversation skills.", length: "8 weeks", duration: "1 x 3-hour session weekly", participants: "6-16", format: "Online", price: "£170/200€" },
+    { level: 'intermediate', levelCode: 'B1/B2', title: "Unlock Fluency Signature", description: "An intensive, intermediate-to-advanced fluency sprint to boost your fluency. This course is designed to build confidence in speaking spontaneously and expressing opinions clearly. Focuses on essential vocabulary, daily conversations, and real-life scenarios through guided discussions, role plays, and mini-debates. Includes a personalised 45-minute video consultation with Dr Grey at the end of the course.", length: "5 days", duration: "6 hours daily", participants: "6-16", format: "Online", price: "£260" },
+    { level: 'intermediate', levelCode: 'B1/B2', title: "Maintain Fluency", description: "A week-long evening course designed to strengthen fluency for real-life scenarios. Works well as a confidence booster, or to maintain fluency after the Unlock Fluency Signature course.", length: "5 days", duration: "3 hours daily", participants: "6-16", format: "Online", price: "£180" },
+    { level: 'intermediate', levelCode: 'B1/B2', title: "Weekend Boost", description: "A weekend immersion course designed to build consistent, practical fluency for everyday use. Works well as a refresher course and is the recommended next step after the Unlock Fluency Signature course.", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-16", format: "Online", price: "£220" },
+    { level: 'mixed-levels', title: "Series Club", description: "Let's watch a popular English series together! This course is designed to improve listening comprehension, everyday expressions, and natural conversation skills.", length: "8 weeks", duration: "1 x 3-hour session weekly", participants: "6-16", format: "Online", price: "£220" },
 ];
 
 const teamCourses = {
@@ -213,7 +213,7 @@ export default function Courses() {
                   Personalised sessions tailored to your specific needs, goals, and learning style. Perfect for intensive progress and targeted improvement.
                 </p>
                 <p className="text-blue-900 mb-6">
-                  Contact me for a personalised coaching plan and quote. Prices start at £40 per 45 minutes.
+                  Contact me for a personalised coaching plan and quote. Prices start at £60 per 45 minutes.
                 </p>
                 <Link to="/contact">
                   <Button className="w-full bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold">
