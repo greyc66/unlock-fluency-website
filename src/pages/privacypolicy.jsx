@@ -42,6 +42,16 @@ export default function PrivacyPolicy() {
                     We implement appropriate security measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction.
                   </p>
                 </div>
+
+                <div>
+                  <h2 className="font-bold">Legal Information</h2>
+                  <p>
+                    <strong> Company Registration Number:</strong> 16740967
+                  </p>
+                  <p>
+                    <strong> Registered Address:</strong> 182-184 High Street North, Office 14834, East Ham, London, E6 2JA, UK
+                  </p>
+                </div>
                 
                 <div>
                   <h2 className="font-bold">Contact</h2>
