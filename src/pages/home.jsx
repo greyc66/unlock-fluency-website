@@ -86,6 +86,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Dr. Grey Intro Section */}
+      <section className="py-16 sm:py-24 bg-slate-800">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+            <div className="md:col-span-1 flex justify-center">
+              <img
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/39b956fec_IMG_45862.jpg"
+                alt="Dr. Christina Grey"
+                className="aspect-[4/5] w-full max-w-xs object-cover rounded-2xl border-2 border-gray-700 shadow-xl"
+              />
+            </div>
+            <div className="md:col-span-2">
+             <h2 className="text-3xl lg:text-4xl font-bold text-stone-100 mb-6">
+            Your Guide to Fluency: <br /> Meet Dr Christina Grey
+          </h2>
+              <p className="text-lg text-stone-200 leading-relaxed">
+                Hello! I'm Dr Grey, a psycholinguist with a passion for helping people connect through language. I don't just teach English; I teach you how to think, feel, and communicate with confidence. My method is built from a decade of research, but my teaching is built on personal connection. Let's start your journey together. To learn more about me, please <Link to="/about" className="text-amber-400 hover:text-amber-300 font-semibold underline">visit my about page</Link>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Method Teaser Section - Darkest Navy */}
       <section className="py-16 sm:py-24 bg-slate-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
