@@ -85,7 +85,7 @@ export default function About() {
               </h1>
 
               <div className="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed text-left">
-                I've always been passionate about overcoming language barriers. As a trained psycholinguist specialising in bilingual language acquisition, my teaching style goes beyond textbooks and traditional exercises.
+                I've always been passionate about overcoming language barriers. As a trained psycholinguist, I have studied the psychology of language extensively, specialising in bilingual language acquisition. My teaching style goes beyond textbooks and traditional exercises.
               </div>
 
               <div className="space-y-3 mb-8">

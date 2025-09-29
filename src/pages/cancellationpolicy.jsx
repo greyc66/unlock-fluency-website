@@ -2,13 +2,13 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function RefundCancellationPolicy() {
+export default function CancellationPolicy() {
   return (
     <div className="bg-gray-900 text-gray-300">
       <section className="py-20 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 text-center">
-            Refund & Cancellation Policy
+            Cancellation Policy
           </h1>
           
           <Card className="bg-gray-800/50 border border-gray-700">

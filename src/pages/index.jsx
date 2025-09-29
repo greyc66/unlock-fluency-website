@@ -9,7 +9,7 @@ import Contact from "./contact.jsx";
 import TheMethod from "./themethod.jsx";
 import Resources from "./resources.jsx";
 import PrivacyPolicy from "./privacypolicy.jsx";
-import RefundCancellationPolicy from "./refundcancellationpolicy.jsx";
+import CancellationPolicy from "./cancellationpolicy.jsx";
 import Faqs from "./faqs.jsx";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
@@ -23,7 +23,7 @@ const PAGES = {
     themethod: TheMethod,
     resources: Resources,
     privacypolicy: PrivacyPolicy,
-    refundcancellationpolicy: RefundCancellationPolicy,
+    cancellationpolicy: CancellationPolicy,
     faqs: Faqs,
 }
 
@@ -57,7 +57,7 @@ function PagesContent() {
                 <Route path="/themethod" element={<TheMethod />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-                <Route path="/refundcancellationpolicy" element={<RefundCancellationPolicy />} />
+                <Route path="/cancellationpolicy" element={<CancellationPolicy />} />
                 <Route path="/faqs" element={<Faqs />} />
             </Routes>
         </Layout>

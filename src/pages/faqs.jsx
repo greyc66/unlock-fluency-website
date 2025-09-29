@@ -21,7 +21,7 @@ export default function FAQs() {
     },
     {
       question: "What happens if I need to cancel my booking?",
-      answer: <>If you need to cancel, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible. Cancellations made a week before the course start date receive a full refund. Please see our <Link to="/refundcancellationpolicy" className="text-amber-400 hover:text-amber-300">Refund & Cancellation Policy</Link> for full details.</>
+      answer: <>If you need to cancel, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible. Cancellations made a week before the course start date receive a full refund. Please see our <Link to="/cancellationpolicy" className="text-amber-400 hover:text-amber-300">Cancellation Policy</Link> for full details.</>
     },
     {
       question: "Are the courses available online or in-person?",
@@ -29,7 +29,7 @@ export default function FAQs() {
     },
     {
       question: "What makes The Unlock Fluency Method different?",
-      answer: <>The Unlock Fluency Method is based on psycholinguistic research and focuses on natural language acquisition through conversation and immersion, rather than traditional textbook learning. It's designed to build real-world communication confidence. Please refer to <Link to="/themethod" className="text-amber-400 hover:text-amber-300">The Method</Link> page for more details.</>
+      answer: <>The Unlock Fluency Method is based on psycholinguistic research and focuses on natural language acquisition through conversation and immersion, rather than traditional textbook learning. Psycholinguistics studies how our minds process language. In other words, it's the science of the "psychology of language." My method uses a psycholinguistic approach meaning that the lessons are aligned with how the brain naturally learns language rather than just drilling grammar rules. It's designed to build real-world communication confidence. Please refer to <Link to="/themethod" className="text-amber-400 hover:text-amber-300">The Method</Link> page for more details.</>
     },
     {
       question: "Do I get a certificate after completing a course?",

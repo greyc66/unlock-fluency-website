@@ -58,7 +58,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/c411c0edd_JPEGimage2.jpeg" 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png" 
                 alt="Unlock Fluency Logo" 
                 className="w-12 h-12 flex-shrink-0" 
               />
@@ -139,7 +139,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/c411c0edd_JPEGimage2.jpeg"
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png"
                   alt="Unlock Fluency Logo" 
                   className="w-8 h-8 flex-shrink-0" 
                 />
@@ -172,14 +172,14 @@ export default function Layout({ children, currentPageName }) {
                 <li><Link to="/contact" className="text-gray-400 hover:text-gray-300 transition-colors">Contact</Link></li>
                 <li><Link to="/faqs" className="text-gray-400 hover:text-gray-300 transition-colors">FAQs</Link></li>
                 <li><Link to="/privacypolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/refundcancellationpolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Refund & Cancellation Policy</Link></li>
+                <li><Link to="/cancellationpolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Cancellation Policy</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} The Unlock Fluency Method. All rights reserved.
+              © {new Date().getFullYear()} The Unlock Fluency Method Ltd is a company registered in England & Wales with company number 16740967. All rights reserved.
             </p>
           </div>
         </div>

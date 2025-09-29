@@ -64,7 +64,7 @@ export default function Home() {
       <section className="relative overflow-hidden py-24 sm:py-32">
         <div className="absolute inset-0 flex justify-center items-center">
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/c411c0edd_JPEGimage2.jpeg"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png"
               alt="Unlock Fluency Background"
               className="h-auto w-full object-contain max-w-3xl"
             />
@@ -93,7 +93,7 @@ export default function Home() {
             A Psycholinguistic Approach to English Learning
           </h2>
           <p className="text-lg text-stone-100 leading-relaxed mb-8 max-w-3xl mx-auto">
-            Discover The Unlock Fluency Method – a groundbreaking teaching approach that combines psycholinguistic research with immersive, conversation-focused experiences. Move beyond traditional textbook learning and unlock your natural ability to communicate with confidence and authenticity.
+            Discover The Unlock Fluency Method – a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Move beyond traditional textbook learning and unlock your natural ability to communicate with confidence and authenticity.
           </p>
           <Link to="/themethod"> {/* Changed to /themethod */}
             <Button className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-semibold px-8 py-3">
