@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,15 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
+useEffect(() => {
+    if (formData.enquiry_type === "Newsletter Sign-up") {
+      setFormData(prev => ({ ...prev, message: "Please sign me up for The Unlock Fluency Method newsletter." }));
+    } else if (formData.message === "Please sign me up for The Unlock Fluency Method newsletter.") {
+      // Clear message if switching away from Newsletter Sign-up and it was the auto-filled message
+      setFormData(prev => ({ ...prev, message: "" }));
+    }
+  }, [formData.enquiry_type, formData.message]);
+
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setError("");
@@ -34,12 +43,12 @@ export default function Contact() {
     return "Please write your message here...";
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
 
-    // Handle regular contact form
+    // The "message" field is now required for all enquiry types.
     let requiredFields = ["name", "email", "enquiry_type", "message"];
     
     if (formData.enquiry_type === "1-to-1 Personalised Coaching") {
@@ -51,29 +60,27 @@ export default function Contact() {
     }
 
     const missingFields = requiredFields.filter(field => !formData[field]);
-    if (missingFields.length > 0) {
+    if (missingFields.length > 0 || !formData.enquiry_type) {
       setError("Please fill in all required fields.");
       setIsSubmitting(false);
       return;
     }
 
-    // Create mailto link
-    let emailSubject = `Contact Form: ${formData.enquiry_type}`;
-    let emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.enquiry_type}\nMessage: ${formData.message}`;
-    
-    if (formData.current_english_level) {
-      emailBody += `\nCurrent English Level: ${formData.current_english_level}`;
-    }
-    
-    if (formData.course_level) {
-      emailBody += `\nRequired Course Level: ${formData.course_level}`;
+    const emailSubject = `Contact Form: ${formData.enquiry_type}`;
+    let emailBody = '';
+
+    if (formData.enquiry_type === '1-to-1 Personalised Coaching') {
+      emailBody = `Current English Level: ${formData.current_english_level}\n\n${formData.message}`;
+    } else if (formData.enquiry_type === 'Unlock Fluency for Organisations') {
+      emailBody = `Required Course Level: ${formData.course_level}\n\n${formData.message}`;
+    } else {
+      // This now correctly handles both "General Enquiry" and "Newsletter Sign-up"
+      emailBody = formData.message;
     }
 
     const mailtoLink = `mailto:contact@unlockfluency.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
-    // Open email client
     window.location.href = mailtoLink;
-    
     setSubmitted(true);
     setIsSubmitting(false);
   };
@@ -91,7 +98,7 @@ export default function Contact() {
                 Email Client Opened!
               </h1>
               <p className="text-lg text-gray-400">
-                Your email client should have opened with your message pre-filled. Please send the email to complete your inquiry.
+                Your email client should have opened with your message pre-filled. Please send the email to complete your enquiry.
               </p>
             </CardContent>
           </Card>
@@ -136,6 +143,7 @@ export default function Contact() {
                     <SelectItem value="General Enquiry">General Enquiry</SelectItem>
                     <SelectItem value="1-to-1 Personalised Coaching">1-to-1 Personalised Coaching</SelectItem>
                     <SelectItem value="Unlock Fluency for Organisations">Unlock Fluency for Organisations</SelectItem>
+                    <SelectItem value="Newsletter Sign-up">Newsletter Sign-up</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -163,16 +171,18 @@ export default function Contact() {
                 </div>
               )}
 
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-gray-400">Message *</Label>
-                <Textarea 
-                  id="message" 
-                  value={formData.message} 
-                  onChange={(e) => handleInputChange("message", e.target.value)} 
-                  placeholder={getMessagePlaceholder()}
-                  rows={6} 
-                />
-              </div>
+            {formData.enquiry_type !== 'Newsletter Sign-up' && (
+  <div className="space-y-2">
+  <Label htmlFor="message" className="text-gray-400">Message *</Label>
+  <Textarea 
+    id="message" 
+    value={formData.message} 
+    onChange={(e) => handleInputChange("message", e.target.value)} 
+    placeholder={getMessagePlaceholder()}
+    rows={6} 
+  />
+</div>
+)}
               
               {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
 
