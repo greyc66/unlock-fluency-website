@@ -213,7 +213,7 @@ export default function Courses() {
                   Personalised sessions tailored to your specific needs, goals, and learning style. Perfect for intensive progress and targeted improvement.
                 </p>
                 <p className="text-blue-900 mb-6">
-                  Contact me for a personalised coaching plan and quote. Prices start at £60 per 45 minutes.
+                  Contact me for a personalised coaching plan and quote. Prices start at £75 per 45 minutes.
                 </p>
                 <Link to="/contact">
                   <Button className="w-full bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold">
