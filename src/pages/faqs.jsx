@@ -17,7 +17,7 @@ export default function FAQs() {
     },
     {
       question: "How do I join a course?",
-      answer: "Simply browse the calendar on our booking page and click on 'Book a course' below the calendar to reserve your spot. If you don't see available dates, check back regularly as new courses are added frequently."
+      answer: "Simply browse the course offerings on the Courses page and click on 'Book now' below the course you want to book. If you don't see available dates, check back regularly as new course dates are added frequently."
     },
     {
       question: "What happens if I need to cancel my booking?",
@@ -41,11 +41,11 @@ export default function FAQs() {
     },
     {
       question: "How do I sign up for the newsletter?",
-      answer: "You can sign up for the newsletter using the form in the footer of any page, or through the contact form by selecting 'Newsletter Sign-up' as your enquiry type."
+      answer: "You can sign up for the newsletter using the 'Get in Touch' button. Fill out the contact form and select 'Newsletter Sign-up' as your enquiry type."
     },
     {
       question: "Do you offer courses for teams and organisations?",
-      answer: "Yes! We offer tailored courses for companies, NGOs, and organisations. These can be customised to meet your team's specific needs and goals. Contact us for a personalised quote."
+      answer: "Yes! I offer tailored courses for companies, NGOs, and organisations. These can be customised to meet your team's specific needs and goals. Contact us for a personalised quote."
     }
   ];
 
