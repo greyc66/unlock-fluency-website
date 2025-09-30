@@ -148,8 +148,7 @@ export default function Layout({ children, currentPageName }) {
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-md mb-6">
-                Immersive English coaching that builds real confidence and fluency 
-                for learners at every level.
+                Immersive English coaching that builds real confidence and fluency.
               </p>
               <div className="flex gap-2">
                 <a href="https://www.facebook.com/share/1BYLcyoiMe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
@@ -157,6 +156,9 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <a href="https://www.instagram.com/theunlockfluencymethod?igsh=YWUydnNwazEwOTZl&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <Instagram className="w-5 h-5" />
+                </a>
+                <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5" />
                 </a>
               </div>
             </div>
