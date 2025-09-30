@@ -86,7 +86,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dr. Grey Intro Section */}
+
+      {/* Method Teaser Section - Darkest Navy */}
+      <section className="py-16 sm:py-24 bg-slate-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-stone-100 mb-6">
+            A Psycholinguistic Approach to English Learning
+          </h2>
+          <p className="text-lg text-stone-100 leading-relaxed mb-8 max-w-3xl mx-auto">
+            Discover The Unlock Fluency Method – a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Move beyond traditional textbook learning and unlock your natural ability to communicate with confidence and authenticity.
+          </p>
+          <Link to="/themethod"> {/* Changed to /themethod */}
+            <Button className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-semibold px-8 py-3">
+              Discover The Method <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+      
+
+            {/* Dr. Grey Intro Section */}
       <section className="py-16 sm:py-24 bg-slate-800">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
@@ -106,23 +125,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Method Teaser Section - Darkest Navy */}
-      <section className="py-16 sm:py-24 bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-stone-100 mb-6">
-            A Psycholinguistic Approach to English Learning
-          </h2>
-          <p className="text-lg text-stone-100 leading-relaxed mb-8 max-w-3xl mx-auto">
-            Discover The Unlock Fluency Method – a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Move beyond traditional textbook learning and unlock your natural ability to communicate with confidence and authenticity.
-          </p>
-          <Link to="/themethod"> {/* Changed to /themethod */}
-            <Button className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-semibold px-8 py-3">
-              Discover The Method <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </Link>
         </div>
       </section>
 
