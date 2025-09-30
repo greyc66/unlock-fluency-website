@@ -179,7 +179,7 @@ export default function Layout({ children, currentPageName }) {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} The Unlock Fluency Method Ltd is a company registered in England & Wales with company number 16740967. All rights reserved.
+              © {new Date().getFullYear()} The Unlock Fluency Method Ltd is registered in England & Wales under the company registration number 16740967. All rights reserved.
             </p>
           </div>
         </div>
