@@ -18,17 +18,20 @@ export default function CancellationPolicy() {
                 <div>
                     <h2 className="font-bold">Course Cancellations</h2>
                     <p>
-                    If you need to cancel your booking, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible. Cancellations made a week before the course start date will receive a full refund.
+                    If you need to cancel your booking, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible.
                     </p>
                 </div>
                 
                 <div>
                     <h2 className="font-bold">Refunds</h2>
                     <p>
-                    Refunds for cancellations made less than 48 hours before the course start date will receive a partial refund (50%).
+                    Cancellations made a week before the course start date will receive a full refund. <br />
+                    Cancellations made up to 48 hours before the course start date will receive a 50% refund. <br />
+                    Cancellations made within 48 hours before the course start date are non-refundable. <br />
+                    Refunds will be processed within 5-7 business days of the cancellation request.
                     </p>
                     <p>
-                        Refunds will be processed within 5-7 business days of the cancellation request.
+                        <strong> All refunds will be subject to a 2.5% processing fee. </strong>
                     </p>
                 </div>
                 
