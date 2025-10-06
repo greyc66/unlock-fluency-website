@@ -58,21 +58,20 @@ export default function Home() {
   }];
 
 
-  return (
+ return (
     <div className="bg-gray-900 text-gray-300">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-24 sm:py-32">
-        <div className="absolute inset-0 flex justify-center items-center">
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png"
-              alt="Unlock Fluency Background"
-              className="h-auto w-full object-contain max-w-3xl"
-            />
-            <div className="absolute inset-0 bg-gray-900/60"></div>
-        </div>
+        <div className="absolute inset-0 bg-gray-900/60"></div>
 
         <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col justify-between min-h-[60vh]">
           <div className="flex-grow flex flex-col justify-center">
+            {/* Foreground logo remains */}
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png"
+              alt="Unlock Fluency Logo"
+              className="h-24 sm:h-32 lg:h-40 mx-auto mb-8 object-contain"
+            />
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">The Unlock Fluency Method</h1>
             <p className="text-lg lg:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">Transform your English communication skills with immersive, expert-led coaching designed for real-world confidence.</p>
           </div>
