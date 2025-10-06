@@ -20,7 +20,7 @@ export default function Home() {
   {
     icon: Users,
     title: "Unlock Fluency Courses for Individuals",
-    description: "Join courses designed to transform how you communicate, so you can speak with clarity, charisma, and confidence in any situation.",
+    description: "Join courses designed to transform how you communicate. Speak with clarity, charisma, and confidence in any situation.",
     link: "/courses", // Changed to /courses
     cta: "Explore Courses"
   },
@@ -58,7 +58,7 @@ export default function Home() {
   }];
 
 
- return (
+return (
     <div className="bg-gray-900 text-gray-300">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-24 sm:py-32">
@@ -132,14 +132,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {categories.map((category) =>
-            <Card key={category.title} className="bg-blue-200/80 border-blue-300 hover:border-blue-400 hover:-translate-y-1 transition-transform duration-300 group">
+            <Card key={category.title} className="bg-amber-50 border-blue-300 hover:border-blue-400 hover:-translate-y-1 transition-transform duration-300 group">
                 <CardContent className="p-8">
-                  <div className="w-12 h-12 bg-blue-500 group-hover:bg-blue-600 rounded-lg flex items-center justify-center mb-6 transition-colors">
+                  <div className="w-12 h-12 bg-green-600 group-hover:bg-green-700 rounded-lg flex items-center justify-center mb-6 transition-colors">
                     <category.icon className="w-6 h-6 text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-semibold text-stone-100 mb-3">{category.title}</h3>
-                  <p className="text-stone-100 mb-6">{category.description}</p>
-                  <Link to={category.link} className="font-semibold text-stone-100 group-hover:text-stone-200 transition-colors flex items-center">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-3">{category.title}</h3>
+                  <p className="text-blue-900/90 mb-6">{category.description}</p>
+                  <Link to={category.link} className="font-semibold text-blue-900 group-hover:text-blue-800 transition-colors flex items-center">
                     {category.cta} <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </CardContent>
@@ -154,10 +154,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto lg:max-w-none">
             <div className="text-center">
-              <Link to="/themethod" className="text-3xl font-bold tracking-tight text-green-100 sm:text-4xl hover:text-green-200 transition-colors"> {/* Changed to /themethod */}
+              <Link to="/themethod" className="text-3xl font-bold tracking-tight text-stone-100 sm:text-4xl hover:text-green-200 transition-colors"> {/* Changed to /themethod */}
                 The Unlock Fluency Method
               </Link>
-              <p className="mt-4 text-lg text-green-100">
+              <p className="mt-4 text-lg text-stone-100">
                 Go beyond traditional learning with a method designed for results.
               </p>
             </div>
@@ -165,10 +165,10 @@ export default function Home() {
               {differentiators.map((item) =>
               <div key={item.title} className="text-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 mx-auto">
-                    <item.icon className="h-6 w-6 text-green-100" />
+                    <item.icon className="h-6 w-6 text-stone-100" />
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold text-green-100">{item.title}</h3>
-                  <p className="mt-2 text-base text-green-100">{item.description}</p>
+                  <h3 className="mt-6 text-lg font-semibold text-stone-100">{item.title}</h3>
+                  <p className="mt-2 text-base text-stone-100">{item.description}</p>
                 </div>
               )}
             </div>
