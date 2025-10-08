@@ -64,7 +64,7 @@ export default function Resources() {
         "Vocabulary and phrase breakdowns",
         "Discussion questions to think about"
       ],
-      bgColor: "bg-yellow-200",
+      bgColor: "bg-green-200",
       badgeText: "Shared in monthly Newsletter"
     },
     {
