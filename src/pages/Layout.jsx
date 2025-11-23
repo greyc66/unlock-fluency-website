@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect } from "react";
+import NewsletterPopup from "../components/NewsletterPopup";
 import { Link, useLocation } from "react-router-dom";
 import { Calendar, Menu, X, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,12 @@ const navigationItems = [
 export default function Layout({ children, currentPageName }) {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const handleNewsletterClick = () => {
+  const subject = "Newsletter Sign-up";
+  const body = "Please sign me up for The Unlock Fluency Method newsletter.";
+  const mailtoLink = `mailto:contact@unlockfluency.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+};
 
   useEffect(() => {
     // Scroll to top on page change
@@ -130,6 +137,7 @@ export default function Layout({ children, currentPageName }) {
       {/* Main Content */}
       <main className="flex-1">
         {children}
+          <NewsletterPopup />
       </main>
 
       {/* Footer */}
@@ -161,6 +169,16 @@ export default function Layout({ children, currentPageName }) {
                   <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5" />
                 </a>
               </div>
+                        <div className="mt-8 pt-6 border-t border-gray-700 max-w-xs">
+  <h4 className="font-semibold text-white mb-3">Sign up for the Newsletter</h4>
+  <p className="text-gray-400 text-sm mb-4">Get English learning tips and course updates.</p>
+  <button 
+    onClick={handleNewsletterClick}
+    className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
+  >
+    Subscribe
+  </button>
+</div>
             </div>
 
             <div>
@@ -186,6 +204,7 @@ export default function Layout({ children, currentPageName }) {
           </div>
         </div>
       </footer>
+      <NewsletterPopup />
     </div>
   );
 }
