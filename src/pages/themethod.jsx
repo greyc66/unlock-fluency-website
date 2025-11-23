@@ -42,10 +42,10 @@ export default function TheMethod() {
 
   const dailySchedule = [
   { time: "Morning", title: "Daily Overview", description: "Start with a daily overview and an icebreaker to warm-up.", icon: Coffee, color: "bg-cyan-900" },
-  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, money to name a small few. Immersive discussions in breakout rooms.", icon: Users, color: "bg-cyan-800" },
+  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, and money. Immersive discussions in breakout rooms.", icon: Users, color: "bg-cyan-800" },
   { time: "Lunch", title: "Break", description: "After a very engaging morning discussing the theme of the day, we take a lunch break to refuel and recharge.", icon: Utensils, color: "bg-cyan-700" },
   { time: "Afternoon", title: "Interactive Sessions", description: "Debates based on the theme of the day. Breakout rooms where learners have a chance to practice small-talk techniques.", icon: Presentation, color: "bg-cyan-600" },
-  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practice real-life scenarios. Dynamic group activities and workshops. Round off with writing exercises.", icon: CheckCircle, color: "bg-cyan-500" }];
+  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practice real-life scenarios. Dynamic group activities, workshops, and debates. Round off with writing exercises.", icon: CheckCircle, color: "bg-cyan-500" }];
 
 
   const immersiveFeatures = [
@@ -53,12 +53,12 @@ export default function TheMethod() {
   { icon: Trophy, text: "Confidence Over Perfection: focus on real-life communication, not just textbook rules. Learn to express your ideas naturally and confidently." },
   { icon: CheckCircle, text: "Practical Real-life Topics: from office chats to social gatherings, the curriculum covers the conversations that matter most. Every lesson is relatable and immediately useful." },
   { icon: Search, text: "Personalised Feedback: you'll receive constructive, actionable feedback, helping you sound more natural and fluent each day." },
-  { icon: Users2, text: "Community & Support: join a supportive environment — because fluency is faster when you’re surrounded by practice and encouragement." }];
+  { icon: Users2, text: "Community & Support: join a supportive environment! Fluency is faster when you’re surrounded by practice and encouragement." }];
 
 
   const roadmapSteps = [
   { title: "Early Passion", description: "My journey wasn't just academic; it was personal. Growing up with three languages sparked a lifelong fascination with how we learn, connect, and express ourselves. This led me down a path of deep academic enquiry.", icon: Heart },
-  { title: "Academic Foundation", description: "Throughout my academic journey, I conducted several psycholinguistic studies. I specifically studied the pattern of language acquisition in bilingual babies, culminating in a three-year-long research study which was the basis for my PhD. But my research wasn't confined to theory.", icon: GraduationCap },
+  { title: "Academic Foundation", description: "My PhD wasn't just about theory. I studied how bilingual babies acquire language naturally, and I asked myself: why can't adults learn with that same immersive joy? That question became the foundation of my method.", icon: GraduationCap },
   { title: "Professional Experience", description: "With over a decade of teaching experience, I've spent countless hours in the classroom, observing firsthand the gap between traditional textbook learning and real-world communication. I saw students who could ace grammar tests but hesitated in simple conversations.", icon: Briefcase },
   { title: "Deepening Knowledge", description: "Having lived in many different countries and been exposed to different educational systems, I started to notice the gaps in language teaching and saw an opportunity to bridge them by applying my psycholinguistic expertise.", icon: Plane },
   { title: "Method Foundations", description: "<strong>The Unlock Fluency Method</strong> was born from this intersection of psycholinguistic theory and practical teaching experience. It's a system designed to replicate the natural, immersive way we acquire our first language.", icon: Lightbulb },
@@ -94,7 +94,7 @@ export default function TheMethod() {
               </h1>
               
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Discover how The Unlock Fluency Method transforms the way you learn and speak English through natural, conversation-focused experiences.
+                Discover how my Method transforms the way you learn and speak English through natural, conversation-focused experiences.
               </p>
             </div>
           </section>
@@ -102,7 +102,7 @@ export default function TheMethod() {
           {/* Conception of the Method Section */}
           <section className="pt-8 pb-16 overflow-hidden">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center text-white mb-12">The Genesis of the Method</h2>
+              <h2 className="text-3xl font-bold text-center text-white mb-12">The Genesis of my Method</h2>
               
               <div className="relative">
                 {/* Vertical line for desktop */}
