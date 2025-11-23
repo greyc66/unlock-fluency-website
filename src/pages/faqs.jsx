@@ -9,23 +9,23 @@ export default function FAQs() {
   const faqs = [
     {
       question: "What level of English do I need for the courses?",
-      answer: "The Unlock Fluency courses are designed for intermediate to advanced learners (B1/B2 level and above). If you're unsure about your level, please get in touch for a consultation."
+      answer: "I design my Unlock Fluency courses for intermediate to advanced learners (B1/B2 level and above). If you're unsure about your level, please get in touch for a consultation."
     },
     {
       question: "Are the courses suitable for complete beginners?",
-      answer: "The group courses are designed for intermediate learners and above. However, I offer 1-to-1 personalised coaching sessions that can be tailored for beginners. Contact me to discuss your specific needs."
+      answer: "I design my Unlock Fluency courses for intermediate to advanced learners (B1/B2 level and above). However, I offer 1-to-1 personalised coaching sessions that I tailor for beginners. Get in touch to discuss your specific needs."
     },
     {
       question: "How do I join a course?",
-      answer: "Simply browse the course offerings on the Courses page and click on 'Book now' below the course you want to book. If you don't see available dates, check back regularly as new course dates are added frequently."
+      answer: <> On my <Link to="/courses" className="text-amber-400 hover:text-amber-300">Courses</Link> page you can browse all of my available courses. Click on 'Book now', follow the checkout process, and you will receive a Google Meet link to join. If you don't see any available dates for specific courses, check back later as I add new course dates frequently (or join my <Link to="/contact" className="text-amber-400 hover:text-amber-300">Newsletter</Link> and/or <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-amber-400 hover:text-amber-300">WhatsApp Community</a> if you want to be the first to receive updates!). </>
     },
     {
       question: "What happens if I need to cancel my booking?",
-      answer: <>If you need to cancel, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible. Cancellations made a week before the course start date receive a full refund. Please see our <Link to="/cancellationpolicy" className="text-amber-400 hover:text-amber-300">Cancellation Policy</Link> for full details.</>
+      answer: <>If you need to cancel, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible. Cancellations made a week before the course start date receive a full refund. Please read the <Link to="/cancellationpolicy" className="text-amber-400 hover:text-amber-300">Cancellation Policy</Link> for more details.</>
     },
     {
       question: "Are the courses available online or in-person?",
-      answer: "Courses for individuals as well as 1-to-1 personalised coaching are conducted online. For organisations, courses can be delivered either online or in-person upon request. Please contact me to discuss your preferences."
+      answer: "I teach 'Courses for Individuals' and I offer '1-to-1 Personalised Coaching' online via Google Meet. For organisations, I deliver courses/workshops either online or in-person upon request. Please get in touch to discuss your preferences."
     },
     {
       question: "What makes The Unlock Fluency Method different?",
@@ -41,11 +41,11 @@ export default function FAQs() {
     },
     {
       question: "How do I sign up for the newsletter?",
-      answer: "You can sign up for the newsletter using the 'Get in Touch' button. Fill out the contact form and select 'Newsletter Sign-up' as your enquiry type."
+      answer: "Scroll all the way to the bottom of my website and you will see a 'Subscribe' button on the bottom left. Alternatively, click on the 'Get in Touch' button and select 'Newsletter Sign-up' as your enquiry type."
     },
     {
       question: "Do you offer courses for teams and organisations?",
-      answer: "Yes! I offer tailored courses for companies, NGOs, and organisations. These can be customised to meet your team's specific needs and goals. Contact us for a personalised quote."
+      answer: "Yes! I offer tailored courses for companies, NGOs, and organisations. I customise these to meet your team's specific needs and goals. Get in touch for a personalised quote."
     }
   ];
 
@@ -73,7 +73,7 @@ export default function FAQs() {
               FAQs
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Find answers to common questions about The Unlock Fluency Method and course offerings.
+              Here I answer some common questions about The Unlock Fluency Method and my courses.
             </p>
           </div>
 
