@@ -29,7 +29,7 @@ export default function Resources() {
         "Usage tips and common mistakes to avoid"
       ],
       bgColor: "bg-red-200",
-      badgeText: "Shared on WhatsApp every Monday"
+      badgeText: "Shared weekly on WhatsApp"
     },
     {
       title: "Proverb of the Week",
@@ -41,7 +41,7 @@ export default function Resources() {
         "How to use them naturally in conversation"
       ],
       bgColor: "bg-orange-200",
-      badgeText: "Shared on WhatsApp every Monday"
+      badgeText: "Shared weekly on WhatsApp"
     },
     {
      title: "Icebreaker of the Week",
@@ -53,7 +53,7 @@ export default function Resources() {
         "Cultural context for different situations"
       ],
       bgColor: "bg-yellow-200",
-      badgeText: "Shared on WhatsApp every Monday"
+      badgeText: "Shared weekly on WhatsApp"
     },
     {
       title: "TED Talk of the Month",
