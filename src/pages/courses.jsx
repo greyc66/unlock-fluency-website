@@ -94,7 +94,7 @@ const CourseCard = ({ course, isTeam = false }) => {
         <div className="mt-auto">
           {isTeam ? (
             <Link to="/contact" className="block">
-              <Button className={`w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold px-4 py-2`}>
+              <Button className={`w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold`}>
                 <Building2 className="w-4 h-4 mr-2" />
                 Enquire Now
               </Button>
