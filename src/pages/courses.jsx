@@ -30,19 +30,20 @@ import {
 
 // --- Data ---
 const individualCoursesList = [
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Unlock Fluency Signature", description: "An intensive, intermediate-to-advanced fluency sprint to boost your fluency. This course is designed to build confidence in speaking spontaneously and expressing opinions clearly. Focuses on essential vocabulary, daily conversations, and real-life scenarios through guided discussions, role plays, and mini-debates. Includes a personalised 45-minute video consultation with Dr Grey at the end of the course.", length: "5 consecutive days", duration: "6 hours daily", participants: "6-12", format: "Online", price: "£300" },
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Maintain Fluency", description: "A week-long evening course designed to strengthen fluency for real-life scenarios. Works well as a confidence booster, or to maintain fluency after the Unlock Fluency Signature course.", length: "5 consecutive days", duration: "3 hours daily", participants: "6-12", format: "Online", price: "£200" },
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Weekend Boost", description: "A weekend immersion course designed to build consistent, practical fluency for everyday use. Works well as a refresher course and is the recommended next step after the Unlock Fluency Signature course.", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-12", format: "Online", price: "£250" },
-    { level: 'mixed-levels', title: "Series Club", description: "Let's watch a popular English series together! This course is designed to improve listening comprehension, everyday expressions, and natural conversation skills.", length: "8 consecutive weeks", duration: "1 x 3-hour session weekly", participants: "6-12", format: "Online", price: "£220" },
+    { level: 'intermediate', levelCode: 'B1/B2', title: "Unlock Fluency Signature - Morning", description: "An intensive, intermediate-to-advanced fluency sprint. I've designed this immersive course to give you the confidence to speak spontaneously and express your opinions freely. At the end of the course, you get a 45-minute video consultation with me.", length: "5 consecutive days", duration: "6 hours daily", participants: "6-12", format: "Online", price: "£300" },
+    { level: 'intermediate', levelCode: 'B1/B2', title: "Maintain Fluency - Evening", description: "An immersive, evening course I've designed to strengthen fluency and confidence in real-life scenarios. A great way to start talking and boost your confidence!", length: "5 consecutive days", duration: "3 hours daily", participants: "6-12", format: "Online", price: "£200" },
+    { level: 'intermediate', levelCode: 'B1/B2', title: "Weekend Boost - Morning", description: "A weekend immersion course I've designed to build consistent, practical fluency for everyday use. Want to refresh your English skills and start off your weekends with a smile? This is the right course for you!", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-12", format: "Online", price: "£250" },
+    { level: 'mixed-levels', title: "Series Club - Evening", description: "Let's watch a popular series together! Fancy hanging out with friends and improving your English at the same time? I've designed this course to improve your listening comprehension and natural conversation skills.", length: "8 consecutive weeks", duration: "1 x 3-hour session weekly", participants: "6-12", format: "Online", price: "£220" },
+    { level: 'mixed-levels', title: "Book Club - Evening", description: "Are you a book lover like me? Join me for a book club that brings stories to life! We’ll read, laugh, debate, and boost your English naturally with every chapter. Fun discussions, new vocabulary, and real confidence in speaking, all in one place!", length: "8 consecutive weeks", duration: "1 x 3-hour session weekly", participants: "6-12", format: "Online", price: "£220" },
 ];
 
 const teamCourses = {
     intermediate: [
-        { title: "Unlock Fluency Signature", description: "An intensive, intermediate-to-advanced fluency sprint to boost your fluency. This course is designed to build confidence in speaking spontaneously and expressing opinions clearly. Focuses on essential vocabulary, daily conversations, and real-life scenarios through guided discussions, role plays, and mini-debates.", length: "5 consecutive days", duration: "6 hours daily", maxParticipants: 20 },
+        { title: "Custom Unlock Fluency Course", description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team’s daily challenges to boost confidence, clarity, and impact; right where it matters most.", length: "custom", duration: "custom", maxParticipants: "custom" },
     ],
     mixed: [
-        { title: "Unlock Fluency Workshop", description: "Tailored workshop for companies, NGOs, and organisations. The workshop can be tailored to focus on the team's specific goals such as small talk, interviews, presentations, or networking.", length: "1 half/full day", duration: "6 hours daily", maxParticipants: 20 },
-        { title: "Custom Unlock Fluency", description: "For organisations with unique needs. Tailored immersive courses designed around your industry, goals, and team structure. Option to combine elements from different tracks.", length: "custom", duration: "custom", maxParticipants: "custom" },
+        { title: "Custom Unlock Fluency Workshop", description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.", length: "Half or full day(s)", duration: "custom", maxParticipants: "custom" },
+        { title: "Custom Unlock Fluency Retreat", description: "Take your team’s communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We’ll combine focused English training with an unforgettable, industry-specific learning experience.", length: "custom", duration: "custom", maxParticipants: "custom" },
     ]
 };
 
@@ -93,9 +94,9 @@ const CourseCard = ({ course, isTeam = false }) => {
         <div className="mt-auto">
           {isTeam ? (
             <Link to="/contact" className="block">
-              <Button className={`w-full bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold`}>
+              <Button className={`w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold px-4 py-2`}>
                 <Building2 className="w-4 h-4 mr-2" />
-                Enquire About This Course
+                Enquire Now
               </Button>
             </Link>
           ) : (
@@ -164,11 +165,11 @@ export default function Courses() {
           </Badge>
           
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Your English Learning Journey
+            Your Learning Journey
           </h1>
           
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Immersive courses and coaching designed to build real fluency and confidence. Each course is crafted for your specific level and learning goals.
+            I've personally designed each of these courses to be an immersive and supportive experience. Whichever path you choose, I'll be there to guide you as you build real fluency. I can't wait to see your confidence grow!
           </p>
         </div>
       </section>
@@ -194,7 +195,7 @@ export default function Courses() {
       <section className="py-16 bg-gray-950/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-white mb-12">
-            1-to-1 Personalised Coaching
+            One-to-one Personalised Coaching
           </h2>
 
           <div className="max-w-2xl mx-auto">
@@ -206,20 +207,23 @@ export default function Courses() {
                       <User className="w-6 h-6 text-blue-200" />
                     </div>
                 </div>
-                <CardTitle className="text-xl text-blue-900">One-to-One Coaching - Unlock Fluency Edition</CardTitle>
+                <CardTitle className="text-xl text-blue-900">One-to-One Coaching</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-blue-900 mb-6">
-                  Personalised sessions tailored to your specific needs, goals, and learning style. Perfect for intensive progress and targeted improvement.
+                  Let’s focus entirely on you. In one-to-one coaching, we target your specific goals with tailored strategies that help you grow quickly and confidently.
                 </p>
                 <p className="text-blue-900 mb-6">
-                  Contact me for a personalised coaching plan and quote. Prices start at £75 per 45 minutes.
+                  Contact me for a personalised coaching plan and quote. Prices start at £75.
                 </p>
+                <div className="flex justify-center">
                 <Link to="/contact">
-                  <Button className="w-full bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold">
-                    Book a Personal Session <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
+                  <Button className="bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold px-4 py-2">
+                  <Calendar className="w-4 h-4 mr-2" />
+      Book a Personal Session
+    </Button>
+  </Link>
+</div>
               </CardContent>
             </Card>
           </div>
@@ -233,19 +237,9 @@ export default function Courses() {
             Unlock Fluency Courses for Organisations
           </h2>
            <p className="text-xl text-center text-gray-400 max-w-3xl mx-auto mb-8">
-              Help your team speak with confidence in meetings, presentations, and international collaborations. My corporate training solutions are designed to improve fluency and ease in professional settings. Get in touch for a personalised quote.
+              I help teams communicate with confidence in meetings, presentations, and international collaborations. My corporate training is tailored to your goals, your schedule, and your industry so your team can speak with clarity and ease. Available online or in person; get in touch for a personalised quote for your organisation or for individual learners.
             </p>
             
-            <div className="mb-8 flex justify-center">
-              <Card className="bg-gray-700 border-gray-600 max-w-fit">
-                <CardContent className="p-4">
-                  <p className="text-gray-200 text-sm text-center">
-                    Course duration and level can be customised to meet your specific needs and schedule.<br/>
-                    These courses can take place either online or in person upon request. Available also for individuals.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
           
           <CourseSection courses={allTeamCourses.map(c => ({...c, level: c.level}))} isTeam={true} />
           
