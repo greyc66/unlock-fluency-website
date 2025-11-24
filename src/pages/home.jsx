@@ -20,13 +20,13 @@ export default function Home() {
   {
     icon: Users,
     title: "Unlock Fluency Courses for Individuals",
-    description: "Join courses designed to transform how you communicate. Speak with clarity, charisma, and confidence in any situation.",
+    description: "Join immersive courses designed to transform how you communicate. Speak with clarity, charisma, and confidence in any situation.",
     link: "/courses", // Changed to /courses
     cta: "Explore Courses"
   },
   {
     icon: User,
-    title: "1-to-1 Personalised Coaching - Unlock Fluency Edition",
+    title: "One-to-one Personalised Coaching",
     description: "Receive personalised, intensive training tailored to your unique goals and learning style.",
     link: "/contact", // Changed to /contact
     cta: "Book a Session"
@@ -73,7 +73,7 @@ return (
               className="h-24 sm:h-32 lg:h-40 mx-auto mb-8 object-contain"
             />
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">The Unlock Fluency Method</h1>
-            <p className="text-lg lg:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">Transform your English communication skills with immersive, expert-led coaching designed for real-world confidence.</p>
+            <p className="text-lg lg:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">Together, we’ll unlock your fluency so you can communicate with confidence anywhere, with anyone.</p>
           </div>
           <div className="pb-8">
             <Link to="/courses"> {/* Changed to /courses */}
@@ -93,7 +93,7 @@ return (
             A Psycholinguistic Approach to English Learning
           </h2>
           <p className="text-lg text-stone-100 leading-relaxed mb-8 max-w-3xl mx-auto">
-            Discover The Unlock Fluency Method – a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Move beyond traditional textbook learning and unlock your natural ability to communicate with confidence and authenticity.
+            Discover The Unlock Fluency Method: a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Unlock the confidence to express yourself effortlessly; in English and in life.
           </p>
           <Link to="/themethod"> {/* Changed to /themethod */}
             <Button className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-semibold px-8 py-3">
@@ -117,10 +117,10 @@ return (
             </div>
             <div className="md:col-span-2">
              <h2 className="text-3xl lg:text-4xl font-bold text-stone-100 mb-6">
-            Your Guide to Fluency: <br /> Meet Dr Christina Grey
+            Your Fluency Coach: <br /> Meet Dr Christina Grey
           </h2>
               <p className="text-lg text-stone-200 leading-relaxed">
-                Hello! I'm Dr Grey, a psycholinguist with a passion for helping people connect through language. I don't just teach English; I teach you how to think, feel, and communicate with confidence. My method is built from a decade of research, but my teaching is built on personal connection. Let's start your journey together. To learn more about me, please <Link to="/about" className="text-amber-400 hover:text-amber-300 font-semibold underline">visit my about page</Link>.
+                Hello! I'm Dr Grey, a psycholinguist with a passion for helping people connect through language. I don't just teach English; I teach you how to think, feel, and communicate with confidence. My method is built from a decade of research, but my teaching is built on personal connection. Let's start your journey together. To learn more about me, please visit my <Link to="/about" className="text-amber-400 hover:text-amber-300 font-semibold underline">About</Link> page.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ return (
                 The Unlock Fluency Method
               </Link>
               <p className="mt-4 text-lg text-stone-100">
-                Go beyond traditional learning with a method designed for results.
+                Go beyond traditional textbook learning with a method designed for results. I’m here to help you speak with confidence, ease, and a presence that stands out.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 md:grid-cols-3">
