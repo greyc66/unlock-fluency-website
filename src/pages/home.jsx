@@ -87,16 +87,16 @@ return (
 
 
       {/* Method Teaser Section - Darkest Navy */}
-      <section className="py-16 sm:py-24 bg-slate-900">
+      <section className="py-16 sm:py-24 bg-sky-100">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-stone-100 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
             A Psycholinguistic Approach to English Learning
           </h2>
-          <p className="text-lg text-stone-100 leading-relaxed mb-8 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto">
             Discover The Unlock Fluency Method: a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Unlock the confidence to express yourself effortlessly; in English and in life.
           </p>
           <Link to="/themethod"> {/* Changed to /themethod */}
-            <Button className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-semibold px-8 py-3">
+            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-3 shadow-lg">
               Discover The Method <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
@@ -105,22 +105,22 @@ return (
       
 
             {/* Dr. Grey Intro Section */}
-      <section className="py-16 sm:py-24 bg-slate-800">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div className="md:col-span-1 flex justify-center">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/39b956fec_IMG_45862.jpg"
                 alt="Dr. Christina Grey"
-                className="aspect-[4/5] w-full max-w-xs object-cover rounded-2xl border-2 border-gray-700 shadow-xl"
+                className="aspect-[4/5] w-full max-w-xs object-cover rounded-2xl border-2 border-gray-200 shadow-xl"
               />
             </div>
             <div className="md:col-span-2">
-             <h2 className="text-3xl lg:text-4xl font-bold text-stone-100 mb-6">
+             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
             Your Fluency Coach: <br /> Meet Dr Christina Grey
           </h2>
-              <p className="text-lg text-stone-200 leading-relaxed">
-                Hello! I'm Dr Grey, a psycholinguist with a passion for helping people connect through language. I don't just teach English; I teach you how to think, feel, and communicate with confidence. My method is built from a decade of research, but my teaching is built on personal connection. Let's start your journey together. To learn more about me, please visit my <Link to="/about" className="text-amber-400 hover:text-amber-300 font-semibold underline">About</Link> page.
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Hello! I'm Dr Grey, a psycholinguist with a passion for helping people connect through language. I don't just teach English; I teach you how to think, feel, and communicate with confidence. My method is built from a decade of research, but my teaching is built on personal connection. Let's start your journey together. To learn more about me, please visit my <Link to="/about" className="text-emerald-600 hover:text-emerald-700 font-semibold underline">About</Link> page.
               </p>
             </div>
           </div>
@@ -128,18 +128,18 @@ return (
       </section>
 
       {/* Categories Section - Dark Navy */}
-      <section className="py-16 sm:py-24 bg-slate-800">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {categories.map((category) =>
-            <Card key={category.title} className="bg-amber-50 border-blue-300 hover:border-blue-400 hover:-translate-y-1 transition-transform duration-300 group">
+            <Card key={category.title} className="bg-white border-gray-200 hover:border-gray-300 hover:-translate-y-1 transition-transform duration-300 group">
                 <CardContent className="p-8">
                   <div className="w-12 h-12 bg-green-600 group-hover:bg-green-700 rounded-lg flex items-center justify-center mb-6 transition-colors">
                     <category.icon className="w-6 h-6 text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-3">{category.title}</h3>
-                  <p className="text-blue-900/90 mb-6">{category.description}</p>
-                  <Link to={category.link} className="font-semibold text-blue-900 group-hover:text-blue-800 transition-colors flex items-center">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{category.title}</h3>
+                  <p className="text-gray-600 mb-6">{category.description}</p>
+                  <Link to={category.link} className="font-semibold text-emerald-600 group-hover:text-blue-800 transition-colors flex items-center">
                     {category.cta} <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </CardContent>
@@ -150,14 +150,14 @@ return (
       </section>
 
       {/* Differentiators Section - Medium Navy */}
-      <section className="py-16 sm:py-24 bg-slate-700">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto lg:max-w-none">
             <div className="text-center">
-              <Link to="/themethod" className="text-3xl font-bold tracking-tight text-stone-100 sm:text-4xl hover:text-green-200 transition-colors"> {/* Changed to /themethod */}
+              <Link to="/themethod" className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl hover:text-gray-900 transition-colors"> {/* Changed to /themethod */}
                 The Unlock Fluency Method
               </Link>
-              <p className="mt-4 text-lg text-stone-100">
+              <p className="mt-4 text-lg text-gray-700">
                 Go beyond traditional textbook learning with a method designed for results. I’m here to help you speak with confidence, ease, and a presence that stands out.
               </p>
             </div>
@@ -165,10 +165,10 @@ return (
               {differentiators.map((item) =>
               <div key={item.title} className="text-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 mx-auto">
-                    <item.icon className="h-6 w-6 text-stone-100" />
+                    <item.icon className="h-6 w-6 text-gray-700" />
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold text-stone-100">{item.title}</h3>
-                  <p className="mt-2 text-base text-stone-100">{item.description}</p>
+                  <h3 className="mt-6 text-lg font-semibold text-gray-700">{item.title}</h3>
+                  <p className="mt-2 text-base text-gray-700">{item.description}</p>
                 </div>
               )}
             </div>
@@ -177,18 +177,18 @@ return (
       </section>
 
       {/* Testimonial Section - Light Navy */}
-      <section className="py-16 sm:py-24 bg-slate-600">
+      <section className="py-16 sm:py-24 bg-sky-100">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <Quote className="h-10 w-10 text-stone-100 mx-auto mb-4" />
-          <blockquote className="text-xl lg:text-2xl font-medium text-stone-100 leading-relaxed">
+          <Quote className="h-10 w-10 text-rose-400 mx-auto mb-4" />
+          <blockquote className="text-xl lg:text-2xl font-medium text-gray-800 leading-relaxed">
             "Dr Grey's method completely changed my relationship with English. I went from being terrified to speak to actually enjoying conversations. The immersive approach made all the difference!"
           </blockquote>
           <footer className="mt-8">
-            <div className="text-base text-stone-100 font-semibold">Maria Santos, Spain</div>
-            <div className="mt-1 text-sm text-stone-200">Student, Full Day Immersion</div>
+            <div className="text-base text-gray-800 font-semibold">Maria Santos, Spain</div>
+            <div className="mt-1 text-sm text-gray-600">Student, Full Day Immersion</div>
           </footer>
           <Link to="/testimonials" className="mt-8 inline-block"> {/* Changed to /testimonials */}
-            <Button variant="link" className="text-stone-100 hover:text-stone-200">
+            <Button variant="link" className="text-emerald-600 hover:text-emerald-700">
               Read more success stories <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
@@ -196,16 +196,16 @@ return (
       </section>
 
       {/* Final CTA - Lightest Navy */}
-      <section className="py-16 sm:py-24 bg-slate-500">
+      <section className="py-16 sm:py-24 bg-sky-100">
         <div className="max-w-3xl mx-auto text-center px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
             Ready to Begin Your Journey?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-100">Take the first step towards fluent, confident English communication.
+          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-700">Take the first step towards fluent, confident communication.
           </p>
           <div className="mt-8">
             <Link to="/contact"> {/* Changed to /contact */}
-              <Button size="lg" className="bg-white hover:bg-gray-100 text-slate-700 font-semibold shadow-lg">
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg">
                 Get in Touch
               </Button>
             </Link>
