@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
                 <div>
                   <h2 className="font-bold">Contact</h2>
                   <p>
-                    If you have any questions about this Privacy Policy, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a>.
+                    If you have any questions about this Privacy Policy, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-sky-600 hover:text-sky-700">contact@unlockfluency.co.uk</a>.
                   </p>
                 </div>
                 

@@ -18,7 +18,7 @@ export default function CancellationPolicy() {
                 <div>
                     <h2 className="font-bold">Course Cancellations</h2>
                     <p>
-                    If you need to cancel your booking, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a> as soon as possible.
+                    If you need to cancel your booking, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-sky-600 hover:text-sky-700">contact@unlockfluency.co.uk</a> as soon as possible.
                     </p>
                 </div>
                 
@@ -52,7 +52,7 @@ export default function CancellationPolicy() {
                 <div>
                     <h2 className="font-bold">Contact</h2>
                     <p>
-                    For cancellations or questions about this policy, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-amber-400 hover:text-amber-300">contact@unlockfluency.co.uk</a>.
+                    For cancellations or questions about this policy, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-sky-600 hover:text-sky-700">contact@unlockfluency.co.uk</a>.
                     </p>
                 </div>
                 
