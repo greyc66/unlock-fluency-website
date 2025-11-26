@@ -102,22 +102,22 @@ export default function About() {
       </section>
 
       {/* Personal Story */}
-      <section className="py-16 lg:py-24 bg-gray-950/40">
+      <section className="py-16 lg:py-24 bg-sky-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
               My Teaching Philosophy
             </h2>
           </div>
 
-          <Card className="bg-teal-800/70 border border-teal-700">
+          <Card className="bg-white border-sky-200 border-sky-400">
             <CardContent className="p-6 md:p-8 lg:p-12">
-              <div className="prose prose-lg max-w-none text-gray-200 prose-blockquote:text-gray-300 prose-p:text-gray-200">
+              <div className="prose prose-lg max-w-none text-gray-800 prose-blockquote:text-gray-800 prose-p:text-gray-200">
                 <blockquote className="text-lg md:text-xl leading-relaxed mb-6 border-l-gray-400 text-center">
                  "I firmly believe that true language mastery is built on connection, not perfection. I transform every lesson into an opportunity for meaningful communication and shared growth."
                 </blockquote>
                 <div className="text-base md:text-lg text-left leading-relaxed">
-                  Growing up with three languages sparked my fascination with how the brain acquires and processes them, leading me to earn a BA in Linguistics, an MA in Experimental Psycholinguistics, and a PhD focused on bilingualism. With over 10 years of teaching experience, I draw on this deep understanding of how languages function at the most basic level to create courses that replicate natural language acquisition. My unconventional, conversation-oriented methodology gave rise to <Link to="/themethod" className="text-amber-400 hover:text-amber-300 font-bold">The Unlock Fluency Method</Link>, an immersive learning method designed to provide dynamic, real-life learning experiences that empower learners to speak with confidence, spontaneity, and authenticity. Every lesson becomes an opportunity for meaningful communication and shared growth.
+                  Growing up with three languages sparked my fascination with how the brain acquires and processes them, leading me to earn a BA in Linguistics, an MA in Experimental Psycholinguistics, and a PhD focused on bilingualism. With over 10 years of teaching experience, I draw on this deep understanding of how languages function at the most basic level to create courses that replicate natural language acquisition. My unconventional, conversation-oriented methodology gave rise to <Link to="/themethod" className="text-sky-400 hover:text-sky-800 font-bold">The Unlock Fluency Method</Link>, an immersive learning method designed to provide dynamic, real-life learning experiences that empower learners to speak with confidence, spontaneity, and authenticity. Every lesson becomes an opportunity for meaningful communication and shared growth.
                 </div>
               </div>
             </CardContent>
@@ -126,9 +126,9 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-sky-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-stone-200 border border-stone-300">
+          <Card className="bg-white border border-white">
             <CardContent className="p-6 md:p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-blue-900 mb-8 text-center">Academic & Professional Journey</h3>
               
@@ -145,12 +145,12 @@ export default function About() {
       </section>
       
       {/* Fun Facts Section - Moved up with reduced padding */}
-       <section className="py-8 lg:py-12">
+       <section className="py-8 lg:py-12 bg-sky-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-purple-200 border-purple-300">
+          <Card className="bg-white border-sky-200">
             <CardContent className="p-6 md:p-8">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Some (Fun?) Facts about Me</h3>
+                <h3 className="text-2xl font-bold text-blue-900 mb-6">Some (Fun?) Facts about Me</h3>
               </div>
               <div className="flex justify-center items-center gap-x-4 gap-y-2 md:gap-x-6 mt-4 flex-wrap">
                   {funFacts.map((fact, index) => (
@@ -166,24 +166,24 @@ export default function About() {
     </section>
 
       {/* Teaching Approach */}
-      <section className="py-16 lg:py-24 bg-gray-950/40">
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">A Psycholinguistic Approach to Learning
+            <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-6">A Psycholinguistic Approach to Learning
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {approaches.map((approach, index) =>
-              <Card key={index} className="bg-teal-800/50 border-teal-700 text-center">
+              <Card key={index} className="bg-sky-100 border-sky-300 text-center">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-teal-700 rounded-full flex items-center justify-center">
-                    <approach.icon className="w-8 h-8 text-teal-200" />
+                  <div className="w-16 h-16 mx-auto mb-6 bg-blue-400 rounded-full flex items-center justify-center">
+                    <approach.icon className="w-8 h-8 text-blue-900" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-4">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-4">
                     {approach.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-blue-800 leading-relaxed">
                     {approach.description}
                   </p>
                 </CardContent>
@@ -194,7 +194,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-gray-950/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Ready to Start Your Unlock Fluency Journey?
