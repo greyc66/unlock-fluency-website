@@ -5,7 +5,7 @@ import { Award } from 'lucide-react';
 export default function CertificationNote() {
   return (
     <div className="mt-12">
-      <Card className="bg-blue-300/40 border-blue-400/60">
+      <Card className="bg-gray-950/50 border-blue-400/60">
         <CardContent className="p-6">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0 mt-1">
