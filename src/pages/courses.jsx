@@ -192,9 +192,9 @@ export default function Courses() {
       </section>
 
       {/* 1-to-1 Personalised Coaching */}
-      <section className="py-16 bg-gray-950/40">
+      <section className="py-16 bg-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">
+          <h2 className="text-3xl font-bold text-center text-blue-900 mb-12">
             One-to-one Personalised Coaching
           </h2>
 
@@ -231,7 +231,7 @@ export default function Courses() {
       </section>
 
       {/* Immersive Courses for Teams & Organisations */}
-      <section className="py-16 lg:pb-24">
+      <section className="py-16 lg:pb-24 bg-gray-950/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-white mb-8">
             Unlock Fluency Courses for Organisations
