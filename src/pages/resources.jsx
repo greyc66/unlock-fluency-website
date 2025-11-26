@@ -107,7 +107,7 @@ export default function Resources() {
             Resources to Unlock Your Fluency
           </h1>
 
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Free resources, tips, and community events to support your English learning journey beyond the classroom.
           </p>
         </div>
@@ -153,12 +153,12 @@ export default function Resources() {
           <h2 className="text-3xl font-bold text-white mb-6">
             Stay Connected with The Unlock Fluency Method Community
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
+          <p className="text-xl text-white mb-8">
             Get in touch for exclusive tips and early access to new courses.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="bg-gray-500 hover:bg-gray-600 text-white font-semibold px-8 py-4">
+              <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-8 py-4">
                 <Calendar className="w-5 h-5 mr-2" />
                 Get in Touch
               </Button>
