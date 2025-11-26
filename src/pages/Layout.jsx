@@ -90,7 +90,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Get in Touch Button - Desktop */}
             <div className="hidden lg:block">
               <Link to="/contact">
-                <Button className="bg-slate-50 text-gray-900 px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 hover:bg-amber-600 shadow-lg hover:shadow-amber-500/20 transition-all duration-300">
+                <Button className="bg-slate-50 text-gray-900 px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 hover:bg-sky-600 shadow-lg hover:shadow-amber-500/20 transition-all duration-300">
                   <Calendar className="w-4 h-4 mr-2" />
                   Get in Touch
                 </Button>
