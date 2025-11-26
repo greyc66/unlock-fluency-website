@@ -117,7 +117,7 @@ export default function TheMethod() {
                           <h3 className="mb-3 font-bold text-slate-800 text-xl">{step.title}</h3>
                           <p className="text-sm leading-snug tracking-wide text-slate-700 text-opacity-100" dangerouslySetInnerHTML={{ __html: step.description }}></p>
                         </div>
-                        <div className="z-20 flex items-center order-2 bg-slate-700 shadow-xl w-12 h-12 rounded-full transform md:-translate-x-1/2 mx-4 md:mx-0">
+                        <div className="z-20 flex items-center order-2 bg-sky-500 shadow-xl w-12 h-12 rounded-full transform md:-translate-x-1/2 mx-4 md:mx-0">
                           <step.icon className="mx-auto text-slate-200" />
                         </div>
                         <div className="order-3 w-5/12 hidden md:block"></div> {/* Spacer for right side */}
@@ -128,7 +128,7 @@ export default function TheMethod() {
                     {index % 2 !== 0 &&
                   <>
                         <div className="order-1 w-5/12 hidden md:block"></div> {/* Spacer for left side */}
-                        <div className="z-20 flex items-center order-2 bg-slate-700 shadow-xl w-12 h-12 rounded-full transform md:translate-x-1/3 mx-4 md:mx-0">
+                        <div className="z-20 flex items-center order-2 bg-sky-500 shadow-xl w-12 h-12 rounded-full transform md:translate-x-1/3 mx-4 md:mx-0">
                           <step.icon className="mx-auto text-slate-200" />
                         </div>
                         <div className={`order-3 ${pastelColors[index % pastelColors.length]} rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4`}>
@@ -146,18 +146,18 @@ export default function TheMethod() {
       </div>
 
       {/* Immersive Process Infographic */}
-      <section className="py-16 bg-gray-950/40">
+      <section className="py-16 bg-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">How The Unlock Fluency Method Works</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">How The Unlock Fluency Method Works</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
             {immersiveFeatures.map((feature, index) =>
-            <Card key={index} className="bg-teal-800/50 border-teal-700 text-center">
+            <Card key={index} className="bg-white border-amber-50 text-center">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-teal-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-teal-200" />
+                  <div className="w-12 h-12 bg-sky-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-6 h-6 text-sky-100" />
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed">{feature.text}</p>
+                  <p className="text-gray-800 text-sm leading-relaxed">{feature.text}</p>
                 </CardContent>
               </Card>
             )}
@@ -166,19 +166,19 @@ export default function TheMethod() {
       </section>
 
       {/* Methodology Highlights */}
-      <section className="py-16">
+      <section className="py-16 bg-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">Method Highlights</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Method Highlights</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {methodologyHighlights.map((item, index) =>
-            <Card key={index} className="bg-stone-200 border-stone-300 text-center">
+            <Card key={index} className="bg-white border-amber-50 text-center">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-stone-300 rounded-full flex items-center justify-center">
-                    <item.icon className="w-8 h-8 text-blue-900" />
+                  <div className="w-16 h-16 mx-auto mb-6 bg-sky-400 rounded-full flex items-center justify-center">
+                    <item.icon className="w-8 h-8 text-sky-100" />
                   </div>
-                  <h3 className="text-lg font-semibold text-blue-900 mb-4">{item.title}</h3>
-                  <p className="text-blue-900/80">{item.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">{item.title}</h3>
+                  <p className="text-gray-700">{item.description}</p>
                 </CardContent>
               </Card>
             )}
@@ -187,10 +187,10 @@ export default function TheMethod() {
       </section>
 
       {/* Daily Structure */}
-      <section className="py-16 bg-gray-950/40">
+      <section className="py-16 bg-sky-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-white mb-6">A Typical Day in an Unlock Fluency Course</h2>
-          <p className="text-center text-gray-400 mb-12">All course content is created and delivered by Dr Christina Grey</p>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">A Typical Day in an Unlock Fluency Course</h2>
+          <p className="text-center text-gray-700 mb-12">All course content is created and delivered by Dr Christina Grey</p>
           
           <div className="space-y-4">
             {dailySchedule.map((item, index) =>
@@ -215,7 +215,7 @@ export default function TheMethod() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-950/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Experience Immersive Learning?</h2>
           <p className="text-xl text-gray-400 mb-8">
@@ -223,7 +223,7 @@ export default function TheMethod() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-4">
+              <Button size="lg" className="bg-sky-500 hover:bg-sky-700 text-white font-semibold px-8 py-4">
                 <BookOpen className="w-5 h-5 mr-2" />
                 Explore Courses
               </Button>
