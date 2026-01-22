@@ -5,31 +5,41 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { X, Mail, Loader2, CheckCircle } from "lucide-react";
 
-export default function NewsletterPopup() {
+export default function NewsletterPopup({ onClose }) {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
+  // Show popup automatically or when triggered by parent
   useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem("newsletter_popup_shown");
-    
-    if (!hasVisited) {
-      // Show popup after 2 seconds
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 2000);
-      
-      return () => clearTimeout(timer);
+    if (onClose) {
+      // If onClose prop is provided, parent controls visibility
+      setIsOpen(true);
+    } else {
+      // Auto-popup behavior for first-time visitors
+      const hasVisited = localStorage.getItem("newsletter_popup_shown");
+
+      if (!hasVisited) {
+        const timer = setTimeout(() => {
+          setIsOpen(true);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+      }
     }
-  }, []);
+  }, [onClose]);
 
   const handleClose = () => {
     setIsOpen(false);
     // Mark as shown so it doesn't appear again
     localStorage.setItem("newsletter_popup_shown", "true");
+
+    // Call parent's onClose if provided
+    if (onClose) {
+      onClose();
+    }
   };
 
   const handleSubmit = async (e) => {
