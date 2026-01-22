@@ -50,11 +50,11 @@ const handleSubmit = async (e) => {
 
     // The "message" field is now required for all enquiry types.
     let requiredFields = ["name", "email", "enquiry_type", "message"];
-    
+
     if (formData.enquiry_type === "1-to-1 Personalised Coaching") {
       requiredFields.push("current_english_level");
     }
-    
+
     if (formData.enquiry_type === "Unlock Fluency for Organisations") {
       requiredFields.push("course_level");
     }
@@ -66,23 +66,31 @@ const handleSubmit = async (e) => {
       return;
     }
 
-    const emailSubject = `Contact Form: ${formData.enquiry_type}`;
-    let emailBody = '';
+    try {
+      // Submit to Cloudflare Pages Function
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (formData.enquiry_type === '1-to-1 Personalised Coaching') {
-      emailBody = `Current English Level: ${formData.current_english_level}\n\n${formData.message}`;
-    } else if (formData.enquiry_type === 'Unlock Fluency for Organisations') {
-      emailBody = `Required Course Level: ${formData.course_level}\n\n${formData.message}`;
-    } else {
-      // This now correctly handles both "General Enquiry" and "Newsletter Sign-up"
-      emailBody = formData.message;
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        setError(result.error || 'Failed to send message. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Success!
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError('An unexpected error occurred. Please try again later.');
+      setIsSubmitting(false);
     }
-
-    const mailtoLink = `mailto:contact@unlockfluency.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    window.location.href = mailtoLink;
-    setSubmitted(true);
-    setIsSubmitting(false);
   };
 
   if (submitted) {
@@ -95,10 +103,10 @@ const handleSubmit = async (e) => {
                 <CheckCircle className="w-10 h-10 text-green-400" />
               </div>
               <h1 className="text-3xl font-bold text-white mb-4">
-                Email Client Opened!
+                Message Sent Successfully!
               </h1>
               <p className="text-lg text-gray-400">
-                Your email client should have opened with your message pre-filled. Please send the email to complete your enquiry.
+                Thank you for your enquiry. We'll get back to you as soon as possible.
               </p>
             </CardContent>
           </Card>
@@ -189,7 +197,7 @@ const handleSubmit = async (e) => {
               <div className="text-right">
                 <Button type="submit" disabled={isSubmitting} size="lg" className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold">
                   {isSubmitting ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <Mail className="w-5 h-5 mr-2" />}
-                  {isSubmitting ? "Opening Email..." : "Submit Form"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </div>
             </form>
