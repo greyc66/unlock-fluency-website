@@ -1,12 +1,36 @@
 /**
  * Cloudflare Pages Function for Newsletter Subscriptions
  * Handles newsletter signup submissions and sends emails via Resend:
- *   1. Notification email to the site owner
- *   2. Confirmation email to the subscriber with PDF learning resources attached
+ *   1. Adds subscriber to Resend Audience (for list management and unsubscribes)
+ *   2. Notification email to the site owner
+ *   3. Confirmation email to the subscriber with PDF learning resources attached
+ *
+ * Required environment variables:
+ *   RESEND_API_KEY       - Resend API key
+ *   RESEND_AUDIENCE_ID   - Resend Audience ID (from Resend dashboard → Audiences)
+ *   UNSUBSCRIBE_SECRET   - A long random string used to sign unsubscribe tokens
+ *   CONTACT_EMAIL        - (optional) override for the owner notification recipient
  */
 
 const PDF_FILENAME = 'learning_resources.pdf';
 const PDF_DISPLAY_NAME = 'Unlock Fluency Learning Resources.pdf';
+const SITE_URL = 'https://www.unlockfluency.co.uk';
+
+// Generate an HMAC-SHA256 token for a given email — used in unsubscribe links
+async function generateUnsubscribeToken(email, secret) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw',
+    encoder.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(email));
+  return Array.from(new Uint8Array(signature))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
 
 export async function onRequestPost(context) {
   try {
@@ -14,35 +38,20 @@ export async function onRequestPost(context) {
 
     // Parse the incoming form data
     const formData = await request.json();
-
-    // Validate required fields
     const { email, name } = formData;
 
     if (!email) {
       return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Email address is required'
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        }
+        JSON.stringify({ success: false, error: 'Email address is required' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Invalid email address'
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        }
+        JSON.stringify({ success: false, error: 'Invalid email address' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
@@ -53,21 +62,17 @@ export async function onRequestPost(context) {
     if (!pdfResponse.ok) {
       console.error(`Failed to fetch PDF: ${pdfResponse.status} ${pdfResponse.statusText}`);
       return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Failed to prepare your resources. Please try again later.'
-        }),
-        {
-          status: 500,
-          headers: { 'Content-Type': 'application/json' }
-        }
+        JSON.stringify({ success: false, error: 'Failed to prepare your resources. Please try again later.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
     const pdfArrayBuffer = await pdfResponse.arrayBuffer();
-    const pdfBase64 = btoa(
-      String.fromCharCode(...new Uint8Array(pdfArrayBuffer))
-    );
+    const pdfBase64 = btoa(String.fromCharCode(...new Uint8Array(pdfArrayBuffer)));
+
+    // Generate a signed unsubscribe URL for this subscriber
+    const unsubscribeToken = await generateUnsubscribeToken(email, env.UNSUBSCRIBE_SECRET);
+    const unsubscribeUrl = `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(email)}&token=${unsubscribeToken}`;
 
     // Build notification email for site owner
     const ownerEmailHtml = `
@@ -87,34 +92,21 @@ export async function onRequestPost(context) {
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <h2>New Newsletter Subscription</h2>
-    </div>
+    <div class="header"><h2>New Newsletter Subscription</h2></div>
     <div class="content">
-      ${name ? `
-      <div class="field">
-        <div class="label">Name:</div>
-        <div class="value">${name}</div>
-      </div>
-      ` : ''}
-      <div class="field">
-        <div class="label">Email:</div>
-        <div class="value">${email}</div>
-      </div>
-      <div class="field">
-        <div class="label">Subscription Date:</div>
-        <div class="value">${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</div>
-      </div>
+      ${name ? `<div class="field"><div class="label">Name:</div><div class="value">${name}</div></div>` : ''}
+      <div class="field"><div class="label">Email:</div><div class="value">${email}</div></div>
+      <div class="field"><div class="label">Subscription Date:</div><div class="value">${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</div></div>
     </div>
     <div class="footer">
-      <p>A confirmation email with the learning resources PDF has been sent to the subscriber automatically.</p>
+      <p>This subscriber has been added to your Resend Audience. A confirmation email with the learning resources PDF has been sent to them automatically.</p>
     </div>
   </div>
 </body>
 </html>
 `;
 
-    // Build confirmation email for the subscriber
+    // Build confirmation email for the subscriber (includes unsubscribe link)
     const subscriberEmailHtml = `
 <!DOCTYPE html>
 <html>
@@ -123,19 +115,19 @@ export async function onRequestPost(context) {
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f3f4f6; }
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
     .header { background-color: #0c4a6e; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0; }
-    .header img { width: 60px; height: 60px; margin-bottom: 16px; }
     .header h1 { color: white; margin: 0; font-size: 24px; }
     .header p { color: #bae6fd; margin: 8px 0 0; font-size: 15px; }
     .content { background-color: #ffffff; padding: 40px 30px; border-left: 1px solid #e5e7eb; border-right: 1px solid #e5e7eb; }
     .content p { color: #374151; margin: 0 0 16px; }
     .highlight-box { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; }
     .highlight-box p { margin: 0; color: #0c4a6e; font-weight: 500; }
-    .cta-button { display: inline-block; background-color: #0ea5e9; color: white !important; text-decoration: none; padding: 14px 32px; border-radius: 6px; font-weight: bold; font-size: 15px; margin: 8px 0; }
     .footer { background-color: #1f2937; padding: 30px; text-align: center; border-radius: 0 0 8px 8px; }
     .footer p { color: #9ca3af; font-size: 13px; margin: 4px 0; }
     .footer a { color: #38bdf8; text-decoration: none; }
     .social-links { margin: 16px 0 8px; }
     .social-links a { color: #9ca3af; text-decoration: none; margin: 0 8px; font-size: 13px; }
+    .unsubscribe { margin-top: 16px; padding-top: 16px; border-top: 1px solid #374151; }
+    .unsubscribe a { color: #6b7280; font-size: 12px; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -160,9 +152,9 @@ export async function onRequestPost(context) {
 
       <p>In the meantime, feel free to explore:</p>
       <ul style="color: #374151; padding-left: 20px; margin: 0 0 24px;">
-        <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/themethod" style="color: #0ea5e9;">The Unlock Fluency Method</a> — learn how my method works</li>
-        <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/courses" style="color: #0ea5e9;">Upcoming Courses</a> — find the right course for your level and schedule</li>
-        <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/testimonials" style="color: #0ea5e9;">Success Stories</a> — hear from students who've transformed their English</li>
+        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/themethod" style="color: #0ea5e9;">The Unlock Fluency Method</a> — learn how my method works</li>
+        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/courses" style="color: #0ea5e9;">Upcoming Courses</a> — find the right course for your level and schedule</li>
+        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/testimonials" style="color: #0ea5e9;">Success Stories</a> — hear from students who've transformed their English</li>
       </ul>
 
       <p>If you have any questions or want to find out which course is right for you, just reply to this email — I'd love to hear from you.</p>
@@ -175,18 +167,39 @@ export async function onRequestPost(context) {
         <a href="https://www.facebook.com/share/1BYLcyoiMe/?mibextid=wwXIfr">Facebook</a>
         <a href="https://www.instagram.com/theunlockfluencymethod">Instagram</a>
       </div>
-      <p><a href="https://www.unlockfluency.co.uk">www.unlockfluency.co.uk</a></p>
+      <p><a href="${SITE_URL}">${SITE_URL.replace('https://', '')}</a></p>
       <p style="margin-top: 12px;">© ${new Date().getFullYear()} The Unlock Fluency Method Ltd. Registered in England &amp; Wales.</p>
       <p>You received this email because you signed up at unlockfluency.co.uk.</p>
+      <div class="unsubscribe">
+        <a href="${unsubscribeUrl}">Unsubscribe</a>
+      </div>
     </div>
   </div>
 </body>
 </html>
 `;
 
-    // Send both emails in parallel
-    const [ownerResult, subscriberResult] = await Promise.all([
-      // 1. Notify the site owner
+    // Fire all three actions in parallel:
+    // 1. Add contact to Resend Audience
+    // 2. Send owner notification email
+    // 3. Send subscriber confirmation email with PDF
+    const [audienceResult, ownerResult, subscriberResult] = await Promise.all([
+
+      // 1. Add/update contact in Resend Audience
+      fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`
+        },
+        body: JSON.stringify({
+          email,
+          ...(name && { first_name: name }),
+          unsubscribed: false
+        })
+      }),
+
+      // 2. Notify the site owner
       fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -202,7 +215,7 @@ export async function onRequestPost(context) {
         })
       }),
 
-      // 2. Confirmation email to the subscriber with PDF attached
+      // 3. Confirmation email to the subscriber with PDF attached
       fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -214,31 +227,29 @@ export async function onRequestPost(context) {
           to: email,
           subject: 'Welcome! Here are your free learning resources 🎉',
           html: subscriberEmailHtml,
+          headers: {
+            'List-Unsubscribe': `<${unsubscribeUrl}>, <mailto:contact@unlockfluency.co.uk?subject=Unsubscribe>`,
+            'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
+          },
           attachments: [
-            {
-              filename: PDF_DISPLAY_NAME,
-              content: pdfBase64
-            }
+            { filename: PDF_DISPLAY_NAME, content: pdfBase64 }
           ]
         })
       })
     ]);
 
-    // Check both responses
+    if (!audienceResult.ok) {
+      console.error('Resend Audience error:', await audienceResult.text());
+    }
+
     if (!ownerResult.ok || !subscriberResult.ok) {
       const ownerError = !ownerResult.ok ? await ownerResult.text() : null;
       const subscriberError = !subscriberResult.ok ? await subscriberResult.text() : null;
-      console.error('Resend API errors:', { ownerError, subscriberError });
+      console.error('Resend email errors:', { ownerError, subscriberError });
 
       return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Failed to process subscription. Please try again later.'
-        }),
-        {
-          status: 500,
-          headers: { 'Content-Type': 'application/json' }
-        }
+        JSON.stringify({ success: false, error: 'Failed to process subscription. Please try again later.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
@@ -247,24 +258,15 @@ export async function onRequestPost(context) {
         success: true,
         message: 'Thank you for subscribing! Check your inbox for your free learning resources.'
       }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      }
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
 
   } catch (error) {
     console.error('Newsletter subscription error:', error);
 
     return new Response(
-      JSON.stringify({
-        success: false,
-        error: 'An unexpected error occurred. Please try again later.'
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      }
+      JSON.stringify({ success: false, error: 'An unexpected error occurred. Please try again later.' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
 }
