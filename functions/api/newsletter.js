@@ -148,7 +148,7 @@ export async function onRequestPost(context) {
         <p>📎 Your free learning resources guide is attached to this email.</p>
       </div>
 
-      <p>Going forward, you'll receive monthly exclusive English learning resources and course updates delivered to your inbox. I only send emails when I have something genuinely useful to share.</p>
+      <p>Going forward, you'll receive monthly exclusive English learning resources and course updates delivered to your inbox. I only send emails when I have something genuinely useful to share!</p>
 
       <p>In the meantime, feel free to explore:</p>
       <ul style="color: #374151; padding-left: 20px; margin: 0 0 24px;">
