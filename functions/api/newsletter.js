@@ -55,21 +55,6 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Fetch the PDF from the site's own public folder and encode as base64
-    const siteOrigin = new URL(request.url).origin;
-    const pdfResponse = await fetch(`${siteOrigin}/${PDF_FILENAME}`);
-
-    if (!pdfResponse.ok) {
-      console.error(`Failed to fetch PDF: ${pdfResponse.status} ${pdfResponse.statusText}`);
-      return new Response(
-        JSON.stringify({ success: false, error: 'Failed to prepare your resources. Please try again later.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    const pdfArrayBuffer = await pdfResponse.arrayBuffer();
-    const pdfBase64 = btoa(String.fromCharCode(...new Uint8Array(pdfArrayBuffer)));
-
     // Generate a signed unsubscribe URL for this subscriber
     const unsubscribeToken = await generateUnsubscribeToken(email, env.UNSUBSCRIBE_SECRET);
     const unsubscribeUrl = `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(email)}&token=${unsubscribeToken}`;
@@ -148,7 +133,7 @@ export async function onRequestPost(context) {
         <p>📎 Your free learning resources guide is attached to this email.</p>
       </div>
 
-      <p>Going forward, you'll receive monthly exclusive English learning resources and course updates delivered to your inbox. I only send emails when I have something genuinely useful to share!</p>
+      <p>Going forward, you'll receive monthly exclusive English learning resources and course updates delivered to your inbox. I only send emails when I have something genuinely useful to share.</p>
 
       <p>In the meantime, feel free to explore:</p>
       <ul style="color: #374151; padding-left: 20px; margin: 0 0 24px;">
@@ -232,7 +217,7 @@ export async function onRequestPost(context) {
             'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
           },
           attachments: [
-            { filename: PDF_DISPLAY_NAME, content: pdfBase64 }
+            { filename: PDF_DISPLAY_NAME, path: `${SITE_URL}/${PDF_FILENAME}` }
           ]
         })
       })
