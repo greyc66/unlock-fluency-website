@@ -17,12 +17,11 @@ const navigationItems = [
 export default function Layout({ children, currentPageName }) {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showNewsletterPopup, setShowNewsletterPopup] = useState(false);
+
   const handleNewsletterClick = () => {
-  const subject = "Newsletter Sign-up";
-  const body = "Please sign me up for The Unlock Fluency Method newsletter.";
-  const mailtoLink = `mailto:contact@unlockfluency.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailtoLink;
-};
+    setShowNewsletterPopup(true);
+  };
 
   useEffect(() => {
     // Scroll to top on page change
@@ -137,7 +136,6 @@ export default function Layout({ children, currentPageName }) {
       {/* Main Content */}
       <main className="flex-1">
         {children}
-          <NewsletterPopup />
       </main>
 
       {/* Footer */}
@@ -204,7 +202,11 @@ export default function Layout({ children, currentPageName }) {
           </div>
         </div>
       </footer>
-      <NewsletterPopup />
+
+      {/* Newsletter Popup */}
+      {showNewsletterPopup && (
+        <NewsletterPopup onClose={() => setShowNewsletterPopup(false)} />
+      )}
     </div>
   );
 }

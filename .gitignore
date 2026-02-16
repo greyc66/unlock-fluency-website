@@ -23,7 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment variables and secrets
 .env
+.env.local
+.env.production
+.dev.vars
+.wrangler
 
 # Git worktrees
 unlock-fluency-website-forms/
