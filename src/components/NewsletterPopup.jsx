@@ -119,7 +119,7 @@ export default function NewsletterPopup({ onClose }) {
           ) : (
             <>
               <p className="text-gray-400 mb-6">
-                Get exclusive English learning tips, resources, and early access to new courses delivered to your inbox.
+                Sign up and get a free PDF with English learning tips and resources. In my monthly newsletter, you can expect more learning materials and early access to new courses.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
