@@ -164,27 +164,29 @@ export async function onRequestPost(context) {
 </html>
 `;
 
-    // Fire all three actions in parallel:
-    // 1. Add contact to Resend Audience
-    // 2. Send owner notification email
-    // 3. Send subscriber confirmation email with PDF
-    const [audienceResult, ownerResult, subscriberResult] = await Promise.all([
+    // Step 1: Add contact to Resend Audience first (sequential to respect
+    // Resend's 2 req/sec rate limit — the two emails then fire in parallel below)
+    const audienceResult = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        email,
+        ...(name && { first_name: name }),
+        unsubscribed: false
+      })
+    });
 
-      // 1. Add/update contact in Resend Audience
-      fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.RESEND_API_KEY}`
-        },
-        body: JSON.stringify({
-          email,
-          ...(name && { first_name: name }),
-          unsubscribed: false
-        })
-      }),
+    if (!audienceResult.ok) {
+      console.error('Resend Audience error:', await audienceResult.text());
+    }
 
-      // 2. Notify the site owner
+    // Step 2: Send both emails in parallel (exactly 2 requests = within rate limit)
+    const [ownerResult, subscriberResult] = await Promise.all([
+
+      // Notify the site owner
       fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -200,7 +202,7 @@ export async function onRequestPost(context) {
         })
       }),
 
-      // 3. Confirmation email to the subscriber with PDF attached
+      // Confirmation email to the subscriber with PDF attached
       fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -222,10 +224,6 @@ export async function onRequestPost(context) {
         })
       })
     ]);
-
-    if (!audienceResult.ok) {
-      console.error('Resend Audience error:', await audienceResult.text());
-    }
 
     if (!ownerResult.ok || !subscriberResult.ok) {
       const ownerError = !ownerResult.ok ? await ownerResult.text() : null;
