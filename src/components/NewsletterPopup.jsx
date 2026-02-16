@@ -113,7 +113,10 @@ export default function NewsletterPopup({ onClose }) {
                 Successfully Subscribed!
               </h3>
               <p className="text-gray-400">
-                Thank you for subscribing. We'll be in touch soon!
+                Thank you for subscribing to The Unlock Fluency Method Newsletter! I'll be in touch soon!
+              </p>
+              <p className="text-gray-400 mt-2">
+                Best,<br />Christina
               </p>
             </div>
           ) : (
