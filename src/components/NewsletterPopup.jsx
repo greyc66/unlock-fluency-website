@@ -113,7 +113,7 @@ export default function NewsletterPopup({ onClose }) {
                 Successfully Subscribed!
               </h3>
               <p className="text-gray-400">
-                Thank you for subscribing. We'll be in touch soon!
+                Thank you for subscribing. I'll be in touch soon!
               </p>
             </div>
           ) : (
