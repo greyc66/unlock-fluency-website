@@ -150,24 +150,24 @@ export async function onRequestPost(context) {
 
       <p>Thank you for joining The Unlock Fluency Method community! I'm so glad you're here.</p>
 
-      <p>As promised, I've attached your free <strong>Unlock Fluency Learning Resources</strong> guide to this email — it's packed with practical tips and exercises to start building your English fluency right away.</p>
+      <p>As promised, I've attached your free <strong>Learning Resources</strong> guide to this email. I've included a number of practical tips and resources to start building your English fluency right away.</p>
 
       <div class="highlight-box">
         <p>📎 Your free learning resources guide is attached to this email.</p>
       </div>
 
-      <p>Going forward, you'll receive exclusive English learning tips, course updates, and early-bird offers directly in your inbox. I only send emails when I have something genuinely useful to share.</p>
+      <p>Going forward, you'll receive monthly exclusive English learning resources, course updates delivered to your inbox. I only send emails when I have something genuinely useful to share.</p>
 
       <p>In the meantime, feel free to explore:</p>
       <ul style="color: #374151; padding-left: 20px; margin: 0 0 24px;">
-        <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/themethod" style="color: #0ea5e9;">The Unlock Fluency Method</a> — learn how my approach works</li>
+        <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/themethod" style="color: #0ea5e9;">The Unlock Fluency Method</a> — learn how my method works</li>
         <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/courses" style="color: #0ea5e9;">Upcoming Courses</a> — find the right course for your level and schedule</li>
         <li style="margin-bottom: 8px;"><a href="https://www.unlockfluency.co.uk/testimonials" style="color: #0ea5e9;">Success Stories</a> — hear from students who've transformed their English</li>
       </ul>
 
       <p>If you have any questions or want to find out which course is right for you, just reply to this email — I'd love to hear from you.</p>
 
-      <p>Warmly,<br><strong>Dr Christina Grey</strong><br>The Unlock Fluency Method</p>
+      <p>Best,<br><strong>Dr Christina Grey</strong><br>The Unlock Fluency Method</p>
     </div>
 
     <div class="footer">
