@@ -20,6 +20,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submittedType, setSubmittedType] = useState("");
   const [error, setError] = useState("");
 
 useEffect(() => {
@@ -67,13 +68,16 @@ const handleSubmit = async (e) => {
     }
 
     try {
-      // Submit to Cloudflare Pages Function
-      const response = await fetch('/api/contact', {
+      const isNewsletter = formData.enquiry_type === "Newsletter Sign-up";
+      const endpoint = isNewsletter ? '/api/newsletter' : '/api/contact';
+      const payload = isNewsletter
+        ? { email: formData.email, name: formData.name }
+        : formData;
+
+      const response = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json();
@@ -85,6 +89,7 @@ const handleSubmit = async (e) => {
       }
 
       // Success!
+      setSubmittedType(isNewsletter ? 'newsletter' : 'contact');
       setSubmitted(true);
     } catch (err) {
       console.error('Form submission error:', err);
@@ -103,10 +108,12 @@ const handleSubmit = async (e) => {
                 <CheckCircle className="w-10 h-10 text-green-400" />
               </div>
               <h1 className="text-3xl font-bold text-white mb-4">
-                Message Sent Successfully!
+                {submittedType === 'newsletter' ? 'Successfully Subscribed!' : 'Message Sent Successfully!'}
               </h1>
               <p className="text-lg text-gray-400">
-                Thank you for your enquiry. We'll get back to you as soon as possible.
+                {submittedType === 'newsletter'
+                  ? "Thank you for subscribing. I'll be in touch soon!"
+                  : "Thank you for your enquiry. We'll get back to you as soon as possible."}
               </p>
             </CardContent>
           </Card>
