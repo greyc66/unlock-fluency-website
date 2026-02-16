@@ -210,7 +210,7 @@ export async function onRequestPost(context) {
           'Authorization': `Bearer ${env.RESEND_API_KEY}`
         },
         body: JSON.stringify({
-          from: 'Dr Christina Grey <christina@unlockfluency.co.uk>',
+          from: 'Dr Christina Grey <contact@unlockfluency.co.uk>',
           to: email,
           subject: 'Welcome! Here are your free learning resources 🎉',
           html: subscriberEmailHtml,
