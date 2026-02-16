@@ -17,9 +17,9 @@ const staticTestimonials = [
   {
     id: 2,
     rating: 5,
-    testimonial_text: "The Unlock Fluency Signature course was a game-changer. The focus on real-life scenarios and constant practice boosted my confidence immensely. Highly recommended!",
-    student_name: "Kenji Tanaka",
-    student_country: "Japan",
+    testimonial_text: "You are a great teacher and I hope many more students will be able to enjoy your lessons! Many, many thanks for your patience and your tireless eﬀorts!",
+    student_name: "Anonymous",
+    student_country: "Germany",
   },
   {
     id: 3,
@@ -45,9 +45,45 @@ const staticTestimonials = [
   {
     id: 6,
     rating: 5,
-    testimonial_text: "A fantastic and effective way to learn. The immersive courses for our organization were a huge success, improving our team's communication and collaboration.",
-    student_name: "David Chen",
-    student_country: "USA (Team Lead)",
+    testimonial_text: "Your way of teaching English reminds me of how my daughter learnt to play the violin. She learnt using the Suzuki method, where the children play what they hear. You teach the melody of the language and that is a wonderful way! Thank you very much!!",
+    student_name: "Kristin",
+    student_country: "Germany",
+  },
+
+   {
+    id: 7,
+    rating: 5,
+    testimonial_text: "I feel more confident when I speak. I can make jokes in English! This is new and definitely enhances my communication. I love jokes, humour and laughter! Thanks for that!!",
+    student_name: "Renate",
+    student_country: "Germany",
+  },
+   {
+    id: 8,
+    rating: 5,
+    testimonial_text: "My learning goal was basically to refresh my English and regain my ability to speak fluently about diﬀerent topics. The title 'Unlock English Fluency' was ideal and it fully met my expectations and encouraged me to continue working towards this goal. Thank you!",
+    student_name: "Mauro",
+    student_country: "Italy",
+  },
+   {
+    id: 9,
+    rating: 5,
+    testimonial_text: "Thank you Christina for your whole class! I learned a lot. Not only English as a language, but also about English politeness, how to watch TED Talks, how to debate, how to do small talk and so on. It was not just an English lesson indeed. I feel that my English is slowly unlocking now. I'll keep studying.",
+    student_name: "Yumi",
+    student_country: "Japan",
+  },
+   {
+    id: 10,
+    rating: 5,
+    testimonial_text: "To be honest, I was quite skeptical at first about taking an online course, because I usually prefer courses in person. But I was very positively surprised by how well it worked! You were so motivating and present throughout the sessions. Your clear pronunciation and the structure made it easy to follow and very enjoyable.",
+    student_name: "Lena",
+    student_country: "Germany",
+  },
+   {
+    id: 11,
+    rating: 5,
+    testimonial_text: "I can't believe the course is over! I loved the choice of topics (I didn't realise that I had booked two courses in one! The unlock-your-fluency-course AND the how-to-improve-your-life-course! 🥳 ). Length and speed were fine and appropriate. No suggestions for improvement. My favourite part was teaching grammar without explaining grammar rules! I had to speak a lot and that was very good. I feel a bit more confident and have developed a bit more self-confidence.",
+    student_name: "Kristin",
+    student_country: "Germany",
   },
 ];
 
