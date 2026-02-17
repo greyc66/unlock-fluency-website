@@ -164,8 +164,10 @@ export async function onRequestPost(context) {
 </html>
 `;
 
-    // Step 1: Add contact to Resend Audience first (sequential to respect
-    // Resend's 2 req/sec rate limit — the two emails then fire in parallel below)
+    // Send all three Resend requests sequentially to stay within the
+    // 2 requests-per-second rate limit (parallel requests were triggering 429s)
+
+    // 1. Add contact to Resend Audience
     const audienceResult = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
       method: 'POST',
       headers: {
@@ -183,52 +185,51 @@ export async function onRequestPost(context) {
       console.error('Resend Audience error:', await audienceResult.text());
     }
 
-    // Step 2: Send both emails in parallel (exactly 2 requests = within rate limit)
-    const [ownerResult, subscriberResult] = await Promise.all([
-
-      // Notify the site owner
-      fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.RESEND_API_KEY}`
-        },
-        body: JSON.stringify({
-          from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
-          to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
-          reply_to: email,
-          subject: 'New Newsletter Subscription',
-          html: ownerEmailHtml
-        })
-      }),
-
-      // Confirmation email to the subscriber with PDF attached
-      fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.RESEND_API_KEY}`
-        },
-        body: JSON.stringify({
-          from: 'Dr Christina Grey <contact@unlockfluency.co.uk>',
-          to: email,
-          subject: 'Welcome! Here are your free learning resources 🎉',
-          html: subscriberEmailHtml,
-          headers: {
-            'List-Unsubscribe': `<${unsubscribeUrl}>, <mailto:contact@unlockfluency.co.uk?subject=Unsubscribe>`,
-            'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
-          },
-          attachments: [
-            { filename: PDF_DISPLAY_NAME, path: `${SITE_URL}/${PDF_FILENAME}` }
-          ]
-        })
+    // 2. Notify the site owner
+    const ownerResult = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
+        to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
+        reply_to: email,
+        subject: 'New Newsletter Subscription',
+        html: ownerEmailHtml
       })
-    ]);
+    });
 
-    if (!ownerResult.ok || !subscriberResult.ok) {
-      const ownerError = !ownerResult.ok ? await ownerResult.text() : null;
-      const subscriberError = !subscriberResult.ok ? await subscriberResult.text() : null;
-      console.error('Resend email errors:', { ownerError, subscriberError });
+    if (!ownerResult.ok) {
+      console.error('Resend owner email error:', await ownerResult.text());
+    }
+
+    // 3. Confirmation email to the subscriber with PDF attached
+    const subscriberResult = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        from: 'Dr Christina Grey <contact@unlockfluency.co.uk>',
+        to: email,
+        subject: 'Welcome! Here are your free learning resources 🎉',
+        html: subscriberEmailHtml,
+        headers: {
+          'List-Unsubscribe': `<${unsubscribeUrl}>, <mailto:contact@unlockfluency.co.uk?subject=Unsubscribe>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
+        },
+        attachments: [
+          { filename: PDF_DISPLAY_NAME, path: `${SITE_URL}/${PDF_FILENAME}` }
+        ]
+      })
+    });
+
+    if (!subscriberResult.ok) {
+      const subscriberError = await subscriberResult.text();
+      console.error('Resend subscriber email error:', subscriberError);
 
       return new Response(
         JSON.stringify({ success: false, error: 'Failed to process subscription. Please try again later.' }),
