@@ -220,18 +220,20 @@ export async function onRequestPost(context) {
     // Add contact to Resend Audience in the background (after response is sent)
     // so it doesn't count against the rate limit or slow down the response
     context.waitUntil(
-      fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${env.RESEND_API_KEY}`
-        },
-        body: JSON.stringify({
-          email,
-          ...(name && { first_name: name }),
-          unsubscribed: false
+      new Promise(resolve => setTimeout(resolve, 1500)).then(() =>
+        fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${env.RESEND_API_KEY}`
+          },
+          body: JSON.stringify({
+            email,
+            ...(name && { first_name: name }),
+            unsubscribed: false
+          })
         })
-      }).catch(err => console.error('Resend Audience error:', err))
+      ).catch(err => console.error('Resend Audience error:', err))
     );
 
     return new Response(
