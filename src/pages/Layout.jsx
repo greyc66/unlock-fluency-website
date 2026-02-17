@@ -203,7 +203,10 @@ export default function Layout({ children, currentPageName }) {
         </div>
       </footer>
 
-      {/* Newsletter Popup */}
+      {/* Auto-popup for first-time visitors (no onClose = self-managed) */}
+      <NewsletterPopup />
+
+      {/* Newsletter Popup triggered by footer Subscribe button */}
       {showNewsletterPopup && (
         <NewsletterPopup onClose={() => setShowNewsletterPopup(false)} />
       )}
