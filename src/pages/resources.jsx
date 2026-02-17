@@ -25,7 +25,7 @@ export default function Resources() {
       description: "Discover fascinating English words and their stories. Each week, explore etymology, usage, and cultural context.",
       items: [
         "Weekly vocabulary with real-world examples",
-        "Etymology and historical context",
+        "Etymology and cultural context",
         "Usage tips and common mistakes to avoid"
       ],
       bgColor: "bg-red-200",
