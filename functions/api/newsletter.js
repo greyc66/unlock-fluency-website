@@ -55,27 +55,6 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Check if this email is already subscribed (avoid duplicate welcome emails)
-    const contactCheck = await fetch(
-      `https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts/${encodeURIComponent(email)}`,
-      {
-        headers: { 'Authorization': `Bearer ${env.RESEND_API_KEY}` }
-      }
-    );
-
-    if (contactCheck.ok) {
-      const contact = await contactCheck.json();
-      if (contact.data && !contact.data.unsubscribed) {
-        return new Response(
-          JSON.stringify({
-            success: true,
-            message: "You're already subscribed! Check your inbox for your learning resources."
-          }),
-          { status: 200, headers: { 'Content-Type': 'application/json' } }
-        );
-      }
-    }
-
     // Generate a signed unsubscribe URL for this subscriber
     const unsubscribeToken = await generateUnsubscribeToken(email, env.UNSUBSCRIBE_SECRET);
     const unsubscribeUrl = `${SITE_URL}/api/unsubscribe?email=${encodeURIComponent(email)}&token=${unsubscribeToken}`;
