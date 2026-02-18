@@ -14,6 +14,50 @@ const navigationItems = [
   { title: "The Resource Room", url: "/resources" },
 ];
 
+// Per-page SEO metadata — add an entry here when creating a new page
+const PAGE_META = {
+  '/': {
+    title: 'The Unlock Fluency Method | Immersive English Coaching',
+    description: 'Build real English fluency and confidence with The Unlock Fluency Method. Immersive group courses, 1-to-1 coaching, and corporate training by Dr Christina Grey.',
+  },
+  '/about': {
+    title: 'About Dr Christina Grey | The Unlock Fluency Method',
+    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 10 years of research and immersive English teaching.',
+  },
+  '/themethod': {
+    title: 'The Method | How Immersive English Coaching Works',
+    description: 'Discover the psycholinguistic approach behind The Unlock Fluency Method. A 9-step immersive process designed to build real English fluency and spontaneous speaking.',
+  },
+  '/courses': {
+    title: 'English Fluency Courses | Group, 1-to-1 & Corporate Training',
+    description: 'Browse immersive English courses from £200. Intensive group sessions, 1-to-1 personalised coaching, and corporate training. Online with Dr Christina Grey.',
+  },
+  '/testimonials': {
+    title: 'Success Stories | Student Testimonials',
+    description: 'Read how students from around the world transformed their English fluency with The Unlock Fluency Method. Real results from real learners.',
+  },
+  '/contact': {
+    title: 'Get in Touch | The Unlock Fluency Method',
+    description: 'Have a question about courses, 1-to-1 coaching, or corporate English training? Contact Dr Christina Grey and start your fluency journey.',
+  },
+  '/resources': {
+    title: 'The Resource Room | Free English Learning Materials',
+    description: 'Access free English learning resources — vocabulary tips, proverbs, icebreakers, TED talk recommendations, and podcast picks to boost your fluency.',
+  },
+  '/faqs': {
+    title: 'FAQs | The Unlock Fluency Method',
+    description: 'Frequently asked questions about The Unlock Fluency Method courses, levels, pricing, cancellation policy, and how to get started.',
+  },
+  '/privacypolicy': {
+    title: 'Privacy Policy | The Unlock Fluency Method',
+    description: 'How The Unlock Fluency Method Ltd collects, uses, and protects your personal data. Registered in England & Wales.',
+  },
+  '/cancellationpolicy': {
+    title: 'Cancellation Policy | The Unlock Fluency Method',
+    description: 'Cancellation and refund policy for The Unlock Fluency Method courses. Full refund for cancellations 1+ week before the course start date.',
+  },
+};
+
 export default function Layout({ children, currentPageName }) {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,6 +72,16 @@ export default function Layout({ children, currentPageName }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Close mobile menu on page change
     setMobileMenuOpen(false);
+
+    // Update page title, meta description, and canonical URL
+    const meta = PAGE_META[pathname] || PAGE_META['/'];
+    document.title = meta.title;
+
+    let descTag = document.querySelector('meta[name="description"]');
+    if (descTag) descTag.setAttribute('content', meta.description);
+
+    let canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (canonicalTag) canonicalTag.setAttribute('href', `https://www.unlockfluency.co.uk${pathname === '/' ? '' : pathname}`);
   }, [pathname]);
 
   return (
