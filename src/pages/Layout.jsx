@@ -11,6 +11,7 @@ const navigationItems = [
   { title: "The Method", url: "/themethod" },
   { title: "Success Stories", url: "/testimonials" },
   { title: "Courses", url: "/courses" },
+  { title: "For Organisations", url: "/corporate" },
   { title: "The Resource Room", url: "/resources" },
 ];
 
@@ -55,6 +56,10 @@ const PAGE_META = {
   '/cancellationpolicy': {
     title: 'Cancellation Policy | The Unlock Fluency Method',
     description: 'Cancellation and refund policy for The Unlock Fluency Method courses. Full refund for cancellations 1+ week before the course start date.',
+  },
+  '/corporate': {
+    title: 'Corporate English Training | The Unlock Fluency Method',
+    description: 'Boost your team\'s English fluency with tailored corporate training. Immersive courses, workshops, and retreats designed for your industry by Dr Christina Grey.',
   },
 };
 
@@ -239,6 +244,7 @@ export default function Layout({ children, currentPageName }) {
                 <li><Link to="/about" className="text-gray-400 hover:text-gray-300 transition-colors">About</Link></li>
                 <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
                 <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Courses</Link></li>
+                <li><Link to="/corporate" className="text-gray-400 hover:text-gray-300 transition-colors">For Organisations</Link></li>
                 <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">The Resource Room</Link></li>
                 <li><Link to="/testimonials" className="text-gray-400 hover:text-gray-300 transition-colors">Success Stories</Link></li>
                 <li><Link to="/contact" className="text-gray-400 hover:text-gray-300 transition-colors">Contact</Link></li>

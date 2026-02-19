@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,10 +11,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Mail, CheckCircle, Loader2 } from "lucide-react";
 
 export default function Contact() {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    enquiry_type: "",
+    enquiry_type: searchParams.get("subject") || "",
     message: "",
     current_english_level: "",
     course_level: ""

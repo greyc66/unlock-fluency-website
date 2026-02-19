@@ -41,4 +41,8 @@
     <loc>https://www.unlockfluency.co.uk/cancellationpolicy</loc>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://www.unlockfluency.co.uk/corporate</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>

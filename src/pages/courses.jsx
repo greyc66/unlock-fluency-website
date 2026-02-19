@@ -242,7 +242,17 @@ export default function Courses() {
             
           
           <CourseSection courses={allTeamCourses.map(c => ({...c, level: c.level}))} isTeam={true} />
-          
+
+          <div className="text-center mt-10">
+            <Link to="/corporate">
+              <Button className="bg-slate-50 text-gray-900 px-6 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-10 hover:bg-sky-600">
+                <Building2 className="w-4 h-4 mr-2" />
+                Learn More about Corporate Training
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+
           <CertificationNote />
         </div>
       </section>

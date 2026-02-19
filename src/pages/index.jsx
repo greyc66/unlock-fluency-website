@@ -11,6 +11,7 @@ import Resources from "./resources.jsx";
 import PrivacyPolicy from "./privacypolicy.jsx";
 import CancellationPolicy from "./cancellationpolicy.jsx";
 import Faqs from "./faqs.jsx";
+import Corporate from "./corporate.jsx";
 
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ const PAGES = {
     privacypolicy: PrivacyPolicy,
     cancellationpolicy: CancellationPolicy,
     faqs: Faqs,
+    corporate: Corporate,
 }
 
 function _getCurrentPage(url) {
@@ -59,6 +61,7 @@ function PagesContent() {
                 <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                 <Route path="/cancellationpolicy" element={<CancellationPolicy />} />
                 <Route path="/faqs" element={<Faqs />} />
+                <Route path="/corporate" element={<Corporate />} />
             </Routes>
         </Layout>
     );
