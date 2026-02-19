@@ -264,7 +264,7 @@ export default function Corporate() {
                   </div>
 
                   <div className="mt-auto">
-                    <Link to="/contact" className="block">
+                    <Link to="/contact?subject=Unlock+Fluency+for+Organisations" className="block">
                       <Button className="w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold">
                         <Building2 className="w-4 h-4 mr-2" />
                         Enquire Now
