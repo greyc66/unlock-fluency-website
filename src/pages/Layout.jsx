@@ -18,36 +18,36 @@ const navigationItems = [
 // Per-page SEO metadata — add an entry here when creating a new page
 const PAGE_META = {
   '/': {
-    title: 'The Unlock Fluency Method | Immersive English Coaching',
-    description: 'Build real English fluency and confidence with The Unlock Fluency Method. Immersive group courses, 1-to-1 coaching, and corporate training by Dr Christina Grey.',
+    title: 'The Unlock Fluency Method | Immersive English Fluency Courses & Coaching',
+    description: 'Unlock English fluency and confidence with The Unlock Fluency Method by Dr Christina Grey. Immersive group courses, 1-to-1 coaching, and corporate English training online and in Cambridge, UK.',
   },
   '/about': {
-    title: 'About Dr Christina Grey | The Unlock Fluency Method',
-    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 10 years of research and immersive English teaching.',
+    title: 'About Dr Christina Grey | Creator of The Unlock Fluency Method',
+    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 10 years of research and immersive English teaching experience in Cambridge, UK.',
   },
   '/themethod': {
-    title: 'The Method | How Immersive English Coaching Works',
-    description: 'Discover the psycholinguistic approach behind The Unlock Fluency Method. A 9-step immersive process designed to build real English fluency and spontaneous speaking.',
+    title: 'The Unlock Fluency Method | How Immersive English Coaching Works',
+    description: 'Discover The Unlock Fluency Method — a psycholinguistic approach to unlock English fluency. A 9-step immersive process designed to build real fluency and spontaneous speaking confidence.',
   },
   '/courses': {
-    title: 'English Fluency Courses | Group, 1-to-1 & Corporate Training',
-    description: 'Browse immersive English courses from £200. Intensive group sessions, 1-to-1 personalised coaching, and corporate training. Online with Dr Christina Grey.',
+    title: 'Unlock Fluency Courses | Immersive English Fluency Training from £200',
+    description: 'Browse Unlock Fluency English courses from £200. Intensive group sessions, 1-to-1 personalised coaching, and corporate training. Unlock your English fluency online with Dr Christina Grey.',
   },
   '/testimonials': {
-    title: 'Success Stories | Student Testimonials',
-    description: 'Read how students from around the world transformed their English fluency with The Unlock Fluency Method. Real results from real learners.',
+    title: 'Success Stories | Unlock Fluency Student Testimonials',
+    description: 'Read how students from around the world unlocked their English fluency with The Unlock Fluency Method by Dr Christina Grey. Real results from real learners.',
   },
   '/contact': {
     title: 'Get in Touch | The Unlock Fluency Method',
-    description: 'Have a question about courses, 1-to-1 coaching, or corporate English training? Contact Dr Christina Grey and start your fluency journey.',
+    description: 'Contact Dr Christina Grey about Unlock Fluency courses, 1-to-1 coaching, or corporate English training. Start your journey to unlock English fluency today.',
   },
   '/resources': {
-    title: 'The Resource Room | Free English Learning Materials',
-    description: 'Access free English learning resources — vocabulary tips, proverbs, icebreakers, TED talk recommendations, and podcast picks to boost your fluency.',
+    title: 'The Resource Room | Free English Fluency Learning Resources',
+    description: 'Access free English learning resources from The Unlock Fluency Method — vocabulary tips, proverbs, icebreakers, TED talk picks, and podcast recommendations to unlock your fluency.',
   },
   '/faqs': {
     title: 'FAQs | The Unlock Fluency Method',
-    description: 'Frequently asked questions about The Unlock Fluency Method courses, levels, pricing, cancellation policy, and how to get started.',
+    description: 'Frequently asked questions about The Unlock Fluency Method courses, levels, pricing, cancellation policy, and how to start unlocking your English fluency.',
   },
   '/privacypolicy': {
     title: 'Privacy Policy | The Unlock Fluency Method',
@@ -58,8 +58,8 @@ const PAGE_META = {
     description: 'Cancellation and refund policy for The Unlock Fluency Method courses. Full refund for cancellations 1+ week before the course start date.',
   },
   '/corporate': {
-    title: 'Corporate English Training | The Unlock Fluency Method',
-    description: 'Boost your team\'s English fluency with tailored corporate training. Immersive courses, workshops, and retreats designed for your industry by Dr Christina Grey.',
+    title: 'Corporate English Training | Unlock Fluency for Organisations',
+    description: "Unlock your team's English fluency with tailored corporate training by Dr Christina Grey. Immersive courses, workshops, and retreats designed for your industry using The Unlock Fluency Method.",
   },
 };
 
