@@ -16,7 +16,7 @@ export default function Contact() {
     name: "",
     email: "",
     enquiry_type: searchParams.get("subject") || "",
-    message: "",
+    message: searchParams.get("message") || "",
     current_english_level: "",
     course_level: ""
   });

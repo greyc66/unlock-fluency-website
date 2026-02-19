@@ -19,7 +19,8 @@ import {
   BarChart,
   Clock,
   MapPin,
-  Sparkles
+  Sparkles,
+  TrendingUp
 } from "lucide-react";
 
 const painPoints = [
@@ -67,30 +68,36 @@ const offerings = [
   {
     title: "Custom Unlock Fluency Course",
     description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team's daily challenges to boost confidence, clarity, and impact — right where it matters most.",
+    footnote: "Available online or in-person.",
     details: [
       { icon: BarChart, label: "Length", value: "Custom" },
       { icon: Clock, label: "Duration", value: "Custom" },
-      { icon: Users, label: "Participants", value: "Custom" }
+      { icon: Users, label: "Participants", value: "Custom" },
+      { icon: TrendingUp, label: "Level", value: "Custom" }
     ],
     highlight: "Best for teams needing a structured programme"
   },
   {
     title: "Custom Unlock Fluency Workshop",
     description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.",
+    footnote: "Available online or in-person.",
     details: [
       { icon: BarChart, label: "Length", value: "Half or full day(s)" },
       { icon: Clock, label: "Duration", value: "Custom" },
-      { icon: Users, label: "Participants", value: "Custom" }
+      { icon: Users, label: "Participants", value: "Custom" },
+      { icon: TrendingUp, label: "Level", value: "Custom" }
     ],
     highlight: "Best for focused skill-building"
   },
   {
     title: "Custom Unlock Fluency Retreat",
     description: "Take your team's communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We'll combine focused English training with an unforgettable, industry-specific learning experience.",
+    footnote: "Available online or in-person.",
     details: [
       { icon: BarChart, label: "Length", value: "Custom" },
       { icon: Clock, label: "Duration", value: "Custom" },
-      { icon: MapPin, label: "Location", value: "Your choice or Cambridge" }
+      { icon: Users, label: "Participants", value: "Custom" },
+      { icon: TrendingUp, label: "Level", value: "Custom" }
     ],
     highlight: "Best for team-building + fluency"
   }
@@ -222,7 +229,7 @@ export default function Corporate() {
               Training Programmes
             </h2>
             <p className="text-lg text-blue-800 max-w-3xl mx-auto">
-              Every programme is tailored to your organisation's goals, schedule, and industry. Available online or in person.
+              Every programme is tailored to your organisation's goals, schedule, and industry.
             </p>
           </div>
 
@@ -239,6 +246,12 @@ export default function Corporate() {
                   <p className="text-blue-900 mb-6 leading-relaxed flex-grow">
                     {offering.description}
                   </p>
+
+                  {offering.footnote && (
+                    <p className="text-sm text-amber-800 mb-4 italic font-medium">
+                      {offering.footnote}
+                    </p>
+                  )}
 
                   <div className="space-y-3 mb-6 text-sm text-blue-900">
                     {offering.details.map((detail, i) => (
@@ -263,7 +276,9 @@ export default function Corporate() {
             ))}
           </div>
 
-          <CertificationNote />
+          <div className="mt-12">
+            <CertificationNote />
+          </div>
         </div>
       </section>
 
@@ -304,9 +319,15 @@ export default function Corporate() {
             <Link to="/contact?subject=Unlock+Fluency+for+Organisations">
               <Button size="lg" className="bg-slate-50 text-gray-900 px-8 py-4 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-11 hover:bg-sky-600">
                 <Calendar className="w-5 h-5 mr-2" />
-                Get in Touch
+                Get a Personalised Quote
               </Button>
             </Link>
+            <a style={{ float: 'none', textDecoration: 'none' }} id="Setmore_button_iframe" href="https://theunlockfluencymethod.setmore.com/services/9273b47e-a6d3-4413-8922-d4ccb8b666e7">
+              <Button size="lg" className="bg-sky-300 text-blue-900 px-8 py-4 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-11 hover:bg-sky-400">
+                <Calendar className="w-5 h-5 mr-2" />
+                Book a Discovery Call
+              </Button>
+            </a>
           </div>
         </div>
       </section>

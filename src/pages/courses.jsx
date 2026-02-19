@@ -30,20 +30,21 @@ import {
 
 // --- Data ---
 const individualCoursesList = [
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Unlock Fluency Signature - Morning", description: "An intensive, intermediate-to-advanced fluency sprint. I've designed this immersive course to give you the confidence to speak spontaneously and express your opinions freely. At the end of the course, you get a 45-minute video consultation with me.", length: "5 consecutive days", duration: "6 hours daily", participants: "6-12", format: "Online", price: "£300" },
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Maintain Fluency - Evening", description: "An immersive, evening course I've designed to strengthen fluency and confidence in real-life scenarios. A great way to start talking and boost your confidence!", length: "3 days: Monday, Wednesday, Friday", duration: "3 hours each day", participants: "6-12", format: "Online", price: "£200" },
-    { level: 'intermediate', levelCode: 'B1/B2', title: "Weekend Boost - Morning", description: "A weekend immersion course I've designed to build consistent, practical fluency for everyday use. Want to refresh your English skills and start off your weekends with a smile? This is the right course for you!", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-12", format: "Online", price: "£250" },
-    { level: 'mixed-levels', title: "Series Club - Evening", description: "Let's watch a popular series together! Fancy hanging out with friends and improving your English at the same time? I've designed this course to improve your listening comprehension and natural conversation skills.", length: "8 consecutive weeks: Tuesdays", duration: "1 x 2-hour session weekly", participants: "6-12", format: "Online", price: "£220" },
-    { level: 'mixed-levels', title: "Book Club - Evening", description: "Are you a book lover like me? Join me for a book club that brings stories to life! We’ll read, laugh, debate, and boost your English naturally with every chapter. Fun discussions, new vocabulary, and real confidence in speaking, all in one place!", length: "8 consecutive weeks: Thursdays", duration: "1 x 2-hour session weekly", participants: "6-12", format: "Online", price: "£220" },
+    { level: 'intermediate', levelCode: 'B2+', title: "Unlock Fluency Signature - Morning", description: "An intensive, intermediate-to-advanced fluency sprint. I've designed this immersive course to give you the confidence to speak spontaneously and express your opinions freely. At the end of the course, you get a 45-minute video consultation with me.", length: "5 consecutive days", duration: "6 hours daily", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£300", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/a542e2a5-a026-402a-a50c-afa53f6ddf74" },
+    { level: 'intermediate', levelCode: 'B2+', title: "Maintain Fluency - Evening", description: "An immersive, evening course I've designed to strengthen fluency and confidence in real-life scenarios. A great way to start talking and boost your confidence!", length: "3 days: Monday, Wednesday, Friday", duration: "3 hours each day", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£200", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/ba456ef9-bb80-4e0e-b308-1aefcb86a350" },
+    { level: 'intermediate', levelCode: 'B2+', title: "Weekend Boost - Morning", description: "A weekend immersion course I've designed to build consistent, practical fluency for everyday use. Want to refresh your English skills and start off your weekends with a smile? This is the right course for you!", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£250", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/9d3cefc5-a5fc-4caa-96a1-8d081f70a89b" },
+    { level: 'mixed-levels', title: "Series Club - Evening", description: "Let's watch a popular series together! Fancy hanging out with friends and improving your English at the same time? I've designed this course to improve your listening comprehension and natural conversation skills.", length: "8 consecutive weeks: Tuesdays", duration: "1 x 2-hour session weekly", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£220", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/7e09c26d-d9d8-439a-8205-2fa95f19e666" },
+    { level: 'mixed-levels', title: "Book Club - Evening", description: "Are you a book lover like me? Join me for a book club that brings stories to life! We'll read, laugh, debate, and boost your English naturally with every chapter. Fun discussions, new vocabulary, and real confidence in speaking, all in one place!", length: "8 consecutive weeks: Thursdays", duration: "1 x 2-hour session weekly", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£220", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/92cd3b67-e549-4c9c-b389-58fa685886f6" },
+    { level: 'intermediate', levelCode: 'B2+', title: "Unlock Fluency Signature - Summer Retreat", description: "Experience the full power of The Unlock Fluency Method in person! Join me in Cambridge, UK for an immersive week of real-world English practice, cultural exploration, and confidence-building — all in one of the world's most inspiring university cities.", footnote: "Dates and price to be announced.", length: "5 consecutive days", duration: "6 hours daily", participants: "10-20", courseLevel: "B2+", format: "Cambridge", price: "TBA", tba: true },
 ];
 
 const teamCourses = {
     intermediate: [
-        { title: "Custom Unlock Fluency Course", description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team’s daily challenges to boost confidence, clarity, and impact; right where it matters most.", length: "custom", duration: "custom", maxParticipants: "custom" },
+        { title: "Custom Unlock Fluency Course", description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team's daily challenges to boost confidence, clarity, and impact; right where it matters most.", footnote: "Available online or in-person.", length: "custom", duration: "custom", participants: "custom", courseLevel: "custom" },
     ],
     mixed: [
-        { title: "Custom Unlock Fluency Workshop", description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.", length: "Half or full day(s)", duration: "custom", maxParticipants: "custom" },
-        { title: "Custom Unlock Fluency Retreat", description: "Take your team’s communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We’ll combine focused English training with an unforgettable, industry-specific learning experience.", length: "custom", duration: "custom", maxParticipants: "custom" },
+        { title: "Custom Unlock Fluency Workshop", description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.", footnote: "Available online or in-person.", length: "Half or full day(s)", duration: "custom", participants: "custom", courseLevel: "custom" },
+        { title: "Custom Unlock Fluency Retreat", description: "Take your team's communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We'll combine focused English training with an unforgettable, industry-specific learning experience.", footnote: "Available online or in-person.", length: "custom", duration: "custom", participants: "custom", courseLevel: "custom" },
     ]
 };
 
@@ -62,7 +63,7 @@ const CourseCard = ({ course, isTeam = false }) => {
               {course.title}
             </CardTitle>
             <div className="flex flex-col gap-2">
-              {course.format && <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30">Online</Badge>}
+              {course.format && <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30">{course.format}</Badge>}
               {course.price && <Badge className="bg-green-300 text-green-900 border-green-400">{course.price}</Badge>}
             </div>
         </div>
@@ -73,7 +74,7 @@ const CourseCard = ({ course, isTeam = false }) => {
         </p>
 
         {course.footnote && (
-          <p className={`text-xs ${textClass} mb-4 italic`}>
+          <p className="text-sm text-amber-800 mb-4 italic font-medium">
             {course.footnote}
           </p>
         )}
@@ -82,25 +83,32 @@ const CourseCard = ({ course, isTeam = false }) => {
           <div className="flex items-center"><BarChart className="w-4 h-4 mr-2" /> <strong>Length:</strong><span className="ml-2">{course.length}</span></div>
           <div className="flex items-center"><Clock className="w-4 h-4 mr-2" /> <strong>Duration:</strong><span className="ml-2">{course.duration}</span></div>
           
-          {course.participants && ( // For individual courses
+          {course.participants && (
             <div className="flex items-center"><Users className="w-4 h-4 mr-2" /> <strong>Participants:</strong><span className="ml-2">{course.participants}</span></div>
           )}
 
-          {!course.participants && course.maxParticipants && ( 
-            <div className="flex items-center"><Users className="w-4 h-4 mr-2" /> <strong>Max Participants:</strong><span className="ml-2">{course.maxParticipants}</span></div>
+          {course.courseLevel && (
+            <div className="flex items-center"><TrendingUp className="w-4 h-4 mr-2" /> <strong>Level:</strong><span className="ml-2">{course.courseLevel}</span></div>
           )}
         </div>
 
         <div className="mt-auto">
           {isTeam ? (
-            <Link to="/contact" className="block">
+            <Link to="/contact?subject=Unlock+Fluency+for+Organisations" className="block">
               <Button className={`w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold`}>
                 <Building2 className="w-4 h-4 mr-2" />
                 Enquire Now
               </Button>
             </Link>
+          ) : course.tba ? (
+            <Link to="/contact?subject=General+Enquiry&message=I+am+interested+in+participating+in+your+summer+retreat+course" className="block">
+              <Button className="w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold">
+                <Calendar className="w-4 h-4 mr-2" />
+                Register Interest
+              </Button>
+            </Link>
           ) : (
-            <a style={{ float: 'none', textDecoration: 'none' }} id="Setmore_button_iframe" href="https://theunlockfluencymethod.setmore.com">
+            <a style={{ float: 'none', textDecoration: 'none' }} id="Setmore_button_iframe" href={course.bookingUrl || "https://theunlockfluencymethod.setmore.com"}>
               <Button className="w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Now
@@ -169,8 +177,12 @@ export default function Courses() {
           </h1>
           
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            I've personally designed each of these courses to be an immersive and supportive experience. Whichever path you choose, I'll be there to guide you as you build real fluency. I can't wait to see your confidence grow!
+            I've personally designed these courses to be an immersive and supportive experience. Whichever path you choose, I'll be there to guide you as you build real fluency.
           </p>
+
+          <div className="max-w-3xl mx-auto mt-10">
+            <CertificationNote />
+          </div>
         </div>
       </section>
 
@@ -180,9 +192,6 @@ export default function Courses() {
           <h2 className="text-3xl font-bold text-center text-white mb-8">
             Unlock Fluency Courses for Individuals
           </h2>
-          <p className="text-center text-gray-400 mb-12">
-            These courses are ideal for English learners of B1/B2 levels and above.
-          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {individualCoursesList.map((course, index) => (
               <CourseCard key={index} course={course} isTeam={false} />
@@ -216,14 +225,20 @@ export default function Courses() {
                 <p className="text-blue-900 mb-6">
                   Contact me for a personalised coaching plan and quote. Prices start at £75.
                 </p>
-                <div className="flex justify-center">
-                <Link to="/contact">
-                  <Button className="bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold px-4 py-2">
-                  <Calendar className="w-4 h-4 mr-2" />
-      Book a Personal Session
-    </Button>
-  </Link>
-</div>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link to="/contact?subject=1-to-1+Personalised+Coaching">
+                    <Button className="bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold px-4 py-2">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Book a Personal Session
+                    </Button>
+                  </Link>
+                  <a style={{ float: 'none', textDecoration: 'none' }} id="Setmore_button_iframe" href="https://theunlockfluencymethod.setmore.com/services/9273b47e-a6d3-4413-8922-d4ccb8b666e7">
+                    <Button className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold px-4 py-2">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Book a Discovery Call
+                    </Button>
+                  </a>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -237,7 +252,7 @@ export default function Courses() {
             Unlock Fluency Courses for Organisations
           </h2>
            <p className="text-xl text-center text-gray-400 max-w-3xl mx-auto mb-8">
-              I help teams communicate with confidence in meetings, presentations, and international collaborations. My corporate training is tailored to your goals, your schedule, and your industry so your team can speak with clarity and ease. Available online or in person; get in touch for a personalised quote for your organisation or for individual learners.
+              I help teams communicate with confidence in meetings, presentations, and international collaborations. My corporate training is tailored to your goals, your schedule, and your industry so your team can speak with clarity and ease.
             </p>
             
           
@@ -252,8 +267,6 @@ export default function Courses() {
               </Button>
             </Link>
           </div>
-
-          <CertificationNote />
         </div>
       </section>
     </div>);
