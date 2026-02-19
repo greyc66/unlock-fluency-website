@@ -240,18 +240,22 @@ export default function Layout({ children, currentPageName }) {
 
             <div>
               <h4 className="font-semibold text-white mb-4">Explore</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/about" className="text-gray-400 hover:text-gray-300 transition-colors">About</Link></li>
-                <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
-                <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Courses</Link></li>
-                <li><Link to="/corporate" className="text-gray-400 hover:text-gray-300 transition-colors">For Organisations</Link></li>
-                <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">The Resource Room</Link></li>
-                <li><Link to="/testimonials" className="text-gray-400 hover:text-gray-300 transition-colors">Success Stories</Link></li>
-                <li><Link to="/contact" className="text-gray-400 hover:text-gray-300 transition-colors">Contact</Link></li>
-                <li><Link to="/faqs" className="text-gray-400 hover:text-gray-300 transition-colors">FAQs</Link></li>
-                <li><Link to="/privacypolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/cancellationpolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Cancellation Policy</Link></li>
-              </ul>
+              <div className="grid grid-cols-2 gap-x-8">
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/about" className="text-gray-400 hover:text-gray-300 transition-colors">About</Link></li>
+                  <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
+                  <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Courses</Link></li>
+                  <li><Link to="/corporate" className="text-gray-400 hover:text-gray-300 transition-colors">For Organisations</Link></li>
+                  <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">The Resource Room</Link></li>
+                </ul>
+                <ul className="space-y-2 text-sm">
+                  <li><Link to="/testimonials" className="text-gray-400 hover:text-gray-300 transition-colors">Success Stories</Link></li>
+                  <li><Link to="/contact" className="text-gray-400 hover:text-gray-300 transition-colors">Contact</Link></li>
+                  <li><Link to="/faqs" className="text-gray-400 hover:text-gray-300 transition-colors">FAQs</Link></li>
+                  <li><Link to="/privacypolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Privacy Policy</Link></li>
+                  <li><Link to="/cancellationpolicy" className="text-gray-400 hover:text-gray-300 transition-colors">Cancellation Policy</Link></li>
+                </ul>
+              </div>
             </div>
           </div>
 
