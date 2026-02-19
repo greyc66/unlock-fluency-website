@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Star, Quote, Globe, Calendar, ChevronLeft, ChevronRight, BookOpen, ArrowRight } from "lucide-react";
+import { Star, Quote, Globe, Calendar, BookOpen, ArrowRight } from "lucide-react";
 
 // Static testimonial data, removing the need for the Entities SDK
 const staticTestimonials = [
@@ -388,39 +388,39 @@ const staticTestimonials = [
 ];
 
 
-export default function Testimonials() {
-  const [testimonials] = useState(staticTestimonials);
-  const [currentPage, setCurrentPage] = useState(0);
-  const testimonialsPerPage = 3;
+// IDs of featured testimonials for the carousel
+const FEATURED_IDS = [5, 2, 29, 7, 13];
 
-  const renderStars = (rating) => {
+export default function Testimonials() {
+  const featured = FEATURED_IDS.map(id => staticTestimonials.find(t => t.id === id));
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const goNext = useCallback(() => {
+    setActiveSlide(prev => (prev + 1) % featured.length);
+  }, [featured.length]);
+
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(goNext, 7000);
+    return () => clearInterval(timer);
+  }, [paused, goNext]);
+
+  const renderStars = (rating, size = "w-4 h-4") => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-5 h-5 ${
+        className={`${size} ${
           i < rating ? "text-amber-400 fill-current" : "text-gray-600"
         }`}
       />
     ));
   };
 
-  const totalPages = Math.ceil(testimonials.length / testimonialsPerPage);
-  const currentTestimonials = testimonials.slice(
-    currentPage * testimonialsPerPage,
-    (currentPage + 1) * testimonialsPerPage
-  );
-
-  const goToNextPage = () => {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages - 1));
-  };
-
-  const goToPrevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 0));
-  };
-
   return (
     <div className="relative isolate overflow-hidden bg-gray-900">
-       <img 
+       <img
         src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/312d18cf7_luis-desiro-itIxtxz0YU4-unsplash.jpg"
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-20"
@@ -436,74 +436,96 @@ export default function Testimonials() {
             Real Results, Real Confidence
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Hear from students who have unlocked their English potential with Dr Grey's immersive teaching approach.
+            Hear from students who have unlocked their English potential with my immersive teaching approach.
           </p>
         </div>
       </section>
 
-      <section className="pb-16 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {testimonials.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                {currentTestimonials.map((testimonial) => (
-                  <Card key={testimonial.id} className="bg-gray-600/60 border border-gray-500 flex flex-col backdrop-blur-sm">
-                    <CardContent className="p-8 flex-grow flex flex-col">
-                      <div className="flex-grow">
-                        <div className="flex justify-between items-start mb-4">
-                          <div className="flex">{renderStars(testimonial.rating)}</div>
-                          <Quote className="w-8 h-8 text-gray-400" />
-                        </div>
-                        <blockquote className="text-gray-200 mb-6 leading-relaxed">
-                          "{testimonial.testimonial_text}"
-                        </blockquote>
+      {/* Featured Carousel */}
+      <section className="pb-16 lg:pb-20">
+        <div
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="relative">
+            <div className="overflow-hidden">
+              {featured.map((testimonial, index) => (
+                <div
+                  key={testimonial.id}
+                  className={`transition-all duration-700 ease-in-out ${index === activeSlide ? "opacity-100 translate-x-0 relative" : "opacity-0 translate-x-8 absolute inset-0 pointer-events-none"}`}
+                >
+                  <Card className="bg-gray-600/60 border border-gray-500 backdrop-blur-sm">
+                    <CardContent className="p-8 md:p-12 text-center">
+                      <Quote className="w-10 h-10 text-amber-400/60 mx-auto mb-6" />
+                      <blockquote className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
+                        "{testimonial.testimonial_text}"
+                      </blockquote>
+                      <div className="flex justify-center mb-3">
+                        {renderStars(testimonial.rating, "w-5 h-5")}
                       </div>
-                      <div className="border-t border-gray-400 mt-auto pt-6">
-                        <div className="font-semibold text-white">
-                          {testimonial.student_name}
-                        </div>
-                        <div className="text-gray-300 text-sm flex items-center mt-1">
-                          <Globe className="w-3 h-3 mr-1.5" />
-                          {testimonial.student_country}
-                        </div>
+                      <div className="font-semibold text-white text-lg">
+                        {testimonial.student_name}
+                      </div>
+                      <div className="text-gray-300 text-sm flex items-center justify-center mt-1">
+                        <Globe className="w-3.5 h-3.5 mr-1.5" />
+                        {testimonial.student_country}
                       </div>
                     </CardContent>
                   </Card>
-                ))}
-              </div>
-              {totalPages > 1 && (
-                <div className="flex justify-center items-center space-x-4">
-                  <Button
-                    onClick={goToPrevPage}
-                    disabled={currentPage === 0}
-                    variant="ghost"
-                    size="icon"
-                    className="text-gray-400 hover:text-white bg-gray-900/50 rounded-full"
-                  >
-                    <ChevronLeft className="h-6 w-6" />
-                  </Button>
-                  <span className="text-gray-200 font-medium bg-gray-900/50 px-4 py-2 rounded-full">
-                    Page {currentPage + 1} of {totalPages}
-                  </span>
-                  <Button
-                    onClick={goToNextPage}
-                    disabled={currentPage === totalPages - 1}
-                    variant="ghost"
-                    size="icon"
-                    className="text-gray-400 hover:text-white bg-gray-900/50 rounded-full"
-                  >
-                    <ChevronRight className="h-6 w-6" />
-                  </Button>
                 </div>
-              )}
-            </>
-          ) : (
-            <div className="text-center py-16 text-gray-500">No approved testimonials found.</div>
-          )}
+              ))}
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {featured.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveSlide(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-colors ${index === activeSlide ? "bg-amber-400" : "bg-gray-600 hover:bg-gray-500"}`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-gray-950/40">
+      {/* All Testimonials - Masonry Grid */}
+      <section className="pb-16 lg:pb-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-white text-center mb-10">
+            More Success Stories
+          </h2>
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {staticTestimonials.map((testimonial) => (
+              <Card key={testimonial.id} className="bg-gray-600/60 border border-gray-500 backdrop-blur-sm break-inside-avoid">
+                <CardContent className="p-6">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex">{renderStars(testimonial.rating)}</div>
+                    <Quote className="w-6 h-6 text-gray-400 flex-shrink-0" />
+                  </div>
+                  <blockquote className="text-gray-200 mb-4 leading-relaxed text-sm">
+                    "{testimonial.testimonial_text}"
+                  </blockquote>
+                  <div className="border-t border-gray-400 pt-4">
+                    <div className="font-semibold text-white text-sm">
+                      {testimonial.student_name}
+                    </div>
+                    <div className="text-gray-300 text-xs flex items-center mt-1">
+                      <Globe className="w-3 h-3 mr-1.5" />
+                      {testimonial.student_country}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative z-10 py-16 lg:py-24 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Ready to Write Your Own Success Story?
