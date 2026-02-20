@@ -283,7 +283,7 @@ return (
             {statsSlides[activeStatSlide]?.isQuote ? "What Students Say" : "By The Numbers"}
           </p>
 
-          <div className="relative h-36 sm:h-32 overflow-hidden">
+          <div className="relative h-52 sm:h-44 overflow-hidden">
             {statsSlides.map((slide, index) => (
               <div
                 key={index}
@@ -293,7 +293,7 @@ return (
                     : "opacity-0 translate-y-6 pointer-events-none"
                 }`}
               >
-                <slide.icon className={`w-10 h-10 ${slide.color} mb-3`} />
+                <slide.icon className={`w-10 h-10 flex-shrink-0 ${slide.color} mb-3`} />
                 <div className={`font-extrabold ${slide.isQuote ? "text-gray-900 text-2xl sm:text-4xl italic" : "text-gray-900 text-4xl sm:text-5xl"}`}>
                   {slide.stat}
                 </div>
