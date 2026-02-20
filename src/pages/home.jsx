@@ -216,7 +216,7 @@ export default function Home() {
   {
     icon: GraduationCap,
     title: "PhD Level Expertise",
-    description: "Learn from Dr Grey, an expert in Linguistics with 10+ years of experience."
+    description: "Learn from Dr Grey, an expert in Linguistics with 15+ years of experience."
   },
   {
     icon: Sparkles,

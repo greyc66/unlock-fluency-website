@@ -105,7 +105,7 @@ const offerings = [
 
 const trustPoints = [
   "PhD in Linguistics, specialising in Language Acquisition",
-  "10+ years of research and immersive teaching experience",
+  "15+ years of research and immersive teaching experience",
   "Psycholinguistic methodology grounded in how the brain actually acquires language",
   "Personalised skills assessment and English level report at the end of every course",
   "Flexible scheduling — online or in person, on your terms"

@@ -49,7 +49,7 @@ function useCountUp(end, duration = 2000, startCounting = false) {
 export default function About() {
   const qualifications = [
     "PhD in Linguistics, specialising in Language Acquisition",
-    "10+ Years of Research & Teaching Experience",
+    "15+ Years of Research & Teaching Experience",
     "Specialist in Communicative, Immersive Courses"
   ];
 
@@ -261,7 +261,7 @@ export default function About() {
             {/* Right: Paragraph text */}
             <div className="lg:col-span-3">
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                Growing up with three languages sparked my fascination with how the brain acquires and processes them, leading me to earn a BA in Linguistics, an MA in Experimental Psycholinguistics, and a PhD focused on bilingualism. With over 10 years of teaching experience, I draw on this deep understanding of how languages function at the most basic level to create courses that replicate natural language acquisition.
+                Growing up with three languages sparked my fascination with how the brain acquires and processes them, leading me to earn a BA in Linguistics, an MA in Experimental Psycholinguistics, and a PhD focused on bilingualism. With over 15 years of teaching experience, I draw on this deep understanding of how languages function at the most basic level to create courses that replicate natural language acquisition.
               </p>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
                 My unconventional, conversation-oriented methodology gave rise to <Link to="/themethod" className="text-sky-600 hover:text-sky-800 font-bold">The Unlock Fluency Method</Link>, an immersive learning method designed to provide dynamic, real-life learning experiences that empower learners to speak with confidence, spontaneity, and authenticity. Every lesson becomes an opportunity for meaningful communication and shared growth.

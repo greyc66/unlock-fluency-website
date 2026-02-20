@@ -23,7 +23,7 @@ const PAGE_META = {
   },
   '/about': {
     title: 'About Dr Christina Grey | Creator of The Unlock Fluency Method',
-    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 10 years of research and immersive English teaching experience in Cambridge, UK.',
+    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 15 years of research and immersive English teaching experience in Cambridge, UK.',
   },
   '/themethod': {
     title: 'The Unlock Fluency Method | How Immersive English Coaching Works',
