@@ -305,10 +305,7 @@ export default function TheMethod() {
       <section className="py-16 bg-gray-950/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Experience Immersive Learning?</h2>
-          <p className="text-xl text-gray-400 mb-8">
-            Join the Unlock Fluency Method community and transform your English.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link to="/courses">
               <Button size="lg" className="bg-sky-500 hover:bg-sky-700 text-white font-semibold px-8 py-4">
                 <BookOpen className="w-5 h-5 mr-2" />

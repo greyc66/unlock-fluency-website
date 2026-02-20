@@ -537,10 +537,7 @@ export default function Testimonials() {
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Ready to Write Your Own Success Story?
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
-            Join a vibrant community of students who have transformed their English skills and unlocked new opportunities.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link to="/courses">
               <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-8 py-4">
                 <BookOpen className="w-5 h-5 mr-2" />

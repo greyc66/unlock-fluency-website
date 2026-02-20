@@ -320,7 +320,7 @@ return (
       </section>
 
       {/* Method Teaser Section - Darkest Navy */}
-      <section className="py-16 sm:py-24 bg-sky-100">
+      <section className="pt-6 pb-16 sm:pt-8 sm:pb-24 bg-sky-100">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
             A Psycholinguistic Approach to English Learning
@@ -338,7 +338,7 @@ return (
       
 
             {/* Dr. Grey Intro Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="pt-6 pb-16 sm:pt-8 sm:pb-24 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div className="md:col-span-1 flex justify-center">
@@ -383,7 +383,7 @@ return (
       </section>
 
       {/* Differentiators Section - Medium Navy */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="pt-6 pb-16 sm:pt-8 sm:pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mx-auto lg:max-w-none">
             <div className="text-center">
@@ -462,13 +462,11 @@ return (
       </section>
 
       {/* Final CTA - Lightest Navy */}
-      <section className="py-16 sm:py-24 bg-sky-100">
+      <section className="pt-6 pb-16 sm:pt-8 sm:pb-24 bg-sky-100">
         <div className="max-w-3xl mx-auto text-center px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
             Ready to Begin Your Journey?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-700">Take the first step towards fluent, confident communication.
-          </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg">

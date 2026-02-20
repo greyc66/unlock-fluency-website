@@ -429,11 +429,7 @@ export default function About() {
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Ready to Start Your Unlock Fluency Journey?
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
-            Let's discuss your goals and create a personalised plan for your
-            English success.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <Link to="/courses">
               <Button size="lg" className="bg-slate-50 text-gray-900 px-8 py-4 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md hover:bg-sky-600">
                 <BookOpen className="w-5 h-5 mr-2" />
