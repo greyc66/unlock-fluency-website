@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -32,28 +32,44 @@ import {
   Sparkles } from
 "lucide-react";
 
+/* ── Scroll-triggered visibility hook ── */
+function useScrollReveal(threshold = 0.15) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return [ref, visible];
+}
+
 export default function TheMethod() {
   const methodologyHighlights = [
-  { icon: MessageCircle, title: "Conversational Exercises", description: "Real-world scenarios and dialogue practice" },
-  { icon: Users, title: "Role-play", description: "Immersive situational learning" },
-  { icon: Target, title: "Discussion Groups", description: "Small group dynamics and peer learning" },
-  { icon: Lightbulb, title: "Confidence-building Activities", description: "Structured exercises to build speaking confidence" }];
+  { icon: MessageCircle, title: "Conversational Exercises", description: "Real-world scenarios and dialogue practice", bg: "bg-emerald-500", hoverBg: "group-hover:bg-emerald-600" },
+  { icon: Users, title: "Role-play", description: "Immersive situational learning", bg: "bg-violet-500", hoverBg: "group-hover:bg-violet-600" },
+  { icon: Target, title: "Discussion Groups", description: "Small group dynamics and peer learning", bg: "bg-amber-500", hoverBg: "group-hover:bg-amber-600" },
+  { icon: Lightbulb, title: "Confidence-building Activities", description: "Structured exercises to build speaking confidence", bg: "bg-rose-500", hoverBg: "group-hover:bg-rose-600" }];
 
 
   const dailySchedule = [
-  { time: "Morning", title: "Daily Overview", description: "Start with a daily overview and an icebreaker to warm-up.", icon: Coffee, color: "bg-cyan-900" },
-  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, and money. Immersive discussions in breakout rooms.", icon: Users, color: "bg-cyan-800" },
-  { time: "Lunch", title: "Break", description: "After a very engaging morning discussing the theme of the day, we take a lunch break to refuel and recharge.", icon: Utensils, color: "bg-cyan-700" },
-  { time: "Afternoon", title: "Interactive Sessions", description: "Debates based on the theme of the day. Breakout rooms where learners have a chance to practice small-talk techniques.", icon: Presentation, color: "bg-cyan-600" },
-  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practice real-life scenarios. Dynamic group activities, workshops, and debates. Round off with writing exercises.", icon: CheckCircle, color: "bg-cyan-500" }];
+  { time: "Morning", title: "Daily Overview", description: "Start with a daily overview and an icebreaker to warm-up.", icon: Coffee, color: "bg-sky-800" },
+  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, and money. Immersive discussions in breakout rooms.", icon: Users, color: "bg-violet-800" },
+  { time: "Lunch", title: "Break", description: "After a very engaging morning discussing the theme of the day, we take a lunch break to refuel and recharge.", icon: Utensils, color: "bg-amber-800" },
+  { time: "Afternoon", title: "Interactive Sessions", description: "Debates based on the theme of the day. Breakout rooms where learners have a chance to practice small-talk techniques.", icon: Presentation, color: "bg-emerald-800" },
+  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practice real-life scenarios. Dynamic group activities, workshops, and debates. Round off with writing exercises.", icon: CheckCircle, color: "bg-rose-800" }];
 
+  const [activeStep, setActiveStep] = useState(0);
 
   const immersiveFeatures = [
-  { icon: MessageCircle, text: "100% Immersion, Maximum Results: from casual small talk to professional discussions. The more you speak, the faster you improve." },
-  { icon: Trophy, text: "Confidence Over Perfection: focus on real-life communication, not just textbook rules. Learn to express your ideas naturally and confidently." },
-  { icon: CheckCircle, text: "Practical Real-life Topics: from office chats to social gatherings, the curriculum covers the conversations that matter most. Every lesson is relatable and immediately useful." },
-  { icon: Search, text: "Personalised Feedback: you'll receive constructive, actionable feedback, helping you sound more natural and fluent each day." },
-  { icon: Users2, text: "Community & Support: join a supportive environment! Fluency is faster when you’re surrounded by practice and encouragement." }];
+  { icon: MessageCircle, text: "100% Immersion, Maximum Results: from casual small talk to professional discussions. The more you speak, the faster you improve.", bg: "bg-sky-500", hoverBg: "group-hover:bg-sky-600" },
+  { icon: Trophy, text: "Confidence Over Perfection: focus on real-life communication, not just textbook rules. Learn to express your ideas naturally and confidently.", bg: "bg-amber-500", hoverBg: "group-hover:bg-amber-600" },
+  { icon: CheckCircle, text: "Practical Real-life Topics: from office chats to social gatherings, the curriculum covers the conversations that matter most. Every lesson is relatable and immediately useful.", bg: "bg-emerald-500", hoverBg: "group-hover:bg-emerald-600" },
+  { icon: Search, text: "Personalised Feedback: you'll receive constructive, actionable feedback, helping you sound more natural and fluent each day.", bg: "bg-violet-500", hoverBg: "group-hover:bg-violet-600" },
+  { icon: Users2, text: "Community & Support: join a supportive environment! Fluency is faster when you're surrounded by practice and encouragement.", bg: "bg-rose-500", hoverBg: "group-hover:bg-rose-600" }];
 
 
   const roadmapSteps = [
@@ -70,6 +86,30 @@ export default function TheMethod() {
 
   const pastelColors = ['bg-rose-100', 'bg-teal-100', 'bg-amber-100', 'bg-sky-100', 'bg-violet-100', 'bg-lime-100', 'bg-pink-100', 'bg-cyan-100', 'bg-orange-100'];
 
+  /* ── Scroll-triggered refs ── */
+  const [featuresRef, featuresVisible] = useScrollReveal(0.1);
+  const timelineRefs = useRef([]);
+
+  const [visibleSteps, setVisibleSteps] = useState(new Set());
+
+  useEffect(() => {
+    const observers = [];
+    timelineRefs.current.forEach((el, index) => {
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleSteps(prev => new Set([...prev, index]));
+          }
+        },
+        { threshold: 0.2 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
+
   return (
     <div className="bg-gray-900 text-gray-300">
       <div className="relative">
@@ -79,7 +119,7 @@ export default function TheMethod() {
           className="absolute inset-0 w-full h-full object-cover opacity-10" />
 
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900"></div>
-        
+
         <div className="relative">
           {/* Hero Section */}
           <section className="pt-20 lg:pt-24 pb-8">
@@ -88,28 +128,40 @@ export default function TheMethod() {
                 <Lightbulb className="w-4 h-4 mr-2" />
                 Teaching Method
               </Badge>
-              
+
               <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                 The Unlock Fluency Method
               </h1>
-              
+
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                 Discover how my Method transforms the way you learn and speak English through natural, conversation-focused experiences.
               </p>
             </div>
           </section>
 
-          {/* Conception of the Method Section */}
-          <section className="pt-8 pb-16 overflow-hidden">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Conception of the Method Section — Scroll-triggered */}
+          <section className="pt-8 pb-16 overflow-hidden relative">
+            <img src="/cambridge-bg.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.06] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900 pointer-events-none"></div>
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <h2 className="text-3xl font-bold text-center text-white mb-12">The Genesis of my Method</h2>
-              
+
               <div className="relative">
                 {/* Vertical line for desktop */}
                 <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-stone-200 hidden md:block transform -translate-x-1/2"></div>
-                
+
                 {roadmapSteps.map((step, index) =>
-                <div key={index} className={`mb-4 flex items-center w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                <div
+                  key={index}
+                  ref={el => timelineRefs.current[index] = el}
+                  className={`mb-4 flex items-center w-full transition-all duration-700 ease-out ${
+                    visibleSteps.has(index)
+                      ? "opacity-100 translate-x-0"
+                      : index % 2 === 0
+                        ? "opacity-0 -translate-x-12"
+                        : "opacity-0 translate-x-12"
+                  } ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                >
                     {/* Content for left side (even index) */}
                     {index % 2 === 0 &&
                   <>
@@ -145,17 +197,25 @@ export default function TheMethod() {
         </div>
       </div>
 
-      {/* Immersive Process Infographic */}
-      <section className="py-16 bg-sky-100">
+      {/* Immersive Process Infographic — with scroll-triggered entrance */}
+      <section className="py-16 bg-sky-100" ref={featuresRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">How The Unlock Fluency Method Works</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
             {immersiveFeatures.map((feature, index) =>
-            <Card key={index} className="bg-white border-amber-50 text-center">
+            <Card
+              key={index}
+              className={`bg-white border-amber-50 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group cursor-default ${
+                featuresVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: featuresVisible ? `${index * 150}ms` : "0ms" }}
+            >
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-sky-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-sky-100" />
+                  <div className={`w-12 h-12 ${feature.bg} ${feature.hoverBg} rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300`}>
+                    <feature.icon className="w-6 h-6 text-white transition-colors duration-300" />
                   </div>
                   <p className="text-gray-800 text-sm leading-relaxed">{feature.text}</p>
                 </CardContent>
@@ -165,17 +225,17 @@ export default function TheMethod() {
         </div>
       </section>
 
-      {/* Methodology Highlights */}
-      <section className="py-16 bg-sky-100">
+      {/* Methodology Highlights — reduced gap, hover effects */}
+      <section className="pt-2 pb-16 bg-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Method Highlights</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {methodologyHighlights.map((item, index) =>
-            <Card key={index} className="bg-white border-amber-50 text-center">
+            <Card key={index} className="bg-white border-amber-50 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group cursor-default">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-sky-400 rounded-full flex items-center justify-center">
-                    <item.icon className="w-8 h-8 text-sky-100" />
+                  <div className={`w-16 h-16 mx-auto mb-6 ${item.bg} ${item.hoverBg} rounded-full flex items-center justify-center transition-colors duration-300`}>
+                    <item.icon className="w-8 h-8 text-white transition-colors duration-300" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">{item.title}</h3>
                   <p className="text-gray-700">{item.description}</p>
@@ -186,30 +246,57 @@ export default function TheMethod() {
         </div>
       </section>
 
-      {/* Daily Structure */}
+      {/* Daily Structure — Horizontal Stepper */}
       <section className="py-16 bg-sky-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">A Typical Day in an Unlock Fluency Course</h2>
-          <p className="text-center text-gray-700 mb-12">All course content is created and delivered by Dr Christina Grey</p>
-          
-          <div className="space-y-4">
-            {dailySchedule.map((item, index) =>
-            <div key={index} className={`flex items-start space-x-4 p-6 rounded-lg ${item.color}`}>
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-white" />
-                  </div>
+          <p className="text-center text-gray-700 mb-10">All course content is created and delivered by Dr Christina Grey</p>
+
+          {/* Step tabs */}
+          <div className="flex justify-between items-center mb-8 relative">
+            {/* Connecting line */}
+            <div className="absolute top-6 left-0 right-0 h-0.5 bg-gray-300" />
+            {dailySchedule.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className="relative z-10 flex flex-col items-center group"
+              >
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  index === activeStep
+                    ? `${item.color} shadow-lg scale-110`
+                    : "bg-gray-200 group-hover:bg-gray-300"
+                }`}>
+                  <item.icon className={`w-5 h-5 transition-colors duration-300 ${
+                    index === activeStep ? "text-white" : "text-gray-500 group-hover:text-gray-700"
+                  }`} />
                 </div>
-                <div className="flex-grow">
-                  <div className="flex items-center space-x-3 mb-2">
-                    <span className="text-sm text-white/70 font-medium">{item.time}</span>
-                    <div className="h-px bg-white/20 flex-grow"></div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{item.title}</h3>
-                  <p className="text-white/90">{item.description}</p>
+                <span className={`mt-2 text-xs sm:text-sm font-medium transition-colors duration-300 ${
+                  index === activeStep ? "text-gray-900" : "text-gray-500"
+                }`}>
+                  {item.time}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Content panel */}
+          <div className="relative h-48 sm:h-40 overflow-hidden">
+            {dailySchedule.map((item, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                  index === activeStep
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4 pointer-events-none"
+                }`}
+              >
+                <div className={`${item.color} rounded-lg p-6 sm:p-8 h-full`}>
+                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-white/90 leading-relaxed">{item.description}</p>
                 </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -219,7 +306,7 @@ export default function TheMethod() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Experience Immersive Learning?</h2>
           <p className="text-xl text-gray-400 mb-8">
-            Join a community of students who have transformed their English through The Unlock Fluency Method.
+            Join the Unlock Fluency Method community and transform your English.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
