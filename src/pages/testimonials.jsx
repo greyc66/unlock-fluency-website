@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Star, Quote, Globe, Calendar, BookOpen, ArrowRight } from "lucide-react";
+import useSwipe from "@/hooks/useSwipe";
 
 // Static testimonial data, removing the need for the Entities SDK
 const staticTestimonials = [
@@ -400,6 +401,11 @@ export default function Testimonials() {
     setActiveSlide(prev => (prev + 1) % featured.length);
   }, [featured.length]);
 
+  const goPrev = useCallback(() => {
+    setActiveSlide(prev => (prev - 1 + featured.length) % featured.length);
+  }, [featured.length]);
+
+  const featuredSwipe = useSwipe(goNext, goPrev);
 
   useEffect(() => {
     if (paused) return;
@@ -447,6 +453,7 @@ export default function Testimonials() {
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          {...featuredSwipe}
         >
           <div className="relative">
             <div className="overflow-hidden">

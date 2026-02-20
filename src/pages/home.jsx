@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import useSwipe from "@/hooks/useSwipe";
 import {
   ArrowRight,
   Star,
@@ -15,10 +16,21 @@ import {
   TrendingUp,
   ThumbsUp,
   Award,
-  MessageCircle
+  MessageCircle,
+  Calendar
 } from "lucide-react";
 
 export default function Home() {
+
+  useEffect(() => {
+    if (!document.getElementById('setmore_script')) {
+      const setmoreScript = document.createElement('script');
+      setmoreScript.id = 'setmore_script';
+      setmoreScript.type = 'text/javascript';
+      setmoreScript.src = 'https://assets.setmore.com/integration/static/setmoreIframeLive.js';
+      document.head.appendChild(setmoreScript);
+    }
+  }, []);
 
   const statsSlides = [
     {
@@ -100,6 +112,12 @@ export default function Home() {
     setActiveStatSlide(prev => (prev + 1) % statsSlides.length);
   }, [statsSlides.length]);
 
+  const goPrevStat = useCallback(() => {
+    setActiveStatSlide(prev => (prev - 1 + statsSlides.length) % statsSlides.length);
+  }, [statsSlides.length]);
+
+  const statsSwipe = useSwipe(goNextStat, goPrevStat);
+
   useEffect(() => {
     if (statsPaused) return;
     const timer = setInterval(goNextStat, 4000);
@@ -140,6 +158,12 @@ export default function Home() {
   const goNextTestimonial = useCallback(() => {
     setActiveTestimonial(prev => (prev + 1) % homeTestimonials.length);
   }, [homeTestimonials.length]);
+
+  const goPrevTestimonial = useCallback(() => {
+    setActiveTestimonial(prev => (prev - 1 + homeTestimonials.length) % homeTestimonials.length);
+  }, [homeTestimonials.length]);
+
+  const testimonialSwipe = useSwipe(goNextTestimonial, goPrevTestimonial);
 
   useEffect(() => {
     if (testimonialPaused) return;
@@ -225,13 +249,13 @@ return (
               {heroSentences.map((sentence, index) => (
                 <span
                   key={index}
-                  className={`inline transition-all duration-700 ease-in-out ${
+                  className={`transition-all duration-700 ease-in-out ${
                     index < visibleSentences
                       ? "opacity-100"
                       : "opacity-0"
-                  } ${index === heroSentences.length - 1 ? "text-sky-300 font-semibold" : ""}`}
+                  } ${index === heroSentences.length - 1 ? "block text-sky-300 font-semibold mt-2" : "inline"}`}
                 >
-                  {sentence}{" "}
+                  {sentence}{index < heroSentences.length - 1 ? " " : ""}
                 </span>
               ))}
             </div>
@@ -252,6 +276,7 @@ return (
         className="py-12 sm:py-16 bg-sky-100"
         onMouseEnter={() => setStatsPaused(true)}
         onMouseLeave={() => setStatsPaused(false)}
+        {...statsSwipe}
       >
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <p className="text-base font-bold tracking-widest text-gray-700 uppercase mb-8 transition-opacity duration-500">
@@ -389,6 +414,7 @@ return (
         className="py-16 sm:py-24 bg-sky-100"
         onMouseEnter={() => setTestimonialPaused(true)}
         onMouseLeave={() => setTestimonialPaused(false)}
+        {...testimonialSwipe}
       >
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-10">What Students Say</h2>
@@ -443,12 +469,18 @@ return (
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-gray-700">Take the first step towards fluent, confident communication.
           </p>
-          <div className="mt-8">
-            <Link to="/contact"> {/* Changed to /contact */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
               <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg">
                 Get in Touch
               </Button>
             </Link>
+            <a style={{ float: 'none', textDecoration: 'none' }} id="Setmore_button_iframe" href="https://theunlockfluencymethod.setmore.com/services/9273b47e-a6d3-4413-8922-d4ccb8b666e7">
+              <Button size="lg" className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold shadow-lg">
+                <Calendar className="w-5 h-5 mr-2" />
+                Book a Discovery Call
+              </Button>
+            </a>
           </div>
         </div>
       </section>

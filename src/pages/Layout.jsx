@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import NewsletterPopup from "../components/NewsletterPopup";
 import { Link, useLocation } from "react-router-dom";
-import { Calendar, Menu, X, Facebook, Instagram } from "lucide-react";
+import { Calendar, Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigationItems = [
@@ -221,6 +221,9 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <a href="https://www.instagram.com/theunlockfluencymethod?igsh=YWUydnNwazEwOTZl&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <Instagram className="w-5 h-5" />
+                </a>
+                <a href="https://www.linkedin.com/company/unlock-fluency-method" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <Linkedin className="w-5 h-5" />
                 </a>
                 <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5" />
