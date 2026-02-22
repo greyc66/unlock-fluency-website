@@ -31,7 +31,7 @@ const ROUTES = {
       <h2>A Psycholinguistic Approach to Unlocking English Fluency</h2>
       <p>No textbooks, no grammar drills — just real, immersive communication. The Unlock Fluency Method is built on how your brain naturally acquires language, so you develop lasting fluency and the ability to speak spontaneously.</p>
       <h2>Your Fluency Coach: Dr Christina Grey</h2>
-      <p>Dr Christina Grey is a psycholinguist with a PhD in Linguistics specialising in bilingual language acquisition. With over 10 years of research and immersive teaching experience, she created The Unlock Fluency Method to help learners unlock their English fluency and communicate with confidence.</p>
+      <p>Dr Christina Grey is a psycholinguist with a PhD in Linguistics specialising in bilingual language acquisition. With over 15 years of research and immersive teaching experience, she created The Unlock Fluency Method to help learners unlock their English fluency and communicate with confidence.</p>
       <nav aria-label="Main navigation">
         <a href="/courses">English Fluency Courses</a> |
         <a href="/about">About Dr Christina Grey</a> |
@@ -46,10 +46,10 @@ const ROUTES = {
 
   '/about': {
     title: 'About Dr Christina Grey | Creator of The Unlock Fluency Method',
-    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 10 years of research and immersive English teaching experience in Cambridge, UK.',
+    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 15 years of research and immersive English teaching experience in Cambridge, UK.',
     content: `
       <h1>Meet Dr Christina Grey — Creator of The Unlock Fluency Method</h1>
-      <p>Dr Christina Grey is a psycholinguist and the creator of The Unlock Fluency Method. With a PhD in Linguistics specialising in bilingual language acquisition, she brings over 10 years of research and immersive teaching experience to help learners unlock their English fluency.</p>
+      <p>Dr Christina Grey is a psycholinguist and the creator of The Unlock Fluency Method. With a PhD in Linguistics specialising in bilingual language acquisition, she brings over 15 years of research and immersive teaching experience to help learners unlock their English fluency.</p>
       <h2>Teaching Philosophy</h2>
       <p>Christina believes that real fluency comes from immersive, conversation-driven practice. The Unlock Fluency Method is grounded in psycholinguistic research — no textbooks and grammar drills, just real communication that builds lasting confidence.</p>
       <h2>Academic &amp; Professional Journey</h2>
@@ -105,7 +105,7 @@ const ROUTES = {
         <li>Custom Unlock Fluency Retreat — bespoke fluency retreat in Cambridge or your chosen destination</li>
       </ul>
       <h2>Why The Unlock Fluency Method?</h2>
-      <p>PhD-level expertise in Linguistics, 10+ years of research and immersive teaching, psycholinguistic methodology, personalised assessment and reporting, flexible scheduling online or in person.</p>
+      <p>PhD-level expertise in Linguistics, 15+ years of research and immersive teaching, psycholinguistic methodology, personalised assessment and reporting, flexible scheduling online or in person.</p>
     `,
   },
 
