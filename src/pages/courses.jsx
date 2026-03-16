@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -35,7 +34,7 @@ const individualCoursesList = [
     { level: 'intermediate', levelCode: 'B2+', title: "Weekend Boost - Morning", description: "A weekend immersion course I've designed to build consistent, practical fluency for everyday use. Want to refresh your English skills and start off your weekends with a smile? This is the right course for you!", footnote: "Get in touch with me if you only want to attend a single weekend.", length: "4 consecutive weekends", duration: "3 hours daily", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£250", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/9d3cefc5-a5fc-4caa-96a1-8d081f70a89b" },
     { level: 'mixed-levels', title: "Series Club - Evening", description: "Let's watch a popular series together! Fancy hanging out with friends and improving your English at the same time? I've designed this course to improve your listening comprehension and natural conversation skills.", length: "8 consecutive weeks: Tuesdays", duration: "1 x 2-hour session weekly", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£220", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/7e09c26d-d9d8-439a-8205-2fa95f19e666" },
     { level: 'mixed-levels', title: "Book Club - Evening", description: "Are you a book lover like me? Join me for a book club that brings stories to life! We'll read, laugh, debate, and boost your English naturally with every chapter. Fun discussions, new vocabulary, and real confidence in speaking, all in one place!", length: "8 consecutive weeks: Thursdays", duration: "1 x 2-hour session weekly", participants: "6-12", courseLevel: "B2+", format: "Online", price: "£220", bookingUrl: "https://theunlockfluencymethod.setmore.com/classes/92cd3b67-e549-4c9c-b389-58fa685886f6" },
-    { level: 'intermediate', levelCode: 'B2+', title: "Unlock Fluency Signature - Summer Retreat", description: "Experience the full power of The Unlock Fluency Method in person! Join me in Cambridge, UK for an immersive week of real-world English practice, cultural exploration, and confidence-building — all in one of the world's most inspiring university cities.", footnote: "Dates and price to be announced.", length: "5 consecutive days", duration: "6 hours daily", participants: "10-20", courseLevel: "B2+", format: "Cambridge", price: "TBA", tba: true },
+    { level: 'intermediate', levelCode: 'B2+', title: "Unlock Fluency Signature - Summer Retreat", description: "Experience the full power of The Unlock Fluency Method in person! Join me in Cambridge, UK for an immersive week of real-world English practice, cultural exploration, and confidence-building — all in one of the world's most inspiring university cities.", length: "5 consecutive days", duration: "6 hours daily", participants: "10-20", courseLevel: "B2+", format: "Cambridge", price: "£1,500", tba: true },
 ];
 
 const teamCourses = {
@@ -64,7 +63,7 @@ const CourseCard = ({ course, isTeam = false }) => {
             </CardTitle>
             <div className="flex flex-col gap-2">
               {course.format && <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30">{course.format}</Badge>}
-              {course.price && <Badge className="bg-green-300 text-green-900 border-green-400">{course.price}</Badge>}
+              {course.price && <Badge className="bg-green-300 text-green-900 border-green-400 justify-center">{course.price}</Badge>}
             </div>
         </div>
       </CardHeader>
@@ -101,10 +100,10 @@ const CourseCard = ({ course, isTeam = false }) => {
               </Button>
             </Link>
           ) : course.tba ? (
-            <Link to="/contact?subject=General+Enquiry&message=I+am+interested+in+participating+in+your+summer+retreat+course" className="block">
+            <Link to="/retreatregistration" className="block">
               <Button className="w-full bg-sky-200 hover:bg-sky-300 text-blue-900 font-semibold">
                 <Calendar className="w-4 h-4 mr-2" />
-                Register Interest
+                Register your interest
               </Button>
             </Link>
           ) : (
@@ -220,7 +219,7 @@ export default function Courses() {
               </CardHeader>
               <CardContent>
                 <p className="text-blue-900 mb-6">
-                  Let’s focus entirely on you. In one-to-one coaching, we target your specific goals with tailored strategies that help you grow quickly and confidently.
+                  Let's focus entirely on you. In one-to-one coaching, we target your specific goals with tailored strategies that help you grow quickly and confidently.
                 </p>
                 <p className="text-blue-900 mb-6">
                   Contact me for a personalised coaching plan and quote. Prices start at £75.
