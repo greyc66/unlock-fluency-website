@@ -27,8 +27,8 @@ export default function Contact() {
 
 useEffect(() => {
     if (formData.enquiry_type === "Newsletter Sign-up") {
-      setFormData(prev => ({ ...prev, message: "Please sign me up for The Unlock Fluency Method newsletter." }));
-    } else if (formData.message === "Please sign me up for The Unlock Fluency Method newsletter.") {
+      setFormData(prev => ({ ...prev, message: "I want the free PDF with English learning tips & resources — monthly learning materials, and early access to new courses." }));
+    } else if (formData.message === "I want the free PDF with English learning tips & resources — monthly learning materials, and early access to new courses.") {
       // Clear message if switching away from Newsletter Sign-up and it was the auto-filled message
       setFormData(prev => ({ ...prev, message: "" }));
     }
@@ -206,7 +206,7 @@ const handleSubmit = async (e) => {
               <div className="text-right">
                 <Button type="submit" disabled={isSubmitting} size="lg" className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold">
                   {isSubmitting ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <Mail className="w-5 h-5 mr-2" />}
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : formData.enquiry_type === "Newsletter Sign-up" ? "Subscribe" : "Send Message"}
                 </Button>
               </div>
             </form>

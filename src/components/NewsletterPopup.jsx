@@ -118,9 +118,17 @@ export default function NewsletterPopup({ onClose }) {
             </div>
           ) : (
             <>
-              <p className="text-gray-400 mb-6">
-                Sign up and get a free PDF with English learning tips and resources. In my monthly newsletter, you can expect more learning materials and early access to new courses.
-              </p>
+              <div className="mb-6 space-y-3">
+                <p className="text-gray-300 text-sm font-semibold uppercase tracking-wide">You get:</p>
+                <div className="flex items-start gap-3 bg-sky-500/10 border border-sky-500/20 rounded-lg px-4 py-3">
+                  <span className="text-sky-400 mt-0.5">🎁</span>
+                  <p className="text-gray-300 text-sm">A free PDF with English learning tips &amp; resources</p>
+                </div>
+                <div className="flex items-start gap-3 bg-gray-700/50 border border-gray-600/40 rounded-lg px-4 py-3">
+                  <span className="text-gray-400 mt-0.5">📬</span>
+                  <p className="text-gray-400 text-sm">Monthly resources &amp; early access to new courses</p>
+                </div>
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
