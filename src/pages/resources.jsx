@@ -30,7 +30,8 @@ export default function Resources() {
       price: "£10",
       tags: ["German speakers", "Grammar", "Reference"],
       bgColor: "bg-red-200",
-      buyButton: true,
+      buyButtonId: "buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm",
+      publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
     {
       title: "Business English Essentials",
@@ -39,6 +40,8 @@ export default function Resources() {
       price: "£10",
       tags: ["Business English", "Professional", "Reference"],
       bgColor: "bg-blue-200",
+      buyButtonId: "buy_btn_1TEEyb9rCOr3Bkkr85NAl8is",
+      publishableKey: "pk_test_51S8Rvg9rCOr3Bkkre8IVnlCetyzoVvZe8YlQEmgripepYhEUIzGV38DGDdFJ2k2xQShfYaKoDNT5fhAqi5Hzam5Q00kHHiSonY",
     },
     {
       title: "English Email Essentials",
@@ -213,11 +216,11 @@ export default function Resources() {
                       <span key={i} className="text-xs bg-white/60 text-gray-700 px-3 py-1 rounded-full">{tag}</span>
                     ))}
                   </div>
-                  {product.buyButton ? (
+                  {product.buyButtonId ? (
                     <div className="flex justify-center">
                       <stripe-buy-button
-                        buy-button-id="buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm"
-                        publishable-key="pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI"
+                        buy-button-id={product.buyButtonId}
+                        publishable-key={product.publishableKey}
                       />
                     </div>
                   ) : (
