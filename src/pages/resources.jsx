@@ -30,7 +30,7 @@ export default function Resources() {
       price: "£10",
       tags: ["German speakers", "Grammar", "Reference"],
       bgColor: "bg-red-200",
-      buyButtonId: "buy_btn_1TEFiI9rCOr3Bkkrx9xYoxhR",
+      buyButtonId: "buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm",
       publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
     {
