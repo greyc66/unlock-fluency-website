@@ -17,11 +17,16 @@ const R2_BUCKET = 'handouts';
 const PRODUCTS = {
   'buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm': {
     filename: 'germanisms.pdf',
-    displayName: 'Germanisms — Common Mistakes Germans Make in English.pdf',
     subject: 'Your Germanisms Handout — The Unlock Fluency Method',
     title: 'Your Germanisms Handout',
-    description: 'Thank you for your purchase! I\'ve attached your <strong>Germanisms</strong> handout to this email. It covers 20 common mistakes German speakers make in English, with explanations, exercises, and a full answer key.',
-  }
+    description: 'Thank you for your purchase! Your <strong>Germanisms</strong> handout is attached below. It covers 20 common mistakes German speakers make in English, with psycholinguistic explanations, exercises, and a full answer key.',
+  },
+  'buy_btn_1TEFCf9rCOr3Bkkro9t31iGD': {
+    filename: 'business-english-essentials.pdf',
+    subject: 'Your Business English Essentials Handout — The Unlock Fluency Method',
+    title: 'Your Business English Essentials Handout',
+    description: 'Thank you for your purchase! Your <strong>Business English Essentials</strong> handout is attached below. It covers 13 key business English areas with exercises and a full answer key.',
+  },
 };
 
 // ── AWS Sig V4 — generates a temporary signed URL to access the private R2 file ──
@@ -106,8 +111,16 @@ async function verifyStripeSignature(payload, sigHeader, secret) {
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  const payload = await request.text();
+  let payload;
+  try {
+    payload = await request.text();
+  } catch (err) {
+    console.error('[webhook] Failed to read request body:', err);
+    return new Response('Bad request', { status: 400 });
+  }
+
   const stripeSignature = request.headers.get('stripe-signature');
+  console.log('[webhook] Received. Has stripe-signature:', !!stripeSignature);
 
   if (!stripeSignature) {
     return new Response('Missing stripe-signature header', { status: 400 });
@@ -115,15 +128,25 @@ export async function onRequestPost(context) {
 
   try {
     await verifyStripeSignature(payload, stripeSignature, env.STRIPE_WEBHOOK_SECRET);
+    console.log('[webhook] Signature verified OK');
   } catch (err) {
-    console.error('Stripe signature verification failed:', err.message);
+    console.error('[webhook] Signature verification failed:', err.message);
     return new Response(`Webhook verification failed: ${err.message}`, { status: 400 });
   }
 
-  const event = JSON.parse(payload);
+  let event;
+  try {
+    event = JSON.parse(payload);
+  } catch (err) {
+    console.error('[webhook] Failed to parse payload JSON:', err);
+    return new Response('Invalid JSON', { status: 400 });
+  }
+
+  console.log('[webhook] Event type:', event.type);
 
   // Only act on completed checkouts
   if (event.type !== 'checkout.session.completed') {
+    console.log('[webhook] Ignoring event type:', event.type);
     return new Response('OK', { status: 200 });
   }
 
@@ -131,15 +154,17 @@ export async function onRequestPost(context) {
   const customerEmail = session.customer_details?.email;
   const customerName = session.customer_details?.name || '';
 
+  console.log('[webhook] Customer email:', customerEmail);
+  console.log('[webhook] Session ID:', session.id);
+
   if (!customerEmail) {
-    console.error('No customer email in session:', session.id);
+    console.error('[webhook] No customer email in session:', session.id);
     return new Response('No customer email found', { status: 400 });
   }
 
-  // Work out which product was purchased (matched by buy button ID stored in metadata)
-  // Falls back to Germanisms as the only product for now
   const buyButtonId = session.metadata?.buy_button_id || 'buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm';
   const product = PRODUCTS[buyButtonId] || PRODUCTS['buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm'];
+  console.log('[webhook] Product:', product.title, '| File:', product.filename);
 
   // Generate a 1-hour temporary download link from R2
   let pdfUrl;
@@ -148,8 +173,9 @@ export async function onRequestPost(context) {
       env.R2_ENDPOINT, R2_BUCKET, product.filename,
       env.R2_ACCESS_KEY_ID, env.R2_SECRET_ACCESS_KEY
     );
+    console.log('[webhook] Presigned URL generated OK');
   } catch (err) {
-    console.error('Failed to generate R2 presigned URL:', err);
+    console.error('[webhook] Failed to generate R2 presigned URL:', err);
     return new Response('Failed to generate download link', { status: 500 });
   }
 
@@ -218,6 +244,8 @@ export async function onRequestPost(context) {
 </html>
 `;
 
+  console.log('[webhook] Sending emails via Resend. API key set:', !!env.RESEND_API_KEY);
+
   // Send both emails in parallel
   const [customerRes, ownerRes] = await Promise.all([
     fetch('https://api.resend.com/emails', {
@@ -242,12 +270,15 @@ export async function onRequestPost(context) {
     })
   ]);
 
+  console.log('[webhook] Customer email response status:', customerRes.status);
+  console.log('[webhook] Owner email response status:', ownerRes.status);
+
   if (!customerRes.ok) {
     const err = await customerRes.text();
-    console.error('Failed to send customer email:', err);
+    console.error('[webhook] Failed to send customer email:', err);
     return new Response('Failed to send email to customer', { status: 500 });
   }
 
-  console.log(`Sale processed: ${product.title} → ${customerEmail}`);
+  console.log(`[webhook] Sale processed: ${product.title} → ${customerEmail}`);
   return new Response('OK', { status: 200 });
 }

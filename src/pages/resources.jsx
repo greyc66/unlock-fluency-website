@@ -40,8 +40,8 @@ export default function Resources() {
       price: "£10",
       tags: ["Business English", "Professional", "Reference"],
       bgColor: "bg-blue-200",
-      buyButtonId: "buy_btn_1TEEyb9rCOr3Bkkr85NAl8is",
-      publishableKey: "pk_test_51S8Rvg9rCOr3Bkkre8IVnlCetyzoVvZe8YlQEmgripepYhEUIzGV38DGDdFJ2k2xQShfYaKoDNT5fhAqi5Hzam5Q00kHHiSonY",
+      buyButtonId: "buy_btn_1TEFCf9rCOr3Bkkro9t31iGD",
+      publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
     {
       title: "English Email Essentials",
