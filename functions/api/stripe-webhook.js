@@ -21,6 +21,13 @@ const PRODUCTS = {
     title: 'Your Germanisms Handout',
     description: 'Thank you for your purchase! Your <strong>Germanisms</strong> handout is attached below. It covers 20 common mistakes German speakers make in English, with psycholinguistic explanations, exercises, and a full answer key.',
   },
+  // Temporary £0.01 test button — swap back to buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm when done
+  'buy_btn_1TEFiI9rCOr3Bkkrx9xYoxhR': {
+    filename: 'germanisms.pdf',
+    subject: 'Your Germanisms Handout — The Unlock Fluency Method',
+    title: 'Your Germanisms Handout',
+    description: 'Thank you for your purchase! Your <strong>Germanisms</strong> handout is attached below. It covers 20 common mistakes German speakers make in English, with psycholinguistic explanations, exercises, and a full answer key.',
+  },
   'buy_btn_1TEFCf9rCOr3Bkkro9t31iGD': {
     filename: 'business-english-essentials.pdf',
     subject: 'Your Business English Essentials Handout — The Unlock Fluency Method',
