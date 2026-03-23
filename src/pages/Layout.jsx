@@ -12,7 +12,7 @@ const navigationItems = [
   { title: "Success Stories", url: "/testimonials" },
   { title: "Courses", url: "/courses" },
   { title: "For Organisations", url: "/corporate" },
-  { title: "The Resource Room", url: "/resources" },
+  { title: "Resources", url: "/resources" },
 ];
 
 // Per-page SEO metadata — add an entry here when creating a new page
@@ -42,7 +42,7 @@ const PAGE_META = {
     description: 'Contact Dr Christina Grey about Unlock Fluency courses, 1-to-1 coaching, or corporate English training. Start your journey to unlock English fluency today.',
   },
   '/resources': {
-    title: 'The Resource Room | Free English Fluency Learning Resources',
+    title: 'Resources | The Unlock Fluency Method',
     description: 'Access free English learning resources from The Unlock Fluency Method — vocabulary tips, proverbs, icebreakers, TED talk picks, and podcast recommendations to unlock your fluency.',
   },
   '/faqs': {
@@ -249,7 +249,7 @@ export default function Layout({ children, currentPageName }) {
                   <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
                   <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Courses</Link></li>
                   <li><Link to="/corporate" className="text-gray-400 hover:text-gray-300 transition-colors">For Organisations</Link></li>
-                  <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">The Resource Room</Link></li>
+                  <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">Resources</Link></li>
                 </ul>
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/testimonials" className="text-gray-400 hover:text-gray-300 transition-colors">Success Stories</Link></li>

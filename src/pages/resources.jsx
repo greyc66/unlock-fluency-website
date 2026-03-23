@@ -8,27 +8,55 @@ import {
   BookOpen,
   Lightbulb,
   Globe,
-  Coffee,
-  Users,
   ArrowRight,
   Star,
-  Calendar,
   BookMarked,
   Podcast,
   Volume2,
-  Mail
+  Mail,
+  Sparkles,
+  Download,
+  Lock
 } from "lucide-react";
 
 export default function Resources() {
   const [showNewsletter, setShowNewsletter] = useState(false);
 
-  const weeklyResources = [
+  const premiumResources = [
     {
-      title: "Word of the Week",
+      title: "Germanisms",
+      subtitle: "Common Mistakes Germans Make in English",
+      description: "A comprehensive reference guide covering 20 common errors German speakers make in English — from false friends to tense confusion — each with psycholinguistic explanations, correction exercises, and a gap-fill with full answer keys.",
+      price: "£10",
+      tags: ["German speakers", "Grammar", "Reference"],
+      bgColor: "bg-red-200",
+      buyButton: true,
+    },
+    {
+      title: "Business English Essentials",
+      subtitle: "Common Mistakes & How to Fix Them",
+      description: "A professional reference guide covering 13 key business English areas — from polite requests and meeting language to email conventions and hedging — with exercises, a gap-fill, and complete answer keys.",
+      price: "£10",
+      tags: ["Business English", "Professional", "Reference"],
+      bgColor: "bg-blue-200",
+    },
+    {
+      title: "English Email Essentials",
+      subtitle: "Write Professional Emails with Confidence",
+      description: "A practical guide to writing clear, polite, and professional emails in English — covering openings, closings, requests, apologies, and tone — with exercises and a full answer key.",
+      price: "£10",
+      tags: ["Email Writing", "Professional", "Reference"],
+      bgColor: "bg-green-200",
+    },
+  ];
+
+  const biweeklyResources = [
+    {
+      title: "Word of the Fortnight",
       icon: BookOpen,
-      description: "Discover fascinating English words and their stories. Each week, explore etymology, usage, and cultural context.",
+      description: "Discover fascinating English words and their stories. Every two weeks, explore etymology, usage, and cultural context.",
       items: [
-        "Weekly vocabulary with real-world examples",
+        "Vocabulary with real-world examples",
         "Etymology and cultural context",
         "Usage tips and common mistakes to avoid"
       ],
@@ -36,7 +64,7 @@ export default function Resources() {
       type: "whatsapp"
     },
     {
-      title: "Proverb of the Week",
+      title: "Proverb of the Fortnight",
       icon: BookMarked,
       description: "Explore the quirky proverbs that make British culture unique. Perfect conversation starters!",
       items: [
@@ -48,11 +76,11 @@ export default function Resources() {
       type: "whatsapp"
     },
     {
-     title: "Icebreaker of the Week",
+      title: "Icebreaker of the Fortnight",
       icon: Lightbulb,
       description: "Fun and engaging conversation starters to help you break the ice in any social or professional setting.",
       items: [
-        "Weekly conversation starters and topics",
+        "Conversation starters and topics",
         "Tips for natural small talk",
         "Cultural context for different situations"
       ],
@@ -100,13 +128,11 @@ export default function Resources() {
     }
   ];
 
-  const renderCard = (section, index) => (
+  const renderFreeCard = (section, index) => (
     <Card key={index} className={`${section.bgColor} border-gray-400 hover:-translate-y-2 hover:shadow-xl hover:border-gray-600 transition-all duration-300 flex flex-col group`}>
       <CardHeader>
-        <div className="flex justify-between items-start">
-          <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mb-4">
-            <section.icon className="w-6 h-6 text-gray-200" />
-          </div>
+        <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mb-4">
+          <section.icon className="w-6 h-6 text-gray-200" />
         </div>
         <CardTitle className="text-xl text-gray-900">{section.title}</CardTitle>
       </CardHeader>
@@ -140,32 +166,96 @@ export default function Resources() {
   );
 
   return (
-     <div className="bg-gray-900 text-gray-300">
+    <div className="bg-gray-900 text-gray-300">
+
       {/* Hero Section */}
       <section className="py-20 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge className="bg-gray-500/10 text-gray-400 border-gray-500/20 mb-6 px-4 py-2">
             <Star className="w-4 h-4 mr-2" />
-            The Resource Room
+            Resources
           </Badge>
-
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             Resources to Unlock Your Fluency
           </h1>
-
           <p className="text-xl text-white max-w-3xl mx-auto">
-            Free resources and tips to support your English learning journey beyond the classroom.
+            Premium handouts to accelerate your learning — plus free resources to support your English journey every week.
           </p>
         </div>
       </section>
 
-      {/* Weekly Resources */}
-      <section className="pb-12 lg:pb-16">
+      {/* Premium Resources */}
+      <section className="pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-2">Weekly Resources</h2>
-          <p className="text-gray-400 mb-8">Shared every week in my WhatsApp community group</p>
+          <div className="flex items-center gap-3 mb-2">
+            <Sparkles className="w-6 h-6 text-amber-400" />
+            <h2 className="text-2xl font-bold text-white">Premium Resources</h2>
+          </div>
+          <p className="text-gray-400 mb-8 ml-9">Downloadable handouts created by me — buy once, keep forever</p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {weeklyResources.map((section, index) => renderCard(section, index))}
+            {premiumResources.map((product, index) => (
+              <Card key={index} className={`${product.bgColor} border-gray-400 hover:-translate-y-2 hover:shadow-xl hover:border-gray-600 transition-all duration-300 flex flex-col`}>
+                <CardHeader className="pb-3">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+                      <Download className="w-6 h-6 text-gray-200" />
+                    </div>
+                    <span className="text-2xl font-bold text-gray-800">{product.price}</span>
+                  </div>
+                  <CardTitle className="text-xl text-gray-900">{product.title}</CardTitle>
+                  <p className="text-sm text-gray-600 font-medium">{product.subtitle}</p>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col">
+                  <p className="text-gray-800 mb-5 flex-grow leading-relaxed">{product.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {product.tags.map((tag, i) => (
+                      <span key={i} className="text-xs bg-white/60 text-gray-700 px-3 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  {product.buyButton ? (
+                    <div className="flex justify-center">
+                      <stripe-buy-button
+                        buy-button-id="buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm"
+                        publishable-key="pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI"
+                      />
+                    </div>
+                  ) : (
+                    <Button size="sm" disabled className="w-full bg-gray-400 text-gray-600 font-semibold cursor-not-allowed">
+                      <Lock className="w-4 h-4 mr-2" />
+                      Coming Soon
+                    </Button>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="border-t border-gray-700" />
+      </div>
+
+      {/* Free Resources header */}
+      <section className="pt-12 pb-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-2">
+            <Star className="w-6 h-6 text-sky-400" />
+            <h2 className="text-2xl font-bold text-white">Free Resources</h2>
+          </div>
+          <p className="text-gray-400 ml-9">Complimentary content shared regularly with my community — no cost, no catch</p>
+        </div>
+      </section>
+
+      {/* Bi-weekly Resources */}
+      <section className="pb-12 lg:pb-16 pt-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-lg font-semibold text-gray-300 mb-2">Bi-weekly</h3>
+          <p className="text-gray-400 mb-8">Shared every two weeks in my WhatsApp community group</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {biweeklyResources.map((section, index) => renderFreeCard(section, index))}
           </div>
         </div>
       </section>
@@ -173,10 +263,10 @@ export default function Resources() {
       {/* Monthly Resources */}
       <section className="pb-16 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white mb-2">Monthly Resources</h2>
+          <h3 className="text-lg font-semibold text-gray-300 mb-2">Monthly</h3>
           <p className="text-gray-400 mb-8">Delivered straight to your inbox with my Newsletter</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {monthlyResources.map((section, index) => renderCard(section, index))}
+            {monthlyResources.map((section, index) => renderFreeCard(section, index))}
           </div>
         </div>
       </section>
