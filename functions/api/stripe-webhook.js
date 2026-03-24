@@ -47,7 +47,7 @@ async function generatePresignedUrl(endpoint, bucket, key, accessKeyId, secretAc
     ['X-Amz-Algorithm', 'AWS4-HMAC-SHA256'],
     ['X-Amz-Credential', `${accessKeyId}/${credentialScope}`],
     ['X-Amz-Date', dateStr],
-    ['X-Amz-Expires', '3600'],
+    ['X-Amz-Expires', '86400'],
     ['X-Amz-SignedHeaders', 'host'],
   ]);
 
@@ -214,7 +214,7 @@ export async function onRequestPost(context) {
         <a href="${pdfUrl}" class="btn">Download Your Handout</a>
       </p>
       <div class="note">
-        <strong>Note:</strong> This download link is valid for 1 hour. If it expires, simply reply to this email and I'll send you a fresh one.
+        <strong>Note:</strong> This download link is valid for 24 hours. If it expires, simply reply to this email and I'll send you a fresh one.
       </div>
       <p>I hope you find it genuinely useful. If you have any questions or feedback, just reply to this email — I'd love to hear from you.</p>
       <p>Best,<br><strong>Dr Christina Grey</strong><br>The Unlock Fluency Method</p>
