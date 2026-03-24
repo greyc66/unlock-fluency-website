@@ -27,6 +27,12 @@ const PRODUCTS = {
     title: 'Your Business English Essentials Handout',
     description: 'Thank you for your purchase! Your <strong>Business English Essentials</strong> handout is attached below. It covers 13 key business English areas with exercises and a full answer key.',
   },
+  'buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh': {
+    filename: 'english-email-essentials.pdf',
+    subject: 'Your English Email Essentials Handout — The Unlock Fluency Method',
+    title: 'Your English Email Essentials Handout',
+    description: 'Thank you for your purchase! Your <strong>English Email Essentials</strong> handout is attached below. It covers how to write clear, polite, and professional emails in English with exercises and a full answer key.',
+  },
 };
 
 // ── AWS Sig V4 — generates a temporary signed URL to access the private R2 file ──
