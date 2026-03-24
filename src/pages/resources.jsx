@@ -55,7 +55,7 @@ export default function Resources() {
 
   const biweeklyResources = [
     {
-      title: "Word of the Fortnight",
+      title: "The Lexicon",
       icon: BookOpen,
       description: "Discover fascinating English words and their stories. Every two weeks, explore etymology, usage, and cultural context.",
       items: [
@@ -67,7 +67,7 @@ export default function Resources() {
       type: "whatsapp"
     },
     {
-      title: "Proverb of the Fortnight",
+      title: "Phrases Unlocked",
       icon: BookMarked,
       description: "Explore the quirky proverbs that make British culture unique. Perfect conversation starters!",
       items: [
@@ -79,7 +79,7 @@ export default function Resources() {
       type: "whatsapp"
     },
     {
-      title: "Icebreaker of the Fortnight",
+      title: "Break the Ice",
       icon: Lightbulb,
       description: "Fun and engaging conversation starters to help you break the ice in any social or professional setting.",
       items: [
@@ -94,7 +94,7 @@ export default function Resources() {
 
   const monthlyResources = [
     {
-      title: "TED Talk of the Month",
+      title: "Talk of the Month",
       icon: Globe,
       description: "Curated TED Talks to improve your listening skills while learning about fascinating topics.",
       items: [
@@ -106,7 +106,7 @@ export default function Resources() {
       type: "newsletter"
     },
     {
-      title: "Podcast Pick of the Month",
+      title: "The Podcast Edit",
       icon: Podcast,
       description: "Carefully selected English podcasts to improve your listening skills and expand your knowledge.",
       items: [
@@ -118,7 +118,7 @@ export default function Resources() {
       type: "newsletter"
     },
     {
-      title: "Accent Spotlight of the Month",
+      title: "Voices of English",
       icon: Volume2,
       description: "Explore different English accents from around the world and learn to understand various speaking styles.",
       items: [
