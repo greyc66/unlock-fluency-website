@@ -182,7 +182,7 @@ export default function Resources() {
             Resources to Unlock Your Fluency
           </h1>
           <p className="text-xl text-white max-w-3xl mx-auto">
-            Premium handouts to accelerate your learning — plus free resources to support your English journey every week.
+            Premium handouts and free resources to support and accelerate your English journey.
           </p>
         </div>
       </section>
@@ -194,7 +194,7 @@ export default function Resources() {
             <Sparkles className="w-6 h-6 text-amber-400" />
             <h2 className="text-2xl font-bold text-white">Premium Resources</h2>
           </div>
-          <p className="text-gray-400 mb-8 ml-9">Downloadable handouts created by me — buy once, keep forever</p>
+          <p className="text-gray-400 mb-8 ml-9">Downloadable handouts to boost your English awareness — buy once, keep forever</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {premiumResources.map((product, index) => (
