@@ -68,38 +68,35 @@ const offerings = [
   {
     title: "Custom Unlock Fluency Course",
     description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team's daily challenges to boost confidence, clarity, and impact — right where it matters most.",
-    footnote: "Available online or in-person.",
+    highlight: "Best for teams needing a structured programme.",
     details: [
       { icon: BarChart, label: "Length", value: "Custom" },
       { icon: Clock, label: "Duration", value: "Custom" },
       { icon: Users, label: "Participants", value: "Custom" },
       { icon: TrendingUp, label: "Level", value: "Custom" }
     ],
-    highlight: "Best for teams needing a structured programme"
   },
   {
     title: "Custom Unlock Fluency Workshop",
     description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.",
-    footnote: "Available online or in-person.",
+    highlight: "Best for focused skill-building.",
     details: [
       { icon: BarChart, label: "Length", value: "Half or full day(s)" },
       { icon: Clock, label: "Duration", value: "Custom" },
       { icon: Users, label: "Participants", value: "Custom" },
       { icon: TrendingUp, label: "Level", value: "Custom" }
     ],
-    highlight: "Best for focused skill-building"
   },
   {
     title: "Custom Unlock Fluency Retreat",
     description: "Take your team's communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We'll combine focused English training with an unforgettable, industry-specific learning experience.",
-    footnote: "Available online or in-person.",
+    highlight: "Best for team-building + fluency.",
     details: [
       { icon: BarChart, label: "Length", value: "Custom" },
       { icon: Clock, label: "Duration", value: "Custom" },
       { icon: Users, label: "Participants", value: "Custom" },
       { icon: TrendingUp, label: "Level", value: "Custom" }
     ],
-    highlight: "Best for team-building + fluency"
   }
 ];
 
@@ -237,20 +234,15 @@ export default function Corporate() {
             {offerings.map((offering, index) => (
               <Card key={index} className="bg-stone-200 border-stone-300 flex flex-col">
                 <CardHeader className="pb-4">
-                  <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30 w-fit mb-2">
-                    {offering.highlight}
-                  </Badge>
+                  <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30 w-fit mb-2">Online or In-Person</Badge>
                   <CardTitle className="text-xl text-blue-900">{offering.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col">
-                  <p className="text-blue-900 mb-6 leading-relaxed flex-grow">
+                  <p className="text-blue-900 mb-2 leading-relaxed flex-grow">
                     {offering.description}
                   </p>
-
-                  {offering.footnote && (
-                    <p className="text-sm text-amber-800 mb-4 italic font-medium">
-                      {offering.footnote}
-                    </p>
+                  {offering.highlight && (
+                    <p className="text-sm font-semibold text-sky-700 italic mb-4">{offering.highlight}</p>
                   )}
 
                   <div className="space-y-3 mb-6 text-sm text-blue-900">

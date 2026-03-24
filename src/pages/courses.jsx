@@ -39,11 +39,11 @@ const individualCoursesList = [
 
 const teamCourses = {
     intermediate: [
-        { title: "Custom Unlock Fluency Course", description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team's daily challenges to boost confidence, clarity, and impact; right where it matters most.", footnote: "Available online or in-person.", length: "custom", duration: "custom", participants: "custom", courseLevel: "custom" },
+        { title: "Custom Unlock Fluency Course", description: "I bring The Unlock Fluency Method straight into your industry. Tailored to your team's daily challenges to boost confidence, clarity, and impact; right where it matters most.", format: "Online or In-Person", length: "custom", duration: "custom", participants: "custom", courseLevel: "custom" },
     ],
     mixed: [
-        { title: "Custom Unlock Fluency Workshop", description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.", footnote: "Available online or in-person.", length: "Half or full day(s)", duration: "custom", participants: "custom", courseLevel: "custom" },
-        { title: "Custom Unlock Fluency Retreat", description: "Take your team's communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We'll combine focused English training with an unforgettable, industry-specific learning experience.", footnote: "Available online or in-person.", length: "custom", duration: "custom", participants: "custom", courseLevel: "custom" },
+        { title: "Custom Unlock Fluency Workshop", description: "Need something targeted? My focused workshops use my methodology to build the exact skill your team needs: negotiating, presenting, leading meetings, or anything in between.", format: "Online or In-Person", length: "Half or full day(s)", duration: "custom", participants: "custom", courseLevel: "custom" },
+        { title: "Custom Unlock Fluency Retreat", description: "Take your team's communication to the next level with a bespoke fluency retreat at any destination you choose, or in Cambridge with me. We'll combine focused English training with an unforgettable, industry-specific learning experience.", format: "Online or In-Person", length: "custom", duration: "custom", participants: "custom", courseLevel: "custom" },
     ]
 };
 
@@ -57,12 +57,15 @@ const CourseCard = ({ course, isTeam = false }) => {
   return (
     <Card className={`${cardBgClass} flex flex-col transition-all duration-300`}>
       <CardHeader className="pb-4">
+        {isTeam && course.format && (
+          <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30 w-fit mb-3">{course.format}</Badge>
+        )}
         <div className="flex justify-between items-start">
             <CardTitle className={`text-xl ${textClass}`}>
               {course.title}
             </CardTitle>
             <div className="flex flex-col gap-2">
-              {course.format && <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30">{course.format}</Badge>}
+              {!isTeam && course.format && <Badge className="bg-amber-500/20 text-amber-800 border-amber-500/30">{course.format}</Badge>}
               {course.price && <Badge className="bg-green-300 text-green-900 border-green-400 justify-center">{course.price}</Badge>}
             </div>
         </div>
