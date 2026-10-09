@@ -161,7 +161,7 @@ export default function TheMethod() {
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
             It grew out of my PhD research on how bilingual children learn languages naturally, and 15 years of teaching adults.
           </p>
-          <Link to="/about" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
+          <Link to="/my-story" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
             My story <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </div>

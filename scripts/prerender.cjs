@@ -44,7 +44,7 @@ const ROUTES = {
       <p>A psycholinguist with a PhD in Linguistics who trained in drama at the University of Kent and at Tufts as a Fulbright scholar. Her courses combine the science of how we learn languages with the stage skills that help you speak with presence.</p>
       <nav aria-label="Main navigation">
         <a href="/courses">Online English Courses</a> |
-        <a href="/about">About Dr Christina Grey</a> |
+        <a href="/my-story">My Story: Dr Christina Grey</a> |
         <a href="/themethod">The Unlock Fluency Method</a> |
         <a href="/business">Corporate English Training</a> |
         <a href="/testimonials">Success Stories</a> |
@@ -54,13 +54,14 @@ const ROUTES = {
     `,
   },
 
-  '/about': {
-    title: 'About Dr Christina Grey | Creator of The Unlock Fluency Method',
+  '/my-story': {
+    title: 'My Story: Dr Christina Grey | Creator of The Unlock Fluency Method',
     description: 'Meet Dr Christina Grey: psycholinguist with a PhD in Linguistics, drama-trained speaker, and creator of The Unlock Fluency Method, with 15 years of research and teaching.',
     content: `
       <h1>Meet Dr Christina Grey</h1>
-      <p>I help people who already know English speak it with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.</p>
-      <h2>My story</h2>
+      <p>I help people speak English with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.</p>
+      <ul><li>PhD in Linguistics</li><li>Drama training</li><li>15+ years of research and teaching</li></ul>
+      <h2>How it all started</h2>
       <p>I grew up with three languages and spent my childhood on stage as a child actor.</p>
       <h3>The scientist</h3>
       <p>A BA in English Language and Linguistics, an MSc in Literature, an MA in Linguistics, and a PhD in Linguistics at Humboldt-Universität zu Berlin and the University of Cambridge, with award-winning research.</p>
@@ -69,7 +70,16 @@ const ROUTES = {
       <h3>The teacher</h3>
       <p>Teaching English since 2012, including many years at the Volkshochschule (VHS) in Berlin.</p>
       <h2>Academic and professional journey</h2>
-      <p>Aristotle University of Thessaloniki, University of Kent, University of Edinburgh, Tufts University (Fulbright), Humboldt-Universität zu Berlin, University of Cambridge, VHS Berlin.</p>
+      <ul>
+        <li>2011: BA in English Language &amp; Linguistics, Aristotle University of Thessaloniki and University of Kent</li>
+        <li>2011–12: English teacher, Kern</li>
+        <li>2013: MSc in Literature, University of Edinburgh</li>
+        <li>2014: Fulbright scholar in Theatre Studies, Tufts University</li>
+        <li>2016: MA in Linguistics, Humboldt-Universität zu Berlin</li>
+        <li>2016–19: English teacher, VHS Pankow and Mitte, Berlin</li>
+        <li>2020: PhD in Linguistics, Humboldt-Universität zu Berlin and University of Cambridge</li>
+        <li>Today: Founder, The Unlock Fluency Method</li>
+      </ul>
     `,
   },
 

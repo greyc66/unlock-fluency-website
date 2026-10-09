@@ -44,8 +44,8 @@ function useCountUp(end, duration = 2000, startCounting = false) {
 }
 
 const qualifications = [
-  "PhD in Linguistics (Humboldt-Universität zu Berlin and University of Cambridge)",
-  "Drama training at the University of Kent and Tufts University (Fulbright scholar)",
+  "PhD in Linguistics",
+  "Drama training",
   "15+ years of research and teaching",
 ];
 
@@ -84,17 +84,20 @@ const chapters = [
   },
 ];
 
+const logo = (file, name, large = false) => ({ src: `/images/logos/${file}.png`, name, large });
+
 const journey = [
-  { year: "2008", title: "Private English tutor" },
-  { year: "2011", title: "BA in English Language & Linguistics", place: "Aristotle University of Thessaloniki and University of Kent" },
-  { year: "2011–12", title: "English teacher", place: "Kern" },
-  { year: "2013", title: "MSc in Literature", place: "University of Edinburgh" },
-  { year: "2014", title: "Fulbright scholar in Theatre Studies", place: "Tufts University" },
-  { year: "2016", title: "MA in Linguistics", place: "Humboldt-Universität zu Berlin" },
-  { year: "2016–18", title: "English teacher", place: "VHS Pankow and Mitte, Berlin" },
-  { year: "2020", title: "PhD in Linguistics", place: "Humboldt-Universität zu Berlin and University of Cambridge" },
-  { year: "2025", title: "English teacher", place: "VHS Pankow, Berlin" },
-  { year: "Today", title: "Founder", place: "The Unlock Fluency Method" },
+  { year: "2011", title: "BA in English Language & Linguistics", place: "Aristotle University of Thessaloniki and University of Kent",
+    logos: [logo("aristotle-university-thessaloniki", "Aristotle University of Thessaloniki"), logo("university-of-kent", "University of Kent")] },
+  { year: "2011–12", title: "English teacher", place: "Kern", logos: [logo("kern", "Kern")] },
+  { year: "2013", title: "MSc in Literature", place: "University of Edinburgh", logos: [logo("university-of-edinburgh", "University of Edinburgh")] },
+  { year: "2014", title: "Fulbright scholar in Theatre Studies", place: "Tufts University",
+    logos: [logo("fulbright", "Fulbright"), logo("tufts-university", "Tufts University")] },
+  { year: "2016", title: "MA in Linguistics", place: "Humboldt-Universität zu Berlin", logos: [logo("humboldt-universitat-berlin", "Humboldt-Universität zu Berlin", true)] },
+  { year: "2016–19", title: "English teacher", place: "VHS Pankow and Mitte, Berlin", logos: [logo("vhs", "Volkshochschule (VHS)")] },
+  { year: "2020", title: "PhD in Linguistics", place: "Humboldt-Universität zu Berlin and University of Cambridge",
+    logos: [logo("humboldt-universitat-berlin", "Humboldt-Universität zu Berlin", true), logo("university-of-cambridge", "University of Cambridge")] },
+  { year: "Today", title: "Founder", place: "The Unlock Fluency Method", logos: [{ src: "/images/logo.png", name: "The Unlock Fluency Method" }] },
 ];
 
 const funFacts = [
@@ -106,7 +109,7 @@ const funFacts = [
   { icon: Coffee, text: "Matcha lover." },
 ];
 
-export default function About() {
+export default function MyStory() {
   /* ── Testimonial carousels ── */
   const leftQuotes = [
     { text: "Christina made me feel safe to make mistakes. That changed everything for me.", name: "Maria", country: "Greece" },
@@ -245,7 +248,7 @@ export default function About() {
                 Meet Dr Christina Grey
               </h1>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                I help people who already know English speak it with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.
+                I help people speak English with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.
               </p>
               <ul className="space-y-3">
                 {qualifications.map((q) => (
@@ -290,11 +293,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* My story */}
+      {/* How it all started */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">My story</h2>
+            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">How it all started</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               I grew up with three languages and spent my childhood on stage as a child actor. Switching between languages every day made me curious about how the brain learns them, and the stage taught me that confidence is something you can practise.
             </p>
@@ -342,15 +345,24 @@ export default function About() {
 
       {/* Academic and professional journey */}
       <section className="py-16 lg:py-24 bg-brand-50">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">Academic and professional journey</h2>
-          <ol className="border-l-2 border-brand-200 space-y-6">
+          <ol className="border-l-2 border-brand-200 space-y-5">
             {journey.map((item) => (
               <li key={`${item.year}-${item.title}`} className="pl-6 relative">
-                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-brand-600" aria-hidden="true"></span>
-                <p className="text-sm font-bold tracking-wider text-brand-600">{item.year}</p>
-                <p className="font-semibold text-brand-900">{item.title}</p>
-                {item.place && <p className="text-gray-600">{item.place}</p>}
+                <span className="absolute -left-[7px] top-6 w-3 h-3 rounded-full bg-brand-600" aria-hidden="true"></span>
+                <div className="bg-white rounded-xl border border-brand-100 p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 sm:items-center">
+                  <div>
+                    <p className="text-sm font-bold tracking-wider text-brand-600">{item.year}</p>
+                    <p className="font-semibold text-brand-900">{item.title}</p>
+                    <p className="text-gray-600">{item.place}</p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4">
+                    {item.logos.map((l) => (
+                      <img key={l.src} src={l.src} alt={l.name} className={`${l.large ? "h-14 sm:h-16" : "h-10 sm:h-12"} w-auto max-w-[180px] object-contain`} />
+                    ))}
+                  </div>
+                </div>
               </li>
             ))}
           </ol>

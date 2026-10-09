@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import courses from "@/data/courses.json";
 
 const navigationItems = [
-  { title: "About", url: "/about" },
+  { title: "My Story", url: "/my-story" },
   { title: "The Method", url: "/themethod" },
   { title: "Success Stories", url: "/testimonials" },
   { title: "Online Courses", url: "/courses" },
@@ -23,8 +23,8 @@ const PAGE_META = {
     title: 'The Unlock Fluency Method | Immersive English Fluency Courses & Coaching',
     description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £75, training for teams, and a summer retreat in Cambridge, UK.',
   },
-  '/about': {
-    title: 'About Dr Christina Grey | Creator of The Unlock Fluency Method',
+  '/my-story': {
+    title: 'My Story: Dr Christina Grey | Creator of The Unlock Fluency Method',
     description: 'Meet Dr Christina Grey: psycholinguist with a PhD in Linguistics, drama-trained speaker, and creator of The Unlock Fluency Method, with 15 years of research and teaching.',
   },
   '/themethod': {
@@ -247,7 +247,7 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="font-semibold text-white mb-4">Explore</h4>
               <div className="grid grid-cols-2 gap-x-8">
                 <ul className="space-y-2 text-sm">
-                  <li><Link to="/about" className="text-gray-400 hover:text-gray-300 transition-colors">About</Link></li>
+                  <li><Link to="/my-story" className="text-gray-400 hover:text-gray-300 transition-colors">My Story</Link></li>
                   <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
                   <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Online Courses</Link></li>
                   <li><Link to="/business" className="text-gray-400 hover:text-gray-300 transition-colors">For Business</Link></li>

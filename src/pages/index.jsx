@@ -4,7 +4,7 @@ import Layout from "./Layout.jsx";
 import Home from "./home.jsx";
 import Courses from "./courses.jsx";
 import CourseDetail from "./coursedetail.jsx";
-import About from "./about.jsx";
+import MyStory from "./mystory.jsx";
 import Testimonials from "./testimonials.jsx";
 import Contact from "./contact.jsx";
 import TheMethod from "./themethod.jsx";
@@ -21,7 +21,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'r
 const PAGES = {
     home: Home,
     courses: Courses,
-    about: About,
+    "my-story": MyStory,
     testimonials: Testimonials,
     contact: Contact,
     themethod: TheMethod,
@@ -59,7 +59,8 @@ function PagesContent() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/courses/:slug" element={<CourseDetail />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/my-story" element={<MyStory />} />
+                <Route path="/about" element={<Navigate to="/my-story" replace />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/themethod" element={<TheMethod />} />
