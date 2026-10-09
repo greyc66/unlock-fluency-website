@@ -74,7 +74,9 @@ const chapters = [
   },
   {
     title: "The teacher",
-    photos: [],
+    photos: [
+      { src: "/images/christina-berlin.jpg", alt: "Christina in Berlin", position: "top" },
+    ],
     text: [
       "I've taught English since 2012, from private tutoring and language schools to many years at the Volkshochschule (VHS) in Berlin.",
       "Having lived in different countries and seen different education systems, I kept meeting the same learner: someone who could ace a grammar test but froze in a simple conversation.",
@@ -309,6 +311,7 @@ export default function About() {
                       src={photo.src}
                       alt={photo.alt}
                       className="w-full aspect-[3/4] object-cover rounded-xl"
+                      style={{ objectPosition: photo.position || "center" }}
                     />
                   ))}
                 </div>}
