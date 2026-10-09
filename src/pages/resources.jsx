@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import NewsletterPopup from "../components/NewsletterPopup";
+import NewsletterForm from "@/components/NewsletterForm";
 import {
   BookOpen,
   Lightbulb,
   Globe,
-  ArrowRight,
   BookMarked,
   Podcast,
   Volume2,
-  Mail,
   Download,
   Lock
 } from "lucide-react";
 
 export default function Resources() {
-  const [showNewsletter, setShowNewsletter] = useState(false);
-
   const premiumResources = [
     {
       title: "Germanisms",
@@ -48,107 +44,32 @@ export default function Resources() {
     },
   ];
 
-  const biweeklyResources = [
-    {
-      title: "The Lexicon",
-      icon: BookOpen,
-      description: "Discover fascinating English words and their stories. Every two weeks, explore etymology, usage, and cultural context.",
-      items: [
-        "Vocabulary with real-world examples",
-        "Etymology and cultural context",
-        "Usage tips and common mistakes to avoid"
-      ],
-      type: "whatsapp"
-    },
-    {
-      title: "Phrases Unlocked",
-      icon: BookMarked,
-      description: "Explore the quirky proverbs that make British culture unique. Perfect conversation starters!",
-      items: [
-        "Learn proverbs, idioms, and phrases to sound more natural",
-        "Cultural context and background",
-        "How to use them naturally in conversation"
-      ],
-      type: "whatsapp"
-    },
-    {
-      title: "Break the Ice",
-      icon: Lightbulb,
-      description: "Fun and engaging conversation starters to help you break the ice in any social or professional setting.",
-      items: [
-        "Conversation starters and topics",
-        "Tips for natural small talk",
-        "Cultural context for different situations"
-      ],
-      type: "whatsapp"
-    }
+  const whatsappResources = [
+    { title: "The Lexicon", icon: BookOpen, text: "Fascinating English words and their stories: usage, etymology, and cultural context." },
+    { title: "Phrases Unlocked", icon: BookMarked, text: "The quirky proverbs and idioms that make British English unique, and how to use them." },
+    { title: "Break the Ice", icon: Lightbulb, text: "Conversation starters and small-talk tips for social and professional settings." },
   ];
 
-  const monthlyResources = [
-    {
-      title: "Talk of the Month",
-      icon: Globe,
-      description: "Curated TED Talks to improve your listening skills while learning about fascinating topics.",
-      items: [
-        "Carefully selected talks for English learners",
-        "Vocabulary and phrase breakdowns",
-        "Discussion questions to think about"
-      ],
-      type: "newsletter"
-    },
-    {
-      title: "The Podcast Edit",
-      icon: Podcast,
-      description: "Carefully selected English podcasts to improve your listening skills and expand your knowledge.",
-      items: [
-        "Monthly podcast recommendations",
-        "Listening comprehension exercises",
-        "Vocabulary highlights from episodes"
-      ],
-      type: "newsletter"
-    },
-    {
-      title: "Voices of English",
-      icon: Volume2,
-      description: "Explore different English accents from around the world and learn to understand various speaking styles.",
-      items: [
-        "Monthly accent features and examples",
-        "Pronunciation guides and tips",
-        "Cultural insights about different regions"
-      ],
-      type: "newsletter"
-    }
+  const newsletterResources = [
+    { title: "Talk of the Month", icon: Globe, text: "A TED talk picked for English learners, with vocabulary and discussion questions." },
+    { title: "The Podcast Edit", icon: Podcast, text: "English podcasts worth your time, with listening exercises and vocabulary highlights." },
+    { title: "Voices of English", icon: Volume2, text: "A different English accent each month, with pronunciation tips and cultural insights." },
   ];
 
-  const renderFreeCard = (section, index) => (
-    <div key={index} className="bg-white rounded-xl border border-brand-200 p-6 flex flex-col">
-      <div className="w-11 h-11 bg-brand-600 rounded-lg flex items-center justify-center mb-4">
-        <section.icon className="w-5 h-5 text-white" />
-      </div>
-      <h3 className="text-xl font-semibold text-brand-900 mb-2">{section.title}</h3>
-      <p className="text-gray-600 mb-5">{section.description}</p>
-      <ul className="space-y-2 mb-6 flex-grow">
-        {section.items.map((item, itemIndex) => (
-          <li key={itemIndex} className="flex items-start gap-2">
-            <ArrowRight className="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-700 text-sm">{item}</span>
-          </li>
-        ))}
-      </ul>
-      {section.type === "whatsapp" ? (
-        <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
-          <Button size="sm" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold">
-            <img src="/whatsapp.png" alt="WhatsApp" className="w-4 h-4 mr-2" />
-            Join WhatsApp Group
-          </Button>
-        </a>
-      ) : (
-        <Button size="sm" onClick={() => setShowNewsletter(true)} className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-          <Mail className="w-4 h-4 mr-2" />
-          Subscribe to Newsletter
-        </Button>
-      )}
-    </div>
+  const resourceList = (items) => (
+    <ul className="space-y-5 mb-8 flex-grow">
+      {items.map((r) => (
+        <li key={r.title} className="flex items-start gap-4">
+          <div className="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center shrink-0">
+            <r.icon className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h4 className="font-semibold text-brand-900">{r.title}</h4>
+            <p className="text-gray-600 text-sm">{r.text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 
   return (
@@ -211,45 +132,28 @@ export default function Resources() {
           <h2 className="text-3xl lg:text-4xl text-brand-900 mb-2">Free resources</h2>
           <p className="text-gray-600 mb-10">Shared regularly with my community: no cost, no catch.</p>
 
-          <h3 className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every two weeks</h3>
-          <p className="text-gray-600 mb-6">In my WhatsApp community group</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-            {biweeklyResources.map((section, index) => renderFreeCard(section, index))}
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl border border-brand-200 p-6 sm:p-8 flex flex-col">
+              <p className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every two weeks</p>
+              <h3 className="text-2xl text-brand-900 font-display mb-6">In my WhatsApp community</h3>
+              {resourceList(whatsappResources)}
+              <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold h-11">
+                  <img src="/whatsapp.png" alt="" className="w-5 h-5 mr-2" />
+                  Join the WhatsApp community
+                </Button>
+              </a>
+            </div>
 
-          <h3 className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every month</h3>
-          <p className="text-gray-600 mb-6">Straight to your inbox with my newsletter</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {monthlyResources.map((section, index) => renderFreeCard(section, index))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 lg:py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl text-white mb-8">
-            Join The Unlock Fluency Method community
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold h-11">
-                <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 mr-2" />
-                Join the WhatsApp Group
-              </Button>
-            </a>
-            <Button size="lg" onClick={() => setShowNewsletter(true)} className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11">
-              <Mail className="w-5 h-5 mr-2" />
-              Subscribe to Newsletter
-            </Button>
+            <div className="bg-white rounded-2xl border border-brand-200 p-6 sm:p-8 flex flex-col">
+              <p className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every month</p>
+              <h3 className="text-2xl text-brand-900 font-display mb-6">In my newsletter</h3>
+              {resourceList(newsletterResources)}
+              <NewsletterForm id="resources-email" compact />
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Newsletter Popup */}
-      {showNewsletter && (
-        <NewsletterPopup onClose={() => setShowNewsletter(false)} />
-      )}
     </div>
   );
 }

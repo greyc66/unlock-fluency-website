@@ -54,10 +54,7 @@ export default function Courses() {
       {/* Header */}
       <section className="bg-gray-900 py-16 lg:py-20 text-center">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl text-white mb-5">Online Courses</h1>
-          <p className="text-lg text-gray-300">
-            Small groups of 6 to 12, live on Google Meet, designed and taught by me, plus a summer retreat in Cambridge once a year. Every online course includes a certificate, a personalised skills assessment, and an English level report.
-          </p>
+          <h1 className="text-4xl lg:text-5xl text-white">Online Courses</h1>
         </div>
       </section>
 

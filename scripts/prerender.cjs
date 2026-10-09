@@ -72,7 +72,7 @@ const ROUTES = {
       <h2>Academic and professional journey</h2>
       <ul>
         <li>2011: BA in English Language &amp; Linguistics, Aristotle University of Thessaloniki and University of Kent</li>
-        <li>2011–12: English teacher, Kern</li>
+        <li>2011–12: English teacher, Kern Training</li>
         <li>2013: MSc in Literature, University of Edinburgh</li>
         <li>2014: Fulbright scholar in Theatre Studies, Tufts University</li>
         <li>2016: MA in Linguistics, Humboldt-Universität zu Berlin</li>
@@ -126,11 +126,7 @@ const ROUTES = {
       <h2>Results participants report</h2>
       <p>96% report greater speaking confidence, 91% feel better prepared for professional communication, 9.7/10 average satisfaction, and 100% would recommend it to colleagues (self-reported, 300+ participant evaluations).</p>
       <h2>Built around your team</h2>
-      <ul>
-        <li>Custom Unlock Fluency Course: typically 30 hours, as a 5-day intensive or weekly sessions</li>
-        <li>Custom Unlock Fluency Workshop: half or full day(s) on one skill, such as presenting or negotiating</li>
-        <li>Custom Unlock Fluency Retreat: in Cambridge or a destination you choose</li>
-      </ul>
+      <p>Intensive courses (typically 30 hours), weekly courses, workshops on one skill, retreats in Cambridge or a destination you choose, and 1-to-1 coaching for leaders. Online, in person, or hybrid, for B1/B2 level and above.</p>
       <h2>How it works</h2>
       <p>A free 20-minute discovery call, a free 90-minute taster session, a tailored programme, and an assessment with next steps for every participant.</p>
     `,

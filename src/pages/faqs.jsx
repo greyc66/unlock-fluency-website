@@ -15,7 +15,7 @@ export default function FAQs() {
     },
     {
       question: "How do I join a course?",
-      answer: <> On my <Link to="/courses" className="text-brand-600 hover:text-brand-700">Courses</Link> page you can browse all of my available courses. Click on 'Book now', follow the checkout process, and you will receive a Google Meet link to join. If you don't see any available dates for specific courses, check back later as I add new course dates frequently (or join my <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">Newsletter</Link> and/or <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-brand-600 hover:text-brand-700">WhatsApp Community</a> if you want to be the first to receive updates!). </>
+      answer: <> On my <Link to="/courses" className="text-brand-600 hover:text-brand-700">Courses</Link> page you can browse all of my available courses. Click on 'Book now', follow the checkout process, and you will receive a Zoom link to join. If you don't see any available dates for specific courses, check back later as I add new course dates frequently (or join my <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">Newsletter</Link> and/or <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-brand-600 hover:text-brand-700">WhatsApp Community</a> if you want to be the first to receive updates!). </>
     },
     {
       question: "What happens if I need to cancel my booking?",
@@ -23,7 +23,7 @@ export default function FAQs() {
     },
     {
       question: "Are the courses available online or in-person?",
-      answer: "My Online Courses and 1-to-1 coaching take place live on Google Meet. For organisations, I deliver courses, workshops, and retreats online or in person. Once a year, I also run a summer retreat in Cambridge, UK. Please get in touch to discuss your preferences."
+      answer: "My Online Courses and 1-to-1 coaching take place live on Zoom. For organisations, I deliver courses, workshops, and retreats online or in person. Once a year, I also run a summer retreat in Cambridge, UK. Please get in touch to discuss your preferences."
     },
     {
       question: "What makes The Unlock Fluency Method different?",

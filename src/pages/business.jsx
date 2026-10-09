@@ -3,21 +3,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
-import { Badge } from "@/components/ui/badge";
 import {
   Calendar,
-  Users,
-  Target,
-  BarChart,
-  Clock,
-  MapPin,
-  TrendingUp,
   Building2,
   Headphones,
   MessageCircle,
   Briefcase,
   BookOpen,
-  Quote
+  Quote,
+  CheckCircle
 } from "lucide-react";
 
 const QUOTE_URL = "/contact?subject=Unlock+Fluency+for+Business";
@@ -36,40 +30,19 @@ const principles = [
   { icon: BookOpen, title: "Stories and scenarios", text: "Memorable stories and role-plays that stay with people." },
 ];
 
-const GROUP = { icon: Users, label: "Group size", value: "Flexible (small groups work best)" };
-const LEVEL = { icon: TrendingUp, label: "Level", value: "B1/B2 and above" };
+const formats = [
+  { name: "Intensive course", detail: "A focused week, typically 30 hours, for a big step forward." },
+  { name: "Weekly course", detail: "Regular sessions that fit around work and build fluency over time." },
+  { name: "Workshop", detail: "Half or full day on one skill, such as presenting, negotiating, or leading meetings." },
+  { name: "Retreat", detail: "Training and team experience together, in Cambridge or a destination you choose." },
+  { name: "1-to-1 coaching", detail: "Individual sessions for leaders and managers." },
+];
 
-const offerings = [
-  {
-    title: "Custom Unlock Fluency Course",
-    description: "The Unlock Fluency Method, built around your team's daily challenges, to boost confidence, clarity, and impact where it matters most.",
-    details: [
-      { icon: BarChart, label: "Length", value: "Typically 30 hours" },
-      { icon: Clock, label: "Format", value: "5-day intensive or weekly sessions" },
-      GROUP,
-      LEVEL,
-    ],
-  },
-  {
-    title: "Custom Unlock Fluency Workshop",
-    description: "A focused workshop on the exact skill your team needs: presenting, negotiating, leading meetings, or anything in between.",
-    details: [
-      { icon: BarChart, label: "Length", value: "Half or full day(s)" },
-      { icon: Target, label: "Focus", value: "One skill, such as presenting or negotiating" },
-      GROUP,
-      LEVEL,
-    ],
-  },
-  {
-    title: "Custom Unlock Fluency Retreat",
-    description: "Focused English training combined with an unforgettable, industry-specific experience, in Cambridge with me or at a destination you choose.",
-    details: [
-      { icon: BarChart, label: "Length", value: "Built around your schedule" },
-      { icon: MapPin, label: "Location", value: "Cambridge or a destination you choose" },
-      GROUP,
-      LEVEL,
-    ],
-  },
+const everyProgramme = [
+  "Online, in person, or hybrid",
+  "Content built around your team's work and industry",
+  "For B1/B2 level and above",
+  "Group size to suit your team",
 ];
 
 const steps = [
@@ -172,7 +145,7 @@ export default function Business() {
             <div>
               <h3 className="text-xl font-semibold text-brand-900 mb-2">Presence, not just grammar</h3>
               <p className="text-gray-700 leading-relaxed">
-                Designed and taught by Dr Christina Grey, a psycholinguist with a PhD in Linguistics and more than 15 years of research and teaching. I also trained in drama and have spoken at conferences in the UK, the US, and across Europe, so alongside fluency I coach the skills that make a room listen: voice, pace, structure, and handling nerves.
+                I design and teach every programme myself. I'm a psycholinguist with a PhD in Linguistics and more than 15 years of research and teaching. I also trained in drama and have spoken at conferences in the UK, the US, and across Europe, so alongside fluency I coach the skills that make a room listen: voice, pace, structure, and handling nerves.
               </p>
             </div>
           </div>
@@ -181,39 +154,40 @@ export default function Business() {
 
       {/* Programmes */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-5">Built around your team</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              For international teams, leaders and managers, multinationals, and NGOs. Any topic, from marketing, HR, and legal to finance and leadership. Online, in person, or hybrid.
+              For international teams, leaders and managers, multinationals, and NGOs, on any topic from marketing, HR, and legal to finance and leadership.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {offerings.map((offering) => (
-              <div key={offering.title} className="bg-white border border-brand-200 rounded-xl p-6 flex flex-col">
-                <Badge className="bg-brand-100 text-brand-800 border-brand-200 w-fit mb-3">Online or in person</Badge>
-                <h3 className="text-xl font-semibold text-brand-900 mb-3">{offering.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{offering.description}</p>
-                <div className="space-y-3 mb-6 text-sm text-brand-900">
-                  {offering.details.map((detail) => (
-                    <div key={detail.label} className="flex items-start">
-                      <detail.icon className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
-                      <span><strong>{detail.label}:</strong> {detail.value}</span>
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 items-start">
+            <dl className="divide-y divide-brand-100 border-y border-brand-100">
+              {formats.map((f) => (
+                <div key={f.name} className="py-4 grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-1 sm:gap-6">
+                  <dt className="font-semibold text-brand-900">{f.name}</dt>
+                  <dd className="text-gray-600">{f.detail}</dd>
                 </div>
-                <Link to={QUOTE_URL}>
-                  <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-                    <Building2 className="w-4 h-4 mr-2" />
-                    Enquire now
-                  </Button>
-                </Link>
-              </div>
-            ))}
+              ))}
+            </dl>
+            <div className="bg-brand-50 rounded-2xl p-6 sm:p-8">
+              <h3 className="text-lg font-semibold text-brand-900 mb-4">Every programme</h3>
+              <ul className="space-y-3 mb-6">
+                {everyProgramme.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to={QUOTE_URL}>
+                <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11">
+                  <Building2 className="w-4 h-4 mr-2" />
+                  Enquire now
+                </Button>
+              </Link>
+            </div>
           </div>
-          <p className="mt-8 text-center text-gray-600">
-            Example: an HR team with international clients, focused on communicating across cultures.
-          </p>
         </div>
       </section>
 

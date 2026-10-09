@@ -89,7 +89,7 @@ const logo = (file, name, large = false) => ({ src: `/images/logos/${file}.png`,
 const journey = [
   { year: "2011", title: "BA in English Language & Linguistics", place: "Aristotle University of Thessaloniki and University of Kent",
     logos: [logo("aristotle-university-thessaloniki", "Aristotle University of Thessaloniki"), logo("university-of-kent", "University of Kent")] },
-  { year: "2011–12", title: "English teacher", place: "Kern", logos: [logo("kern", "Kern")] },
+  { year: "2011–12", title: "English teacher", place: "Kern Training", logos: [logo("kern-training", "Kern Training")] },
   { year: "2013", title: "MSc in Literature", place: "University of Edinburgh", logos: [logo("university-of-edinburgh", "University of Edinburgh")] },
   { year: "2014", title: "Fulbright scholar in Theatre Studies", place: "Tufts University",
     logos: [logo("fulbright", "Fulbright"), logo("tufts-university", "Tufts University")] },
