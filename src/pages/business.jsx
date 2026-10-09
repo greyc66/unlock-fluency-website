@@ -90,13 +90,13 @@ export default function Business() {
   const ctaButtons = (
     <div className="flex flex-col sm:flex-row gap-4">
       <BookingLink href={DISCOVERY_CALL_URL}>
-        <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold h-11">
+        <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11">
           <Calendar className="w-5 h-5 mr-2" />
           Book a free discovery call
         </Button>
       </BookingLink>
       <Link to={QUOTE_URL}>
-        <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 font-semibold h-11">
+        <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-brand-900 font-semibold h-11">
           Get a personalised quote
         </Button>
       </Link>
@@ -109,7 +109,7 @@ export default function Business() {
       <section className="bg-gray-900 py-16 lg:py-24">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
           <div>
-            <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-300 mb-5">For business</p>
+            <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-300 mb-5">For business</p>
             <h1 className="text-4xl lg:text-5xl leading-tight text-white mb-6">
               Your teams don't have an English problem. They have a confidence problem.
             </h1>

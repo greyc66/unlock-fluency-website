@@ -58,9 +58,7 @@ export default function NewsletterForm({ id = "newsletter-email", tone = "light"
   const field = dark
     ? "bg-white/10 border-white/20 text-white placeholder:text-gray-400"
     : "bg-white border-brand-200 text-brand-900 placeholder:text-gray-400";
-  const button = dark
-    ? "bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold"
-    : "bg-brand-600 hover:bg-brand-700 text-white font-semibold";
+  const button = "bg-brand-600 hover:bg-brand-700 text-white font-semibold";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3" noValidate>

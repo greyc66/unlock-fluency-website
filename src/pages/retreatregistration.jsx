@@ -114,7 +114,7 @@ export default function RetreatRegistration() {
         <img src="/images/cambridge.jpg" alt="" className="absolute inset-0 -z-10 w-full h-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gray-900/70" aria-hidden="true"></div>
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-300 mb-4">Once a year, each summer</p>
+          <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-300 mb-4">Once a year, each summer</p>
           <h1 className="text-4xl lg:text-5xl text-white mb-5">
             Summer Retreat in Cambridge
           </h1>
@@ -124,7 +124,7 @@ export default function RetreatRegistration() {
           <p className="mt-5 text-gray-100 font-semibold">
             Dates for the next retreat will be announced. Register your interest below and I'll be in touch as soon as they're confirmed.
           </p>
-          <Link to="/courses/summer-retreat" className="inline-block mt-3 text-brand-300 hover:text-brand-200 underline">What's included</Link>
+          <Link to="/courses/summer-retreat" className="inline-block mt-3 text-sky-300 hover:text-sky-200 underline">What's included</Link>
         </div>
       </section>
 

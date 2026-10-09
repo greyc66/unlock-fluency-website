@@ -97,26 +97,26 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen bg-gray-900 text-gray-300 font-sans">
       <style>{`
         :root {
-          /* HSL values (the Tailwind config wraps these in hsl()); light UI controls in the brand palette */
+          /* HSL values (the Tailwind config wraps these in hsl()); light UI controls in the Sky & Curtain palette */
           --background: 0 0% 100%;
-          --foreground: 213 57% 15%; /* navy */
+          --foreground: 248 19% 15%; /* aubergine ink */
           --card: 0 0% 100%;
-          --card-foreground: 213 57% 15%;
+          --card-foreground: 248 19% 15%;
           --popover: 0 0% 100%;
-          --popover-foreground: 213 57% 15%;
-          --primary: 204 68% 38%; /* button blue */
+          --popover-foreground: 248 19% 15%;
+          --primary: 353 51% 46%; /* theatre red */
           --primary-foreground: 0 0% 100%;
-          --secondary: 202 83% 95%;
-          --secondary-foreground: 213 57% 15%;
-          --muted: 202 83% 95%;
-          --muted-foreground: 212 17% 47%;
-          --accent: 202 83% 95%;
-          --accent-foreground: 213 57% 15%;
+          --secondary: 20 47% 95%;
+          --secondary-foreground: 248 19% 15%;
+          --muted: 20 47% 95%;
+          --muted-foreground: 251 7% 45%;
+          --accent: 20 47% 95%;
+          --accent-foreground: 248 19% 15%;
           --destructive: 0 84% 60%;
           --destructive-foreground: 0 0% 100%;
-          --border: 200 83% 88%;
-          --input: 200 83% 88%;
-          --ring: 204 68% 38%;
+          --border: 0 20% 89%;
+          --input: 0 20% 89%;
+          --ring: 353 51% 46%;
           --radius: 0.75rem;
         }
       `}</style>
@@ -153,7 +153,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Get in Touch Button - Desktop */}
             <div className="hidden lg:block">
               <Link to="/contact">
-                <Button className="bg-brand-300 hover:bg-brand-200 text-brand-900 px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-10">
+                <Button className="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-10">
                   <Calendar className="w-4 h-4 mr-2" />
                   Get in Touch
                 </Button>
@@ -185,7 +185,7 @@ export default function Layout({ children, currentPageName }) {
                 {/* Get in Touch Button - Mobile */}
                 <div className="px-3 pt-2">
                   <Link to="/contact">
-                    <Button className="w-full bg-brand-300 hover:bg-brand-200 text-brand-900 px-4 py-2 text-sm font-semibold">
+                    <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 text-sm font-semibold">
                       <Calendar className="w-4 h-4 mr-2" />
                       Get in Touch
                     </Button>
@@ -237,7 +237,7 @@ export default function Layout({ children, currentPageName }) {
               <div className="mt-8 pt-6 border-t border-gray-700 max-w-md">
                 <h4 className="font-semibold text-white mb-1">Sign up for the newsletter</h4>
                 <p className="text-gray-400 text-sm mb-4">
-                  A free PDF of learning tips, then one email a month. <Link to="/newsletter" className="text-brand-300 hover:text-brand-200 underline">What you'll get</Link>
+                  A free PDF of learning tips, then one email a month. <Link to="/newsletter" className="text-sky-300 hover:text-sky-200 underline">What you'll get</Link>
                 </p>
                 <NewsletterForm id="footer-email" tone="dark" compact />
               </div>

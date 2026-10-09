@@ -173,13 +173,13 @@ export default function TheMethod() {
           <h2 className="text-3xl lg:text-4xl text-white mb-8">Ready to try it?</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold px-8 h-11">
+              <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 h-11">
                 <BookOpen className="w-5 h-5 mr-2" />
                 See online courses
               </Button>
             </Link>
             <Link to="/business">
-              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 px-8 text-sm font-semibold h-11">
+              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-brand-900 px-8 text-sm font-semibold h-11">
                 For business <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>

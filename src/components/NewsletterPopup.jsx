@@ -50,7 +50,7 @@ export default function NewsletterPopup({ onClose }) {
         </p>
         <NewsletterForm id="popup-email" tone="dark" onSuccess={() => setTimeout(handleClose, 3000)} />
         <p className="text-sm text-gray-400 mt-4">
-          <Link to="/newsletter" onClick={handleClose} className="text-brand-300 hover:text-brand-200 underline">More about the newsletter</Link>
+          <Link to="/newsletter" onClick={handleClose} className="text-sky-300 hover:text-sky-200 underline">More about the newsletter</Link>
         </p>
       </div>
     </div>

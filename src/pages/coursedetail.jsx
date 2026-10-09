@@ -32,18 +32,18 @@ export default function CourseDetail() {
       {/* Header */}
       <section className="bg-gray-900 py-14 lg:py-20">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <Link to="/courses" className="inline-flex items-center text-sm font-semibold text-brand-300 hover:text-brand-200 mb-8">
+          <Link to="/courses" className="inline-flex items-center text-sm font-semibold text-sky-300 hover:text-sky-200 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
             All courses
           </Link>
           <h1 className="text-4xl lg:text-5xl text-white mb-4">{course.title}</h1>
           <p className="text-lg text-gray-300 max-w-2xl mb-6">{course.hook}</p>
-          <p className="text-sm font-semibold text-brand-300">
+          <p className="text-sm font-semibold text-sky-300">
             {[...course.cardFacts, course.format, course.price].join(" · ")}
           </p>
           {course.tba && (
             <p className="mt-6 inline-flex items-start gap-2 rounded-lg bg-white/10 px-4 py-3 text-gray-100">
-              <Info className="w-5 h-5 mt-0.5 shrink-0 text-brand-300" />
+              <Info className="w-5 h-5 mt-0.5 shrink-0 text-sky-300" />
               Dates for the next retreat will be announced. For now, you can register your interest.
             </p>
           )}

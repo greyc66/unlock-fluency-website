@@ -16,15 +16,19 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			// Neutrals tinted toward the brand navy, so "gray" sections read as navy.
+  			// Neutrals tinted toward the deep aubergine (900), so dark sections read as aubergine ("Sky & Curtain").
   			gray: {
-  				50: '#F5F8FB', 100: '#EBF0F5', 200: '#D9E1EA', 300: '#C3CFDC', 400: '#9DAEC1',
-  				500: '#64778C', 600: '#4E6175', 700: '#344A62', 800: '#1A3350', 900: '#10233A', 950: '#0A1828'
+  				50: '#F8F6F7', 100: '#EFECEF', 200: '#DDD8DF', 300: '#CFC9D6', 400: '#A8A1B0',
+  				500: '#6E6878', 600: '#5E5A6B', 700: '#46425A', 800: '#2E2A3D', 900: '#221F2E', 950: '#1A1724'
   			},
-  			// Brand scale built around the logo sky blue (#86D2F5 at 300); 600 is the button blue, 900 the navy.
+  			// Brand scale: warm off-whites (50-200), theatre red (400-700, 600 = buttons and links), aubergine ink (800-950).
   			brand: {
-  				50: '#F4FAFE', 100: '#EAF6FD', 200: '#C8E9FA', 300: '#86D2F5', 400: '#4FB5E6',
-  				500: '#2A8FC6', 600: '#1F6FA3', 700: '#195B86', 800: '#14496C', 900: '#10233A', 950: '#0A1828'
+  				50: '#FCF8F4', 100: '#F7F0EC', 200: '#E8DFDF', 300: '#E8A2AA', 400: '#D46A76',
+  				500: '#C24D5A', 600: '#B23A48', 700: '#8F2D3A', 800: '#2E2A3D', 900: '#221F2E', 950: '#1A1724'
+  			},
+  			// The logo sky blue, for outline buttons, highlights, and links on dark sections.
+  			sky: {
+  				200: '#B6E3F8', 300: '#86D2F5', 400: '#4FB5E6'
   			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

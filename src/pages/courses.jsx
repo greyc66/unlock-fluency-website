@@ -102,7 +102,7 @@ export default function Courses() {
             Tailored courses, workshops, and retreats for teams, online or in person.
           </p>
           <Link to="/business">
-            <Button className="bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold h-11 px-6">
+            <Button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11 px-6">
               <Building2 className="w-4 h-4 mr-2" />
               Visit For Business
               <ArrowRight className="w-4 h-4 ml-2" />

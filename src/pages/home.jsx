@@ -251,11 +251,10 @@ return (
             </div>
           </div>
           <div className="relative justify-self-center w-full max-w-xs sm:max-w-sm">
-            <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-300" aria-hidden="true"></div>
             <img
               src="/images/christina-hero.jpg"
               alt="Dr Christina Grey"
-              className="relative w-full aspect-[4/5] object-cover rounded-2xl"
+              className="relative w-full aspect-[4/5] object-cover mix-blend-multiply"
             />
           </div>
         </div>
@@ -433,12 +432,12 @@ return (
           </h2>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold">
+              <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold">
                 See online courses
               </Button>
             </Link>
             <BookingLink href={DISCOVERY_CALL_URL}>
-              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 font-semibold">
+              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-brand-900 font-semibold">
                 <Calendar className="w-5 h-5 mr-2" />
                 Book a free call
               </Button>

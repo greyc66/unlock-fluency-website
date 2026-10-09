@@ -238,7 +238,7 @@ export default function Resources() {
                 Join the WhatsApp Group
               </Button>
             </a>
-            <Button size="lg" onClick={() => setShowNewsletter(true)} className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold h-11">
+            <Button size="lg" onClick={() => setShowNewsletter(true)} className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11">
               <Mail className="w-5 h-5 mr-2" />
               Subscribe to Newsletter
             </Button>
