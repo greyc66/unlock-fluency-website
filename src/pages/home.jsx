@@ -2,17 +2,18 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
 import useSwipe from "@/hooks/useSwipe";
+import WhatsDifferent from "@/components/WhatsDifferent";
 import {
   ArrowRight,
   Star,
   Users,
   User,
-  GraduationCap,
-  Sparkles,
-  Quote,
   Building2,
+  Landmark,
+  GraduationCap,
+  Quote,
   TrendingUp,
   ThumbsUp,
   Award,
@@ -20,87 +21,114 @@ import {
   Calendar
 } from "lucide-react";
 
+
+const ways = [
+  {
+    icon: Users,
+    title: "Online courses",
+    text: "Small-group courses, live online: intensive weeks, weekly evenings, weekends, and clubs.",
+    meta: "From £220",
+    link: "/courses",
+    cta: "See online courses",
+  },
+  {
+    icon: User,
+    title: "1-to-1 coaching",
+    text: "Sessions built entirely around your goals, at any level.",
+    meta: "From £75",
+    href: DISCOVERY_CALL_URL,
+    cta: "Book a free call",
+  },
+  {
+    icon: Building2,
+    title: "For business",
+    text: "Tailored training that helps teams speak up in meetings, presentations, and with clients.",
+    meta: "Online or in person",
+    link: "/business",
+    cta: "Training for teams",
+  },
+  {
+    icon: Landmark,
+    title: "Summer retreat",
+    text: "A week of English, culture, and confidence in Cambridge, UK.",
+    meta: "Once a year, each summer",
+    link: "/retreatregistration",
+    cta: "Register your interest",
+  },
+];
+
 export default function Home() {
 
-  useEffect(() => {
-    if (!document.getElementById('setmore_script')) {
-      const setmoreScript = document.createElement('script');
-      setmoreScript.id = 'setmore_script';
-      setmoreScript.type = 'text/javascript';
-      setmoreScript.src = 'https://assets.setmore.com/integration/static/setmoreIframeLive.js';
-      document.head.appendChild(setmoreScript);
-    }
-  }, []);
 
   const statsSlides = [
     {
       icon: Star,
       stat: "4.89 / 5.0",
       label: "Overall Satisfaction",
-      color: "text-amber-500",
+      color: "text-brand-600",
     },
     {
       icon: ThumbsUp,
       stat: "100%",
       label: "Recommendation Rate",
-      color: "text-emerald-600",
+      color: "text-brand-600",
     },
     {
       icon: TrendingUp,
       stat: "+45%",
       label: "Speaking Confidence Increase in Just One Week",
-      color: "text-sky-600",
+      color: "text-brand-600",
     },
     {
       icon: Award,
       stat: "83%",
       label: 'Rated Course Impact as "Excellent"',
-      color: "text-rose-500",
+      color: "text-brand-600",
     },
     {
       icon: Users,
       stat: "300+",
       label: "Successful Students",
-      color: "text-violet-600",
+      color: "text-brand-600",
     },
     {
       icon: GraduationCap,
       stat: "15 Years",
       label: "of Research & Teaching Experience",
-      color: "text-amber-500",
+      color: "text-brand-600",
     },
     {
       icon: Award,
       stat: "98.6%",
       label: "\"Strongly Agreed\" the Instructor Was Efficient, Organised, and Stimulating",
-      color: "text-emerald-600",
+      color: "text-brand-600",
     },
     {
       icon: MessageCircle,
       stat: '"Best English course I\'ve ever attended!"',
       label: null,
-      color: "text-rose-400",
+      color: "text-brand-400",
       isQuote: true,
     },
     {
       icon: MessageCircle,
       stat: '"Your method is brilliant!"',
       label: null,
-      color: "text-rose-400",
+      color: "text-brand-400",
       isQuote: true,
     },
     {
       icon: MessageCircle,
       stat: '"I had no fear to speak."',
       label: null,
-      color: "text-rose-400",
+      color: "text-brand-400",
       isQuote: true,
     },
     {
       icon: MessageCircle,
       stat: '"Felt confident after just a few days."',
       label: null,
-      color: "text-rose-400",
+      color: "text-brand-400",
       isQuote: true,
     },
   ];
@@ -171,109 +199,67 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [testimonialPaused, goNextTestimonial]);
 
-  const heroSentences = [
-    "The words are there... but accessing them feels impossible.",
-    "You've taken courses. Practised grammar. But nothing clicks.",
-    "Your English isn't broken. It's blocked.",
-    "The Unlock Fluency Method changes that.",
+  const heroLines = [
+    "Most of my students don't need more grammar. They need the confidence to use what they know.",
+    "In my courses, you start speaking from the first minute.",
   ];
 
-  const [visibleSentences, setVisibleSentences] = useState(0);
-
-  useEffect(() => {
-    if (visibleSentences >= heroSentences.length) return;
-    const timer = setTimeout(() => {
-      setVisibleSentences(prev => prev + 1);
-    }, visibleSentences === 0 ? 800 : 2000);
-    return () => clearTimeout(timer);
-  }, [visibleSentences, heroSentences.length]);
-
-  const categories = [
-  {
-    icon: Users,
-    title: "Unlock Fluency for Individuals",
-    description: "Join immersive courses designed to transform how you communicate. Speak with clarity, charisma, and confidence in any situation.",
-    link: "/courses",
-    cta: "Explore Courses"
-  },
-  {
-    icon: User,
-    title: "One-to-one Personalised Coaching",
-    description: "Receive personalised, intensive training tailored to your unique goals and learning style.",
-    link: "/contact?subject=1-to-1+Personalised+Coaching",
-    cta: "Book a Session"
-  },
-  {
-    icon: Building2,
-    title: "Unlock Fluency for Organisations",
-    description: "Unlock your team's global voice. Join immersive English courses tailored for companies, NGOs, and international teams.",
-    link: "/corporate",
-    cta: "Learn More"
-  }];
-
-
-  const differentiators = [
-  {
-    icon: GraduationCap,
-    title: "PhD Level Expertise",
-    description: "Learn from Dr Grey, an expert in Linguistics with 15+ years of experience."
-  },
-  {
-    icon: Sparkles,
-    title: "Immersive Method",
-    description: "Go beyond theory. The Unlock Fluency courses build practical skills and lasting confidence."
-  },
-  {
-    icon: Star,
-    title: "Proven Results",
-    description: "Join a vibrant community of students who have transformed their English fluency."
-  }];
-
-
 return (
-    <div className="bg-gray-900 text-gray-300">
+    <div className="bg-white text-gray-700">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
-        <div className="absolute inset-0 bg-gray-900/60"></div>
-
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center flex flex-col justify-between min-h-[60vh]">
-          <div className="flex-grow flex flex-col justify-center">
-            {/* Foreground logo remains */}
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png"
-              alt="Unlock Fluency Logo"
-              className="h-24 sm:h-32 lg:h-40 mx-auto mb-8 object-contain"
-            />
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">The Unlock Fluency Method</h1>
-            <div className="text-base lg:text-lg text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed space-y-2">
-              {heroSentences.map((sentence, index) => (
+      <section className="bg-brand-50 py-16 sm:py-24">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-600 mb-5 whitespace-nowrap">
+              Courses · Coaching · Teams · Retreats
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl leading-tight text-brand-900 mb-6">
+              Unlock the English you already have.
+            </h1>
+            <p className="text-lg text-gray-600 leading-relaxed max-w-xl mb-8">
+              {heroLines.map((line, index) => (
                 <span
                   key={index}
-                  className={`transition-all duration-700 ease-in-out ${
-                    index < visibleSentences
-                      ? "opacity-100"
-                      : "opacity-0"
-                  } ${index === heroSentences.length - 1 ? "block text-sky-300 font-semibold mt-2" : "inline"}`}
+                  className="animate-in fade-in duration-700 fill-mode-both motion-reduce:animate-none"
+                  style={{ animationDelay: `${300 + index * 400}ms` }}
                 >
-                  {sentence}{index < heroSentences.length - 1 ? " " : ""}
+                  {line}{" "}
                 </span>
               ))}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/courses">
+                <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold">
+                  See online courses
+                </Button>
+              </Link>
+              <BookingLink href={DISCOVERY_CALL_URL}>
+                <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book a free call
+                </Button>
+              </BookingLink>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-8 text-sm text-gray-600">
+              <span><strong className="text-brand-900">4.89/5</strong> satisfaction</span>
+              <span><strong className="text-brand-900">300+</strong> students</span>
+              <span><strong className="text-brand-900">PhD</strong> in Linguistics</span>
             </div>
           </div>
-          <div className="pb-8">
-            <Link to="/courses"> {/* Changed to /courses */}
-              <Button size="lg" className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold shadow-lg shadow-sky-500/20">
-                Explore Courses
-              </Button>
-            </Link>
+          <div className="relative justify-self-center w-full max-w-xs sm:max-w-sm">
+            <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-300" aria-hidden="true"></div>
+            <img
+              src="/images/christina-headshot.jpg"
+              alt="Dr Christina Grey"
+              className="relative w-full aspect-[4/5] object-cover rounded-2xl"
+            />
           </div>
         </div>
       </section>
 
-
       {/* Stats Carousel */}
       <section
-        className="py-12 sm:py-16 bg-sky-100"
+        className="py-12 sm:py-16 bg-white border-b border-brand-100"
         onMouseEnter={() => setStatsPaused(true)}
         onMouseLeave={() => setStatsPaused(false)}
         {...statsSwipe}
@@ -310,7 +296,7 @@ return (
                 key={index}
                 onClick={() => setActiveStatSlide(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === activeStatSlide ? "bg-emerald-600" : "bg-gray-400 hover:bg-gray-500"
+                  index === activeStatSlide ? "bg-brand-600" : "bg-gray-400 hover:bg-gray-500"
                 }`}
                 aria-label={`Go to stat ${index + 1}`}
               />
@@ -319,105 +305,81 @@ return (
         </div>
       </section>
 
-      {/* Method Teaser Section - Darkest Navy */}
-      <section className="py-16 sm:py-24 bg-sky-100">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-            A Psycholinguistic Approach to English Learning
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto">
-            Discover The Unlock Fluency Method: a groundbreaking teaching approach that draws from research at the intersection of cognitive science and the neuroscience of language and combines it with immersive, conversation-focused experiences. Unlock the confidence to express yourself effortlessly; in English and in life.
-          </p>
-          <Link to="/themethod"> {/* Changed to /themethod */}
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-3 shadow-lg">
-              Discover The Method <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+      {/* What makes it different */}
+      <section className="py-16 sm:py-24 bg-white">
+        <WhatsDifferent intro="The Unlock Fluency Method, in plain words." />
+        <div className="text-center mt-12">
+          <Link to="/themethod" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
+            How the method works <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </div>
       </section>
-      
 
-            {/* Dr. Grey Intro Section */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-            <div className="md:col-span-1 flex justify-center">
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/39b956fec_IMG_45862.jpg"
-                alt="Dr. Christina Grey"
-                className="aspect-[4/5] w-full max-w-xs object-cover rounded-2xl border-2 border-gray-200 shadow-xl"
-              />
-            </div>
-            <div className="md:col-span-2">
-             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
-            Your Fluency Coach: <br /> Meet Dr Christina Grey
-          </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Hello! I'm Dr Grey, a psycholinguist with a passion for helping people connect through language. I don't just teach English; I teach you how to think, feel, and communicate with confidence. My method is built from a decade of research, but my teaching is built on personal connection. Let's start your journey together. To learn more about me, please visit my <Link to="/about" className="text-emerald-600 hover:text-emerald-700 font-semibold underline">About</Link> page.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories Section - Dark Navy */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {categories.map((category) =>
-            <Card key={category.title} className="bg-white border-gray-200 hover:border-gray-300 hover:-translate-y-1 transition-transform duration-300 group">
-                <CardContent className="p-8">
-                  <div className="w-12 h-12 bg-green-600 group-hover:bg-green-700 rounded-lg flex items-center justify-center mb-6 transition-colors">
-                    <category.icon className="w-6 h-6 text-white transition-colors" />
+      {/* Ways to work with me */}
+      <section className="py-16 sm:py-24 bg-brand-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">Ways to work with me</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ways.map((way) => {
+              const cta = (
+                <span className="inline-flex items-center font-semibold text-brand-600 group-hover:text-brand-800">
+                  {way.cta} <ArrowRight className="w-4 h-4 ml-2" />
+                </span>
+              );
+              return (
+                <div key={way.title} className="group bg-white rounded-xl border border-brand-100 flex flex-col">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="w-12 h-12 rounded-lg bg-brand-600 flex items-center justify-center mb-5">
+                      <way.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <p className="text-xs font-bold tracking-wider uppercase text-brand-600 mb-2">{way.meta}</p>
+                    <h3 className="text-xl font-semibold text-brand-900 mb-2">{way.title}</h3>
+                    <p className="text-gray-600 mb-6 flex-grow">{way.text}</p>
+                    {way.href ? (
+                      <BookingLink href={way.href}>{cta}</BookingLink>
+                    ) : (
+                      <Link to={way.link}>{cta}</Link>
+                    )}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{category.title}</h3>
-                  <p className="text-gray-600 mb-6">{category.description}</p>
-                  <Link to={category.link} className="font-semibold text-emerald-600 group-hover:text-blue-800 transition-colors flex items-center">
-                    {category.cta} <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Differentiators Section - Medium Navy */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto lg:max-w-none">
-            <div className="text-center">
-              <Link to="/themethod" className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl hover:text-gray-900 transition-colors"> {/* Changed to /themethod */}
-                The Unlock Fluency Method
-              </Link>
-              <p className="mt-4 text-lg text-gray-700">
-                Go beyond traditional textbook learning. I’m here to help you speak with confidence, ease, and a presence that stands out.
-              </p>
-            </div>
-            <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 md:grid-cols-3">
-              {differentiators.map((item) =>
-              <div key={item.title} className="text-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-600 mx-auto">
-                    <item.icon className="h-6 w-6 text-gray-700" />
-                  </div>
-                  <h3 className="mt-6 text-lg font-semibold text-gray-700">{item.title}</h3>
-                  <p className="mt-2 text-base text-gray-700">{item.description}</p>
                 </div>
-              )}
-            </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Christina */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+          <img
+            src="/images/christina-cafe.jpg"
+            alt="Dr Christina Grey"
+            className="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-2xl"
+          />
+          <div>
+            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Meet Dr Christina Grey</h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              I'm a psycholinguist with a PhD in Linguistics, and I've been on stage since I was a child. I trained in drama at the University of Kent and at Tufts as a Fulbright scholar, and I've spoken at conferences across Europe and the US.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              My courses bring the two together: the science of how we learn languages, and the stage skills that help you speak with presence. Fluent English, and the confidence to use it.
+            </p>
+            <Link to="/about" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
+              My story <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Testimonials Carousel Section */}
       <section
-        className="py-16 sm:py-24 bg-sky-100"
+        className="py-16 sm:py-24 bg-brand-50"
         onMouseEnter={() => setTestimonialPaused(true)}
         onMouseLeave={() => setTestimonialPaused(false)}
         {...testimonialSwipe}
       >
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-10">What Students Say</h2>
+          <h2 className="text-3xl lg:text-4xl text-brand-900 mb-10">What Students Say</h2>
 
           <div className="relative h-72 sm:h-56 overflow-hidden">
             {homeTestimonials.map((t, index) => (
@@ -429,7 +391,7 @@ return (
                     : "opacity-0 translate-y-6 pointer-events-none"
                 }`}
               >
-                <Quote className="h-8 w-8 text-rose-400 mb-4" />
+                <Quote className="h-8 w-8 text-brand-400 mb-4" />
                 <blockquote className="text-lg lg:text-xl font-medium text-gray-800 leading-relaxed italic max-w-2xl">
                   "{t.text}"
                 </blockquote>
@@ -446,7 +408,7 @@ return (
                 key={index}
                 onClick={() => setActiveTestimonial(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  index === activeTestimonial ? "bg-emerald-600" : "bg-gray-400 hover:bg-gray-500"
+                  index === activeTestimonial ? "bg-brand-600" : "bg-gray-400 hover:bg-gray-500"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -454,31 +416,31 @@ return (
           </div>
 
           <Link to="/testimonials" className="mt-8 inline-block">
-            <Button variant="link" className="text-emerald-600 hover:text-emerald-700">
+            <Button variant="link" className="text-brand-600 hover:text-brand-700">
               Read more success stories <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* Final CTA - Lightest Navy */}
-      <section className="py-16 sm:py-24 bg-sky-100">
+      {/* Final CTA */}
+      <section className="py-16 sm:py-20 bg-gray-900">
         <div className="max-w-3xl mx-auto text-center px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
-            Ready to Begin Your Journey?
+          <h2 className="text-3xl sm:text-4xl text-white">
+            Ready to start speaking?
           </h2>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg">
-                Get in Touch
+            <Link to="/courses">
+              <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold">
+                See online courses
               </Button>
             </Link>
-            <a style={{ float: 'none', textDecoration: 'none' }} id="Setmore_button_iframe" href="https://theunlockfluencymethod.setmore.com/services/9273b47e-a6d3-4413-8922-d4ccb8b666e7">
-              <Button size="lg" className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold shadow-lg">
+            <BookingLink href={DISCOVERY_CALL_URL}>
+              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 font-semibold">
                 <Calendar className="w-5 h-5 mr-2" />
-                Book a Discovery Call
+                Book a free call
               </Button>
-            </a>
+            </BookingLink>
           </div>
         </div>
       </section>

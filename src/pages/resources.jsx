@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import NewsletterPopup from "../components/NewsletterPopup";
@@ -9,12 +7,10 @@ import {
   Lightbulb,
   Globe,
   ArrowRight,
-  Star,
   BookMarked,
   Podcast,
   Volume2,
   Mail,
-  Sparkles,
   Download,
   Lock
 } from "lucide-react";
@@ -26,30 +22,27 @@ export default function Resources() {
     {
       title: "Germanisms",
       subtitle: "Common Mistakes Germans Make in English",
-      description: "A comprehensive reference guide covering 20 common errors German speakers make in English — from false friends to tense confusion — each with psycholinguistic explanations, correction exercises, and a gap-fill with full answer keys.",
+      description: "A comprehensive reference guide covering 20 common errors German speakers make in English, from false friends to tense confusion, each with psycholinguistic explanations, correction exercises, and a gap-fill with full answer keys.",
       price: "£10",
       tags: ["German speakers", "Grammar", "Reference"],
-      bgColor: "bg-red-200",
       buyButtonId: "buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm",
       publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
     {
       title: "Business English Essentials",
       subtitle: "Common Mistakes & How to Fix Them",
-      description: "A professional reference guide covering 13 key business English areas — from polite requests and meeting language to email conventions and hedging — with exercises, a gap-fill, and complete answer keys.",
+      description: "A professional reference guide covering 13 key business English areas, from polite requests and meeting language to email conventions and hedging, with exercises, a gap-fill, and complete answer keys.",
       price: "£10",
       tags: ["Business English", "Professional", "Reference"],
-      bgColor: "bg-blue-200",
       buyButtonId: "buy_btn_1TEFCf9rCOr3Bkkro9t31iGD",
       publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
     {
       title: "English Email Essentials",
       subtitle: "Write Professional Emails with Confidence",
-      description: "A practical guide to writing clear, polite, and professional emails in English — covering openings, closings, requests, apologies, and tone — with exercises and a full answer key.",
+      description: "A practical guide to writing clear, polite, and professional emails in English, covering openings, closings, requests, apologies, and tone, with exercises and a full answer key.",
       price: "£10",
       tags: ["Email Writing", "Professional", "Reference"],
-      bgColor: "bg-green-200",
       buyButtonId: "buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh",
       publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
@@ -65,7 +58,6 @@ export default function Resources() {
         "Etymology and cultural context",
         "Usage tips and common mistakes to avoid"
       ],
-      bgColor: "bg-red-200",
       type: "whatsapp"
     },
     {
@@ -77,7 +69,6 @@ export default function Resources() {
         "Cultural context and background",
         "How to use them naturally in conversation"
       ],
-      bgColor: "bg-orange-200",
       type: "whatsapp"
     },
     {
@@ -89,7 +80,6 @@ export default function Resources() {
         "Tips for natural small talk",
         "Cultural context for different situations"
       ],
-      bgColor: "bg-yellow-200",
       type: "whatsapp"
     }
   ];
@@ -104,7 +94,6 @@ export default function Resources() {
         "Vocabulary and phrase breakdowns",
         "Discussion questions to think about"
       ],
-      bgColor: "bg-green-200",
       type: "newsletter"
     },
     {
@@ -116,7 +105,6 @@ export default function Resources() {
         "Listening comprehension exercises",
         "Vocabulary highlights from episodes"
       ],
-      bgColor: "bg-blue-200",
       type: "newsletter"
     },
     {
@@ -128,173 +116,132 @@ export default function Resources() {
         "Pronunciation guides and tips",
         "Cultural insights about different regions"
       ],
-      bgColor: "bg-purple-200",
       type: "newsletter"
     }
   ];
 
   const renderFreeCard = (section, index) => (
-    <Card key={index} className={`${section.bgColor} border-gray-400 hover:-translate-y-2 hover:shadow-xl hover:border-gray-600 transition-all duration-300 flex flex-col group`}>
-      <CardHeader>
-        <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center mb-4">
-          <section.icon className="w-6 h-6 text-gray-200" />
-        </div>
-        <CardTitle className="text-xl text-gray-900">{section.title}</CardTitle>
-      </CardHeader>
-      <CardContent className="flex-grow flex flex-col">
-        <p className="text-gray-800 mb-6 flex-grow">{section.description}</p>
-        <ul className="space-y-2 mb-6">
-          {section.items.map((item, itemIndex) => (
-            <li key={itemIndex} className="flex items-start space-x-2">
-              <ArrowRight className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" />
-              <span className="text-gray-800 text-sm">{item}</span>
-            </li>
-          ))}
-        </ul>
-        {section.type === "whatsapp" ? (
-          <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
-            <Button size="sm" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold">
-              <img src="/whatsapp.png" alt="WhatsApp" className="w-4 h-4 mr-2" />
-              Join WhatsApp Group
-            </Button>
-          </a>
-        ) : (
-          <button onClick={() => setShowNewsletter(true)} className="w-full">
-            <Button size="sm" className="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold">
-              <Mail className="w-4 h-4 mr-2" />
-              Subscribe to Newsletter
-            </Button>
-          </button>
-        )}
-      </CardContent>
-    </Card>
+    <div key={index} className="bg-white rounded-xl border border-brand-200 p-6 flex flex-col">
+      <div className="w-11 h-11 bg-brand-600 rounded-lg flex items-center justify-center mb-4">
+        <section.icon className="w-5 h-5 text-white" />
+      </div>
+      <h3 className="text-xl font-semibold text-brand-900 mb-2">{section.title}</h3>
+      <p className="text-gray-600 mb-5">{section.description}</p>
+      <ul className="space-y-2 mb-6 flex-grow">
+        {section.items.map((item, itemIndex) => (
+          <li key={itemIndex} className="flex items-start gap-2">
+            <ArrowRight className="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-700 text-sm">{item}</span>
+          </li>
+        ))}
+      </ul>
+      {section.type === "whatsapp" ? (
+        <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
+          <Button size="sm" className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold">
+            <img src="/whatsapp.png" alt="WhatsApp" className="w-4 h-4 mr-2" />
+            Join WhatsApp Group
+          </Button>
+        </a>
+      ) : (
+        <Button size="sm" onClick={() => setShowNewsletter(true)} className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
+          <Mail className="w-4 h-4 mr-2" />
+          Subscribe to Newsletter
+        </Button>
+      )}
+    </div>
   );
 
   return (
-    <div className="bg-gray-900 text-gray-300">
-
-      {/* Hero Section */}
-      <section className="py-20 lg:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="bg-gray-500/10 text-gray-400 border-gray-500/20 mb-6 px-4 py-2">
-            <Star className="w-4 h-4 mr-2" />
-            Resources
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Resources to Unlock Your Fluency
-          </h1>
-          <p className="text-xl text-white max-w-3xl mx-auto">
-            Premium handouts and free resources to support and accelerate your English journey.
+    <div className="bg-white">
+      {/* Header */}
+      <section className="bg-gray-900 py-16 lg:py-20 text-center">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <h1 className="text-4xl lg:text-5xl text-white mb-5">Resources</h1>
+          <p className="text-lg text-gray-300">
+            Premium handouts and free resources to support your English journey.
           </p>
         </div>
       </section>
 
       {/* Premium Resources */}
-      <section className="pb-16 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Sparkles className="w-6 h-6 text-amber-400" />
-            <h2 className="text-2xl font-bold text-white">Premium Resources</h2>
-          </div>
-          <p className="text-gray-400 mb-8 ml-9">Downloadable handouts to boost your English awareness — buy once, keep forever</p>
+      <section className="py-16 lg:py-20">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 mb-2">Premium handouts</h2>
+          <p className="text-gray-600 mb-10">Downloadable handouts to boost your English awareness: buy once, keep forever.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {premiumResources.map((product, index) => (
-              <Card key={index} className={`${product.bgColor} border-gray-400 hover:-translate-y-2 hover:shadow-xl hover:border-gray-600 transition-all duration-300 flex flex-col`}>
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
-                      <Download className="w-6 h-6 text-gray-200" />
-                    </div>
-                    <span className="text-2xl font-bold text-gray-800">{product.price}</span>
+              <div key={index} className="bg-white rounded-xl border border-brand-200 p-6 flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-11 h-11 bg-brand-600 rounded-lg flex items-center justify-center">
+                    <Download className="w-5 h-5 text-white" />
                   </div>
-                  <CardTitle className="text-xl text-gray-900">{product.title}</CardTitle>
-                  <p className="text-sm text-gray-600 font-medium">{product.subtitle}</p>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-gray-800 mb-5 flex-grow leading-relaxed">{product.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {product.tags.map((tag, i) => (
-                      <span key={i} className="text-xs bg-white/60 text-gray-700 px-3 py-1 rounded-full">{tag}</span>
-                    ))}
+                  <span className="font-display text-3xl text-brand-900">{product.price}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-brand-900">{product.title}</h3>
+                <p className="text-sm text-brand-700 font-medium mb-3">{product.subtitle}</p>
+                <p className="text-gray-600 mb-5 flex-grow leading-relaxed">{product.description}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {product.tags.map((tag, i) => (
+                    <span key={i} className="text-xs bg-brand-50 text-brand-800 px-3 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+                {product.buyButtonId ? (
+                  <div className="flex justify-center">
+                    <stripe-buy-button
+                      buy-button-id={product.buyButtonId}
+                      publishable-key={product.publishableKey}
+                    />
                   </div>
-                  {product.buyButtonId ? (
-                    <div className="flex justify-center">
-                      <stripe-buy-button
-                        buy-button-id={product.buyButtonId}
-                        publishable-key={product.publishableKey}
-                      />
-                    </div>
-                  ) : (
-                    <Button size="sm" disabled className="w-full bg-gray-400 text-gray-600 font-semibold cursor-not-allowed">
-                      <Lock className="w-4 h-4 mr-2" />
-                      Coming Soon
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
+                ) : (
+                  <Button size="sm" disabled className="w-full bg-gray-200 text-gray-600 font-semibold cursor-not-allowed">
+                    <Lock className="w-4 h-4 mr-2" />
+                    Coming Soon
+                  </Button>
+                )}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-gray-700" />
-      </div>
+      {/* Free Resources */}
+      <section className="py-16 lg:py-20 bg-brand-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 mb-2">Free resources</h2>
+          <p className="text-gray-600 mb-10">Shared regularly with my community: no cost, no catch.</p>
 
-      {/* Free Resources header */}
-      <section className="pt-12 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Star className="w-6 h-6 text-sky-400" />
-            <h2 className="text-2xl font-bold text-white">Free Resources</h2>
-          </div>
-          <p className="text-gray-400 ml-9">Complimentary content shared regularly with my community — no cost, no catch</p>
-        </div>
-      </section>
-
-      {/* Bi-weekly Resources */}
-      <section className="pb-12 lg:pb-16 pt-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-lg font-semibold text-gray-300 mb-2">Bi-weekly</h3>
-          <p className="text-gray-400 mb-8">Shared every two weeks in my WhatsApp community group</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h3 className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every two weeks</h3>
+          <p className="text-gray-600 mb-6">In my WhatsApp community group</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
             {biweeklyResources.map((section, index) => renderFreeCard(section, index))}
           </div>
-        </div>
-      </section>
 
-      {/* Monthly Resources */}
-      <section className="pb-16 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-lg font-semibold text-gray-300 mb-2">Monthly</h3>
-          <p className="text-gray-400 mb-8">Delivered straight to your inbox with my Newsletter</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h3 className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every month</h3>
+          <p className="text-gray-600 mb-6">Straight to your inbox with my newsletter</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {monthlyResources.map((section, index) => renderFreeCard(section, index))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-950/40">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
-            Connect with The Unlock Fluency Method Community
+      <section className="py-16 lg:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl text-white mb-8">
+            Join The Unlock Fluency Method community
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4">
+              <Button size="lg" className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold h-11">
                 <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5 mr-2" />
                 Join the WhatsApp Group
               </Button>
             </a>
-            <button onClick={() => setShowNewsletter(true)}>
-              <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-8 py-4">
-                <Mail className="w-5 h-5 mr-2" />
-                Subscribe to Newsletter
-              </Button>
-            </button>
+            <Button size="lg" onClick={() => setShowNewsletter(true)} className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold h-11">
+              <Mail className="w-5 h-5 mr-2" />
+              Subscribe to Newsletter
+            </Button>
           </div>
         </div>
       </section>

@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Mail, CheckCircle, Loader2 } from "lucide-react";
+import { Mail, CheckCircle, Loader2, Calendar } from "lucide-react";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
@@ -27,8 +27,8 @@ export default function Contact() {
 
 useEffect(() => {
     if (formData.enquiry_type === "Newsletter Sign-up") {
-      setFormData(prev => ({ ...prev, message: "I want the free PDF with English learning tips & resources — monthly learning materials, and early access to new courses." }));
-    } else if (formData.message === "I want the free PDF with English learning tips & resources — monthly learning materials, and early access to new courses.") {
+      setFormData(prev => ({ ...prev, message: "I want the free PDF with English learning tips & resources, monthly learning materials, and early access to new courses." }));
+    } else if (formData.message === "I want the free PDF with English learning tips & resources, monthly learning materials, and early access to new courses.") {
       // Clear message if switching away from Newsletter Sign-up and it was the auto-filled message
       setFormData(prev => ({ ...prev, message: "" }));
     }
@@ -40,7 +40,7 @@ useEffect(() => {
   };
 
   const getMessagePlaceholder = () => {
-    if (formData.enquiry_type === "1-to-1 Personalised Coaching" || formData.enquiry_type === "Unlock Fluency for Organisations") {
+    if (formData.enquiry_type === "1-to-1 Personalised Coaching" || formData.enquiry_type === "Unlock Fluency for Business") {
       return "Please write your message here, including your learning goals, desired course length and any other details that might be relevant.";
     }
     return "Please write your message here...";
@@ -58,7 +58,7 @@ const handleSubmit = async (e) => {
       requiredFields.push("current_english_level");
     }
 
-    if (formData.enquiry_type === "Unlock Fluency for Organisations") {
+    if (formData.enquiry_type === "Unlock Fluency for Business") {
       requiredFields.push("course_level");
     }
 
@@ -102,64 +102,60 @@ const handleSubmit = async (e) => {
 
   if (submitted) {
     return (
-      <div className="bg-gray-900 py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gray-800 border-gray-700">
-            <CardContent className="p-12 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center border border-green-500/20">
-                <CheckCircle className="w-10 h-10 text-green-400" />
-              </div>
-              <h1 className="text-3xl font-bold text-white mb-4">
-                {submittedType === 'newsletter' ? 'Successfully Subscribed!' : 'Message Sent Successfully!'}
-              </h1>
-              <p className="text-lg text-gray-400">
-                {submittedType === 'newsletter'
-                  ? "Thank you for subscribing. I'll be in touch soon!"
-                  : "Thank you for your enquiry. We'll get back to you as soon as possible."}
-              </p>
-            </CardContent>
-          </Card>
+      <div className="bg-brand-50 py-20">
+        <div className="max-w-2xl mx-auto px-6 lg:px-8">
+          <div className="bg-white rounded-2xl border border-brand-100 p-12 text-center">
+            <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center border border-green-500/20">
+              <CheckCircle className="w-10 h-10 text-green-600" />
+            </div>
+            <h1 className="text-3xl text-brand-900 mb-4">
+              {submittedType === 'newsletter' ? 'Successfully Subscribed!' : 'Message Sent Successfully!'}
+            </h1>
+            <p className="text-lg text-gray-600">
+              {submittedType === 'newsletter'
+                ? "Thank you for subscribing. I'll be in touch soon!"
+                : "Thank you for your enquiry. I'll get back to you as soon as possible."}
+            </p>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-900 py-16">
-      <section className="text-center mb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Get in Touch
-          </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Have a question about the Unlock Fluency courses, 1-to-1 Personalised Coaching, or the Unlock Fluency courses for Organisations? I'd love to hear from you.
+    <div className="bg-white">
+      <section className="bg-gray-900 py-16 lg:py-20 text-center">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <h1 className="text-4xl lg:text-5xl text-white mb-5">Get in Touch</h1>
+          <p className="text-lg text-gray-300">
+            A question about my online courses, 1-to-1 coaching, or training for your organisation? I'd love to hear from you.
           </p>
         </div>
       </section>
 
-      <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="bg-gray-800/50 border-gray-700">
-          <CardContent className="p-8">
+      <section className="py-16 lg:py-20 bg-brand-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-8">
+          <div className="bg-white rounded-2xl border border-brand-100 p-6 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-gray-400">Full Name *</Label>
-                  <Input id="name" value={formData.name} onChange={(e) => handleInputChange("name", e.target.value)} placeholder="Your Name" />
+                  <Label htmlFor="name" className="text-brand-900 font-semibold">Full Name *</Label>
+                  <Input id="name" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.name} onChange={(e) => handleInputChange("name", e.target.value)} placeholder="Your Name" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-gray-400">Email Address *</Label>
-                  <Input id="email" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} placeholder="your.email@example.com" />
+                  <Label htmlFor="email" className="text-brand-900 font-semibold">Email Address *</Label>
+                  <Input id="email" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} placeholder="your.email@example.com" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="enquiry_type" className="text-gray-400">Subject of Enquiry *</Label>
+                <Label htmlFor="enquiry_type" className="text-brand-900 font-semibold">Subject of Enquiry *</Label>
                 <Select value={formData.enquiry_type} onValueChange={(value) => handleInputChange("enquiry_type", value)}>
-                  <SelectTrigger><SelectValue placeholder="Select subject" /></SelectTrigger>
-                  <SelectContent>
+                  <SelectTrigger className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"><SelectValue placeholder="Select subject" /></SelectTrigger>
+                  <SelectContent className="bg-white text-brand-900 border-brand-200">
                     <SelectItem value="General Enquiry">General Enquiry</SelectItem>
                     <SelectItem value="1-to-1 Personalised Coaching">1-to-1 Personalised Coaching</SelectItem>
-                    <SelectItem value="Unlock Fluency for Organisations">Unlock Fluency for Organisations</SelectItem>
+                    <SelectItem value="Unlock Fluency for Business">Unlock Fluency for Business</SelectItem>
                     <SelectItem value="Newsletter Sign-up">Newsletter Sign-up</SelectItem>
                   </SelectContent>
                 </Select>
@@ -168,18 +164,18 @@ const handleSubmit = async (e) => {
               {/* Conditional fields for 1-to-1 Coaching */}
               {formData.enquiry_type === "1-to-1 Personalised Coaching" && (
                 <div className="space-y-2">
-                  <Label htmlFor="current_english_level" className="text-gray-400">Current English Level *</Label>
-                  <Input id="current_english_level" value={formData.current_english_level} onChange={(e) => handleInputChange("current_english_level", e.target.value)} placeholder="e.g., Intermediate, B2" />
+                  <Label htmlFor="current_english_level" className="text-brand-900 font-semibold">Current English Level *</Label>
+                  <Input id="current_english_level" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.current_english_level} onChange={(e) => handleInputChange("current_english_level", e.target.value)} placeholder="e.g., Intermediate, B2" />
                 </div>
               )}
 
-              {/* Conditional fields for Organisations */}
-              {formData.enquiry_type === "Unlock Fluency for Organisations" && (
+              {/* Conditional fields for Business */}
+              {formData.enquiry_type === "Unlock Fluency for Business" && (
                 <div className="space-y-2">
-                  <Label htmlFor="course_level" className="text-gray-400">Required Course Level *</Label>
+                  <Label htmlFor="course_level" className="text-brand-900 font-semibold">Required Course Level *</Label>
                   <Select value={formData.course_level} onValueChange={(value) => handleInputChange("course_level", value)}>
-                    <SelectTrigger><SelectValue placeholder="Select level" /></SelectTrigger>
-                    <SelectContent>
+                    <SelectTrigger className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"><SelectValue placeholder="Select level" /></SelectTrigger>
+                    <SelectContent className="bg-white text-brand-900 border-brand-200">
                       <SelectItem value="beginner">Beginner</SelectItem>
                       <SelectItem value="intermediate">Intermediate</SelectItem>
                       <SelectItem value="advanced">Advanced</SelectItem>
@@ -190,9 +186,10 @@ const handleSubmit = async (e) => {
 
             {formData.enquiry_type !== 'Newsletter Sign-up' && (
   <div className="space-y-2">
-  <Label htmlFor="message" className="text-gray-400">Message *</Label>
+  <Label htmlFor="message" className="text-brand-900 font-semibold">Message *</Label>
   <Textarea 
     id="message" 
+    className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
     value={formData.message} 
     onChange={(e) => handleInputChange("message", e.target.value)} 
     placeholder={getMessagePlaceholder()}
@@ -204,14 +201,31 @@ const handleSubmit = async (e) => {
               {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
 
               <div className="text-right">
-                <Button type="submit" disabled={isSubmitting} size="lg" className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold">
+                <Button type="submit" disabled={isSubmitting} size="lg" className="bg-brand-600 hover:bg-brand-700 text-white font-semibold">
                   {isSubmitting ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <Mail className="w-5 h-5 mr-2" />}
                   {isSubmitting ? "Sending..." : formData.enquiry_type === "Newsletter Sign-up" ? "Subscribe" : "Send Message"}
                 </Button>
               </div>
             </form>
-          </CardContent>
-        </Card>
+          </div>
+
+          <aside className="space-y-6">
+            <div className="bg-white rounded-2xl border border-brand-100 p-6">
+              <h2 className="text-2xl text-brand-900 mb-2">Prefer to talk?</h2>
+              <p className="text-gray-600 mb-4">Book a free 20-minute discovery call at a time that suits you.</p>
+              <BookingLink href={DISCOVERY_CALL_URL} className="block">
+                <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Book a free call
+                </Button>
+              </BookingLink>
+            </div>
+            <div className="bg-white rounded-2xl border border-brand-100 p-6">
+              <h2 className="text-2xl text-brand-900 mb-2">Email</h2>
+              <a href="mailto:contact@unlockfluency.co.uk" className="text-brand-600 hover:text-brand-700 font-semibold break-all">contact@unlockfluency.co.uk</a>
+            </div>
+          </aside>
+        </div>
       </section>
     </div>
   );

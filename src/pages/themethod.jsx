@@ -1,255 +1,100 @@
 
-import React, { useState, useEffect, useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import WhatsDifferent from "@/components/WhatsDifferent";
 import {
-  MessageCircle,
   Users,
-  Clock,
-  Lightbulb,
-  Target,
   Coffee,
-  BookOpen,
   Presentation,
   CheckCircle,
   ArrowRight,
-  Calendar,
-  Trophy,
-  Search,
-  Users2,
-  GraduationCap,
-  Heart,
+  BookOpen,
   Utensils,
-  Book,
-  PenSquare,
-  Award,
+  Headphones,
+  MessageCircle,
   Briefcase,
-  Plane,
-  BrainCircuit,
-  Rocket,
-  Sparkles } from
-"lucide-react";
+  Smile
+} from "lucide-react";
 
-/* ── Scroll-triggered visibility hook ── */
-function useScrollReveal(threshold = 0.15) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [threshold]);
-  return [ref, visible];
-}
+const principles = [
+  { icon: Headphones, title: "Listen first", text: "Real TED talks, podcasts, and stories build your instinct for how English sounds before you think about rules." },
+  { icon: MessageCircle, title: "Talk constantly", text: "Role-plays, discussion groups, and small breakout rooms. Most of the time, you are the one speaking." },
+  { icon: Briefcase, title: "Real situations", text: "Small talk, meetings, debates, and giving your opinion: the conversations that matter in work and life." },
+  { icon: Smile, title: "Feedback that builds confidence", text: "Personal, practical feedback and ready-made phrases, in a group where mistakes are part of learning." },
+];
+
+const stageSkills = ["Voice and pace", "Presence and body language", "Improvising when you don't know a word", "Handling nerves"];
 
 export default function TheMethod() {
-  const methodologyHighlights = [
-  { icon: MessageCircle, title: "Conversational Exercises", description: "Real-world scenarios and dialogue practice", bg: "bg-emerald-500", hoverBg: "group-hover:bg-emerald-600" },
-  { icon: Users, title: "Role-play", description: "Immersive situational learning", bg: "bg-violet-500", hoverBg: "group-hover:bg-violet-600" },
-  { icon: Target, title: "Discussion Groups", description: "Small group dynamics and peer learning", bg: "bg-amber-500", hoverBg: "group-hover:bg-amber-600" },
-  { icon: Lightbulb, title: "Confidence-building Activities", description: "Structured exercises to build speaking confidence", bg: "bg-rose-500", hoverBg: "group-hover:bg-rose-600" }];
-
-
   const dailySchedule = [
-  { time: "Morning", title: "Daily Overview", description: "Start with a daily overview and an icebreaker to warm-up.", icon: Coffee, color: "bg-sky-800" },
-  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, and money. Immersive discussions in breakout rooms.", icon: Users, color: "bg-violet-800" },
-  { time: "Lunch", title: "Break", description: "After a very engaging morning discussing the theme of the day, we take a lunch break to refuel and recharge.", icon: Utensils, color: "bg-amber-800" },
-  { time: "Afternoon", title: "Interactive Sessions", description: "Debates based on the theme of the day. Breakout rooms where learners have a chance to practice small-talk techniques.", icon: Presentation, color: "bg-emerald-800" },
-  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practice real-life scenarios. Dynamic group activities, workshops, and debates. Round off with writing exercises.", icon: CheckCircle, color: "bg-rose-800" }];
+  { time: "Morning", title: "Daily Overview", description: "Start with a daily overview and an icebreaker to warm-up.", icon: Coffee, color: "bg-brand-800" },
+  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, and money. Immersive discussions in breakout rooms.", icon: Users, color: "bg-brand-800" },
+  { time: "Lunch", title: "Break", description: "After a very engaging morning discussing the theme of the day, we take a lunch break to refuel and recharge.", icon: Utensils, color: "bg-brand-800" },
+  { time: "Afternoon", title: "Interactive Sessions", description: "Debates based on the theme of the day. Breakout rooms where learners have a chance to practice small-talk techniques.", icon: Presentation, color: "bg-brand-800" },
+  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practice real-life scenarios. Dynamic group activities, workshops, and debates. Round off with writing exercises.", icon: CheckCircle, color: "bg-brand-800" }];
 
   const [activeStep, setActiveStep] = useState(0);
 
-  const immersiveFeatures = [
-  { icon: MessageCircle, text: "100% Immersion, Maximum Results: from casual small talk to professional discussions. The more you speak, the faster you improve.", bg: "bg-sky-500", hoverBg: "group-hover:bg-sky-600" },
-  { icon: Trophy, text: "Confidence Over Perfection: focus on real-life communication, not just textbook rules. Learn to express your ideas naturally and confidently.", bg: "bg-amber-500", hoverBg: "group-hover:bg-amber-600" },
-  { icon: CheckCircle, text: "Practical Real-life Topics: from office chats to social gatherings, the curriculum covers the conversations that matter most. Every lesson is relatable and immediately useful.", bg: "bg-emerald-500", hoverBg: "group-hover:bg-emerald-600" },
-  { icon: Search, text: "Personalised Feedback: you'll receive constructive, actionable feedback, helping you sound more natural and fluent each day.", bg: "bg-violet-500", hoverBg: "group-hover:bg-violet-600" },
-  { icon: Users2, text: "Community & Support: join a supportive environment! Fluency is faster when you're surrounded by practice and encouragement.", bg: "bg-rose-500", hoverBg: "group-hover:bg-rose-600" }];
-
-
-  const roadmapSteps = [
-  { title: "Early Passion", description: "My journey wasn't just academic; it was personal. Growing up with three languages sparked a lifelong fascination with how we learn, connect, and express ourselves. This led me down a path of deep academic enquiry.", icon: Heart },
-  { title: "Academic Foundation", description: "My PhD wasn't just about theory. I studied how bilingual babies acquire language naturally, and I asked myself: why can't adults learn with that same immersive joy? That question became the foundation of my method.", icon: GraduationCap },
-  { title: "Professional Experience", description: "With over a decade of teaching experience, I've spent countless hours in the classroom, observing firsthand the gap between traditional textbook learning and real-world communication. I saw students who could ace grammar tests but hesitated in simple conversations.", icon: Briefcase },
-  { title: "Deepening Knowledge", description: "Having lived in many different countries and been exposed to different educational systems, I started to notice the gaps in language teaching and saw an opportunity to bridge them by applying my psycholinguistic expertise.", icon: Plane },
-  { title: "Method Foundations", description: "<strong>The Unlock Fluency Method</strong> was born from this intersection of psycholinguistic theory and practical teaching experience. It's a system designed to replicate the natural, immersive way we acquire our first language.", icon: Lightbulb },
-  { title: "Talk, Don't Memorise", description: "The Method moves beyond rote memorisation to build genuine, spontaneous communication skills, creating a dynamic learning environment where confidence and fluency can truly flourish.", icon: MessageCircle },
-  { title: "Psycholinguistic Foundation", description: "<em> 'How do babies learn their first language? What happens to the brain when we read, speak, or listen?' </em> These are some of the questions psycholinguistics tries to answer. The Method follows the natural stages of language acquisition and engages learners through meaningful input, active use, memory support, and positive handling of errors. It focuses on the connection between language and brain.", icon: BrainCircuit },
-  { title: "Beyond Fluency", description: "One of my favourite student reviews says: <em>'This isn't just an English course — it's a course about culture, life, and beyond.'</em> That perfectly reflects how I designed these courses: as engaging, immersive experiences where language is the tool, but the benefits reach far beyond.", icon: Sparkles },
-  { title: "Refining the Method", description: "Synthesising a decade of research and teaching experience into a unique teaching philosophy has taught me to constantly evolve, always seeking to refine my courses and incorporate student feedback. The Method can be adapted for different age groups. So far, it has proven to be effective with learners of all ages — from young adults to mature learners.", icon: PenSquare }];
-
-
-  const pastelColors = ['bg-rose-100', 'bg-teal-100', 'bg-amber-100', 'bg-sky-100', 'bg-violet-100', 'bg-lime-100', 'bg-pink-100', 'bg-cyan-100', 'bg-orange-100'];
-
-  /* ── Scroll-triggered refs ── */
-  const [featuresRef, featuresVisible] = useScrollReveal(0.1);
-  const timelineRefs = useRef([]);
-
-  const [visibleSteps, setVisibleSteps] = useState(new Set());
-
-  useEffect(() => {
-    const observers = [];
-    timelineRefs.current.forEach((el, index) => {
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisibleSteps(prev => new Set([...prev, index]));
-          }
-        },
-        { threshold: 0.2 }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-    return () => observers.forEach(o => o.disconnect());
-  }, []);
-
   return (
-    <div className="bg-gray-900 text-gray-300">
-      <div className="relative">
-        <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/99489a51f_ling-app-IBCrGev2Dck-unsplash.jpg"
-          alt="Language learning setup"
-          className="absolute inset-0 w-full h-full object-cover opacity-10" />
+    <div className="bg-white text-gray-700">
+      {/* Hero */}
+      <section className="bg-gray-900 py-16 lg:py-24">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <h1 className="text-4xl lg:text-5xl text-white mb-6">The Unlock Fluency Method</h1>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            I teach English the way you learned your first language: by listening, talking, and using it in real situations. Grammar comes along the way.
+          </p>
+        </div>
+      </section>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/80 to-gray-900"></div>
+      {/* What makes it different */}
+      <section className="py-16 lg:py-24 bg-white">
+        <WhatsDifferent />
+      </section>
 
-        <div className="relative">
-          {/* Hero Section */}
-          <section className="pt-20 lg:pt-24 pb-8">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <Badge className="bg-gray-500/10 text-gray-400 border-gray-500/20 mb-6 px-4 py-2">
-                <Lightbulb className="w-4 h-4 mr-2" />
-                Teaching Method
-              </Badge>
-
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                The Unlock Fluency Method
-              </h1>
-
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Discover how my Method transforms the way you learn and speak English through natural, conversation-focused experiences.
-              </p>
-            </div>
-          </section>
-
-          {/* Conception of the Method Section — Scroll-triggered */}
-          <section className="pt-8 pb-16 overflow-hidden relative">
-            <img src="/cambridge-bg.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.06] pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-transparent to-gray-900 pointer-events-none"></div>
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <h2 className="text-3xl font-bold text-center text-white mb-12">The Genesis of my Method</h2>
-
-              <div className="relative">
-                {/* Vertical line for desktop */}
-                <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-stone-200 hidden md:block transform -translate-x-1/2"></div>
-
-                {roadmapSteps.map((step, index) =>
-                <div
-                  key={index}
-                  ref={el => timelineRefs.current[index] = el}
-                  className={`mb-4 flex items-center w-full transition-all duration-700 ease-out ${
-                    visibleSteps.has(index)
-                      ? "opacity-100 translate-x-0"
-                      : index % 2 === 0
-                        ? "opacity-0 -translate-x-12"
-                        : "opacity-0 translate-x-12"
-                  } ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-                >
-                    {/* Content for left side (even index) */}
-                    {index % 2 === 0 &&
-                  <>
-                        <div className={`order-1 ${pastelColors[index % pastelColors.length]} rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4`}>
-                          <h3 className="mb-3 font-bold text-slate-800 text-xl">{step.title}</h3>
-                          <p className="text-sm leading-snug tracking-wide text-slate-700 text-opacity-100" dangerouslySetInnerHTML={{ __html: step.description }}></p>
-                        </div>
-                        <div className="z-20 flex items-center order-2 bg-sky-500 shadow-xl w-12 h-12 rounded-full transform md:-translate-x-1/2 mx-4 md:mx-0">
-                          <step.icon className="mx-auto text-slate-200" />
-                        </div>
-                        <div className="order-3 w-5/12 hidden md:block"></div> {/* Spacer for right side */}
-                      </>
-                  }
-
-                    {/* Content for right side (odd index) */}
-                    {index % 2 !== 0 &&
-                  <>
-                        <div className="order-1 w-5/12 hidden md:block"></div> {/* Spacer for left side */}
-                        <div className="z-20 flex items-center order-2 bg-sky-500 shadow-xl w-12 h-12 rounded-full transform md:translate-x-1/3 mx-4 md:mx-0">
-                          <step.icon className="mx-auto text-slate-200" />
-                        </div>
-                        <div className={`order-3 ${pastelColors[index % pastelColors.length]} rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4`}>
-                          <h3 className="mb-3 font-bold text-slate-800 text-xl">{step.title}</h3>
-                          <p className="text-sm leading-snug tracking-wide text-slate-700 text-opacity-100" dangerouslySetInnerHTML={{ __html: step.description }}></p>
-                        </div>
-                      </>
-                  }
-                  </div>
-                )}
+      {/* How it works */}
+      <section className="py-16 lg:py-24 bg-brand-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">How it works</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {principles.map((p) => (
+              <div key={p.title} className="bg-white rounded-xl border border-brand-100 p-6">
+                <div className="w-11 h-11 rounded-lg bg-brand-600 flex items-center justify-center mb-4">
+                  <p.icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-brand-900 mb-2">{p.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{p.text}</p>
               </div>
-            </div>
-          </section>
-        </div>
-      </div>
-
-      {/* Immersive Process Infographic — with scroll-triggered entrance */}
-      <section className="py-16 bg-sky-100" ref={featuresRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">How The Unlock Fluency Method Works</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-            {immersiveFeatures.map((feature, index) =>
-            <Card
-              key={index}
-              className={`bg-white border-amber-50 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group cursor-default ${
-                featuresVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: featuresVisible ? `${index * 150}ms` : "0ms" }}
-            >
-                <CardContent className="p-6">
-                  <div className={`w-12 h-12 ${feature.bg} ${feature.hoverBg} rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300`}>
-                    <feature.icon className="w-6 h-6 text-white transition-colors duration-300" />
-                  </div>
-                  <p className="text-gray-800 text-sm leading-relaxed">{feature.text}</p>
-                </CardContent>
-              </Card>
-            )}
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Methodology Highlights — reduced gap, hover effects */}
-      <section className="pt-2 pb-16 bg-sky-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Method Highlights</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {methodologyHighlights.map((item, index) =>
-            <Card key={index} className="bg-white border-amber-50 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group cursor-default">
-                <CardContent className="p-8">
-                  <div className={`w-16 h-16 mx-auto mb-6 ${item.bg} ${item.hoverBg} rounded-full flex items-center justify-center transition-colors duration-300`}>
-                    <item.icon className="w-8 h-8 text-white transition-colors duration-300" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">{item.title}</h3>
-                  <p className="text-gray-700">{item.description}</p>
-                </CardContent>
-              </Card>
-            )}
+      {/* From the stage */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <div>
+            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6 text-center">Skills from the stage</h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              I was on stage long before I became a linguist. Fluency is only half of speaking well; the other half is confidence. So alongside the English, I coach the skills actors and speakers rely on:
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {stageSkills.map((skill) => (
+                <li key={skill} className="flex items-start gap-3 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 shrink-0" />
+                  <span>{skill}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Daily Structure — Horizontal Stepper */}
-      <section className="py-16 bg-sky-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">A Typical Day in an Unlock Fluency Course</h2>
+      {/* Daily Structure: Horizontal Stepper */}
+      <section className="py-16 lg:py-24 bg-brand-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-4">A typical day on an intensive course</h2>
           <p className="text-center text-gray-700 mb-10">All course content is created and delivered by Dr Christina Grey</p>
 
           {/* Step tabs */}
@@ -301,20 +146,41 @@ export default function TheMethod() {
         </div>
       </section>
 
+      {/* The science, briefly */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+          <img
+            src="/images/christina-office.jpg"
+            alt="Christina in her office in front of linguistics posters"
+            className="w-32 h-32 rounded-full object-cover mx-auto mb-6"
+          />
+          <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">The science, briefly</h2>
+          <p className="text-lg text-gray-700 leading-relaxed mb-4">
+            Psycholinguistics studies how the brain learns and uses language. The method follows the natural stages of language acquisition: meaningful input, active use, memory support, and a positive approach to mistakes.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            It grew out of my PhD research on how bilingual children learn languages naturally, and 15 years of teaching adults.
+          </p>
+          <Link to="/about" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
+            My story <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 bg-gray-950/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Experience Immersive Learning?</h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <section className="py-16 lg:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl text-white mb-8">Ready to try it?</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button size="lg" className="bg-sky-500 hover:bg-sky-700 text-white font-semibold px-8 py-4">
+              <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold px-8 h-11">
                 <BookOpen className="w-5 h-5 mr-2" />
-                Explore Courses
+                See online courses
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button size="lg" className="bg-slate-50 text-gray-900 px-8 py-4 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 hover:bg-sky-600">
-                Get in Touch <ArrowRight className="w-5 h-5 ml-2" />
+            <Link to="/business">
+              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 px-8 text-sm font-semibold h-11">
+                For business <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
           </div>

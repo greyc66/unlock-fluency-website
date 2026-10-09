@@ -3,6 +3,7 @@ import Layout from "./Layout.jsx";
 // Import components with proper capitalization
 import Home from "./home.jsx";
 import Courses from "./courses.jsx";
+import CourseDetail from "./coursedetail.jsx";
 import About from "./about.jsx";
 import Testimonials from "./testimonials.jsx";
 import Contact from "./contact.jsx";
@@ -11,10 +12,10 @@ import Resources from "./resources.jsx";
 import PrivacyPolicy from "./privacypolicy.jsx";
 import CancellationPolicy from "./cancellationpolicy.jsx";
 import Faqs from "./faqs.jsx";
-import Corporate from "./corporate.jsx";
+import Business from "./business.jsx";
 import RetreatRegistration from "./retreatregistration.jsx";
 
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 
 const PAGES = {
     home: Home,
@@ -27,7 +28,7 @@ const PAGES = {
     privacypolicy: PrivacyPolicy,
     cancellationpolicy: CancellationPolicy,
     faqs: Faqs,
-    corporate: Corporate,
+    business: Business,
     retreatregistration: RetreatRegistration,
 }
 
@@ -55,6 +56,7 @@ function PagesContent() {
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/courses" element={<Courses />} />
+                <Route path="/courses/:slug" element={<CourseDetail />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
@@ -63,7 +65,8 @@ function PagesContent() {
                 <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                 <Route path="/cancellationpolicy" element={<CancellationPolicy />} />
                 <Route path="/faqs" element={<Faqs />} />
-                <Route path="/corporate" element={<Corporate />} />
+                <Route path="/business" element={<Business />} />
+                <Route path="/corporate" element={<Navigate to="/business" replace />} />
                 <Route path="/retreatregistration" element={<RetreatRegistration />} />
             </Routes>
         </Layout>

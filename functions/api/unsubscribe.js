@@ -40,7 +40,7 @@ const successHtml = `<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unsubscribed – The Unlock Fluency Method</title>
+  <title>Unsubscribed | The Unlock Fluency Method</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background: #111827; color: #d1d5db; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
@@ -68,7 +68,7 @@ function errorHtml(message) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Error – The Unlock Fluency Method</title>
+  <title>Error | The Unlock Fluency Method</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background: #111827; color: #d1d5db; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }

@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Star, Quote, Globe, Calendar, BookOpen, ArrowRight } from "lucide-react";
+import { Star, Quote, Calendar, BookOpen, ArrowRight } from "lucide-react";
 import useSwipe from "@/hooks/useSwipe";
 
 // Static testimonial data, removing the need for the Entities SDK
@@ -109,7 +107,7 @@ const staticTestimonials = [
    {
     id: 15,
     rating: 5,
-    testimonial_text: "It was truly the best English course I've ever attended. I liked the mix of assignments. I also learned a lot about the topics of the day. That was a really nice mix! I liked the pacing – it was tight, but strangely I wasn’t so tired. It was perfect for me.",
+    testimonial_text: "It was truly the best English course I've ever attended. I liked the mix of assignments. I also learned a lot about the topics of the day. That was a really nice mix! I liked the pacing; it was tight, but strangely I wasn’t so tired. It was perfect for me.",
     student_name: "Hanna",
     student_country: "Germany",
   },
@@ -418,71 +416,58 @@ export default function Testimonials() {
       <Star
         key={i}
         className={`${size} ${
-          i < rating ? "text-amber-400 fill-current" : "text-gray-600"
+          i < rating ? "text-amber-400 fill-current" : "text-gray-300"
         }`}
       />
     ));
   };
 
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900">
-       <img
-        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/312d18cf7_luis-desiro-itIxtxz0YU4-unsplash.jpg"
-        alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-20"
-      />
-
-      <section className="py-20 lg:py-24 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Badge className="bg-gray-500/10 text-gray-400 border-gray-500/20 mb-6 px-4 py-2">
-            <Star className="w-4 h-4 mr-2" />
-            Student Success Stories
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Real Results, Real Confidence
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Hear from students who have unlocked their English potential with my immersive teaching approach.
+    <div className="bg-white">
+      {/* Header */}
+      <section className="bg-gray-900 py-16 lg:py-20 text-center">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <h1 className="text-4xl lg:text-5xl text-white mb-5">Success Stories</h1>
+          <p className="text-lg text-gray-300 mb-8">
+            Real results from real learners, in their own words.
           </p>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-gray-300">
+            <span><strong className="text-white">4.89/5</strong> satisfaction</span>
+            <span><strong className="text-white">100%</strong> would recommend</span>
+            <span><strong className="text-white">300+</strong> students</span>
+          </div>
         </div>
       </section>
 
       {/* Featured Carousel */}
-      <section className="pb-16 lg:pb-20">
+      <section className="py-16 lg:py-20 bg-brand-50">
         <div
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+          className="max-w-4xl mx-auto px-6 lg:px-8"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           {...featuredSwipe}
         >
-          <div className="relative">
-            <div className="overflow-hidden">
-              {featured.map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  className={`transition-all duration-700 ease-in-out ${index === activeSlide ? "opacity-100 translate-x-0 relative" : "opacity-0 translate-x-8 absolute inset-0 pointer-events-none"}`}
-                >
-                  <Card className="bg-gray-600/60 border border-gray-500 backdrop-blur-sm">
-                    <CardContent className="p-8 md:p-12 text-center">
-                      <Quote className="w-10 h-10 text-amber-400/60 mx-auto mb-6" />
-                      <blockquote className="text-gray-200 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-                        "{testimonial.testimonial_text}"
-                      </blockquote>
-                      <div className="flex justify-center mb-3">
-                        {renderStars(testimonial.rating, "w-5 h-5")}
-                      </div>
-                      <div className="font-semibold text-white text-lg">
-                        {testimonial.student_name}
-                      </div>
-                      <div className="text-gray-300 text-sm flex items-center justify-center mt-1">
-                        <Globe className="w-3.5 h-3.5 mr-1.5" />
-                        {testimonial.student_country}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
+          <div className="relative overflow-hidden">
+            {featured.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className={`transition-all duration-700 ease-in-out ${index === activeSlide ? "opacity-100 translate-x-0 relative" : "opacity-0 translate-x-8 absolute inset-0 pointer-events-none"}`}
+              >
+                <figure className="bg-white rounded-2xl border border-brand-100 p-8 md:p-12 text-center">
+                  <Quote className="w-10 h-10 text-brand-400 mx-auto mb-6" />
+                  <blockquote className="text-brand-900 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
+                    "{testimonial.testimonial_text}"
+                  </blockquote>
+                  <div className="flex justify-center mb-3">
+                    {renderStars(testimonial.rating, "w-5 h-5")}
+                  </div>
+                  <figcaption className="font-semibold text-brand-900 text-lg">
+                    {testimonial.student_name}
+                    <span className="block text-sm font-normal text-gray-600 mt-1">{testimonial.student_country}</span>
+                  </figcaption>
+                </figure>
+              </div>
+            ))}
           </div>
 
           {/* Dots */}
@@ -491,7 +476,7 @@ export default function Testimonials() {
               <button
                 key={index}
                 onClick={() => setActiveSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${index === activeSlide ? "bg-amber-400" : "bg-gray-600 hover:bg-gray-500"}`}
+                className={`w-2.5 h-2.5 rounded-full transition-colors ${index === activeSlide ? "bg-brand-600" : "bg-gray-300 hover:bg-gray-400"}`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
@@ -499,54 +484,44 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* All Testimonials - Masonry Grid */}
-      <section className="pb-16 lg:pb-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">
-            More Success Stories
+      {/* All Testimonials */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">
+            More success stories
           </h2>
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {staticTestimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="bg-gray-600/60 border border-gray-500 backdrop-blur-sm break-inside-avoid">
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-3">
-                    <div className="flex">{renderStars(testimonial.rating)}</div>
-                    <Quote className="w-6 h-6 text-gray-400 flex-shrink-0" />
-                  </div>
-                  <blockquote className="text-gray-200 mb-4 leading-relaxed text-sm">
-                    "{testimonial.testimonial_text}"
-                  </blockquote>
-                  <div className="border-t border-gray-400 pt-4">
-                    <div className="font-semibold text-white text-sm">
-                      {testimonial.student_name}
-                    </div>
-                    <div className="text-gray-300 text-xs flex items-center mt-1">
-                      <Globe className="w-3 h-3 mr-1.5" />
-                      {testimonial.student_country}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <figure key={testimonial.id} className="bg-brand-50 rounded-xl p-6 break-inside-avoid">
+                <div className="flex mb-3">{renderStars(testimonial.rating)}</div>
+                <blockquote className="text-gray-700 mb-4 leading-relaxed">
+                  "{testimonial.testimonial_text}"
+                </blockquote>
+                <figcaption className="text-sm">
+                  <span className="font-semibold text-brand-900">{testimonial.student_name}</span>
+                  <span className="text-gray-600">, {testimonial.student_country}</span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative z-10 py-16 lg:py-24 bg-gray-950">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Write Your Own Success Story?
+      <section className="py-16 lg:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl text-white mb-8">
+            Ready to write your own success story?
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button size="lg" className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-8 py-4">
+              <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold h-11">
                 <BookOpen className="w-5 h-5 mr-2" />
-                Explore Courses
+                See online courses
               </Button>
             </Link>
             <Link to="/contact">
-              <Button size="lg" className="bg-slate-50 text-gray-900 px-8 py-4 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 hover:bg-sky-600">
-                Get in Touch <ArrowRight className="w-5 h-5 ml-2" />
+              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 font-semibold h-11">
+                Get in touch <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
           </div>

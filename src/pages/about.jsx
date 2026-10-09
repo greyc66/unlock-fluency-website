@@ -2,27 +2,24 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import useSwipe from "@/hooks/useSwipe";
 import {
   GraduationCap,
   Users,
   Globe,
-  Award,
   BookOpen,
-  MessageCircle,
-  Calendar,
   CheckCircle,
   Star,
   Heart,
-  Lightbulb,
   Book,
   Utensils,
   Leaf,
   Coffee,
   Quote,
-  TrendingUp
+  TrendingUp,
+  ArrowRight,
+  Building2
 } from "lucide-react";
 
 /* ── Animated counter hook ── */
@@ -46,45 +43,70 @@ function useCountUp(end, duration = 2000, startCounting = false) {
   return value;
 }
 
+const qualifications = [
+  "PhD in Linguistics (Humboldt-Universität zu Berlin and University of Cambridge)",
+  "Drama training at the University of Kent and Tufts University (Fulbright scholar)",
+  "15+ years of research and teaching",
+];
+
+const chapters = [
+  {
+    title: "The scientist",
+    photos: [
+      { src: "/images/christina-graduation.jpg", alt: "Christina at her graduation" },
+      { src: "/images/christina-research-poster.jpg", alt: "Christina presenting her research poster" },
+      { src: "/images/christina-award.jpg", alt: "Christina holding a research award" },
+    ],
+    text: [
+      "That curiosity became a career in linguistics: a BA in English Language and Linguistics, an MSc in Literature, an MA in Linguistics, and a PhD in Linguistics at Humboldt-Universität zu Berlin and the University of Cambridge.",
+      "For my PhD I studied how bilingual children acquire language naturally, and I kept asking myself: why can't adults learn with that same immersive joy? Along the way, my research has also been recognised with an award.",
+    ],
+  },
+  {
+    title: "The performer",
+    photos: [
+      { src: "/images/christina-presenting.jpg", alt: "Christina presenting at a conference" },
+    ],
+    text: [
+      "I never really left the stage. I studied drama at the University of Kent, then spent a year at Tufts University in the US as a Fulbright scholar in Theatre Studies. Since then I've presented my work at conferences in the UK, the US, Greece, Germany, Ireland, the Netherlands, and beyond.",
+      "Theatre taught me what textbooks don't: how to use your voice, hold a room, and keep going when the nerves kick in. I bring those techniques into every course.",
+    ],
+  },
+  {
+    title: "The teacher",
+    photos: [
+      { src: "/images/christina-classroom.jpg", alt: "Christina in a classroom" },
+    ],
+    text: [
+      "I've taught English since 2012, from private tutoring and language schools to many years at the Volkshochschule (VHS) in Berlin.",
+      "Having lived in different countries and seen different education systems, I kept meeting the same learner: someone who could ace a grammar test but froze in a simple conversation.",
+    ],
+  },
+];
+
+const journey = [
+  { year: "2008", title: "Private English tutor" },
+  { year: "2011", title: "BA in English Language & Linguistics", place: "Aristotle University of Thessaloniki and University of Kent" },
+  { year: "2011–12", title: "English teacher", place: "Kern" },
+  { year: "2013", title: "MSc in Literature", place: "University of Edinburgh" },
+  { year: "2014", title: "Fulbright scholar in Theatre Studies", place: "Tufts University" },
+  { year: "2016", title: "MA in Linguistics", place: "Humboldt-Universität zu Berlin" },
+  { year: "2016–18", title: "English teacher", place: "VHS Pankow and Mitte, Berlin" },
+  { year: "2020", title: "PhD in Linguistics", place: "Humboldt-Universität zu Berlin and University of Cambridge" },
+  { year: "2025", title: "English teacher", place: "VHS Pankow, Berlin" },
+  { year: "Today", title: "Founder", place: "The Unlock Fluency Method" },
+];
+
+const funFacts = [
+  { icon: Globe, text: "I live in Cambridge, UK." },
+  { icon: Leaf, text: "Proud plant-eater." },
+  { icon: Book, text: "Self-proclaimed book addict." },
+  { icon: Utensils, text: "Favourite food: pancakes." },
+  { icon: Heart, text: "There's no such thing as too much cinnamon." },
+  { icon: Coffee, text: "Matcha lover." },
+];
+
 export default function About() {
-  const qualifications = [
-    "PhD in Linguistics, specialising in Language Acquisition",
-    "15+ Years of Research & Teaching Experience",
-    "Specialist in Communicative, Immersive Courses"
-  ];
-
-  const approaches = [
-    {
-      icon: MessageCircle,
-      title: "Communication-Focused",
-      description: "Real-world conversation skills that you can use immediately in your daily life and career."
-    },
-    {
-      icon: Heart,
-      title: "Supportive Environment",
-      description: "A safe, encouraging space where making mistakes is part of the learning process."
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovative Methods",
-      description: "Cutting-edge teaching techniques based on the latest research in language acquisition."
-    },
-    {
-      icon: Users,
-      title: "Personalised Approach",
-      description: "Every student's journey is unique, with customised feedback and individual attention."
-    }
-  ];
-
-  const funFacts = [
-      { icon: Globe, text: "I live in Cambridge, UK.", bg: "bg-indigo-100", color: "text-indigo-700" },
-      { icon: Leaf, text: "Proud plant-eater.", bg: "bg-emerald-100", color: "text-emerald-700" },
-      { icon: Book, text: "Self-proclaimed book addict.", bg: "bg-violet-100", color: "text-violet-700" },
-      { icon: Utensils, text: "Favourite food: pancakes.", bg: "bg-amber-100", color: "text-amber-700" },
-      { icon: Heart, text: "There's no such thing as too much cinnamon.", bg: "bg-rose-100", color: "text-rose-700" },
-      { icon: Coffee, text: "Matcha lover.", bg: "bg-green-100", color: "text-green-700" }
-  ];
-
   /* ── Testimonial carousels ── */
   const leftQuotes = [
     { text: "Christina made me feel safe to make mistakes. That changed everything for me.", name: "Maria", country: "Greece" },
@@ -159,281 +181,228 @@ export default function About() {
     return () => clearTimeout(timer);
   }, []);
 
+  const quoteCarousel = (quotes, active, setActive, setPaused, swipe, extraClass) => (
+    <div
+      className={`text-center md:text-left ${extraClass}`}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      {...swipe}
+    >
+      <div className="relative h-40 sm:h-36 overflow-hidden">
+        {quotes.map((q, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-in-out ${
+              index === active
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6 pointer-events-none"
+            }`}
+          >
+            <Quote className="w-7 h-7 text-brand-400 mb-3 mx-auto md:mx-0 flex-shrink-0" />
+            <blockquote className="text-lg text-gray-800 italic leading-relaxed mb-3">
+              "{q.text}"
+            </blockquote>
+            <p className="text-gray-500 font-semibold text-sm">{q.name}, {q.country}</p>
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center md:justify-start gap-1.5 mt-4">
+        {quotes.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActive(index)}
+            className={`w-2 h-2 rounded-full transition-colors ${
+              index === active ? "bg-brand-500" : "bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to quote ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <div className="bg-gray-900 text-gray-300">
-      {/* Hero Section */}
-      <section className="py-20 lg:py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Photo with decorative accent */}
+    <div className="bg-white text-gray-700">
+      {/* Hero */}
+      <section className="bg-gray-900 py-16 lg:py-24">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className={`relative flex justify-center lg:justify-end transition-all duration-1000 ease-out ${heroVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 w-full h-full bg-sky-400/20 rounded-2xl" />
+              <div className="relative w-full max-w-xs">
+                <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-300" aria-hidden="true" />
                 <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/39b956fec_IMG_45862.jpg"
-                  alt="Dr Grey"
-                  className="relative aspect-[4/5] w-full max-w-xs object-cover rounded-2xl border border-gray-700 shadow-lg"
+                  src="/images/christina-about.jpg"
+                  alt="Dr Christina Grey"
+                  className="relative w-full aspect-[4/5] object-cover rounded-2xl"
                 />
               </div>
             </div>
-            {/* Text column with animated entrance */}
-            <div className={`lg:text-left transition-all duration-1000 ease-out delay-300 ${heroVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
-              <Badge className="bg-gray-500/10 text-gray-400 border-gray-500/20 mb-6 px-4 py-2">
+            <div className={`transition-all duration-1000 ease-out delay-300 ${heroVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
+              <Badge className="bg-white/10 text-brand-200 border-white/20 mb-6 px-4 py-2">
                 <GraduationCap className="w-4 h-4 mr-2" />
-                Psycholinguist, English Coach
+                Psycholinguist · Drama-trained · Fluency coach
               </Badge>
-
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight text-left">
+              <h1 className="text-4xl lg:text-[2.6rem] text-white mb-6 leading-tight">
                 Meet Dr Christina Grey
               </h1>
-
-              <div className="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed text-left">
-                I've always been passionate about overcoming language barriers. As a trained psycholinguist, I have studied the psychology of language extensively, specialising in bilingual language acquisition. My teaching style goes beyond textbooks and traditional exercises.
-              </div>
-
-              <div className="space-y-3 mb-8">
-                {qualifications.map((qualification, index) =>
-                  <div key={index} className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 flex-shrink-0" />
-                    {qualification}
-                  </div>
-                )}
-              </div>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                I help people who already know English speak it with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.
+              </p>
+              <ul className="space-y-3">
+                {qualifications.map((q) => (
+                  <li key={q} className="flex items-start text-gray-200">
+                    <CheckCircle className="w-5 h-5 text-brand-300 mr-3 mt-0.5 flex-shrink-0" />
+                    {q}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Animated Stats Counters */}
-      <section ref={statsRef} className="py-12 sm:py-16 bg-sky-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section ref={statsRef} className="py-12 sm:py-16 bg-white border-b border-brand-100">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
             <div className="flex flex-col items-center">
-              <Users className="w-8 h-8 text-sky-600 mb-2" />
-              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">
-                {studentsCount}+
-              </div>
+              <Users className="w-8 h-8 text-brand-600 mb-2" />
+              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{studentsCount}+</div>
               <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Successful Students</p>
             </div>
             <div className="flex flex-col items-center">
-              <GraduationCap className="w-8 h-8 text-violet-600 mb-2" />
-              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">
-                {yearsCount}+
-              </div>
+              <GraduationCap className="w-8 h-8 text-brand-600 mb-2" />
+              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{yearsCount}+</div>
               <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Years Experience</p>
             </div>
             <div className="flex flex-col items-center">
-              <Star className="w-8 h-8 text-amber-500 mb-2" />
+              <Star className="w-8 h-8 text-brand-600 mb-2" />
               <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">
                 {typeof satisfactionCount === 'number' ? satisfactionCount.toFixed(2) : satisfactionCount}
               </div>
               <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Overall Satisfaction</p>
             </div>
             <div className="flex flex-col items-center">
-              <TrendingUp className="w-8 h-8 text-emerald-600 mb-2" />
-              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">
-                {recommendCount}%
-              </div>
+              <TrendingUp className="w-8 h-8 text-brand-600 mb-2" />
+              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{recommendCount}%</div>
               <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Recommendation Rate</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Teaching Philosophy – Split Layout with Large Pull Quote */}
-      <section className="py-16 lg:py-24 bg-sky-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-12 text-center">
-            My Teaching Philosophy
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-start">
-            {/* Left: Large pull quote */}
-            <div className="lg:col-span-2 flex flex-col items-start">
-              <Quote className="w-10 h-10 text-sky-400 mb-4" />
-              <blockquote className="text-2xl lg:text-3xl font-bold text-gray-900 leading-snug italic">
-                "True language mastery is built on connection, not perfection."
-              </blockquote>
-              <div className="w-16 h-1 bg-sky-400 mt-6 mb-4 rounded-full" />
-              <p className="text-gray-600 font-semibold text-base">— Dr Christina Grey</p>
-            </div>
-
-            {/* Right: Paragraph text */}
-            <div className="lg:col-span-3">
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                Growing up with three languages sparked my fascination with how the brain acquires and processes them, leading me to earn a BA in Linguistics, an MA in Experimental Psycholinguistics, and a PhD focused on bilingualism. With over 15 years of teaching experience, I draw on this deep understanding of how languages function at the most basic level to create courses that replicate natural language acquisition.
-              </p>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
-                My unconventional, conversation-oriented methodology gave rise to <Link to="/themethod" className="text-sky-600 hover:text-sky-800 font-bold">The Unlock Fluency Method</Link>, an immersive learning method designed to provide dynamic, real-life learning experiences that empower learners to speak with confidence, spontaneity, and authenticity. Every lesson becomes an opportunity for meaningful communication and shared growth.
-              </p>
-            </div>
+      {/* My story */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">My story</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              I grew up with three languages and spent my childhood on stage as a child actor. Switching between languages every day made me curious about how the brain learns them, and the stage taught me that confidence is something you can practise.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Timeline Section */}
-      <section className="pt-4 pb-12 lg:pt-6 lg:pb-16 bg-sky-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-white border border-white">
-            <CardContent className="p-6 md:p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-blue-900 mb-8 text-center">Academic & Professional Journey</h3>
-
-              <div className="flex justify-center">
-                <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/3d1d30fd0_CGAcademicandprofjourneyforwebsitecopynotitleupdate.jpg"
-                  alt="Academic and Professional Journey Timeline"
-                  className="w-full max-w-2xl h-auto object-contain rounded-lg"
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Fun Facts Section - Pills/Chips Style */}
-      <section className="pt-0 pb-8 lg:pt-0 lg:pb-12 bg-sky-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-gray-800">Some Facts about Me</h3>
-          </div>
-          <div className="flex justify-center items-center gap-3 flex-wrap">
-            {funFacts.map((fact, index) => (
-              <div
-                key={index}
-                className={`${fact.bg} ${fact.color} flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium shadow-sm`}
-              >
-                <fact.icon className="w-4 h-4 flex-shrink-0" />
-                <span>{fact.text}</span>
+          <div className="space-y-20">
+            {chapters.map((chapter, index) => (
+              <div key={chapter.title} className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div className={`grid gap-3 ${chapter.photos.length === 3 ? "grid-cols-3" : chapter.photos.length === 2 ? "grid-cols-2" : "grid-cols-1 max-w-xs mx-auto w-full"} ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                  {chapter.photos.map((photo) => (
+                    <img
+                      key={photo.src}
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="w-full aspect-[3/4] object-cover rounded-xl"
+                    />
+                  ))}
+                </div>
+                <div>
+                  <h3 className="font-display text-3xl text-brand-900 mb-4">{chapter.title}</h3>
+                  {chapter.text.map((paragraph) => (
+                    <p key={paragraph} className="text-lg text-gray-700 leading-relaxed mb-4">{paragraph}</p>
+                  ))}
+                </div>
               </div>
             ))}
+
+            {/* The method: where the three paths meet */}
+            <div className="bg-brand-50 rounded-2xl p-8 lg:p-12">
+              <h3 className="font-display text-3xl text-brand-900 mb-4">The method</h3>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                The Unlock Fluency Method was born where those three paths meet. It follows the natural stages of language acquisition: meaningful input, lots of active speaking, memory support, and a positive approach to mistakes. Grammar comes along the way.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                My philosophy fits in one line: true language mastery is built on connection, not perfection. One of my favourite student reviews says, <em>"This isn't just an English course; it's a course about culture, life, and beyond."</em> That's exactly what I designed it to be, and I keep refining it with every group's feedback.
+              </p>
+              <Link to="/themethod" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
+                How the method works <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academic and professional journey */}
+      <section className="py-16 lg:py-24 bg-brand-50">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">Academic and professional journey</h2>
+          <ol className="border-l-2 border-brand-200 space-y-6">
+            {journey.map((item) => (
+              <li key={`${item.year}-${item.title}`} className="pl-6 relative">
+                <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-brand-600" aria-hidden="true"></span>
+                <p className="text-sm font-bold tracking-wider text-brand-600">{item.year}</p>
+                <p className="font-semibold text-brand-900">{item.title}</p>
+                {item.place && <p className="text-gray-600">{item.place}</p>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Some facts about me */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.7fr_1.3fr] gap-10 items-center">
+          <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto w-full">
+            <img src="/images/christina-tea.jpg" alt="Christina having afternoon tea" className="w-full aspect-[3/4] object-cover rounded-2xl" />
+            <img src="/images/christina-berlin.jpg" alt="Christina out and about in Berlin" className="w-full aspect-[3/4] object-cover rounded-2xl mt-8" />
+          </div>
+          <div>
+            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Some facts about me</h2>
+            <div className="flex flex-wrap gap-3">
+              {funFacts.map((fact) => (
+                <div key={fact.text} className="bg-brand-50 text-brand-800 flex items-center gap-2 px-4 py-2 rounded-full text-sm md:text-base font-medium">
+                  <fact.icon className="w-4 h-4 flex-shrink-0" />
+                  <span>{fact.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonial Quote Carousels */}
-      <section className="py-10 lg:py-14 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 lg:py-16 bg-brand-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* Left carousel */}
-            <div
-              className="text-center md:text-left"
-              onMouseEnter={() => setLeftPaused(true)}
-              onMouseLeave={() => setLeftPaused(false)}
-              {...leftSwipe}
-            >
-              <div className="relative h-40 sm:h-36 overflow-hidden">
-                {leftQuotes.map((q, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-in-out ${
-                      index === leftActive
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-6 pointer-events-none"
-                    }`}
-                  >
-                    <Quote className="w-7 h-7 text-sky-400 mb-3 mx-auto md:mx-0 flex-shrink-0" />
-                    <blockquote className="text-lg text-gray-800 italic leading-relaxed mb-3">
-                      "{q.text}"
-                    </blockquote>
-                    <p className="text-gray-500 font-semibold text-sm">— {q.name}, {q.country}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex justify-center md:justify-start gap-1.5 mt-4">
-                {leftQuotes.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setLeftActive(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === leftActive ? "bg-sky-500" : "bg-gray-300 hover:bg-gray-400"
-                    }`}
-                    aria-label={`Go to quote ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Right carousel */}
-            <div
-              className="text-center md:text-left md:border-l md:border-gray-200 md:pl-12"
-              onMouseEnter={() => setRightPaused(true)}
-              onMouseLeave={() => setRightPaused(false)}
-              {...rightSwipe}
-            >
-              <div className="relative h-40 sm:h-36 overflow-hidden">
-                {rightQuotes.map((q, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-in-out ${
-                      index === rightActive
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-6 pointer-events-none"
-                    }`}
-                  >
-                    <Quote className="w-7 h-7 text-sky-400 mb-3 mx-auto md:mx-0 flex-shrink-0" />
-                    <blockquote className="text-lg text-gray-800 italic leading-relaxed mb-3">
-                      "{q.text}"
-                    </blockquote>
-                    <p className="text-gray-500 font-semibold text-sm">— {q.name}, {q.country}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex justify-center md:justify-start gap-1.5 mt-4">
-                {rightQuotes.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setRightActive(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === rightActive ? "bg-sky-500" : "bg-gray-300 hover:bg-gray-400"
-                    }`}
-                    aria-label={`Go to quote ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
+            {quoteCarousel(leftQuotes, leftActive, setLeftActive, setLeftPaused, leftSwipe, "")}
+            {quoteCarousel(rightQuotes, rightActive, setRightActive, setRightPaused, rightSwipe, "md:border-l md:border-brand-200 md:pl-12")}
           </div>
         </div>
       </section>
 
-      {/* Teaching Approach - with hover effects */}
-      <section className="pt-4 pb-16 lg:pt-6 lg:pb-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-6">A Psycholinguistic Approach to Learning
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {approaches.map((approach, index) =>
-              <Card key={index} className="bg-sky-100 border-sky-300 text-center hover:-translate-y-2 hover:shadow-xl hover:border-sky-400 transition-all duration-300 group cursor-default">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-blue-400 group-hover:bg-sky-500 rounded-full flex items-center justify-center transition-colors duration-300">
-                    <approach.icon className="w-8 h-8 text-blue-900 group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-4">
-                    {approach.title}
-                  </h3>
-                  <p className="text-blue-800 leading-relaxed">
-                    {approach.description}
-                  </p>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gray-950/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Unlock Fluency Journey?
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      {/* CTA */}
+      <section className="py-16 lg:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl text-white mb-8">Ready to start speaking?</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
-              <Button size="lg" className="bg-slate-50 text-gray-900 px-8 py-4 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md hover:bg-sky-600">
+              <Button size="lg" className="w-full sm:w-auto bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold h-11">
                 <BookOpen className="w-5 h-5 mr-2" />
-                Explore Courses
+                See online courses
+              </Button>
+            </Link>
+            <Link to="/business">
+              <Button size="lg" className="w-full sm:w-auto bg-transparent border-2 border-brand-300 text-brand-300 hover:bg-brand-300 hover:text-brand-900 font-semibold h-11">
+                <Building2 className="w-5 h-5 mr-2" />
+                For business
               </Button>
             </Link>
           </div>

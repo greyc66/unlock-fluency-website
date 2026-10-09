@@ -84,20 +84,20 @@ export default function RetreatRegistration() {
 
   if (submitted) {
     return (
-      <div className="bg-gray-900 py-20">
+      <div className="bg-brand-50 py-20">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gray-800 border-gray-700">
+          <Card className="bg-white border-brand-100">
             <CardContent className="p-12 text-center">
               <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center border border-green-500/20">
-                <CheckCircle className="w-10 h-10 text-green-400" />
+                <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
-              <h1 className="text-3xl font-bold text-white mb-4">
+              <h1 className="text-3xl text-brand-900 mb-4">
                 Registration Received!
               </h1>
-              <p className="text-lg text-gray-400 mb-2">
+              <p className="text-lg text-gray-600 mb-2">
                 Thank you for registering your interest in the Unlock Fluency Summer Retreat.
               </p>
-              <p className="text-gray-400">
+              <p className="text-gray-600">
                 I'll review your application and be in touch soon with more information about the retreat and next steps.
               </p>
             </CardContent>
@@ -108,32 +108,36 @@ export default function RetreatRegistration() {
   }
 
   return (
-    <div className="bg-gray-900 py-16">
-      <section className="text-center mb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Summer Retreat Registration
+    <div className="bg-brand-50 pb-16">
+      <section className="relative isolate overflow-hidden text-center py-20 lg:py-28 mb-12">
+        <img src="/images/cambridge.jpg" alt="" className="absolute inset-0 -z-10 w-full h-full object-cover" />
+        <div className="absolute inset-0 -z-10 bg-gray-900/70" aria-hidden="true"></div>
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-300 mb-4">Once a year, each summer</p>
+          <h1 className="text-4xl lg:text-5xl text-white mb-5">
+            Summer Retreat in Cambridge
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Join me in Cambridge for an immersive week of real-world English practice, cultural exploration, and confidence-building in one of the world's most inspiring university cities.
           </p>
         </div>
       </section>
 
       <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="bg-gray-800/50 border-gray-700">
+        <Card className="bg-white border-brand-100">
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Details Section */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                <h3 className="text-xl font-semibold text-brand-900 border-b border-brand-100 pb-2">
                   Personal Details
                 </h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-gray-400">Full Name *</Label>
+                    <Label htmlFor="name" className="text-brand-900 font-semibold">Full Name *</Label>
                     <Input 
+                      className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="name" 
                       value={formData.name} 
                       onChange={(e) => handleInputChange("name", e.target.value)} 
@@ -141,8 +145,9 @@ export default function RetreatRegistration() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-400">Email Address *</Label>
+                    <Label htmlFor="email" className="text-brand-900 font-semibold">Email Address *</Label>
                     <Input 
+                      className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="email" 
                       type="email" 
                       value={formData.email} 
@@ -154,8 +159,9 @@ export default function RetreatRegistration() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="country" className="text-gray-400">Country of Residence *</Label>
+                    <Label htmlFor="country" className="text-brand-900 font-semibold">Country of Residence *</Label>
                     <Input 
+                      className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="country" 
                       value={formData.country} 
                       onChange={(e) => handleInputChange("country", e.target.value)} 
@@ -163,8 +169,9 @@ export default function RetreatRegistration() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-gray-400">Phone Number *</Label>
+                    <Label htmlFor="phone" className="text-brand-900 font-semibold">Phone Number *</Label>
                     <Input 
+                      className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="phone" 
                       type="tel" 
                       value={formData.phone} 
@@ -177,13 +184,14 @@ export default function RetreatRegistration() {
 
               {/* Professional Background Section */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                <h3 className="text-xl font-semibold text-brand-900 border-b border-brand-100 pb-2">
                   Professional Background
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="profession" className="text-gray-400">Current Profession / Industry *</Label>
+                  <Label htmlFor="profession" className="text-brand-900 font-semibold">Current Profession / Industry *</Label>
                   <Input 
+                    className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                     id="profession" 
                     value={formData.profession} 
                     onChange={(e) => handleInputChange("profession", e.target.value)} 
@@ -194,20 +202,20 @@ export default function RetreatRegistration() {
 
               {/* English Level Section */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                <h3 className="text-xl font-semibold text-brand-900 border-b border-brand-100 pb-2">
                   English Level
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="english_level" className="text-gray-400">Current English Level *</Label>
+                  <Label htmlFor="english_level" className="text-brand-900 font-semibold">Current English Level *</Label>
                   <Select 
                     value={formData.english_level} 
                     onValueChange={(value) => handleInputChange("english_level", value)}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400">
                       <SelectValue placeholder="Select your level" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white text-brand-900 border-brand-200">
                       <SelectItem value="B2 - Upper Intermediate">B2 - Upper Intermediate</SelectItem>
                       <SelectItem value="C1 - Advanced">C1 - Advanced</SelectItem>
                       <SelectItem value="C2 - Proficient">C2 - Proficient</SelectItem>
@@ -219,15 +227,16 @@ export default function RetreatRegistration() {
 
               {/* Motivation Section */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                <h3 className="text-xl font-semibold text-brand-900 border-b border-brand-100 pb-2">
                   Motivation
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="motivation" className="text-gray-400">
+                  <Label htmlFor="motivation" className="text-brand-900 font-semibold">
                     What would you most like to improve about your spoken English? *
                   </Label>
                   <Textarea 
+                    className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                     id="motivation" 
                     value={formData.motivation} 
                     onChange={(e) => handleInputChange("motivation", e.target.value)} 
@@ -239,20 +248,20 @@ export default function RetreatRegistration() {
 
               {/* Dietary Requirements Section */}
               <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                <h3 className="text-xl font-semibold text-brand-900 border-b border-brand-100 pb-2">
                   Dietary Requirements
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="dietary_requirements" className="text-gray-400">Dietary Requirements *</Label>
+                  <Label htmlFor="dietary_requirements" className="text-brand-900 font-semibold">Dietary Requirements *</Label>
                   <Select 
                     value={formData.dietary_requirements} 
                     onValueChange={(value) => handleInputChange("dietary_requirements", value)}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400">
                       <SelectValue placeholder="Select dietary requirements" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white text-brand-900 border-brand-200">
                       <SelectItem value="None">None</SelectItem>
                       <SelectItem value="Vegetarian">Vegetarian</SelectItem>
                       <SelectItem value="Vegan">Vegan</SelectItem>
@@ -263,8 +272,9 @@ export default function RetreatRegistration() {
 
                 {formData.dietary_requirements === "Other (please specify)" && (
                   <div className="space-y-2">
-                    <Label htmlFor="dietary_other" className="text-gray-400">Please specify *</Label>
+                    <Label htmlFor="dietary_other" className="text-brand-900 font-semibold">Please specify *</Label>
                     <Input 
+                      className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="dietary_other" 
                       value={formData.dietary_other} 
                       onChange={(e) => handleInputChange("dietary_other", e.target.value)} 
@@ -276,7 +286,7 @@ export default function RetreatRegistration() {
 
               {/* Agreement Section */}
               <div className="space-y-4">
-                <div className="flex items-start space-x-3 p-4 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+                <div className="flex items-start space-x-3 p-4 bg-amber-50 border border-amber-200 rounded-lg">
                   <Checkbox 
                     id="agreement" 
                     checked={formData.agreement}
@@ -285,7 +295,7 @@ export default function RetreatRegistration() {
                   />
                   <label 
                     htmlFor="agreement" 
-                    className="text-sm text-gray-300 leading-relaxed cursor-pointer"
+                    className="text-sm text-gray-700 leading-relaxed cursor-pointer"
                   >
                     I understand that places are limited and that a non-refundable 50% deposit (£750) is required to secure my place once my registration is accepted. *
                   </label>
@@ -303,7 +313,7 @@ export default function RetreatRegistration() {
                   type="submit" 
                   disabled={isSubmitting} 
                   size="lg" 
-                  className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold"
+                  className="bg-brand-600 hover:bg-brand-700 text-white font-semibold"
                 >
                   {isSubmitting ? (
                     <>

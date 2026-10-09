@@ -1,15 +1,31 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
     darkMode: ["class"],
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
+  			display: ['"DM Serif Display"', 'Georgia', 'serif']
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			// Neutrals tinted toward the brand navy, so "gray" sections read as navy.
+  			gray: {
+  				50: '#F5F8FB', 100: '#EBF0F5', 200: '#D9E1EA', 300: '#C3CFDC', 400: '#9DAEC1',
+  				500: '#64778C', 600: '#4E6175', 700: '#344A62', 800: '#1A3350', 900: '#10233A', 950: '#0A1828'
+  			},
+  			// Brand scale built around the logo sky blue (#86D2F5 at 300); 600 is the button blue, 900 the navy.
+  			brand: {
+  				50: '#F4FAFE', 100: '#EAF6FD', 200: '#C8E9FA', 300: '#86D2F5', 400: '#4FB5E6',
+  				500: '#2A8FC6', 600: '#1F6FA3', 700: '#195B86', 800: '#14496C', 900: '#10233A', 950: '#0A1828'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

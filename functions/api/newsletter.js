@@ -137,12 +137,12 @@ export async function onRequestPost(context) {
 
       <p>In the meantime, feel free to explore:</p>
       <ul style="color: #374151; padding-left: 20px; margin: 0 0 24px;">
-        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/themethod" style="color: #0ea5e9;">The Unlock Fluency Method</a> — learn how my method works</li>
-        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/courses" style="color: #0ea5e9;">Upcoming Courses</a> — find the right course for your level and schedule</li>
-        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/testimonials" style="color: #0ea5e9;">Success Stories</a> — hear from students who've transformed their English</li>
+        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/themethod" style="color: #0ea5e9;">The Unlock Fluency Method</a>: learn how my method works</li>
+        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/courses" style="color: #0ea5e9;">Upcoming Courses</a>: find the right course for your level and schedule</li>
+        <li style="margin-bottom: 8px;"><a href="${SITE_URL}/testimonials" style="color: #0ea5e9;">Success Stories</a>: hear from students who've transformed their English</li>
       </ul>
 
-      <p>If you have any questions or want to find out which course is right for you, just reply to this email — I'd love to hear from you.</p>
+      <p>If you have any questions or want to find out which course is right for you, just reply to this email; I'd love to hear from you.</p>
 
       <p>Best,<br><strong>Dr Christina Grey</strong><br>The Unlock Fluency Method</p>
     </div>

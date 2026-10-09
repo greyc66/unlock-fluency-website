@@ -5,13 +5,14 @@ import NewsletterPopup from "../components/NewsletterPopup";
 import { Link, useLocation } from "react-router-dom";
 import { Calendar, Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import courses from "@/data/courses.json";
 
 const navigationItems = [
   { title: "About", url: "/about" },
   { title: "The Method", url: "/themethod" },
   { title: "Success Stories", url: "/testimonials" },
-  { title: "Courses", url: "/courses" },
-  { title: "For Organisations", url: "/corporate" },
+  { title: "Online Courses", url: "/courses" },
+  { title: "For Business", url: "/business" },
   { title: "Resources", url: "/resources" },
 ];
 
@@ -19,19 +20,19 @@ const navigationItems = [
 const PAGE_META = {
   '/': {
     title: 'The Unlock Fluency Method | Immersive English Fluency Courses & Coaching',
-    description: 'Unlock English fluency and confidence with The Unlock Fluency Method by Dr Christina Grey. Immersive group courses, 1-to-1 coaching, and corporate English training online and in Cambridge, UK.',
+    description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £75, training for teams, and a summer retreat in Cambridge, UK.',
   },
   '/about': {
     title: 'About Dr Christina Grey | Creator of The Unlock Fluency Method',
-    description: 'Meet Dr Christina Grey — psycholinguist, PhD in Linguistics, and creator of The Unlock Fluency Method. Over 15 years of research and immersive English teaching experience in Cambridge, UK.',
+    description: 'Meet Dr Christina Grey: psycholinguist with a PhD in Linguistics, drama-trained speaker, and creator of The Unlock Fluency Method, with 15 years of research and teaching.',
   },
   '/themethod': {
     title: 'The Unlock Fluency Method | How Immersive English Coaching Works',
-    description: 'Discover The Unlock Fluency Method — a psycholinguistic approach to unlock English fluency. A 9-step immersive process designed to build real fluency and spontaneous speaking confidence.',
+    description: 'How The Unlock Fluency Method works: you do the talking, real topics instead of textbooks, and confidence first. A psycholinguistic approach with skills from the stage.',
   },
   '/courses': {
-    title: 'Unlock Fluency Courses | Immersive English Fluency Training from £200',
-    description: 'Browse Unlock Fluency English courses from £200. Intensive group sessions, 1-to-1 personalised coaching, and corporate training. Unlock your English fluency online with Dr Christina Grey.',
+    title: 'Online English Courses from £220 | The Unlock Fluency Method',
+    description: 'Browse online English courses from £220 and 1-to-1 personalised coaching from £75 with Dr Christina Grey. Immersive small-group courses that get you speaking English with confidence.',
   },
   '/testimonials': {
     title: 'Success Stories | Unlock Fluency Student Testimonials',
@@ -43,7 +44,7 @@ const PAGE_META = {
   },
   '/resources': {
     title: 'Resources | The Unlock Fluency Method',
-    description: 'Access free English learning resources from The Unlock Fluency Method — vocabulary tips, proverbs, icebreakers, TED talk picks, and podcast recommendations to unlock your fluency.',
+    description: 'Access free English learning resources from The Unlock Fluency Method: vocabulary tips, proverbs, icebreakers, TED talk picks, and podcast recommendations to unlock your fluency.',
   },
   '/faqs': {
     title: 'FAQs | The Unlock Fluency Method',
@@ -57,9 +58,9 @@ const PAGE_META = {
     title: 'Cancellation Policy | The Unlock Fluency Method',
     description: 'Cancellation and refund policy for The Unlock Fluency Method courses. Full refund for cancellations 1+ week before the course start date.',
   },
-  '/corporate': {
-    title: 'Corporate English Training | Unlock Fluency for Organisations',
-    description: "Unlock your team's English fluency with tailored corporate training by Dr Christina Grey. Immersive courses, workshops, and retreats designed for your industry using The Unlock Fluency Method.",
+  '/business': {
+    title: 'Corporate English Training | Unlock Fluency for Business',
+    description: "Your teams don't have an English problem. They have a confidence problem. Tailored English fluency training by Dr Christina Grey: courses, workshops, and retreats, online or in person.",
   },
 };
 
@@ -79,7 +80,10 @@ export default function Layout({ children, currentPageName }) {
     setMobileMenuOpen(false);
 
     // Update page title, meta description, and canonical URL
-    const meta = PAGE_META[pathname] || PAGE_META['/'];
+    const course = courses.find((c) => !c.hidden && pathname === `/courses/${c.slug}`);
+    const meta = course
+      ? { title: course.metaTitle, description: course.metaDescription }
+      : PAGE_META[pathname] || PAGE_META['/'];
     document.title = meta.title;
 
     let descTag = document.querySelector('meta[name="description"]');
@@ -93,25 +97,26 @@ export default function Layout({ children, currentPageName }) {
     <div className="min-h-screen bg-gray-900 text-gray-300 font-sans">
       <style>{`
         :root {
-          --background: 17 24 39; /* gray-900 */
-          --foreground: 209 213 219; /* gray-300 */
-          --card: 31 41 55; /* gray-800 */
-          --card-foreground: 229 231 235; /* gray-200 */
-          --popover: 17 24 39;
-          --popover-foreground: 209 213 219;
-          --primary: 107 114 128; /* gray-500 */
-          --primary-foreground: 17 24 39;
-          --secondary: 55 65 81; /* gray-700 */
-          --secondary-foreground: 229 231 235;
-          --muted: 55 65 81;
-          --muted-foreground: 156 163 175; /* gray-400 */
-          --accent: 245 158 11; /* amber-500 */
-          --accent-foreground: 17 24 39;
-          --destructive: 239 68 68;
-          --destructive-foreground: 249 250 251;
-          --border: 55 65 81;
-          --input: 75 85 99; /* gray-600 */
-          --ring: 107 114 128; /* gray-500 */
+          /* HSL values (the Tailwind config wraps these in hsl()); light UI controls in the brand palette */
+          --background: 0 0% 100%;
+          --foreground: 213 57% 15%; /* navy */
+          --card: 0 0% 100%;
+          --card-foreground: 213 57% 15%;
+          --popover: 0 0% 100%;
+          --popover-foreground: 213 57% 15%;
+          --primary: 204 68% 38%; /* button blue */
+          --primary-foreground: 0 0% 100%;
+          --secondary: 202 83% 95%;
+          --secondary-foreground: 213 57% 15%;
+          --muted: 202 83% 95%;
+          --muted-foreground: 212 17% 47%;
+          --accent: 202 83% 95%;
+          --accent-foreground: 213 57% 15%;
+          --destructive: 0 84% 60%;
+          --destructive-foreground: 0 0% 100%;
+          --border: 200 83% 88%;
+          --input: 200 83% 88%;
+          --ring: 204 68% 38%;
           --radius: 0.75rem;
         }
       `}</style>
@@ -123,7 +128,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png" 
+                src="/images/logo.png" 
                 alt="Unlock Fluency Logo" 
                 className="w-12 h-12 flex-shrink-0" 
               />
@@ -148,7 +153,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Get in Touch Button - Desktop */}
             <div className="hidden lg:block">
               <Link to="/contact">
-                <Button className="bg-slate-50 text-gray-900 px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 hover:bg-sky-600 shadow-lg hover:shadow-amber-500/20 transition-all duration-300">
+                <Button className="bg-brand-300 hover:bg-brand-200 text-brand-900 px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-10">
                   <Calendar className="w-4 h-4 mr-2" />
                   Get in Touch
                 </Button>
@@ -180,7 +185,7 @@ export default function Layout({ children, currentPageName }) {
                 {/* Get in Touch Button - Mobile */}
                 <div className="px-3 pt-2">
                   <Link to="/contact">
-                    <Button className="w-full bg-slate-50 text-gray-900 px-4 py-2 text-sm font-semibold">
+                    <Button className="w-full bg-brand-300 hover:bg-brand-200 text-brand-900 px-4 py-2 text-sm font-semibold">
                       <Calendar className="w-4 h-4 mr-2" />
                       Get in Touch
                     </Button>
@@ -204,7 +209,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68b5a86bc1bc9c6abe7fbc5b/d415b06e7_logo_updated.png"
+                  src="/images/logo.png"
                   alt="Unlock Fluency Logo" 
                   className="w-8 h-8 flex-shrink-0" 
                 />
@@ -234,7 +239,7 @@ export default function Layout({ children, currentPageName }) {
   <p className="text-gray-400 text-sm mb-4">Get English learning tips and course updates.</p>
   <button 
     onClick={handleNewsletterClick}
-    className="bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
+    className="bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
   >
     Subscribe
   </button>
@@ -247,8 +252,8 @@ export default function Layout({ children, currentPageName }) {
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/about" className="text-gray-400 hover:text-gray-300 transition-colors">About</Link></li>
                   <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
-                  <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Courses</Link></li>
-                  <li><Link to="/corporate" className="text-gray-400 hover:text-gray-300 transition-colors">For Organisations</Link></li>
+                  <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Online Courses</Link></li>
+                  <li><Link to="/business" className="text-gray-400 hover:text-gray-300 transition-colors">For Business</Link></li>
                   <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">Resources</Link></li>
                 </ul>
                 <ul className="space-y-2 text-sm">

@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* DM Serif Display has a single weight; font-synthesis stops browsers faking bold from font-bold classes. */
+  h1, h2 {
+    font-family: theme('fontFamily.display');
+    font-synthesis: none;
+  }
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

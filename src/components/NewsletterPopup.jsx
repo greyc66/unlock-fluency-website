@@ -120,8 +120,8 @@ export default function NewsletterPopup({ onClose }) {
             <>
               <div className="mb-6 space-y-3">
                 <p className="text-gray-300 text-sm font-semibold uppercase tracking-wide">You get:</p>
-                <div className="flex items-start gap-3 bg-sky-500/10 border border-sky-500/20 rounded-lg px-4 py-3">
-                  <span className="text-sky-400 mt-0.5">🎁</span>
+                <div className="flex items-start gap-3 bg-brand-500/10 border border-brand-500/20 rounded-lg px-4 py-3">
+                  <span className="text-brand-400 mt-0.5">🎁</span>
                   <p className="text-gray-300 text-sm">A free PDF with English learning tips &amp; resources</p>
                 </div>
                 <div className="flex items-start gap-3 bg-gray-700/50 border border-gray-600/40 rounded-lg px-4 py-3">
@@ -151,7 +151,7 @@ export default function NewsletterPopup({ onClose }) {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-sky-300 hover:bg-sky-400 text-blue-900 font-semibold"
+                  className="w-full bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold"
                 >
                   {isSubmitting ? (
                     <>

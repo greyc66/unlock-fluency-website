@@ -1,0 +1,389 @@
+[
+  {
+    "slug": "unlock-english-fluency",
+    "title": "Unlock English Fluency",
+    "hook": "My five-day fluency sprint. Speak spontaneously and share your opinions with confidence.",
+    "cardFacts": [
+      "5 days",
+      "6 hours daily",
+      "B2+"
+    ],
+    "price": "£300",
+    "format": "Online",
+    "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/a542e2a5-a026-402a-a50c-afa53f6ddf74",
+    "metaTitle": "Unlock English Fluency | 5-Day Online English Intensive",
+    "metaDescription": "A five-day online English fluency sprint with Dr Christina Grey: 30 hours of live speaking practice in a small group of 6 to 12 (B2+). £300, including a 45-minute 1-to-1 consultation.",
+    "schedule": [
+      {
+        "label": "Length",
+        "value": "5 consecutive days (30 hours)"
+      },
+      {
+        "label": "Sessions",
+        "value": "Monday to Friday, 8am–2pm UK time"
+      },
+      {
+        "label": "Group size",
+        "value": "6 to 12 participants"
+      },
+      {
+        "label": "Level",
+        "value": "B2 and above"
+      },
+      {
+        "label": "Where",
+        "value": "Online, live on Google Meet"
+      }
+    ],
+    "whoFor": "Upper-intermediate and advanced learners who understand a lot of English but freeze, translate in their heads, or hold back when it's time to speak. Ideal if you want a big step forward in a single week.",
+    "practise": [
+      "Speaking spontaneously on a new theme each day, such as culture, AI, work-life balance, or money",
+      "Linking your ideas with \"bridges\": ready-made phrases for agreeing, disagreeing, and buying time to think",
+      "Listening to real TED talks and podcasts, then explaining the key points to your group",
+      "Role-plays for real situations, using a simple way to acknowledge, respond, and close a conversation",
+      "Small talk, debating, and giving your opinion with confidence"
+    ],
+    "sessionTitle": "A typical day",
+    "session": [
+      {
+        "time": "Morning",
+        "text": "A quick review of yesterday, warm-up questions, and the theme of the day with its key vocabulary."
+      },
+      {
+        "time": "Mid-morning",
+        "text": "Role-plays and discussions in small breakout rooms."
+      },
+      {
+        "time": "Lunch",
+        "text": "A proper break to recharge."
+      },
+      {
+        "time": "Afternoon",
+        "text": "Listening to a TED talk or podcast in two groups, then sharing what you heard and debating it."
+      },
+      {
+        "time": "End of day",
+        "text": "Real-life scenarios, reflection, and a short writing task."
+      }
+    ],
+    "included": [
+      "Certificate of Completion",
+      "Personalised skills assessment",
+      "English level report",
+      "A 45-minute 1-to-1 video consultation with me after the course",
+      "Daily handouts with vocabulary and phrases"
+    ],
+    "testimonial": {
+      "text": "The week with you was totally different! I felt much more confident speaking English after just a few days. I was really surprised how comfortable I was speaking English by day 5.",
+      "name": "Hannah",
+      "country": "Germany"
+    }
+  },
+  {
+    "slug": "maintain-fluency",
+    "title": "Maintain Fluency",
+    "hook": "A weekly evening course to keep your English active and your confidence growing.",
+    "cardFacts": [
+      "8 weeks",
+      "2 hours weekly",
+      "B2+"
+    ],
+    "price": "£270",
+    "format": "Online",
+    "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/ba456ef9-bb80-4e0e-b308-1aefcb86a350",
+    "metaTitle": "Maintain Fluency | Weekly Evening English Course Online",
+    "metaDescription": "An 8-week online evening English course with Dr Christina Grey: one 2-hour live session a week in a small group of 6 to 12 (B2+). Keep your English active and your confidence growing. £270.",
+    "schedule": [
+      {
+        "label": "Length",
+        "value": "8 consecutive weeks (16 hours)"
+      },
+      {
+        "label": "Sessions",
+        "value": "Mondays, 6pm–8pm UK time"
+      },
+      {
+        "label": "Group size",
+        "value": "6 to 12 participants"
+      },
+      {
+        "label": "Level",
+        "value": "B2 and above"
+      },
+      {
+        "label": "Where",
+        "value": "Online, live on Google Meet"
+      }
+    ],
+    "whoFor": "Learners at B2 and above who want regular speaking practice alongside work, or who have done an intensive course and want to keep the momentum going.",
+    "practise": [
+      "Conversations about real-life situations: work, travel, and everyday life",
+      "Giving your opinion and discussing current topics",
+      "Natural phrases and expressions you can use straight away",
+      "Speaking up with confidence, week after week"
+    ],
+    "sessionTitle": "A typical session",
+    "session": [
+      {
+        "time": "Warm-up",
+        "text": "Questions to get everyone talking."
+      },
+      {
+        "time": "Topic of the week",
+        "text": "A real-life theme with the key phrases to discuss it."
+      },
+      {
+        "time": "Practice",
+        "text": "Discussions and role-plays in small breakout rooms."
+      },
+      {
+        "time": "Wrap-up",
+        "text": "Feedback, new phrases, and something to try before next week."
+      }
+    ],
+    "included": [
+      "Certificate of Completion",
+      "Personalised skills assessment",
+      "English level report"
+    ],
+    "testimonial": null
+  },
+  {
+    "slug": "weekend-boost",
+    "title": "Weekend Boost",
+    "hook": "Four weekends of relaxed, practical speaking practice to refresh your English.",
+    "cardFacts": [
+      "4 weekends",
+      "2 hours daily",
+      "B2+"
+    ],
+    "footnote": "Get in touch with me if you only want to attend a single weekend.",
+    "price": "£270",
+    "format": "Online",
+    "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/9d3cefc5-a5fc-4caa-96a1-8d081f70a89b",
+    "metaTitle": "Weekend Boost | Weekend English Speaking Course Online",
+    "metaDescription": "A 4-weekend online English speaking course with Dr Christina Grey: 2-hour morning sessions in a small group of 6 to 12 (B2+). Refresh your English and start your weekend with a smile. £270.",
+    "schedule": [
+      {
+        "label": "Length",
+        "value": "4 consecutive weekends"
+      },
+      {
+        "label": "Sessions",
+        "value": "Saturdays and Sundays, 8.30am–10.30am UK time"
+      },
+      {
+        "label": "Group size",
+        "value": "6 to 12 participants"
+      },
+      {
+        "label": "Level",
+        "value": "B2 and above"
+      },
+      {
+        "label": "Where",
+        "value": "Online, live on Google Meet"
+      }
+    ],
+    "whoFor": "Busy learners at B2 and above who want to refresh their English without a weekday commitment, and start their weekends with a smile.",
+    "practise": [
+      "Everyday conversations and small talk",
+      "Sharing opinions and stories naturally",
+      "Useful phrases for work and life",
+      "Listening and responding without translating in your head"
+    ],
+    "sessionTitle": "A typical session",
+    "session": [
+      {
+        "time": "Warm-up",
+        "text": "Relaxed questions to get you speaking."
+      },
+      {
+        "time": "Theme",
+        "text": "A practical topic with the phrases you need."
+      },
+      {
+        "time": "Practice",
+        "text": "Conversations and role-plays in small groups."
+      },
+      {
+        "time": "Wrap-up",
+        "text": "Feedback and a phrase to take into your week."
+      }
+    ],
+    "included": [
+      "Certificate of Completion",
+      "Personalised skills assessment",
+      "English level report"
+    ],
+    "testimonial": {
+      "text": "I really enjoyed the Weekend Boost course. It was a great way to refresh my skills and learn new conversational techniques in a supportive environment.",
+      "name": "Fatima",
+      "country": "UAE"
+    }
+  },
+  {
+    "slug": "series-club",
+    "title": "Series Club",
+    "hook": "Watch a popular series and talk about it with me: listening and conversation, the fun way.",
+    "cardFacts": [
+      "8 weeks",
+      "2 hours weekly",
+      "B2+"
+    ],
+    "price": "£270",
+    "format": "Online",
+    "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/7e09c26d-d9d8-439a-8205-2fa95f19e666",
+    "metaTitle": "Series Club | Learn English Watching a Series, Online",
+    "metaDescription": "An 8-week online Series Club with Dr Christina Grey: watch a popular series and discuss it in a small group of 6 to 12 (B2+). Improve your listening and natural conversation. £270.",
+    "schedule": [
+      {
+        "label": "Length",
+        "value": "8 consecutive weeks (16 hours)"
+      },
+      {
+        "label": "Sessions",
+        "value": "Tuesdays, 6pm–8pm UK time"
+      },
+      {
+        "label": "Group size",
+        "value": "6 to 12 participants"
+      },
+      {
+        "label": "Level",
+        "value": "B2 and above"
+      },
+      {
+        "label": "Where",
+        "value": "Online, live on Google Meet"
+      }
+    ],
+    "whoFor": "Learners at B2 and above who want to understand fast, natural English and enjoy improving it with others.",
+    "practise": [
+      "Understanding natural, fast English as people really speak it",
+      "Everyday expressions and idioms from the show",
+      "Talking about characters, plot twists, and your opinions",
+      "Relaxed conversation with a friendly group"
+    ],
+    "sessionTitle": "A typical session",
+    "session": [
+      {
+        "time": "First reactions",
+        "text": "What did you think of this week's episode?"
+      },
+      {
+        "time": "Key scenes",
+        "text": "We look closely at a few scenes and what really happened."
+      },
+      {
+        "time": "Language",
+        "text": "Expressions and idioms from the episode, and how to use them."
+      },
+      {
+        "time": "Conversation",
+        "text": "From the screen to real life: the bigger themes and your own experiences."
+      }
+    ],
+    "included": [
+      "Certificate of Completion",
+      "Personalised skills assessment",
+      "English level report"
+    ],
+    "testimonial": {
+      "text": "It felt very unsafe to watch without subtitles, but it doesn't now. The Series Club is a great way to brush up your English to the next step!",
+      "name": "Kat"
+    }
+  },
+  {
+    "slug": "book-club",
+    "title": "Book Club",
+    "hook": "Read a novel together over four weeks: stories, discussion, and new vocabulary.",
+    "cardFacts": [
+      "4 weeks",
+      "2 hours weekly",
+      "B2+"
+    ],
+    "price": "£220",
+    "format": "Online",
+    "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/92cd3b67-e549-4c9c-b389-58fa685886f6",
+    "metaTitle": "Book Club | Online English Book Club for Learners",
+    "metaDescription": "A 4-week online English book club with Dr Christina Grey: read a novel together and discuss it in a small group of 6 to 12 (B2+). New vocabulary and real speaking confidence. £220.",
+    "schedule": [
+      {
+        "label": "Length",
+        "value": "4 consecutive weeks (8 hours)"
+      },
+      {
+        "label": "Sessions",
+        "value": "Thursdays, 6pm–8pm UK time"
+      },
+      {
+        "label": "Group size",
+        "value": "6 to 12 participants"
+      },
+      {
+        "label": "Level",
+        "value": "B2 and above"
+      },
+      {
+        "label": "Where",
+        "value": "Online, live on Google Meet"
+      }
+    ],
+    "whoFor": "Book lovers at B2 and above who want to read in English, talk about stories, and grow their vocabulary naturally.",
+    "practise": [
+      "Discussing key scenes: what happened, why, and what you think",
+      "Vocabulary and phrases straight from the page",
+      "Phrases for talking about books: agreeing, disagreeing, and building on ideas",
+      "Connecting the story to your own life"
+    ],
+    "sessionTitle": "A typical session",
+    "session": [
+      {
+        "time": "Opening",
+        "text": "Your first reactions to this week's chapters."
+      },
+      {
+        "time": "Scene unpack",
+        "text": "We read two key scenes closely and discuss them."
+      },
+      {
+        "time": "Life conversation",
+        "text": "From the book to your own life."
+      },
+      {
+        "time": "Language",
+        "text": "New words and phrases from the page, ready for you to use."
+      },
+      {
+        "time": "Next week",
+        "text": "What to read, and what to look out for."
+      }
+    ],
+    "included": [
+      "Certificate of Completion",
+      "Personalised skills assessment",
+      "English level report",
+      "A weekly handout with vocabulary and discussion questions"
+    ],
+    "testimonial": {
+      "text": "It's a very interesting and funny book club to improve your English, without feeling like an English course.",
+      "name": "Laura"
+    }
+  },
+  {
+    "slug": "summer-retreat",
+    "hidden": true,
+    "title": "Unlock English Fluency: Summer Retreat",
+    "hook": "Experience The Unlock Fluency Method in person: a week of English, culture, and confidence in Cambridge, UK.",
+    "cardFacts": [
+      "5 days",
+      "6 hours daily",
+      "B2+"
+    ],
+    "price": "£1,500",
+    "format": "Cambridge",
+    "tba": true,
+    "brochureUrl": "/summer_retreat_2026.pdf"
+  }
+]

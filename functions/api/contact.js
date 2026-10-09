@@ -55,7 +55,7 @@ export async function onRequestPost(context) {
       );
     }
 
-    if (enquiry_type === 'Unlock Fluency for Organisations' && !course_level) {
+    if (enquiry_type === 'Unlock Fluency for Business' && !course_level) {
       return new Response(
         JSON.stringify({
           success: false,
@@ -115,7 +115,7 @@ export async function onRequestPost(context) {
 `;
     }
 
-    if (enquiry_type === 'Unlock Fluency for Organisations' && course_level) {
+    if (enquiry_type === 'Unlock Fluency for Business' && course_level) {
       emailBody += `
       <div class="field">
         <div class="label">Required Course Level:</div>
