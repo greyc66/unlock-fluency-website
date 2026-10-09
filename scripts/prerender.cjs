@@ -38,7 +38,7 @@ const ROUTES = {
         <li><a href="/courses">Online courses</a>: small-group courses, live online, from £220.</li>
         <li>1-to-1 coaching: sessions built around your goals, from £75.</li>
         <li><a href="/business">For business</a>: tailored training for teams, online or in person.</li>
-        <li><a href="/retreatregistration">Summer retreat</a>: a week of English, culture, and confidence in Cambridge, UK.</li>
+        <li><a href="/courses/summer-retreat">Summer retreat</a>: a week of English, culture, and confidence in Cambridge, UK. Dates to be announced.</li>
       </ul>
       <h2>Meet Dr Christina Grey</h2>
       <p>A psycholinguist with a PhD in Linguistics who trained in drama at the University of Kent and at Tufts as a Fulbright scholar. Her courses combine the science of how we learn languages with the stage skills that help you speak with presence.</p>
@@ -208,7 +208,7 @@ for (const c of courses.filter((course) => !course.hidden)) {
       <ul>${c.session.map((s) => `<li>${s.time}: ${s.text}</li>`).join('')}</ul>
       <h2>What's included</h2>
       <ul>${c.included.map((item) => `<li>${item}</li>`).join('')}</ul>
-      <p>${c.schedule.map((s) => `${s.label}: ${s.value}`).join('. ')}. Price: ${c.price}.</p>
+      <p>${c.schedule.map((s) => `${s.label}: ${s.value}`).join('. ')}.${c.tba ? '' : ` Price: ${c.price}.`}</p>
     `,
   };
 }

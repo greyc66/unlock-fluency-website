@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, ArrowRight, Building2, Download } from "lucide-react";
+import { Calendar, ArrowRight, Building2 } from "lucide-react";
 import courses from "@/data/courses.json";
 
 
@@ -18,18 +18,15 @@ const CourseCard = ({ course }) => (
       {[...course.cardFacts, course.format].join(" · ")}
     </p>
     {course.tba ? (
-      <div className="flex flex-col gap-3">
-        {course.brochureUrl && (
-          <a href={course.brochureUrl} target="_blank" rel="noopener noreferrer">
-            <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
-              <Download className="w-4 h-4 mr-2" />
-              Download the Brochure
-            </Button>
-          </a>
-        )}
+      <div className="grid grid-cols-2 gap-3">
+        <Link to={`/courses/${course.slug}`}>
+          <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
+            Course details
+          </Button>
+        </Link>
         <Link to="/retreatregistration">
           <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-            Register your interest
+            Register interest
           </Button>
         </Link>
       </div>
@@ -59,7 +56,7 @@ export default function Courses() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl text-white mb-5">Online Courses</h1>
           <p className="text-lg text-gray-300">
-            Small groups of 6 to 12, live on Google Meet, designed and taught by me. Every course includes a certificate, a personalised skills assessment, and an English level report.
+            Small groups of 6 to 12, live on Google Meet, designed and taught by me, plus a summer retreat in Cambridge once a year. Every online course includes a certificate, a personalised skills assessment, and an English level report.
           </p>
         </div>
       </section>

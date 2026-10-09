@@ -56,8 +56,8 @@ const ways = [
     title: "Summer retreat",
     text: "A week of English, culture, and confidence in Cambridge, UK.",
     meta: "Once a year, each summer",
-    link: "/retreatregistration",
-    cta: "Register your interest",
+    link: "/courses/summer-retreat",
+    cta: "Find out more",
   },
 ];
 

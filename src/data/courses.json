@@ -373,17 +373,77 @@
   },
   {
     "slug": "summer-retreat",
-    "hidden": true,
-    "title": "Unlock English Fluency: Summer Retreat",
-    "hook": "Experience The Unlock Fluency Method in person: a week of English, culture, and confidence in Cambridge, UK.",
+    "tba": true,
+    "title": "Summer Retreat in Cambridge",
+    "hook": "A 5-day residential retreat: a week of intensive fluency training and a classic Cambridge experience.",
     "cardFacts": [
       "5 days",
-      "6 hours daily",
+      "Residential",
       "B2+"
     ],
-    "price": "£1,500",
-    "format": "Cambridge",
-    "tba": true,
-    "brochureUrl": "/summer_retreat_2026.pdf"
+    "price": "Dates TBA",
+    "format": "Cambridge, UK",
+    "brochureUrl": "/summer_retreat_2026.pdf",
+    "metaTitle": "Summer Retreat in Cambridge | Residential English Fluency Week",
+    "metaDescription": "A 5-day residential English fluency retreat in Cambridge with Dr Christina Grey, for B2+ learners and international professionals. Dates for the next retreat will be announced: register your interest.",
+    "datesNote": "Dates for the next retreat will be announced soon. Register your interest and I'll contact you as soon as dates are confirmed. Places are limited and allocated on a first-come, first-served basis; if your registration is accepted, you'll be invited to secure your place with a non-refundable 50% deposit.",
+    "schedule": [
+      {
+        "label": "Dates",
+        "value": "To be announced"
+      },
+      {
+        "label": "Length",
+        "value": "5 days, Monday to Friday, with 5 nights' accommodation"
+      },
+      {
+        "label": "Course hours",
+        "value": "9:30am–3:30pm daily (2026)"
+      },
+      {
+        "label": "Level",
+        "value": "B2 and above"
+      },
+      {
+        "label": "Where",
+        "value": "Cambridge, UK (Emmanuel College in 2026)"
+      },
+      {
+        "label": "Price",
+        "value": "£1,500 in 2026; the next price will be announced with the dates"
+      }
+    ],
+    "whoFor": "International professionals who want to communicate more confidently in English, learners who want to move from \"good\" English to natural fluency, and anyone looking for an immersive language and cultural experience in an inspiring academic setting. For upper-intermediate and advanced learners (B2 and above).",
+    "practise": [
+      "Speaking spontaneously and confidently in a small, highly interactive group",
+      "Everything in my Unlock English Fluency course, taught in person",
+      "Using your English straight away in real situations around Cambridge",
+      "Natural conversation over meals, tours, and Cambridge traditions"
+    ],
+    "sessionTitle": "A typical day",
+    "session": [
+      {
+        "time": "Breakfast",
+        "text": "Start the day together at the college."
+      },
+      {
+        "time": "9:30am–3:30pm",
+        "text": "The Unlock English Fluency course: discussions, role-plays, listening, and debates in small groups."
+      },
+      {
+        "time": "Afternoon and evening",
+        "text": "Cambridge experiences, such as a guided walking tour, punting on the River Cam, or a formal candlelit dinner."
+      }
+    ],
+    "includedTitle": "What was included in 2026",
+    "included": [
+      "The Unlock English Fluency course, Monday to Friday",
+      "5 nights in a single en-suite room at Emmanuel College",
+      "Daily breakfast at Emmanuel College",
+      "A professional guided walking tour of Cambridge",
+      "A guided punting experience on the River Cam",
+      "A 3-course candlelit formal dinner in the historic Old Dining Hall at Homerton College"
+    ],
+    "testimonial": null
   }
 ]

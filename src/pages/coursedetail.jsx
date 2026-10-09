@@ -2,19 +2,30 @@ import React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingLink from "@/components/BookingLink";
-import { ArrowLeft, Calendar, CheckCircle, Quote } from "lucide-react";
+import { ArrowLeft, Calendar, CheckCircle, Quote, Download, Info } from "lucide-react";
 import courses from "@/data/courses.json";
 
 const WHATSAPP_URL = "https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0";
 
-const BookButton = ({ course, className = "" }) => (
-  <BookingLink href={course.bookingUrl} className="block">
+// Courses with dates to be announced (the summer retreat) collect registrations of interest instead of bookings.
+const BookButton = ({ course, className = "" }) => {
+  const button = (
     <Button className={`bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11 px-6 ${className}`}>
       <Calendar className="w-4 h-4 mr-2" />
-      See dates and book
+      {course.tba ? "Register your interest" : "See dates and book"}
     </Button>
-  </BookingLink>
-);
+  );
+  return course.tba
+    ? <Link to="/retreatregistration" className="block">{button}</Link>
+    : <BookingLink href={course.bookingUrl} className="block">{button}</BookingLink>;
+};
+
+const BrochureLink = ({ course }) => course.brochureUrl ? (
+  <a href={course.brochureUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700 mt-4">
+    <Download className="w-4 h-4 mr-2" />
+    Download the 2026 brochure
+  </a>
+) : null;
 
 export default function CourseDetail() {
   const { slug } = useParams();
@@ -30,13 +41,19 @@ export default function CourseDetail() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <Link to="/courses" className="inline-flex items-center text-sm font-semibold text-brand-300 hover:text-brand-200 mb-8">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            All online courses
+            All courses
           </Link>
           <h1 className="text-4xl lg:text-5xl text-white mb-4">{course.title}</h1>
           <p className="text-lg text-gray-300 max-w-2xl mb-6">{course.hook}</p>
           <p className="text-sm font-semibold text-brand-300">
             {[...course.cardFacts, course.format, course.price].join(" · ")}
           </p>
+          {course.tba && (
+            <p className="mt-6 inline-flex items-start gap-2 rounded-lg bg-white/10 px-4 py-3 text-gray-100">
+              <Info className="w-5 h-5 mt-0.5 shrink-0 text-brand-300" />
+              Dates for the next retreat will be announced. For now, you can register your interest.
+            </p>
+          )}
         </div>
       </section>
 
@@ -75,7 +92,7 @@ export default function CourseDetail() {
             </div>
 
             <div>
-              <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">What's included</h2>
+              <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">{course.includedTitle || "What's included"}</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {course.included.map((item) => (
                   <li key={item} className="flex items-start gap-3 bg-brand-50 rounded-lg p-4 text-gray-700">
@@ -88,12 +105,17 @@ export default function CourseDetail() {
 
             <div>
               <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">Dates</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Upcoming dates and times are in my booking calendar. I add new dates regularly; join my{" "}
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:text-brand-700 font-semibold underline">WhatsApp community</a>{" "}
-                to hear about them first.
-              </p>
+              {course.tba ? (
+                <p className="text-gray-700 leading-relaxed mb-6">{course.datesNote}</p>
+              ) : (
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Upcoming dates and times are in my booking calendar. I add new dates regularly; join my{" "}
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:text-brand-700 font-semibold underline">WhatsApp community</a>{" "}
+                  to hear about them first.
+                </p>
+              )}
               <BookButton course={course} />
+              <BrochureLink course={course} />
             </div>
 
             {course.testimonial && (
@@ -122,6 +144,7 @@ export default function CourseDetail() {
             </dl>
             {course.footnote && <p className="text-sm text-brand-700 italic mb-6">{course.footnote}</p>}
             <BookButton course={course} className="w-full" />
+            <BrochureLink course={course} />
           </aside>
         </div>
       </section>

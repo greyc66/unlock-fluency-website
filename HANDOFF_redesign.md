@@ -1,6 +1,6 @@
 # Website redesign handoff
 
-**Status:** Whole site redesigned in this folder (branch `redesign`), with photo layout 3 chosen and merged; every photo slot is filled. The `redesign-photos-v1` and `redesign-photos-v3` folders are comparison copies and can be deleted. Next: Setmore dates, then merge `redesign` into `main` and publish.
+**Status:** Whole site redesigned in this folder (branch `redesign`); comparison folders deleted; full desktop and phone check passed (19 pages, interactions included). Next: Setmore dates, then merge `redesign` into `main` and publish.
 
 ## Where things are
 - **Live site:** `../unlock-fluency-website` (branch `main`). Don't edit it for redesign work.
@@ -36,7 +36,7 @@
 - Corporate cards show typical values instead of "Custom" (length, format or focus or location, group size, level B1/B2 and above).
 - Course names carry no "Morning"/"Evening"; timing goes on each course's details page.
 - Course details: one separate page per course (own URL, title and Google listing).
-- Summer Retreat stays hidden; it runs once a year in summer.
+- Summer Retreat is listed under Group courses with its own page (/courses/summer-retreat): dates to be announced, "Register your interest" (to /retreatregistration) instead of booking, 2026 details labelled as 2026, and a link to the 2026 brochure (`public/summer_retreat_2026.pdf`; source in `Summer_retreat/summer_retreat.html`). Update its entry in `src/data/courses.json` when next year's dates and price are set.
 - Theatre background: child actor; studied drama for a year at the University of Kent, then a further year at Tufts on a Fulbright scholarship. Has spoken at conferences in the UK, US, Greece, Germany, Ireland, the Netherlands, and other countries. Use this to show public speaking training alongside the English teaching.
 - The award photo (`IMG_4561`) is from Scouts research work and is not relevant; don't use it.
 - The award photo is used, described only as "award-winning research" (no detail of what for).
@@ -52,6 +52,8 @@
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
+- Retreat registration form still states the 2026 deposit (£750, 50%); update it with next year's price.
+- The 2026 brochure PDF is 11.8MB, slow on phones; a compressed version would load faster.
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
 - Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Series Club uses Kat (`Series_club/Series Club Evaluation.csv`); both gave permission for first name only, so no job or country is shown.
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
@@ -70,3 +72,4 @@
 - 2026-10-09: Owner chose photo layout 3 with changes: cleaned white-background photos (IMG_0352, IMG_6703, IMG_6796, IMG_6880), deleted photos removed (Babylab_now, IMG_2577, original IMG_0413), fun facts limited to IMG_7405 and IMG_6172, IMG_6796_white_background in the For Business presence circle. Merged `redesign-photos-v3` into `redesign`. Build passes; checked by screenshots that no heads are cropped.
 - 2026-10-09: Home For business card now uses the conference photo, the same as the top of the For Business page (owner's choice). IMG_6703_white_background is unused for now.
 - 2026-10-09: IMG_6703_white_background placed in About "The teacher" (Berlin, where Christina taught at the VHS), framed from the top. No unused photos remain.
+- 2026-10-09: Deleted the comparison worktrees. Reintroduced the summer retreat under Group courses with its own details page (from the 2026 brochure). Replaced the London photo with the latest IMG_0352_white_background. Ran a full check of 19 pages at desktop and phone widths: no errors, no broken images or links, no sideways scrolling; mobile menu, booking popup (including after in-site navigation), phone booking in a new tab, forms, FAQ, /corporate redirect, and newsletter popup timing all work.

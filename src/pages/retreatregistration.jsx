@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -120,6 +121,10 @@ export default function RetreatRegistration() {
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Join me in Cambridge for an immersive week of real-world English practice, cultural exploration, and confidence-building in one of the world's most inspiring university cities.
           </p>
+          <p className="mt-5 text-gray-100 font-semibold">
+            Dates for the next retreat will be announced. Register your interest below and I'll be in touch as soon as they're confirmed.
+          </p>
+          <Link to="/courses/summer-retreat" className="inline-block mt-3 text-brand-300 hover:text-brand-200 underline">What's included</Link>
         </div>
       </section>
 
