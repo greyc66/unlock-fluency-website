@@ -163,7 +163,12 @@ export default function Business() {
               </div>
             ))}
           </div>
-          <div className="bg-white rounded-xl border border-brand-100 p-8">
+          <div className="bg-white rounded-xl border border-brand-100 p-8 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-center">
+            <img
+              src="/images/christina-evening.jpg"
+              alt="Dr Christina Grey"
+              className="w-32 h-32 rounded-full object-cover object-top mx-auto"
+            />
             <div>
               <h3 className="text-xl font-semibold text-brand-900 mb-2">Presence, not just grammar</h3>
               <p className="text-gray-700 leading-relaxed">

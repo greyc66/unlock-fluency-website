@@ -24,7 +24,8 @@ import {
 
 const ways = [
   {
-    icon: Users,
+    image: "/images/christina-classroom.jpg",
+    alt: "Christina in a classroom",
     title: "Online courses",
     text: "Small-group courses, live online: intensive weeks, weekly evenings, weekends, and clubs.",
     meta: "From £220",
@@ -32,7 +33,8 @@ const ways = [
     cta: "See online courses",
   },
   {
-    icon: User,
+    image: "/images/christina-tea.jpg",
+    alt: "Christina having afternoon tea",
     title: "1-to-1 coaching",
     text: "Sessions built entirely around your goals, at any level.",
     meta: "From £75",
@@ -40,7 +42,9 @@ const ways = [
     cta: "Book a free call",
   },
   {
-    icon: Building2,
+    image: "/images/christina-berlin.jpg",
+    alt: "Dr Christina Grey",
+    position: "top",
     title: "For business",
     text: "Tailored training that helps teams speak up in meetings, presentations, and with clients.",
     meta: "Online or in person",
@@ -48,7 +52,8 @@ const ways = [
     cta: "Training for teams",
   },
   {
-    icon: Landmark,
+    image: "/images/cambridge.jpg",
+    alt: "The Bridge of Sighs in Cambridge",
     title: "Summer retreat",
     text: "A week of English, culture, and confidence in Cambridge, UK.",
     meta: "Once a year, each summer",
@@ -249,7 +254,7 @@ return (
           <div className="relative justify-self-center w-full max-w-xs sm:max-w-sm">
             <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-300" aria-hidden="true"></div>
             <img
-              src="/images/christina-headshot.jpg"
+              src="/images/christina-hero.jpg"
               alt="Dr Christina Grey"
               className="relative w-full aspect-[4/5] object-cover rounded-2xl"
             />
@@ -327,11 +332,9 @@ return (
                 </span>
               );
               return (
-                <div key={way.title} className="group bg-white rounded-xl border border-brand-100 flex flex-col">
+                <div key={way.title} className="group bg-white rounded-xl overflow-hidden border border-brand-100 flex flex-col">
+                  <img src={way.image} alt={way.alt} className="w-full aspect-[4/3] object-cover" style={{ objectPosition: way.position || "center" }} />
                   <div className="p-6 flex flex-col flex-grow">
-                    <div className="w-12 h-12 rounded-lg bg-brand-600 flex items-center justify-center mb-5">
-                      <way.icon className="w-6 h-6 text-white" />
-                    </div>
                     <p className="text-xs font-bold tracking-wider uppercase text-brand-600 mb-2">{way.meta}</p>
                     <h3 className="text-xl font-semibold text-brand-900 mb-2">{way.title}</h3>
                     <p className="text-gray-600 mb-6 flex-grow">{way.text}</p>
@@ -352,8 +355,8 @@ return (
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
           <img
-            src="/images/christina-cafe.jpg"
-            alt="Dr Christina Grey"
+            src="/images/christina-cambridge.jpg"
+            alt="Christina in Cambridge"
             className="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-2xl"
           />
           <div>

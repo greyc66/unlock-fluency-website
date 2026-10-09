@@ -74,9 +74,7 @@ const chapters = [
   },
   {
     title: "The teacher",
-    photos: [
-      { src: "/images/christina-classroom.jpg", alt: "Christina in a classroom" },
-    ],
+    photos: [],
     text: [
       "I've taught English since 2012, from private tutoring and language schools to many years at the Volkshochschule (VHS) in Berlin.",
       "Having lived in different countries and seen different education systems, I kept meeting the same learner: someone who could ace a grammar test but froze in a simple conversation.",
@@ -231,7 +229,7 @@ export default function About() {
               <div className="relative w-full max-w-xs">
                 <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-300" aria-hidden="true" />
                 <img
-                  src="/images/christina-about.jpg"
+                  src="/images/christina-portrait.jpg"
                   alt="Dr Christina Grey"
                   className="relative w-full aspect-[4/5] object-cover rounded-2xl"
                 />
@@ -303,8 +301,8 @@ export default function About() {
 
           <div className="space-y-20">
             {chapters.map((chapter, index) => (
-              <div key={chapter.title} className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                <div className={`grid gap-3 ${chapter.photos.length === 3 ? "grid-cols-3" : chapter.photos.length === 2 ? "grid-cols-2" : "grid-cols-1 max-w-xs mx-auto w-full"} ${index % 2 === 1 ? "md:order-2" : ""}`}>
+              <div key={chapter.title} className={`grid grid-cols-1 gap-10 items-center ${chapter.photos.length ? "md:grid-cols-2" : "max-w-3xl mx-auto text-center"}`}>
+                {chapter.photos.length > 0 && <div className={`grid gap-3 ${chapter.photos.length === 3 ? "grid-cols-3" : chapter.photos.length === 2 ? "grid-cols-2" : "grid-cols-1 max-w-xs mx-auto w-full"} ${index % 2 === 1 ? "md:order-2" : ""}`}>
                   {chapter.photos.map((photo) => (
                     <img
                       key={photo.src}
@@ -313,7 +311,7 @@ export default function About() {
                       className="w-full aspect-[3/4] object-cover rounded-xl"
                     />
                   ))}
-                </div>
+                </div>}
                 <div>
                   <h3 className="font-display text-3xl text-brand-900 mb-4">{chapter.title}</h3>
                   {chapter.text.map((paragraph) => (
@@ -360,9 +358,9 @@ export default function About() {
       {/* Some facts about me */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.7fr_1.3fr] gap-10 items-center">
-          <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto w-full">
-            <img src="/images/christina-tea.jpg" alt="Christina having afternoon tea" className="w-full aspect-[3/4] object-cover rounded-2xl" />
-            <img src="/images/christina-berlin.jpg" alt="Christina out and about in Berlin" className="w-full aspect-[3/4] object-cover rounded-2xl mt-8" />
+          <div className="grid grid-cols-2 gap-3 w-full max-w-sm mx-auto">
+            <img src="/images/christina-croissant.jpg" alt="Christina with a croissant in a café" className="w-full aspect-[3/4] object-cover rounded-2xl" />
+            <img src="/images/christina-teddy.jpg" alt="Christina with a giant teddy bear" className="w-full aspect-[3/4] object-cover rounded-2xl mt-8" />
           </div>
           <div>
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Some facts about me</h2>

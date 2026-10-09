@@ -73,9 +73,14 @@ export default function TheMethod() {
 
       {/* From the stage */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+          <img
+            src="/images/christina-london.jpg"
+            alt="Dr Christina Grey in London"
+            className="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-2xl"
+          />
           <div>
-            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6 text-center">Skills from the stage</h2>
+            <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Skills from the stage</h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               I was on stage long before I became a linguist. Fluency is only half of speaking well; the other half is confidence. So alongside the English, I coach the skills actors and speakers rely on:
             </p>
@@ -149,11 +154,6 @@ export default function TheMethod() {
       {/* The science, briefly */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <img
-            src="/images/christina-office.jpg"
-            alt="Christina in her office in front of linguistics posters"
-            className="w-32 h-32 rounded-full object-cover mx-auto mb-6"
-          />
           <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">The science, briefly</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-4">
             Psycholinguistics studies how the brain learns and uses language. The method follows the natural stages of language acquisition: meaningful input, active use, memory support, and a positive approach to mistakes.
