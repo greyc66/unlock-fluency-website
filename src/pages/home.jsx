@@ -42,9 +42,8 @@ const ways = [
     cta: "Book a free call",
   },
   {
-    image: "/images/christina-berlin.jpg",
-    alt: "Dr Christina Grey",
-    position: "top",
+    image: "/images/christina-conference.jpg",
+    alt: "Christina presenting at a conference",
     title: "For business",
     text: "Tailored training that helps teams speak up in meetings, presentations, and with clients.",
     meta: "Online or in person",
