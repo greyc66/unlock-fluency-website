@@ -302,7 +302,7 @@ export default function RetreatRegistration() {
                     htmlFor="agreement" 
                     className="text-sm text-gray-700 leading-relaxed cursor-pointer"
                   >
-                    I understand that places are limited and that a non-refundable 50% deposit (£750) is required to secure my place once my registration is accepted. *
+                    I understand that places are limited and that a non-refundable 50% deposit is required to secure my place once my registration is accepted. *
                   </label>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 # Website redesign handoff
 
-**Status:** Whole site redesigned in this folder (branch `redesign`); comparison folders deleted; full desktop and phone check passed (19 pages, interactions included). Next: Setmore dates, then merge `redesign` into `main` and publish.
+**Status:** Redesign complete and cleaned up in this folder (branch `redesign`), ready to merge into `main`. The live folder has one uncommitted change (removing `baseline-browser-mapping` from package.json), which the redesign already includes; discard it before merging. Next: Setmore dates, then merge and publish.
 
 ## Where things are
 - **Live site:** `../unlock-fluency-website` (branch `main`). Don't edit it for redesign work.
@@ -13,7 +13,7 @@
 - Images live in `public/images/`. Nothing references Base44 storage any more; leave the Base44 files in place for a few weeks after going live.
 - Course data lives in one file, `src/data/courses.json`: the cards, the course details pages (`/courses/<slug>`, `src/pages/coursedetail.jsx`), Google's pre-rendered pages and page titles all read from it. A new course is one entry there plus a `<url>` in `public/sitemap.xml`.
 - "What makes it different" (You do the talking / Real topics, not textbooks / Confidence first) is one component, `src/components/WhatsDifferent.jsx`, used on Home and The Method.
-- Photos in `public/images/` (EXIF and GPS stripped), each used exactly once, sourced from `Photos/personal_photos/` (use the `_white_background` versions where they exist): hero = IMG_0413_white_background (Home, top); classroom (Home, Online courses card); tea (Home, 1-to-1 card); conference (Home, For business card, matching the top of the For Business page, owner's choice); berlin = IMG_6703_white_background (About, The teacher, framed from the top); cambridge = Bridge of Sighs (Home retreat card and retreat page header); christina-cambridge = IMG_6880_white_background, white margins trimmed (Home, Meet Dr Christina Grey); portrait = original About photo (About, top); graduation, research poster, award (About, scientist); presenting (About, performer); croissant = IMG_7405 and teddy = IMG_6172 (About, fun facts); london = IMG_0352_white_background (The Method, Skills from the stage); conference (also For Business, top); evening = IMG_6796_white_background (For Business, presence circle, framed from the top). If a photo is deleted from the folder, remove it from the site.
+- Photos in `public/images/` (EXIF and GPS stripped), each used exactly once, sourced from `Photos/personal_photos/` (use the `_white_background` versions where they exist): hero = IMG_0413_white_background (Home, top); classroom (Home, Online courses card); tea (Home, 1-to-1 card); conference (Home, For business card, matching the top of the For Business page, owner's choice); berlin = IMG_6703_white_background, 22:18 version (About, The teacher, framed from the top); cambridge = Bridge of Sighs (Home retreat card and retreat page header); christina-cambridge = IMG_6880_white_background, white margins trimmed (Home, Meet Dr Christina Grey); portrait = original About photo (About, top); graduation, research poster, award (About, scientist); presenting (About, performer); croissant = IMG_7405 and teddy = IMG_6172 (About, fun facts); london = IMG_0352_white_background (The Method, Skills from the stage); conference (also For Business, top); evening = IMG_6796_white_background (For Business, presence circle, framed from the top). If a photo is deleted from the folder, remove it from the site.
 - Booking buttons: always use `src/components/BookingLink.jsx` (it calls Setmore's global `setmorePopup` on click, so buttons work on every page). `DISCOVERY_CALL_URL` lives there too.
 - Session times on the course pages come from the Setmore listings (e.g. Unlock English Fluency: Monday to Friday, 8am–2pm UK time). Setmore still names it "Unlock Fluency Signature"; rename it there to match.
 - Shared form-control colours are defined in `src/pages/Layout.jsx` as HSL values in the brand palette (they were previously RGB values, which rendered as random colours).
@@ -28,15 +28,15 @@
 - Keep the carousels on the Home and About pages.
 - Courses page is now "Online Courses" (URL still /courses): individuals and 1-to-1 only, with a banner linking to For Organisations.
 - Look Book choice: Sky & Ink, DM Serif + DM Sans, Split layout, "Already yours" message. The owner likes the navy tones, so dark sections are navy. A navy "Spotlight" look (coral or sky buttons, no yellow) may be implemented later.
-- Next to the owner's name the home page mentions online courses, 1-to-1 coaching, and corporate training.
+- The label above the home page headline is "Courses · Coaching · Teams · Retreats" (one line).
 - Stats: keep the current wording for now (owner declined corrections on 2026-10-09).
 - PhD is from the University of Cambridge (confirmed).
 - The Signature course is renamed "Unlock English Fluency" (no "Morning"; timing details will go on its course details page).
-- Group courses: 6 to 12 participants; typical intensive length 30 hours (6 hours daily). Book Club: 2 hours weekly for 4 weeks. Corporate and 1-to-1 group size is flexible (very large groups are unwieldy).
-- Corporate cards show typical values instead of "Custom" (length, format or focus or location, group size, level B1/B2 and above).
+- Group courses: 6 to 12 participants; typical intensive length 30 hours (6 hours daily). Book Club: 2 hours weekly for 4 weeks. Business and 1-to-1 group size is flexible (very large groups are unwieldy).
+- For Business programme cards show typical values instead of "Custom" (length, format or focus or location, group size, level B1/B2 and above).
 - Course names carry no "Morning"/"Evening"; timing goes on each course's details page.
 - Course details: one separate page per course (own URL, title and Google listing).
-- Summer Retreat is listed under Group courses with its own page (/courses/summer-retreat): dates to be announced, "Register your interest" (to /retreatregistration) instead of booking, 2026 details labelled as 2026, and a link to the 2026 brochure (`public/summer_retreat_2026.pdf`; source in `Summer_retreat/summer_retreat.html`). Update its entry in `src/data/courses.json` when next year's dates and price are set.
+- Summer Retreat is listed under Group courses with its own page (/courses/summer-retreat): dates to be announced, "Register your interest" (to /retreatregistration) instead of booking, 2026 schedule details labelled as 2026, no price and no brochure (owner will create a 2027 brochure). Update its entry in `src/data/courses.json` when next year's dates, price, and brochure are ready. The registration form mentions a non-refundable 50% deposit without an amount.
 - Theatre background: child actor; studied drama for a year at the University of Kent, then a further year at Tufts on a Fulbright scholarship. Has spoken at conferences in the UK, US, Greece, Germany, Ireland, the Netherlands, and other countries. Use this to show public speaking training alongside the English teaching.
 - The award photo (`IMG_4561`) is from Scouts research work and is not relevant; don't use it.
 - The award photo is used, described only as "award-winning research" (no detail of what for).
@@ -52,8 +52,6 @@
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
-- Retreat registration form still states the 2026 deposit (£750, 50%); update it with next year's price.
-- The 2026 brochure PDF is 11.8MB, slow on phones; a compressed version would load faster.
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
 - Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Series Club uses Kat (`Series_club/Series Club Evaluation.csv`); both gave permission for first name only, so no job or country is shown.
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
@@ -73,3 +71,4 @@
 - 2026-10-09: Home For business card now uses the conference photo, the same as the top of the For Business page (owner's choice). IMG_6703_white_background is unused for now.
 - 2026-10-09: IMG_6703_white_background placed in About "The teacher" (Berlin, where Christina taught at the VHS), framed from the top. No unused photos remain.
 - 2026-10-09: Deleted the comparison worktrees. Reintroduced the summer retreat under Group courses with its own details page (from the 2026 brochure). Replaced the London photo with the latest IMG_0352_white_background. Ran a full check of 19 pages at desktop and phone widths: no errors, no broken images or links, no sideways scrolling; mobile menu, booking popup (including after in-site navigation), phone booking in a new tab, forms, FAQ, /corporate redirect, and newsletter popup timing all work.
+- 2026-10-09: Removed the retreat brochure (file and link) and its price; deposit wording has no amount. Updated the teacher photo. Cleanup for merging: removed 36 unused UI components, Base44 files (src/api), unused helpers, empty App.css, and 37 unused packages (including baseline-browser-mapping, matching the live folder's pending change); renamed the package; rewrote README; listed every setting in .env.example; updated the fallback description in index.html; moved the Germanisms handout source to `Live_handouts/`; deleted the comparison branches. Kept `original_banner.jpg` (used by newsletter emails) and `learning_resources.pdf` (welcome email). A fresh install builds all 18 pages; the full desktop and phone check passes.

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingLink from "@/components/BookingLink";
-import { ArrowLeft, Calendar, CheckCircle, Quote, Download, Info } from "lucide-react";
+import { ArrowLeft, Calendar, CheckCircle, Quote, Info } from "lucide-react";
 import courses from "@/data/courses.json";
 
 const WHATSAPP_URL = "https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0";
@@ -19,13 +19,6 @@ const BookButton = ({ course, className = "" }) => {
     ? <Link to="/retreatregistration" className="block">{button}</Link>
     : <BookingLink href={course.bookingUrl} className="block">{button}</BookingLink>;
 };
-
-const BrochureLink = ({ course }) => course.brochureUrl ? (
-  <a href={course.brochureUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700 mt-4">
-    <Download className="w-4 h-4 mr-2" />
-    Download the 2026 brochure
-  </a>
-) : null;
 
 export default function CourseDetail() {
   const { slug } = useParams();
@@ -115,7 +108,6 @@ export default function CourseDetail() {
                 </p>
               )}
               <BookButton course={course} />
-              <BrochureLink course={course} />
             </div>
 
             {course.testimonial && (
@@ -144,7 +136,6 @@ export default function CourseDetail() {
             </dl>
             {course.footnote && <p className="text-sm text-brand-700 italic mb-6">{course.footnote}</p>}
             <BookButton course={course} className="w-full" />
-            <BrochureLink course={course} />
           </aside>
         </div>
       </section>

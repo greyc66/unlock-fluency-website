@@ -383,7 +383,6 @@
     ],
     "price": "Dates TBA",
     "format": "Cambridge, UK",
-    "brochureUrl": "/summer_retreat_2026.pdf",
     "metaTitle": "Summer Retreat in Cambridge | Residential English Fluency Week",
     "metaDescription": "A 5-day residential English fluency retreat in Cambridge with Dr Christina Grey, for B2+ learners and international professionals. Dates for the next retreat will be announced: register your interest.",
     "datesNote": "Dates for the next retreat will be announced soon. Register your interest and I'll contact you as soon as dates are confirmed. Places are limited and allocated on a first-come, first-served basis; if your registration is accepted, you'll be invited to secure your place with a non-refundable 50% deposit.",
@@ -407,10 +406,6 @@
       {
         "label": "Where",
         "value": "Cambridge, UK (Emmanuel College in 2026)"
-      },
-      {
-        "label": "Price",
-        "value": "£1,500 in 2026; the next price will be announced with the dates"
       }
     ],
     "whoFor": "International professionals who want to communicate more confidently in English, learners who want to move from \"good\" English to natural fluency, and anyone looking for an immersive language and cultural experience in an inspiring academic setting. For upper-intermediate and advanced learners (B2 and above).",

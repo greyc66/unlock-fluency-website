@@ -171,7 +171,7 @@ export async function onRequestPost(context) {
 
       <div class="highlight">
         <strong>✓ Deposit Agreement:</strong><br>
-        The applicant understands that a non-refundable 50% deposit (£750) is required to secure their place once accepted.
+        The applicant understands that a non-refundable 50% deposit is required to secure their place once accepted.
       </div>
     </div>
 
