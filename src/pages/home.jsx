@@ -42,8 +42,9 @@ const ways = [
     cta: "Book a free call",
   },
   {
-    image: "/images/christina-about.jpg",
+    image: "/images/christina-berlin.jpg",
     alt: "Dr Christina Grey",
+    position: "top",
     title: "For business",
     text: "Tailored training that helps teams speak up in meetings, presentations, and with clients.",
     meta: "Online or in person",
@@ -332,7 +333,7 @@ return (
               );
               return (
                 <div key={way.title} className="group bg-white rounded-xl overflow-hidden border border-brand-100 flex flex-col">
-                  <img src={way.image} alt={way.alt} className="w-full aspect-[4/3] object-cover" />
+                  <img src={way.image} alt={way.alt} className="w-full aspect-[4/3] object-cover" style={{ objectPosition: way.position || "center" }} />
                   <div className="p-6 flex flex-col flex-grow">
                     <p className="text-xs font-bold tracking-wider uppercase text-brand-600 mb-2">{way.meta}</p>
                     <h3 className="text-xl font-semibold text-brand-900 mb-2">{way.title}</h3>
