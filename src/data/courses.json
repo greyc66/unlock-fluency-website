@@ -223,9 +223,9 @@
     }
   },
   {
-    "slug": "series-club",
-    "title": "Series Club",
-    "hook": "Watch a popular series and talk about it with me: listening and conversation, the fun way.",
+    "slug": "news-unlocked",
+    "title": "News Unlocked",
+    "hook": "A weekly evening course on the week's news, for confident, professional English.",
     "cardFacts": [
       "8 weeks",
       "2 hours weekly",
@@ -234,8 +234,8 @@
     "price": "£270",
     "format": "Online",
     "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/7e09c26d-d9d8-439a-8205-2fa95f19e666",
-    "metaTitle": "Series Club | Learn English Watching a Series, Online",
-    "metaDescription": "An 8-week online Series Club with Dr Christina Grey: watch a popular series and discuss it in a small group of 6 to 12 (B2+). Improve your listening and natural conversation. £270.",
+    "metaTitle": "News Unlocked | Weekly Business English Course on Current News, Online",
+    "metaDescription": "An 8-week online evening course with Dr Christina Grey: discuss the week's news and build professional English fluency in a small group of 6 to 12 (B2+). Tuesdays, 6pm–8pm UK time. £270.",
     "schedule": [
       {
         "label": "Length",
@@ -258,30 +258,30 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Learners at B2 and above who want to understand fast, natural English and enjoy improving it with others.",
+    "whoFor": "Professionals at B2 and above who want to stay up to date and talk about current affairs, business, and work with confidence, in meetings, with clients, and over coffee.",
     "practise": [
-      "Understanding natural, fast English as people really speak it",
-      "Everyday expressions and idioms from the show",
-      "Talking about characters, plot twists, and your opinions",
-      "Relaxed conversation with a friendly group"
+      "Understanding real news articles, reports, and interviews",
+      "The vocabulary of business, economics, technology, and current affairs",
+      "Giving your opinion, agreeing, and disagreeing politely",
+      "Summarising a story clearly and explaining why it matters"
     ],
     "sessionTitle": "A typical session",
     "session": [
       {
-        "time": "First reactions",
-        "text": "What did you think of this week's episode?"
+        "time": "Warm-up",
+        "text": "What caught your eye in the news this week?"
       },
       {
-        "time": "Key scenes",
-        "text": "We look closely at a few scenes and what really happened."
+        "time": "The story",
+        "text": "We read or listen to a news piece together and unpack it."
       },
       {
         "time": "Language",
-        "text": "Expressions and idioms from the episode, and how to use them."
+        "text": "Key vocabulary and phrases from the story, and how to use them at work."
       },
       {
-        "time": "Conversation",
-        "text": "From the screen to real life: the bigger themes and your own experiences."
+        "time": "Discussion",
+        "text": "Debates and role-plays in small groups: what does it mean for business and for us?"
       }
     ],
     "included": [
@@ -289,10 +289,7 @@
       "Personalised skills assessment",
       "English level report"
     ],
-    "testimonial": {
-      "text": "It felt very unsafe to watch without subtitles, but it doesn't now. The Series Club is a great way to brush up your English to the next step!",
-      "name": "Kat"
-    }
+    "testimonial": null
   },
   {
     "slug": "book-club",

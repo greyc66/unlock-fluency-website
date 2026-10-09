@@ -58,6 +58,7 @@ function PagesContent() {
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/courses" element={<Courses />} />
+                <Route path="/courses/series-club" element={<Navigate to="/courses/news-unlocked" replace />} />
                 <Route path="/courses/:slug" element={<CourseDetail />} />
                 <Route path="/my-story" element={<MyStory />} />
                 <Route path="/about" element={<Navigate to="/my-story" replace />} />

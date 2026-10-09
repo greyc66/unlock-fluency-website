@@ -52,9 +52,10 @@
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
-- Series Club is to be replaced by a weekly, business-oriented course on current news: needs a name, schedule, price, and Setmore listing.
+- Rename the Setmore class (still "SC01 - Series Club") to News Unlocked, and update its description.
+- Write the News Unlocked page copy in your own words if needed (first draft in `src/data/courses.json`).
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
-- Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Series Club uses Kat (`Series_club/Series Club Evaluation.csv`); both gave permission for first name only, so no job or country is shown.
+- Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Kat's Series Club quote (`Series_club/Series Club Evaluation.csv`) was removed with the course; both gave permission for first name only, so no job or country is shown.
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
 - Name for the planned news and professional fluency course (suggested: The Briefing).
 - Theatre photos, if any exist.
@@ -76,3 +77,4 @@
 - 2026-10-09: Implemented the Sky & Curtain colourway (aubergine, theatre red, warm off-whites, sky highlights) and removed the blue offset shapes behind the Home and About top photos; the Home cut-out now blends into the page. Full desktop and phone check passes.
 - 2026-10-09: Renamed About to My Story (/my-story; /about redirects permanently via `public/_redirects` and the router). Menu, footer, links on Home and The Method, Google text, and sitemap updated. Top text rewritten (owner's wording) with short qualification ticks. Story section heading is now "How it all started" to avoid repeating the page name. Timeline starts at 2011, VHS Pankow and Mitte is 2016–19, the 2025 entry is removed, and each entry shows its logos (cut from the original timeline image into `public/images/logos/`).
 - 2026-10-09: Courses run on Zoom (not Google Meet): course pages and FAQs updated. Kern is "Kern Training". Online Courses header text removed (title only). For Business: presence note fully first person; "Built around your team" is now one overview (intensive course, weekly course, workshop, retreat, 1-to-1 coaching) plus an "Every programme" box with one Enquire button; the HR team example line was removed. Resources: free resources merged into two panels (WhatsApp, with one join button; newsletter, with an inline sign-up form) and the duplicate bottom call to action removed.
+- 2026-10-09: Replaced Series Club with News Unlocked (/courses/news-unlocked): weekly business-oriented course on current news, Tuesdays 6pm–8pm UK time, 8 weeks, £270, same Setmore class link. /courses/series-club redirects to it. Card, details page, Google listing, structured data, and sitemap updated; Kat's Series Club testimonial removed.
