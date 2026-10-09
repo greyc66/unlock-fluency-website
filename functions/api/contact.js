@@ -11,7 +11,7 @@ export async function onRequestPost(context) {
     const formData = await request.json();
 
     // Validate required fields
-    const { name, email, enquiry_type, message, current_english_level, course_level } = formData;
+    const { name, email, enquiry_type, message, current_english_level, organisation, team_size } = formData;
 
     if (!name || !email || !enquiry_type || !message) {
       return new Response(
@@ -55,11 +55,11 @@ export async function onRequestPost(context) {
       );
     }
 
-    if (enquiry_type === 'Unlock Fluency for Business' && !course_level) {
+    if (enquiry_type === 'Unlock Fluency for Business' && (!organisation || !team_size)) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Course level is required for organisation enquiries'
+          error: 'Organisation and number of participants are required for business enquiries'
         }),
         {
           status: 400,
@@ -115,11 +115,16 @@ export async function onRequestPost(context) {
 `;
     }
 
-    if (enquiry_type === 'Unlock Fluency for Business' && course_level) {
+    if (enquiry_type === 'Unlock Fluency for Business') {
       emailBody += `
       <div class="field">
-        <div class="label">Required Course Level:</div>
-        <div class="value">${course_level}</div>
+        <div class="label">Company or Organisation:</div>
+        <div class="value">${organisation}</div>
+      </div>
+
+      <div class="field">
+        <div class="label">Number of Participants:</div>
+        <div class="value">${team_size}</div>
       </div>
 `;
     }

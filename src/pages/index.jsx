@@ -12,6 +12,7 @@ import Resources from "./resources.jsx";
 import PrivacyPolicy from "./privacypolicy.jsx";
 import CancellationPolicy from "./cancellationpolicy.jsx";
 import Faqs from "./faqs.jsx";
+import Newsletter from "./newsletter.jsx";
 import Business from "./business.jsx";
 import RetreatRegistration from "./retreatregistration.jsx";
 
@@ -28,6 +29,7 @@ const PAGES = {
     privacypolicy: PrivacyPolicy,
     cancellationpolicy: CancellationPolicy,
     faqs: Faqs,
+    newsletter: Newsletter,
     business: Business,
     retreatregistration: RetreatRegistration,
 }
@@ -65,6 +67,7 @@ function PagesContent() {
                 <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                 <Route path="/cancellationpolicy" element={<CancellationPolicy />} />
                 <Route path="/faqs" element={<Faqs />} />
+                <Route path="/newsletter" element={<Newsletter />} />
                 <Route path="/business" element={<Business />} />
                 <Route path="/corporate" element={<Navigate to="/business" replace />} />
                 <Route path="/retreatregistration" element={<RetreatRegistration />} />

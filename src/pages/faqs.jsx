@@ -15,7 +15,7 @@ export default function FAQs() {
     },
     {
       question: "How do I join a course?",
-      answer: <> On my <Link to="/courses" className="text-brand-600 hover:text-brand-700">Courses</Link> page you can browse all of my available courses. Click on 'Book now', follow the checkout process, and you will receive a Google Meet link to join. If you don't see any available dates for specific courses, check back later as I add new course dates frequently (or join my <Link to="/contact" className="text-brand-600 hover:text-brand-700">Newsletter</Link> and/or <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-brand-600 hover:text-brand-700">WhatsApp Community</a> if you want to be the first to receive updates!). </>
+      answer: <> On my <Link to="/courses" className="text-brand-600 hover:text-brand-700">Courses</Link> page you can browse all of my available courses. Click on 'Book now', follow the checkout process, and you will receive a Google Meet link to join. If you don't see any available dates for specific courses, check back later as I add new course dates frequently (or join my <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">Newsletter</Link> and/or <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-brand-600 hover:text-brand-700">WhatsApp Community</a> if you want to be the first to receive updates!). </>
     },
     {
       question: "What happens if I need to cancel my booking?",
@@ -39,7 +39,7 @@ export default function FAQs() {
     },
     {
       question: "How do I sign up for the newsletter?",
-      answer: "Scroll all the way to the bottom of my website and you will see a 'Subscribe' button on the bottom left. Alternatively, click on the 'Get in Touch' button and select 'Newsletter Sign-up' as your enquiry type."
+      answer: <>Visit my <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">Newsletter</Link> page, or use the sign-up box at the bottom of any page. You'll get a free PDF of English learning tips straight away, then one email a month.</>
     },
     {
       question: "Do you offer courses for teams and organisations?",

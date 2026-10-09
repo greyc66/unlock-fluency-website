@@ -1,6 +1,6 @@
 # Website redesign handoff
 
-**Status:** Whole site redesigned in the copy; organisations page is now "For Business" at /business. Checkpoint commits on branch `redesign`; the previous photo layout is kept for comparison on branch `redesign-photos-v1` (folder `../unlock-fluency-website-redesign-photos-v1`). Next: owner compares the two photo layouts, decides on newsletter page and enquiry subjects, adds Setmore dates, then merge into `main`.
+**Status:** Whole site redesigned in the copy, including the newsletter page and new contact form subjects. Checkpoint commits on branch `redesign`; the previous photo layout is on branch `redesign-photos-v1` for comparison (it does not have the newsletter or contact form changes; if the owner picks it, apply its photo commit onto `redesign`). Next: owner chooses the photo layout, adds Setmore dates, then merge into `main`.
 
 ## Where things are
 - **Live site:** `../unlock-fluency-website` (branch `main`). Don't edit it for redesign work.
@@ -45,14 +45,15 @@
 - The organisations page is "For Business" at /business (owner's decision, 2026-10-09). /corporate redirects permanently (`public/_redirects` and a client-side redirect in `src/pages/index.jsx`). Google titles keep the phrase "Corporate English Training" for search. Contact form subject value is "Unlock Fluency for Business" (front end and `functions/api/contact.js`). Promo documents and both value proposition PDFs now use /business; don't share them until the redesign is live.
 - About merges the old "Genesis of my Method" timeline into a five-part story (start, scientist, performer, teacher, method) and replaces the timeline image with text.
 - Home is: opening section, stats carousel, what makes it different, ways to work with me (online courses, 1-to-1, organisations, summer retreat), meet Christina, testimonials carousel, closing call to action. The label above the headline must fit on one line: "Courses · Coaching · Teams · Retreats".
+- Newsletter: own page at /newsletter (what you get, sign-up form); inline sign-up in the footer on every page plus a footer link; the first-visit popup appears only after a visitor scrolls 40% of a page, never on /newsletter or /contact. All three use `src/components/NewsletterForm.jsx` (posts to `/api/newsletter`). Old `/contact?subject=Newsletter Sign-up` links redirect to /newsletter.
+- Contact form subjects: Online courses; 1-to-1 coaching (asks current English level); Training for my team or company (asks organisation and number of participants: 1–5, 6–12, 13–20, more than 20); Summer retreat; Something else. Each has its own message prompt. Newsletter sign-up is no longer a contact subject. `functions/api/contact.js` validates and emails the new fields.
+- Form submissions: contact form and retreat registration are emailed via Resend to CONTACT_EMAIL (contact@unlockfluency.co.uk); newsletter sign-ups email the owner, send the subscriber a welcome email with the free PDF, and add them to the Resend audience.
 - Overall aim: sleek and not busy; visitors should understand straight away that there are offers for individuals, for organisations, and experiences like the summer retreat.
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
 - Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Series Club uses Kat (`Series_club/Series Club Evaluation.csv`); both gave permission for first name only, so no job or country is shown.
-- Newsletter: own page (/newsletter) and more visible sign-up? Proposed, awaiting decision.
-- Contact form enquiry subjects: improvements proposed, awaiting decision.
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
 - Name for the planned news and professional fluency course (suggested: The Briefing).
 - Theatre photos, if any exist.
@@ -64,3 +65,4 @@
 - 2026-10-09: Added personal photos, the WhatsDifferent component, course data file and five course details pages (with Google pages and sitemap entries), shortened course cards, single 1-to-1 button, rebuilt For Organisations from the value proposition, rewrote About (story chapters, text timeline) and The Method (simplified), simplified Home. Removed unused files (CertificationNote, old timeline and background images, cambridge-bg.jpg). Build passes; checked by screenshots on desktop and phone. Not committed.
 - 2026-10-09: Fixed booking buttons (shared BookingLink), added Setmore session times and Laura's Book Club testimonial, added four new photos and removed all photo duplication, redesigned Success Stories, FAQs (accordion), Contact (form plus call/email panel), Resources, Summer Retreat registration, and both policy pages; fixed shared form-control colours. Removed unused stock background images. Build passes; checked by screenshots.
 - 2026-10-09: Renamed For Organisations to For Business (/business, with /corporate redirects); updated Promo documentation and regenerated both value proposition PDFs; added Kat's Series Club testimonial; first names only for course testimonials. Committed as a checkpoint and created `redesign-photos-v1` with the previous photo layout for comparison.
+- 2026-10-09: Added the /newsletter page, footer sign-up, gentler popup, and new contact form subjects with business fields (front end and backend, backend checked with a mocked email service). Updated FAQs to point to /newsletter. Build passes; checked by screenshots.

@@ -153,6 +153,23 @@ const ROUTES = {
     `,
   },
 
+  '/newsletter': {
+    title: 'Newsletter | The Unlock Fluency Method',
+    description: 'Join The Unlock Fluency Method newsletter: a free PDF of English learning tips, then one email a month with a TED talk pick, podcast recommendations, accent features, and early access to new courses.',
+    content: `
+      <h1>The Unlock Fluency Newsletter</h1>
+      <p>One email a month to keep your English growing between courses. Free, and you can unsubscribe at any time.</p>
+      <h2>What you'll get</h2>
+      <ul>
+        <li>A free PDF of English learning tips and resources as soon as you sign up</li>
+        <li>Talk of the Month: a TED talk picked for English learners</li>
+        <li>The Podcast Edit: English podcasts with listening exercises</li>
+        <li>Voices of English: a different English accent each month</li>
+        <li>Early access to new courses</li>
+      </ul>
+    `,
+  },
+
   '/faqs': {
     title: 'FAQs | The Unlock Fluency Method',
     description: 'Frequently asked questions about The Unlock Fluency Method courses, levels, pricing, cancellation policy, and how to start unlocking your English fluency.',

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import NewsletterPopup from "../components/NewsletterPopup";
+import NewsletterForm from "@/components/NewsletterForm";
 import { Link, useLocation } from "react-router-dom";
 import { Calendar, Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,10 @@ const PAGE_META = {
     title: 'Resources | The Unlock Fluency Method',
     description: 'Access free English learning resources from The Unlock Fluency Method: vocabulary tips, proverbs, icebreakers, TED talk picks, and podcast recommendations to unlock your fluency.',
   },
+  '/newsletter': {
+    title: 'Newsletter | The Unlock Fluency Method',
+    description: 'Join The Unlock Fluency Method newsletter: a free PDF of English learning tips, then one email a month with a TED talk pick, podcast recommendations, accent features, and early access to new courses.',
+  },
   '/faqs': {
     title: 'FAQs | The Unlock Fluency Method',
     description: 'Frequently asked questions about The Unlock Fluency Method courses, levels, pricing, cancellation policy, and how to start unlocking your English fluency.',
@@ -67,11 +72,6 @@ const PAGE_META = {
 export default function Layout({ children, currentPageName }) {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showNewsletterPopup, setShowNewsletterPopup] = useState(false);
-
-  const handleNewsletterClick = () => {
-    setShowNewsletterPopup(true);
-  };
 
   useEffect(() => {
     // Scroll to top on page change
@@ -234,16 +234,13 @@ export default function Layout({ children, currentPageName }) {
                   <img src="/whatsapp.png" alt="WhatsApp" className="w-5 h-5" />
                 </a>
               </div>
-                        <div className="mt-8 pt-6 border-t border-gray-700 max-w-xs">
-  <h4 className="font-semibold text-white mb-3">Sign up for the Newsletter</h4>
-  <p className="text-gray-400 text-sm mb-4">Get English learning tips and course updates.</p>
-  <button 
-    onClick={handleNewsletterClick}
-    className="bg-brand-300 hover:bg-brand-200 text-brand-900 font-semibold px-4 py-2 rounded-md transition-colors text-sm"
-  >
-    Subscribe
-  </button>
-</div>
+              <div className="mt-8 pt-6 border-t border-gray-700 max-w-md">
+                <h4 className="font-semibold text-white mb-1">Sign up for the newsletter</h4>
+                <p className="text-gray-400 text-sm mb-4">
+                  A free PDF of learning tips, then one email a month. <Link to="/newsletter" className="text-brand-300 hover:text-brand-200 underline">What you'll get</Link>
+                </p>
+                <NewsletterForm id="footer-email" tone="dark" compact />
+              </div>
             </div>
 
             <div>
@@ -255,6 +252,7 @@ export default function Layout({ children, currentPageName }) {
                   <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Online Courses</Link></li>
                   <li><Link to="/business" className="text-gray-400 hover:text-gray-300 transition-colors">For Business</Link></li>
                   <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">Resources</Link></li>
+                  <li><Link to="/newsletter" className="text-gray-400 hover:text-gray-300 transition-colors">Newsletter</Link></li>
                 </ul>
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/testimonials" className="text-gray-400 hover:text-gray-300 transition-colors">Success Stories</Link></li>
@@ -278,10 +276,6 @@ export default function Layout({ children, currentPageName }) {
       {/* Auto-popup for first-time visitors (no onClose = self-managed) */}
       <NewsletterPopup />
 
-      {/* Newsletter Popup triggered by footer Subscribe button */}
-      {showNewsletterPopup && (
-        <NewsletterPopup onClose={() => setShowNewsletterPopup(false)} />
-      )}
     </div>
   );
 }

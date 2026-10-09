@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
 import { Input } from "@/components/ui/input";
@@ -10,76 +10,69 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Mail, CheckCircle, Loader2, Calendar } from "lucide-react";
 
+const SUBJECTS = [
+  { value: "Online Courses", label: "Online courses" },
+  { value: "1-to-1 Personalised Coaching", label: "1-to-1 coaching" },
+  { value: "Unlock Fluency for Business", label: "Training for my team or company" },
+  { value: "Summer Retreat", label: "Summer retreat" },
+  { value: "General Enquiry", label: "Something else" },
+];
+
+const TEAM_SIZES = ["1–5", "6–12", "13–20", "More than 20"];
+
+const PLACEHOLDERS = {
+  "Online Courses": "Which course are you interested in, and what would you like to know?",
+  "1-to-1 Personalised Coaching": "Tell me about your goals and how often you'd like to meet.",
+  "Unlock Fluency for Business": "Tell me about your team: what they use English for, the format you have in mind (online or in person, intensive or weekly), and your timing.",
+  "Summer Retreat": "What would you like to know about the summer retreat?",
+};
+
 export default function Contact() {
   const [searchParams] = useSearchParams();
+  const subjectParam = searchParams.get("subject");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    enquiry_type: searchParams.get("subject") || "",
+    enquiry_type: SUBJECTS.some((s) => s.value === subjectParam) ? subjectParam : "",
     message: searchParams.get("message") || "",
     current_english_level: "",
-    course_level: ""
+    organisation: "",
+    team_size: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [submittedType, setSubmittedType] = useState("");
   const [error, setError] = useState("");
-
-useEffect(() => {
-    if (formData.enquiry_type === "Newsletter Sign-up") {
-      setFormData(prev => ({ ...prev, message: "I want the free PDF with English learning tips & resources, monthly learning materials, and early access to new courses." }));
-    } else if (formData.message === "I want the free PDF with English learning tips & resources, monthly learning materials, and early access to new courses.") {
-      // Clear message if switching away from Newsletter Sign-up and it was the auto-filled message
-      setFormData(prev => ({ ...prev, message: "" }));
-    }
-  }, [formData.enquiry_type, formData.message]);
 
   const handleInputChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setError("");
   };
 
-  const getMessagePlaceholder = () => {
-    if (formData.enquiry_type === "1-to-1 Personalised Coaching" || formData.enquiry_type === "Unlock Fluency for Business") {
-      return "Please write your message here, including your learning goals, desired course length and any other details that might be relevant.";
-    }
-    return "Please write your message here...";
-  };
-
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
 
-    // The "message" field is now required for all enquiry types.
-    let requiredFields = ["name", "email", "enquiry_type", "message"];
-
+    const requiredFields = ["name", "email", "enquiry_type", "message"];
     if (formData.enquiry_type === "1-to-1 Personalised Coaching") {
       requiredFields.push("current_english_level");
     }
-
     if (formData.enquiry_type === "Unlock Fluency for Business") {
-      requiredFields.push("course_level");
+      requiredFields.push("organisation", "team_size");
     }
 
     const missingFields = requiredFields.filter(field => !formData[field]);
-    if (missingFields.length > 0 || !formData.enquiry_type) {
+    if (missingFields.length > 0) {
       setError("Please fill in all required fields.");
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const isNewsletter = formData.enquiry_type === "Newsletter Sign-up";
-      const endpoint = isNewsletter ? '/api/newsletter' : '/api/contact';
-      const payload = isNewsletter
-        ? { email: formData.email, name: formData.name }
-        : formData;
-
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
@@ -90,8 +83,6 @@ const handleSubmit = async (e) => {
         return;
       }
 
-      // Success!
-      setSubmittedType(isNewsletter ? 'newsletter' : 'contact');
       setSubmitted(true);
     } catch (err) {
       console.error('Form submission error:', err);
@@ -99,6 +90,9 @@ const handleSubmit = async (e) => {
       setIsSubmitting(false);
     }
   };
+
+  // Old newsletter links used the contact form; the newsletter now has its own page.
+  if (subjectParam === "Newsletter Sign-up") return <Navigate to="/newsletter" replace />;
 
   if (submitted) {
     return (
@@ -108,14 +102,8 @@ const handleSubmit = async (e) => {
             <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center border border-green-500/20">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h1 className="text-3xl text-brand-900 mb-4">
-              {submittedType === 'newsletter' ? 'Successfully Subscribed!' : 'Message Sent Successfully!'}
-            </h1>
-            <p className="text-lg text-gray-600">
-              {submittedType === 'newsletter'
-                ? "Thank you for subscribing. I'll be in touch soon!"
-                : "Thank you for your enquiry. I'll get back to you as soon as possible."}
-            </p>
+            <h1 className="text-3xl text-brand-900 mb-4">Message Sent Successfully!</h1>
+            <p className="text-lg text-gray-600">Thank you for your enquiry. I'll get back to you as soon as possible.</p>
           </div>
         </div>
       </div>
@@ -128,7 +116,7 @@ const handleSubmit = async (e) => {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl text-white mb-5">Get in Touch</h1>
           <p className="text-lg text-gray-300">
-            A question about my online courses, 1-to-1 coaching, or training for your organisation? I'd love to hear from you.
+            A question about my online courses, 1-to-1 coaching, or training for your team? I'd love to hear from you.
           </p>
         </div>
       </section>
@@ -147,21 +135,18 @@ const handleSubmit = async (e) => {
                   <Input id="email" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} placeholder="your.email@example.com" />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
-                <Label htmlFor="enquiry_type" className="text-brand-900 font-semibold">Subject of Enquiry *</Label>
+                <Label htmlFor="enquiry_type" className="text-brand-900 font-semibold">What is your enquiry about? *</Label>
                 <Select value={formData.enquiry_type} onValueChange={(value) => handleInputChange("enquiry_type", value)}>
-                  <SelectTrigger className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"><SelectValue placeholder="Select subject" /></SelectTrigger>
+                  <SelectTrigger id="enquiry_type" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"><SelectValue placeholder="Choose a subject" /></SelectTrigger>
                   <SelectContent className="bg-white text-brand-900 border-brand-200">
-                    <SelectItem value="General Enquiry">General Enquiry</SelectItem>
-                    <SelectItem value="1-to-1 Personalised Coaching">1-to-1 Personalised Coaching</SelectItem>
-                    <SelectItem value="Unlock Fluency for Business">Unlock Fluency for Business</SelectItem>
-                    <SelectItem value="Newsletter Sign-up">Newsletter Sign-up</SelectItem>
+                    {SUBJECTS.map((s) => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
 
-              {/* Conditional fields for 1-to-1 Coaching */}
+              {/* Extra field for 1-to-1 coaching */}
               {formData.enquiry_type === "1-to-1 Personalised Coaching" && (
                 <div className="space-y-2">
                   <Label htmlFor="current_english_level" className="text-brand-900 font-semibold">Current English Level *</Label>
@@ -169,41 +154,43 @@ const handleSubmit = async (e) => {
                 </div>
               )}
 
-              {/* Conditional fields for Business */}
+              {/* Extra fields for business enquiries */}
               {formData.enquiry_type === "Unlock Fluency for Business" && (
-                <div className="space-y-2">
-                  <Label htmlFor="course_level" className="text-brand-900 font-semibold">Required Course Level *</Label>
-                  <Select value={formData.course_level} onValueChange={(value) => handleInputChange("course_level", value)}>
-                    <SelectTrigger className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"><SelectValue placeholder="Select level" /></SelectTrigger>
-                    <SelectContent className="bg-white text-brand-900 border-brand-200">
-                      <SelectItem value="beginner">Beginner</SelectItem>
-                      <SelectItem value="intermediate">Intermediate</SelectItem>
-                      <SelectItem value="advanced">Advanced</SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="organisation" className="text-brand-900 font-semibold">Company or organisation *</Label>
+                    <Input id="organisation" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.organisation} onChange={(e) => handleInputChange("organisation", e.target.value)} placeholder="Organisation name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="team_size" className="text-brand-900 font-semibold">Number of participants *</Label>
+                    <Select value={formData.team_size} onValueChange={(value) => handleInputChange("team_size", value)}>
+                      <SelectTrigger id="team_size" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"><SelectValue placeholder="Choose a range" /></SelectTrigger>
+                      <SelectContent className="bg-white text-brand-900 border-brand-200">
+                        {TEAM_SIZES.map((size) => <SelectItem key={size} value={size}>{size}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
               )}
 
-            {formData.enquiry_type !== 'Newsletter Sign-up' && (
-  <div className="space-y-2">
-  <Label htmlFor="message" className="text-brand-900 font-semibold">Message *</Label>
-  <Textarea 
-    id="message" 
-    className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
-    value={formData.message} 
-    onChange={(e) => handleInputChange("message", e.target.value)} 
-    placeholder={getMessagePlaceholder()}
-    rows={6} 
-  />
-</div>
-)}
-              
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-brand-900 font-semibold">Message *</Label>
+                <Textarea
+                  id="message"
+                  className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
+                  value={formData.message}
+                  onChange={(e) => handleInputChange("message", e.target.value)}
+                  placeholder={PLACEHOLDERS[formData.enquiry_type] || "Please write your message here..."}
+                  rows={6}
+                />
+              </div>
+
               {error && <Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>}
 
               <div className="text-right">
                 <Button type="submit" disabled={isSubmitting} size="lg" className="bg-brand-600 hover:bg-brand-700 text-white font-semibold">
                   {isSubmitting ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <Mail className="w-5 h-5 mr-2" />}
-                  {isSubmitting ? "Sending..." : formData.enquiry_type === "Newsletter Sign-up" ? "Subscribe" : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </div>
             </form>
@@ -221,8 +208,13 @@ const handleSubmit = async (e) => {
               </BookingLink>
             </div>
             <div className="bg-white rounded-2xl border border-brand-100 p-6">
+              <h2 className="text-2xl text-brand-900 mb-2">Newsletter</h2>
+              <p className="text-gray-600 mb-4">A free PDF of learning tips, then one email a month.</p>
+              <Link to="/newsletter" className="font-semibold text-brand-600 hover:text-brand-700">Sign up</Link>
+            </div>
+            <div className="bg-white rounded-2xl border border-brand-100 p-6">
               <h2 className="text-2xl text-brand-900 mb-2">Email</h2>
-              <a href="mailto:contact@unlockfluency.co.uk" className="text-brand-600 hover:text-brand-700 font-semibold break-all">contact@unlockfluency.co.uk</a>
+              <a href="mailto:contact@unlockfluency.co.uk" className="text-sm text-brand-600 hover:text-brand-700 font-semibold break-words">contact@unlockfluency.co.uk</a>
             </div>
           </aside>
         </div>
