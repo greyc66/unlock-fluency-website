@@ -1,6 +1,6 @@
 # Website redesign handoff
 
-**Status:** Whole site redesigned in the copy, including the newsletter page and new contact form subjects. Checkpoint commits on branch `redesign`; the previous photo layout is on branch `redesign-photos-v1` for comparison (it does not have the newsletter or contact form changes; if the owner picks it, apply its photo commit onto `redesign`). Next: owner chooses the photo layout, adds Setmore dates, then merge into `main`.
+**Status:** Whole site redesigned in the copy. Three photo layouts to choose from: layout 2 on branch `redesign` (this folder: icon cards), layout 1 on `redesign-photos-v1` (previous; lacks newsletter and contact form changes), and layout 3 on `redesign-photos-v3` (folder `../unlock-fluency-website-redesign-photos-v3`: old structure with new photos and the cut-out hero; includes everything else). Comparison page: https://claude.ai/artifact/NnWP4ZXpnCjENpjmRgj29C. Next: owner picks a layout, adds Setmore dates, then merge the chosen branch into `main`.
 
 ## Where things are
 - **Live site:** `../unlock-fluency-website` (branch `main`). Don't edit it for redesign work.
@@ -52,6 +52,7 @@
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
+- Which photo layout (1, 2, or 3)? Owner is leaning towards the old structure; layout 3 is the suggestion that keeps it without repeating photos.
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
 - Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Series Club uses Kat (`Series_club/Series Club Evaluation.csv`); both gave permission for first name only, so no job or country is shown.
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
@@ -66,3 +67,4 @@
 - 2026-10-09: Fixed booking buttons (shared BookingLink), added Setmore session times and Laura's Book Club testimonial, added four new photos and removed all photo duplication, redesigned Success Stories, FAQs (accordion), Contact (form plus call/email panel), Resources, Summer Retreat registration, and both policy pages; fixed shared form-control colours. Removed unused stock background images. Build passes; checked by screenshots.
 - 2026-10-09: Renamed For Organisations to For Business (/business, with /corporate redirects); updated Promo documentation and regenerated both value proposition PDFs; added Kat's Series Club testimonial; first names only for course testimonials. Committed as a checkpoint and created `redesign-photos-v1` with the previous photo layout for comparison.
 - 2026-10-09: Added the /newsletter page, footer sign-up, gentler popup, and new contact form subjects with business fields (front end and backend, backend checked with a mocked email service). Updated FAQs to point to /newsletter. Build passes; checked by screenshots.
+- 2026-10-09: Owner chose `IMG_0413_white_background` as the first photo on the home page (same photo as IMG_0413, so IMG_0413 is not used elsewhere). Built photo layout 3 on `redesign-photos-v3` with the new photos (IMG_0352, IMG_6880, IMG_6796, IMG_6172, IMG_7405): every personal photo used once; the Cambridge bridge photo appears on the home retreat card and the retreat page it links to. Added it to the comparison page.
