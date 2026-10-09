@@ -165,7 +165,7 @@ export default function Business() {
           </div>
           <div className="bg-white rounded-xl border border-brand-100 p-8 grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 items-center">
             <img
-              src="/images/christina-portrait.jpg"
+              src="/images/christina-croissant.jpg"
               alt="Dr Christina Grey"
               className="w-28 h-28 rounded-full object-cover mx-auto"
             />

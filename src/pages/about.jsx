@@ -66,7 +66,6 @@ const chapters = [
     title: "The performer",
     photos: [
       { src: "/images/christina-presenting.jpg", alt: "Christina presenting at a conference" },
-      { src: "/images/christina-conference.jpg", alt: "Christina speaking to a conference audience" },
     ],
     text: [
       "I never really left the stage. I studied drama at the University of Kent, then spent a year at Tufts University in the US as a Fulbright scholar in Theatre Studies. Since then I've presented my work at conferences in the UK, the US, Greece, Germany, Ireland, the Netherlands, and beyond.",
@@ -76,7 +75,7 @@ const chapters = [
   {
     title: "The teacher",
     photos: [
-      { src: "/images/christina-classroom.jpg", alt: "Christina in a classroom" },
+      { src: "/images/christina-office.jpg", alt: "Christina in her office in front of linguistics posters" },
     ],
     text: [
       "I've taught English since 2012, from private tutoring and language schools to many years at the Volkshochschule (VHS) in Berlin.",
@@ -361,11 +360,11 @@ export default function About() {
       {/* Some facts about me */}
       <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.7fr_1.3fr] gap-10 items-center">
-          <img
-            src="/images/christina-tea.jpg"
-            alt="Christina having afternoon tea"
-            className="w-full max-w-xs mx-auto aspect-[3/4] object-cover rounded-2xl"
-          />
+          <div className="grid grid-cols-3 gap-3 w-full max-w-md mx-auto">
+            <img src="/images/christina-teddy.jpg" alt="Christina with a giant teddy bear" className="w-full aspect-[3/4] object-cover rounded-2xl" />
+            <img src="/images/christina-evening.jpg" alt="Christina out for dinner" className="w-full aspect-[3/4] object-cover rounded-2xl mt-6" />
+            <img src="/images/christina-berlin.jpg" alt="Christina out and about in Berlin" className="w-full aspect-[3/4] object-cover rounded-2xl" />
+          </div>
           <div>
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Some facts about me</h2>
             <div className="flex flex-wrap gap-3">

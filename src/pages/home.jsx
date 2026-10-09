@@ -42,8 +42,8 @@ const ways = [
     cta: "Book a free call",
   },
   {
-    image: "/images/christina-conference.jpg",
-    alt: "Christina presenting at a conference",
+    image: "/images/christina-about.jpg",
+    alt: "Dr Christina Grey",
     title: "For business",
     text: "Tailored training that helps teams speak up in meetings, presentations, and with clients.",
     meta: "Online or in person",
@@ -253,7 +253,7 @@ return (
           <div className="relative justify-self-center w-full max-w-xs sm:max-w-sm">
             <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-2xl bg-brand-300" aria-hidden="true"></div>
             <img
-              src="/images/christina-headshot.jpg"
+              src="/images/christina-hero.jpg"
               alt="Dr Christina Grey"
               className="relative w-full aspect-[4/5] object-cover rounded-2xl"
             />
@@ -354,8 +354,8 @@ return (
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
           <img
-            src="/images/christina-presenting.jpg"
-            alt="Christina presenting at a conference"
+            src="/images/christina-cambridge.jpg"
+            alt="Christina in Cambridge"
             className="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-2xl"
           />
           <div>

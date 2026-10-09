@@ -75,8 +75,8 @@ export default function TheMethod() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
           <img
-            src="/images/christina-presenting.jpg"
-            alt="Christina presenting at a conference"
+            src="/images/christina-london.jpg"
+            alt="Dr Christina Grey in London"
             className="w-full max-w-xs mx-auto aspect-[4/5] object-cover rounded-2xl"
           />
           <div>
