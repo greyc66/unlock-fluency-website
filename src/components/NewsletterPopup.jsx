@@ -22,9 +22,15 @@ export default function NewsletterPopup({ onClose }) {
       return;
     }
     if (alreadyShown() || NO_POPUP_PAGES.includes(pathname)) return;
+    // One-shot: stop listening as soon as it opens, and remember it was shown,
+    // so it never reopens on further scrolling or on other pages.
     const onScroll = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollable > 0 && window.scrollY / scrollable >= 0.4) setIsOpen(true);
+      if (scrollable > 0 && window.scrollY / scrollable >= 0.4) {
+        window.removeEventListener("scroll", onScroll);
+        try { localStorage.setItem(SHOWN_KEY, "true"); } catch { /* storage unavailable */ }
+        setIsOpen(true);
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
