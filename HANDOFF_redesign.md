@@ -20,6 +20,7 @@
 - Every copy change must also be made in `scripts/prerender.cjs` (the text Google reads) and, for courses, in the JSON-LD in `index.html`.
 
 ## Decisions
+- **Working agreement (from 2026-10-10):** copy edits are made and committed locally first; the owner checks them (`npm run dev`), and they are pushed live one step at a time only when the owner says so. Each commit gets a short, plain label saying what it changed (for example "Course inclusions update").
 - The About page quotes are correct; they come from the owner's offline records.
 - Experience is stated as "15 years of research and teaching" everywhere (teaching officially since 2012).
 - The method is for B1/B2 and above; the current online courses are all B2 and above. The FAQs say both.
@@ -84,3 +85,4 @@
 - 2026-10-10: Removed the redesign folder and branch (identical to `main` after the merge), leaving `unlock-fluency-website` (the redesign) and `unlock-fluency-website-original` (backup). Pushed `main` to GitHub to publish.
 - 2026-10-10: Fixed the newsletter popup reopening on every scroll after being closed (the scroll listener was never removed). It now opens once per visitor: the listener stops when it opens, and it is marked as shown at that moment. Verified on a phone-sized browser, then published.
 - 2026-10-10: Fixed new pages opening at the bottom on phones: the scroll to the top on page change was a smooth animation that touch or swipe momentum could cancel. It is now instant and runs before the new page is drawn (`useLayoutEffect` in `src/pages/Layout.jsx`). Verified at phone size, then published.
+- 2026-10-10: Online courses now include a Certificate of Completion plus each course's handouts; the personalised skills assessment and English level report stay only on the 5-day Unlock English Fluency course. FAQ updated to match. Committed locally, not pushed.
