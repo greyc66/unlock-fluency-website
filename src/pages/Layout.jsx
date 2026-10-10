@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import NewsletterPopup from "../components/NewsletterPopup";
 import NewsletterForm from "@/components/NewsletterForm";
 import { Link, useLocation } from "react-router-dom";
@@ -74,9 +74,13 @@ export default function Layout({ children, currentPageName }) {
   const pathname = useLocation().pathname.replace(/\/+$/, "") || "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Jump to the top on page change, instantly and before the new page is drawn.
+  // (A smooth scroll here could be interrupted on phones, leaving the new page at the bottom.)
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   useEffect(() => {
-    // Scroll to top on page change
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     // Close mobile menu on page change
     setMobileMenuOpen(false);
 
