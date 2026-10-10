@@ -88,3 +88,4 @@
 - 2026-10-10: Online courses now include a Certificate of Completion plus each course's handouts; the personalised skills assessment and English level report stay only on the 5-day Unlock English Fluency course. FAQ updated to match. Committed locally, not pushed.
 - 2026-10-10: Unlock English Fluency (intensive) also drops the skills assessment and level report: certificate, 45-minute consultation, and daily handouts. FAQ: every course ends with a certificate.
 - 2026-10-10: For Business step 4 is now "Certificate and report": a Certificate of Completion and an English level report for each participant (no skills assessment or roadmap).
+- 2026-10-10: FAQs refer to the "Online Courses" page by its current name.
