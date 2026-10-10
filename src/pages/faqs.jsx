@@ -31,7 +31,7 @@ export default function FAQs() {
     },
     {
       question: "Do I get a certificate after completing a course?",
-      answer: "Yes! Every course ends with a Certificate of Completion. The 5-day Unlock English Fluency course also includes a personalised skills assessment and an English level report."
+      answer: "Yes! Every course ends with a Certificate of Completion."
     },
     {
       question: "Can I book a single weekend from the Weekend Boost course?",
