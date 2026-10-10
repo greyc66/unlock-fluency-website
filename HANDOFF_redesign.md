@@ -1,11 +1,10 @@
 # Website redesign handoff
 
-**Status:** Redesign merged into `main` in the live folder and tested on Cloudflare's local server (pages, redirects, forms, popups). NOT yet pushed: the owner is reviewing the merged site first. To publish: `git push origin main` from `unlock-fluency-website`, then check the live site. To undo before pushing: `git reset --hard pre-redesign` in the live folder.
+**Status:** The redesign is the website: published from this folder (`unlock-fluency-website`, branch `main`) on 2026-10-10. Remaining: Setmore updates (rename Series Club to News Unlocked, add dates), LinkedIn company page website to /business, and a real test of the contact form and newsletter sign-up.
 
 ## Where things are
 - **Backup of the pre-redesign site:** `../unlock-fluency-website-original` (full copy of the live folder at commit 62b8ae4, made 2026-10-09). The same commit is tagged `pre-redesign` in the repository, so it can be restored with git as well.
-- **Live site:** `../unlock-fluency-website` (branch `main`). Don't edit it for redesign work.
-- **Experimental copy:** this folder, branch `redesign` (a git worktree of the same repo). Nothing here goes live until it's merged into `main` and pushed.
+- **Website:** this folder (`unlock-fluency-website`, branch `main`). Pushing `main` to GitHub publishes it through Cloudflare Pages. The separate redesign folder and branch were removed after the merge.
 - Run locally: `npm run dev` in this folder.
 - **Look Book** (palette, font, layout and message previews): https://claude.ai/artifact/LCmbWNooZEMkqUfCVBCh9v
 - Colours ("Sky & Curtain", chosen 2026-10-09): `tailwind.config.js` defines `gray` (aubergine-tinted neutrals, 900 = #221F2E for header, footer, and dark sections), `brand` (50-200 warm off-whites, 600 = theatre red #B23A48 for buttons, links, icons, and small headings, 800-900 aubergine ink), and `sky` (logo sky blue #86D2F5 for outline buttons and highlights on dark sections). Use only these, except green for success and WhatsApp, red for errors, amber for star ratings and the retreat form's warning box.
@@ -82,3 +81,4 @@
 - 2026-10-09: Made a full backup copy of the live folder (`unlock-fluency-website-original`, builds on its own) and tagged its commit `pre-redesign` (local tag, not pushed).
 - 2026-10-10: Redirected /summer_retreat_2026.pdf to /courses/summer-retreat (302, temporary until the 2027 brochure), because the April 2026 newsletter and retreat promos link to it. Merged `redesign` into `main` (fast-forward).
 - 2026-10-10: Fixed page titles and popup rules for Cloudflare's trailing-slash addresses (/my-story/). Tested the merged build on Cloudflare's local server (wrangler pages dev): 16 checks passed. Push to GitHub on hold for the owner's review.
+- 2026-10-10: Removed the redesign folder and branch (identical to `main` after the merge), leaving `unlock-fluency-website` (the redesign) and `unlock-fluency-website-original` (backup). Pushed `main` to GitHub to publish.
