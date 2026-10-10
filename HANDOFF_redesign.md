@@ -1,6 +1,6 @@
 # Website redesign handoff
 
-**Status:** Redesign complete and cleaned up in this folder (branch `redesign`), ready to merge into `main`. The live folder has one uncommitted change (removing `baseline-browser-mapping` from package.json), which the redesign already includes; discard it before merging. Next: Setmore dates, then merge and publish.
+**Status:** Redesign merged into `main` in the live folder and tested on Cloudflare's local server (pages, redirects, forms, popups). NOT yet pushed: the owner is reviewing the merged site first. To publish: `git push origin main` from `unlock-fluency-website`, then check the live site. To undo before pushing: `git reset --hard pre-redesign` in the live folder.
 
 ## Where things are
 - **Backup of the pre-redesign site:** `../unlock-fluency-website-original` (full copy of the live folder at commit 62b8ae4, made 2026-10-09). The same commit is tagged `pre-redesign` in the repository, so it can be restored with git as well.
@@ -81,3 +81,4 @@
 - 2026-10-09: Replaced Series Club with News Unlocked (/courses/news-unlocked): weekly business-oriented course on current news, Tuesdays 6pm–8pm UK time, 8 weeks, £270, same Setmore class link. /courses/series-club redirects to it. Card, details page, Google listing, structured data, and sitemap updated; Kat's Series Club testimonial removed.
 - 2026-10-09: Made a full backup copy of the live folder (`unlock-fluency-website-original`, builds on its own) and tagged its commit `pre-redesign` (local tag, not pushed).
 - 2026-10-10: Redirected /summer_retreat_2026.pdf to /courses/summer-retreat (302, temporary until the 2027 brochure), because the April 2026 newsletter and retreat promos link to it. Merged `redesign` into `main` (fast-forward).
+- 2026-10-10: Fixed page titles and popup rules for Cloudflare's trailing-slash addresses (/my-story/). Tested the merged build on Cloudflare's local server (wrangler pages dev): 16 checks passed. Push to GitHub on hold for the owner's review.
