@@ -11,7 +11,7 @@ function alreadyShown() {
 }
 
 export default function NewsletterPopup({ onClose }) {
-  const { pathname } = useLocation();
+  const pathname = useLocation().pathname.replace(/\/+$/, "") || "/";
   const [isOpen, setIsOpen] = useState(false);
 
   // With onClose the parent controls visibility. Otherwise, show once to first-time visitors,

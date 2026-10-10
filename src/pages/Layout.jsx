@@ -70,7 +70,8 @@ const PAGE_META = {
 };
 
 export default function Layout({ children, currentPageName }) {
-  const { pathname } = useLocation();
+  // Cloudflare serves pages with a trailing slash (/my-story/); compare paths without it.
+  const pathname = useLocation().pathname.replace(/\/+$/, "") || "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
