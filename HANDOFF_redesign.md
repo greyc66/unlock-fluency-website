@@ -87,3 +87,4 @@
 - 2026-10-10: Fixed new pages opening at the bottom on phones: the scroll to the top on page change was a smooth animation that touch or swipe momentum could cancel. It is now instant and runs before the new page is drawn (`useLayoutEffect` in `src/pages/Layout.jsx`). Verified at phone size, then published.
 - 2026-10-10: Online courses now include a Certificate of Completion plus each course's handouts; the personalised skills assessment and English level report stay only on the 5-day Unlock English Fluency course. FAQ updated to match. Committed locally, not pushed.
 - 2026-10-10: Unlock English Fluency (intensive) also drops the skills assessment and level report: certificate, 45-minute consultation, and daily handouts. FAQ: every course ends with a certificate.
+- 2026-10-10: For Business step 4 is now "Certificate and report": a Certificate of Completion and an English level report for each participant (no skills assessment or roadmap).

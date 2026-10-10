@@ -49,7 +49,7 @@ const steps = [
   { title: "Discovery call", text: "Free, 20 minutes. We talk about your team's goals first." },
   { title: "Free taster session", text: "90 minutes for your team to try the method for themselves." },
   { title: "Tailored programme", text: "Content, format, and schedule built around your people." },
-  { title: "Assessment and next steps", text: "A certificate, a personalised skills assessment, an English level report, and a roadmap for each participant." },
+  { title: "Certificate and report", text: "A Certificate of Completion and an English level report for each participant." },
 ];
 
 const quotes = [

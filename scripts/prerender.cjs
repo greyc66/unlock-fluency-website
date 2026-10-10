@@ -128,7 +128,7 @@ const ROUTES = {
       <h2>Built around your team</h2>
       <p>Intensive courses (typically 30 hours), weekly courses, workshops on one skill, retreats in Cambridge or a destination you choose, and 1-to-1 coaching for leaders. Online, in person, or hybrid, for B1/B2 level and above.</p>
       <h2>How it works</h2>
-      <p>A free 20-minute discovery call, a free 90-minute taster session, a tailored programme, and an assessment with next steps for every participant.</p>
+      <p>A free 20-minute discovery call, a free 90-minute taster session, a tailored programme, and a certificate and English level report for every participant.</p>
     `,
   },
 
