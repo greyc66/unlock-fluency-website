@@ -368,7 +368,6 @@
     "hook": "A 5-day residential retreat: a week of intensive fluency training and a classic Cambridge experience.",
     "cardFacts": [
       "5 days",
-      "Residential",
       "B2+"
     ],
     "price": "Dates TBA",
@@ -429,6 +428,8 @@
       "A guided punting experience on the River Cam",
       "A 3-course candlelit formal dinner in the historic Old Dining Hall at Homerton College"
     ],
-    "testimonial": null
+    "testimonial": null,
+    "badge": "In person · Cambridge",
+    "image": "/images/cambridge.jpg"
   }
 ]

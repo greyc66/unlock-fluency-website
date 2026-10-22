@@ -7,7 +7,34 @@ import { Calendar, ArrowRight, Building2 } from "lucide-react";
 import courses from "@/data/courses.json";
 
 
-const CourseCard = ({ course }) => (
+// In-person courses (the summer retreat) get a dark card over a photo, so they stand apart from the online courses.
+const InPersonCard = ({ course }) => (
+  <div className="relative isolate overflow-hidden rounded-xl p-6 flex flex-col text-white">
+    <img src={course.image} alt="" className="absolute inset-0 -z-10 w-full h-full object-cover" />
+    <div className="absolute inset-0 -z-10 bg-gray-900/80" aria-hidden="true"></div>
+    <Badge className="bg-sky-300 text-brand-900 border-sky-300 w-fit mb-3">{course.badge}</Badge>
+    <div className="flex justify-between items-start gap-4 mb-3">
+      <h3 className="text-xl font-semibold">{course.title}</h3>
+      <Badge className="bg-white text-brand-900 border-white shrink-0">{course.price}</Badge>
+    </div>
+    <p className="text-gray-200 leading-relaxed mb-4 flex-grow">{course.hook}</p>
+    <p className="text-sm font-semibold text-sky-300 mb-6">{course.cardFacts.join(" · ")}</p>
+    <div className="grid grid-cols-2 gap-3">
+      <Link to={`/courses/${course.slug}`}>
+        <Button className="w-full bg-transparent border-2 border-sky-300 text-sky-300 hover:bg-sky-300 hover:text-brand-900 font-semibold">
+          Course details
+        </Button>
+      </Link>
+      <Link to="/retreatregistration">
+        <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
+          Register interest
+        </Button>
+      </Link>
+    </div>
+  </div>
+);
+
+const CourseCard = ({ course }) => course.badge ? <InPersonCard course={course} /> : (
   <div className="bg-white border border-brand-200 rounded-xl p-6 flex flex-col">
     <div className="flex justify-between items-start gap-4 mb-3">
       <h3 className="text-xl font-semibold text-brand-900">{course.title}</h3>
@@ -17,33 +44,18 @@ const CourseCard = ({ course }) => (
     <p className="text-sm font-semibold text-brand-700 mb-6">
       {[...course.cardFacts, course.format].join(" · ")}
     </p>
-    {course.tba ? (
-      <div className="grid grid-cols-2 gap-3">
-        <Link to={`/courses/${course.slug}`}>
-          <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
-            Course details
-          </Button>
-        </Link>
-        <Link to="/retreatregistration">
-          <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-            Register interest
-          </Button>
-        </Link>
-      </div>
-    ) : (
-      <div className="grid grid-cols-2 gap-3">
-        <Link to={`/courses/${course.slug}`}>
-          <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
-            Course details
-          </Button>
-        </Link>
-        <BookingLink href={course.bookingUrl}>
-          <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-            Book now
-          </Button>
-        </BookingLink>
-      </div>
-    )}
+    <div className="grid grid-cols-2 gap-3">
+      <Link to={`/courses/${course.slug}`}>
+        <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
+          Course details
+        </Button>
+      </Link>
+      <BookingLink href={course.bookingUrl}>
+        <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
+          Book now
+        </Button>
+      </BookingLink>
+    </div>
   </div>
 );
 
