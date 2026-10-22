@@ -20,6 +20,7 @@
 - Every copy change must also be made in `scripts/prerender.cjs` (the text Google reads) and, for courses, in the JSON-LD in `index.html`.
 
 ## Decisions
+- **Summer retreat venues are not fixed:** each year it may be at a different college, but always within the University of Cambridge. The website names no specific college or hall; say "a Cambridge University College".
 - **Working agreement (from 2026-10-10):** copy edits are made and committed locally first; the owner checks them (`npm run dev`), and they are pushed live one step at a time only when the owner says so. Each commit gets a short, plain label saying what it changed (for example "Course inclusions update").
 - The About page quotes are correct; they come from the owner's offline records.
 - Experience is stated as "15 years of research and teaching" everywhere (teaching officially since 2012).
@@ -98,3 +99,4 @@
 - 2026-10-22: Summer retreat details: Length is "Lessons Monday to Friday; 5 nights' accommodation, Sunday to Thursday"; course hours no longer say (2026) as they are expected to stay the same; Where is just "Cambridge, UK".
 - 2026-10-22: Summer retreat card facts now read "5 days · 6 hours daily · B2+", matching the Unlock English Fluency card.
 - 2026-10-22: The retreat's "In person · Cambridge" badge now sits at the end of the facts line, after B2+, where the other cards show "Online".
+- 2026-10-22: Retreat page: no named colleges (accommodation, breakfast, and formal dinner are "at a Cambridge University College"); the list heading is "What's typically included" instead of "What was included in 2026"; Length reads "Lessons: Monday to Friday; 5 nights' accommodation: Sunday to Thursday"; card facts are "5 days · B2+" so the In person badge fits on the same line.

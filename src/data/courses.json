@@ -368,7 +368,6 @@
     "hook": "A 5-day residential retreat: a week of intensive fluency training and a classic Cambridge experience.",
     "cardFacts": [
       "5 days",
-      "6 hours daily",
       "B2+"
     ],
     "price": "Dates TBA",
@@ -383,7 +382,7 @@
       },
       {
         "label": "Length",
-        "value": "Lessons Monday to Friday; 5 nights' accommodation, Sunday to Thursday"
+        "value": "Lessons: Monday to Friday; 5 nights' accommodation: Sunday to Thursday"
       },
       {
         "label": "Course hours",
@@ -420,14 +419,14 @@
         "text": "Cambridge experiences, such as a guided walking tour, punting on the River Cam, or a formal candlelit dinner."
       }
     ],
-    "includedTitle": "What was included in 2026",
+    "includedTitle": "What's typically included",
     "included": [
       "The Unlock English Fluency course, Monday to Friday",
-      "5 nights in a single en-suite room at Emmanuel College",
-      "Daily breakfast at Emmanuel College",
+      "5 nights in a single en-suite room at a Cambridge University College",
+      "Daily breakfast at a Cambridge University College",
       "A professional guided walking tour of Cambridge",
       "A guided punting experience on the River Cam",
-      "A 3-course candlelit formal dinner in the historic Old Dining Hall at Homerton College"
+      "A 3-course candlelit formal dinner in a historic Old Dining Hall at a Cambridge University College"
     ],
     "testimonial": null,
     "badge": "In person · Cambridge",
