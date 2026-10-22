@@ -516,7 +516,7 @@ export default function Testimonials() {
             <Link to="/courses">
               <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11">
                 <BookOpen className="w-5 h-5 mr-2" />
-                See online courses
+                See courses
               </Button>
             </Link>
             <Link to="/contact">

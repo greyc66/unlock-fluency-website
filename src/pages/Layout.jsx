@@ -12,7 +12,7 @@ const navigationItems = [
   { title: "My Story", url: "/my-story" },
   { title: "The Method", url: "/themethod" },
   { title: "Success Stories", url: "/testimonials" },
-  { title: "Online Courses", url: "/courses" },
+  { title: "Courses", url: "/courses" },
   { title: "For Business", url: "/business" },
   { title: "Resources", url: "/resources" },
 ];
@@ -32,8 +32,8 @@ const PAGE_META = {
     description: 'How The Unlock Fluency Method works: you do the talking, real topics instead of textbooks, and confidence first. A psycholinguistic approach with skills from the stage.',
   },
   '/courses': {
-    title: 'Online English Courses from £220 | The Unlock Fluency Method',
-    description: 'Browse online English courses from £220 and 1-to-1 personalised coaching from £75 with Dr Christina Grey. Immersive small-group courses that get you speaking English with confidence.',
+    title: 'English Courses Online and in Cambridge | The Unlock Fluency Method',
+    description: 'Online English courses from £220, 1-to-1 coaching from £75, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
   },
   '/testimonials': {
     title: 'Success Stories | Unlock Fluency Student Testimonials',
@@ -254,7 +254,7 @@ export default function Layout({ children, currentPageName }) {
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/my-story" className="text-gray-400 hover:text-gray-300 transition-colors">My Story</Link></li>
                   <li><Link to="/themethod" className="text-gray-400 hover:text-gray-300 transition-colors">The Method</Link></li>
-                  <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Online Courses</Link></li>
+                  <li><Link to="/courses" className="text-gray-400 hover:text-gray-300 transition-colors">Courses</Link></li>
                   <li><Link to="/business" className="text-gray-400 hover:text-gray-300 transition-colors">For Business</Link></li>
                   <li><Link to="/resources" className="text-gray-400 hover:text-gray-300 transition-colors">Resources</Link></li>
                   <li><Link to="/newsletter" className="text-gray-400 hover:text-gray-300 transition-colors">Newsletter</Link></li>

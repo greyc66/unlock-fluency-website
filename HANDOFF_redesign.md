@@ -27,7 +27,7 @@
 - Google prices: online courses from £220, 1-to-1 coaching from £75.
 - No em or en dashes in visitor-facing text, including the automated emails. The Germanisms handout source is out of scope.
 - Keep the carousels on the Home and About pages.
-- Courses page is now "Online Courses" (URL still /courses): individuals and 1-to-1 only, with a banner linking to For Organisations.
+- Courses page: named "Online Courses" on 2026-10-09, renamed back to "Courses" on 2026-10-22 (URL /courses throughout): individuals and 1-to-1 only, with a banner linking to For Organisations.
 - Look Book choice: Sky & Ink, DM Serif + DM Sans, Split layout, "Already yours" message. The owner likes the navy tones, so dark sections are navy. A navy "Spotlight" look (coral or sky buttons, no yellow) may be implemented later.
 - The label above the home page headline is "Courses · Coaching · Teams · Retreats" (one line).
 - Stats: keep the current wording for now (owner declined corrections on 2026-10-09).
@@ -93,3 +93,4 @@
 - 2026-10-22: New session days (owner's decision): Book Club moves to Tuesdays, 6pm–8pm UK time; News Unlocked moves to Wednesdays, 6pm–8pm UK time; Maintain Fluency stays on Mondays. Updated in `src/data/courses.json` and the News Unlocked structured data in `index.html`. Setmore listings must match.
 - 2026-10-22: Unlock English Fluency sessions are now Monday to Friday, 8.30am–2.30pm UK time (was 8am–2pm), owner's decision. Setmore listing must match.
 - 2026-10-22: Course "Length" lines no longer show a total hour count (e.g. "8 consecutive weeks", not "8 consecutive weeks (16 hours)"), owner's decision.
+- 2026-10-22: Renamed the Online Courses page back to "Courses": menu, footer, page heading, browser title and Google text, FAQ link, and every "See online courses" button (now "See courses"). Descriptive mentions of online courses are unchanged.

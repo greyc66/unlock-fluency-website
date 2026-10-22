@@ -30,7 +30,7 @@ const ways = [
     text: "Small-group courses, live online: intensive weeks, weekly evenings, weekends, and clubs.",
     meta: "From £220",
     link: "/courses",
-    cta: "See online courses",
+    cta: "See courses",
   },
   {
     image: "/images/christina-tea.jpg",
@@ -234,7 +234,7 @@ return (
             <div className="flex flex-col sm:flex-row gap-3">
               <Link to="/courses">
                 <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-                  See online courses
+                  See courses
                 </Button>
               </Link>
               <BookingLink href={DISCOVERY_CALL_URL}>
@@ -433,7 +433,7 @@ return (
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
               <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold">
-                See online courses
+                See courses
               </Button>
             </Link>
             <BookingLink href={DISCOVERY_CALL_URL}>

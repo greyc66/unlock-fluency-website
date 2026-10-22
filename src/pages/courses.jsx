@@ -54,7 +54,7 @@ export default function Courses() {
       {/* Header */}
       <section className="bg-gray-900 py-16 lg:py-20 text-center">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl text-white">Online Courses</h1>
+          <h1 className="text-4xl lg:text-5xl text-white">Courses</h1>
         </div>
       </section>
 

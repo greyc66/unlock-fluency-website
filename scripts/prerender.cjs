@@ -43,7 +43,7 @@ const ROUTES = {
       <h2>Meet Dr Christina Grey</h2>
       <p>A psycholinguist with a PhD in Linguistics who trained in drama at the University of Kent and at Tufts as a Fulbright scholar. Her courses combine the science of how we learn languages with the stage skills that help you speak with presence.</p>
       <nav aria-label="Main navigation">
-        <a href="/courses">Online English Courses</a> |
+        <a href="/courses">Courses</a> |
         <a href="/my-story">My Story: Dr Christina Grey</a> |
         <a href="/themethod">The Unlock Fluency Method</a> |
         <a href="/business">Corporate English Training</a> |
@@ -101,10 +101,10 @@ const ROUTES = {
   },
 
   '/courses': {
-    title: 'Online English Courses from £220 | The Unlock Fluency Method',
-    description: 'Browse online English courses from £220 and 1-to-1 personalised coaching from £75 with Dr Christina Grey. Immersive small-group courses that get you speaking English with confidence.',
+    title: 'English Courses Online and in Cambridge | The Unlock Fluency Method',
+    description: 'Online English courses from £220, 1-to-1 coaching from £75, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
     content: `
-      <h1>Online Courses: The Unlock Fluency Method</h1>
+      <h1>Courses: The Unlock Fluency Method</h1>
       <p>Explore immersive online English fluency courses designed by Dr Christina Grey using The Unlock Fluency Method. Choose from small-group courses (6 to 12 participants) or personalised 1-to-1 coaching.</p>
       <h2>Group courses</h2>
       <ul>
