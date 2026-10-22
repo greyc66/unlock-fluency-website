@@ -95,3 +95,4 @@
 - 2026-10-22: Course "Length" lines no longer show a total hour count (e.g. "8 consecutive weeks", not "8 consecutive weeks (16 hours)"), owner's decision.
 - 2026-10-22: Renamed the Online Courses page back to "Courses": menu, footer, page heading, browser title and Google text, FAQ link, and every "See online courses" button (now "See courses"). Descriptive mentions of online courses are unchanged.
 - 2026-10-22: Summer retreat card on the Courses page now has its own style: dark card over the Cambridge photo, an "In person · Cambridge" badge (replacing the "Residential" fact), and Course details / Register interest buttons. Driven by the `badge` and `image` fields in `src/data/courses.json`.
+- 2026-10-22: Summer retreat details: Length is "Lessons Monday to Friday; 5 nights' accommodation, Sunday to Thursday"; course hours no longer say (2026) as they are expected to stay the same; Where is just "Cambridge, UK".
