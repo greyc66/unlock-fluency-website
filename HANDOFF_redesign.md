@@ -97,3 +97,4 @@
 - 2026-10-22: Summer retreat card on the Courses page now has its own style: dark card over the Cambridge photo, an "In person · Cambridge" badge (replacing the "Residential" fact), and Course details / Register interest buttons. Driven by the `badge` and `image` fields in `src/data/courses.json`.
 - 2026-10-22: Summer retreat details: Length is "Lessons Monday to Friday; 5 nights' accommodation, Sunday to Thursday"; course hours no longer say (2026) as they are expected to stay the same; Where is just "Cambridge, UK".
 - 2026-10-22: Summer retreat card facts now read "5 days · 6 hours daily · B2+", matching the Unlock English Fluency card.
+- 2026-10-22: The retreat's "In person · Cambridge" badge now sits at the end of the facts line, after B2+, where the other cards show "Online".
