@@ -100,3 +100,4 @@
 - 2026-10-22: Summer retreat card facts now read "5 days · 6 hours daily · B2+", matching the Unlock English Fluency card.
 - 2026-10-22: The retreat's "In person · Cambridge" badge now sits at the end of the facts line, after B2+, where the other cards show "Online".
 - 2026-10-22: Retreat page: no named colleges (accommodation, breakfast, and formal dinner are "at a Cambridge University College"); the list heading is "What's typically included" instead of "What was included in 2026"; Length reads "Lessons: Monday to Friday; 5 nights' accommodation: Sunday to Thursday"; card facts are "5 days · B2+" so the In person badge fits on the same line.
+- 2026-10-24: Courses page heading is "Courses that get you speaking" with the line "Choose how you unlock your English fluency" underneath (owner chose this order).

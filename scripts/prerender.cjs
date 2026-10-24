@@ -104,7 +104,8 @@ const ROUTES = {
     title: 'English Courses Online and in Cambridge | The Unlock Fluency Method',
     description: 'Online English courses from £220, 1-to-1 coaching from £75, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
     content: `
-      <h1>Courses: The Unlock Fluency Method</h1>
+      <h1>Courses that get you speaking</h1>
+      <p>Choose how you unlock your English fluency.</p>
       <p>Explore immersive online English fluency courses designed by Dr Christina Grey using The Unlock Fluency Method. Choose from small-group courses (6 to 12 participants) or personalised 1-to-1 coaching.</p>
       <h2>Group courses</h2>
       <ul>
