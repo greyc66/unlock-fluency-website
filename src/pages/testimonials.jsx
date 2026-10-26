@@ -58,7 +58,7 @@ const staticTestimonials = [
    {
     id: 8,
     rating: 5,
-    testimonial_text: "To be honest, I was quite skeptical at first about taking an online course, because I usually prefer courses in person. But I was very positively surprised by how well it worked! You were so motivating and present throughout the sessions. Your clear pronunciation and the structure made it easy to follow and very enjoyable.",
+    testimonial_text: "To be honest, I was quite sceptical at first about taking an online course, because I usually prefer courses in person. But I was very positively surprised by how well it worked! You were so motivating and present throughout the sessions. Your clear pronunciation and the structure made it easy to follow and very enjoyable.",
     student_name: "Lena",
     student_country: "Germany",
   },
@@ -86,7 +86,7 @@ const staticTestimonials = [
    {
     id: 12,
     rating: 5,
-    testimonial_text: "I really liked the method, especially with the diﬀerent content you had prepared for each day. My favourite part was the discussions in smaller groups. I also found it helpful when you went deeper into topics like the useful vocab and phrases. And you were right, practicing these helps a lot. Sometimes need a bit of extra time for thinking, and through practicing using your phrases, I feel much more fluent.",
+    testimonial_text: "I really liked the method, especially with the different content you had prepared for each day. My favourite part was the discussions in smaller groups. I also found it helpful when you went deeper into topics like the useful vocab and phrases. And you were right, practising these helps a lot. Sometimes need a bit of extra time for thinking, and through practising using your phrases, I feel much more fluent.",
     student_name: "Nils",
     student_country: "Germany",
   },
@@ -121,7 +121,7 @@ const staticTestimonials = [
    {
     id: 17,
     rating: 5,
-    testimonial_text: "Thank you for the informative and engaging five days. You made English feel familiar to me again, and I love it! The content and topics you chose were very suitable. I found them informative and great for practicing diﬀerent aspects of the language. What was especially helpful were your phrases. I also really appreciate your approach in the course. You keep an eye on everyone, and I value that. I enjoyed your stories and examples as well. I truly loved the course.",
+    testimonial_text: "Thank you for the informative and engaging five days. You made English feel familiar to me again, and I love it! The content and topics you chose were very suitable. I found them informative and great for practising diﬀerent aspects of the language. What was especially helpful were your phrases. I also really appreciate your approach in the course. You keep an eye on everyone, and I value that. I enjoyed your stories and examples as well. I truly loved the course.",
     student_name: "Nada",
     student_country: "Germany",
   },
@@ -163,7 +163,7 @@ const staticTestimonials = [
    {
     id: 23,
     rating: 5,
-    testimonial_text: "I enjoyed teaching method you used, it suited me personally. It was aligned with my values and needs: to be funny, creative and stimulating. For me, doing something diﬀerently is always a bonus. I appreciate the personal touch, Dr. Grey. The content was really appealing and relevant and it covered many everyday situations.",
+    testimonial_text: "I enjoyed teaching method you used, it suited me personally. It was aligned with my values and needs: to be funny, creative and stimulating. For me, doing something diﬀerently is always a bonus. I appreciate the personal touch, Dr Grey. The content was really appealing and relevant and it covered many everyday situations.",
     student_name: "Sonja",
     student_country: "Croatia",
   },
@@ -198,7 +198,7 @@ const staticTestimonials = [
   {
     id: 28,
     rating: 5,
-    testimonial_text: "I found the course very well structured and I really liked the diﬀerent approaches to practicing English actively. I liked the listening comprehension and following Q&A and group discussion section the most. I also found changing speaking partners every day helpful to get used to diﬀerent pronunciations. All in all, it was the perfect course to get more speaking practice very quickly. Thank you very much - your teaching is very lively and fun and time always passed by fast.",
+    testimonial_text: "I found the course very well structured and I really liked the different approaches to practising English actively. I liked the listening comprehension and following Q&A and group discussion section the most. I also found changing speaking partners every day helpful to get used to different pronunciations. All in all, it was the perfect course to get more speaking practice very quickly. Thank you very much - your teaching is very lively and fun and time always passed by fast.",
     student_name: "Tina",
     student_country: "Germany",
   },
