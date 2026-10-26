@@ -72,7 +72,7 @@ const staticTestimonials = [
    {
     id: 10,
     rating: 5,
-    testimonial_text: "I really enjoyed the course: the teaching method allowed for both interaction and reflection on grammar, lexicon and idioms. My learning goal was basically to refresh my English and regain my ability to speak fluently about diﬀerent topics. The title 'Unlock English Fluency' was ideal and it fully met my expectations and encouraged me to continue working towards this goal.",
+    testimonial_text: "I really enjoyed the course: the teaching method allowed for both interaction and reflection on grammar, lexicon and idioms. My learning goal was basically to refresh my English and regain my ability to speak fluently about different topics. The title 'Unlock English Fluency' was ideal and it fully met my expectations and encouraged me to continue working towards this goal.",
     student_name: "Mauro",
     student_country: "Italy",
   },
@@ -93,7 +93,7 @@ const staticTestimonials = [
    {
     id: 13,
     rating: 5,
-    testimonial_text: "You are a great teacher and I hope many more students will be able to enjoy your lessons! Many, many thanks for your patience and your tireless eﬀorts to familiarise us with English. Your way of teaching English reminds me of how my daughter learnt to play the violin using the Suzuki method, where children play what they hear. You teach the melody of the language in a wonderful way! Thank you very much!",
+    testimonial_text: "You are a great teacher and I hope many more students will be able to enjoy your lessons! Many, many thanks for your patience and your tireless efforts to familiarise us with English. Your way of teaching English reminds me of how my daughter learnt to play the violin using the Suzuki method, where children play what they hear. You teach the melody of the language in a wonderful way! Thank you very much!",
     student_name: "Kristin",
     student_country: "Germany",
   },
@@ -121,7 +121,7 @@ const staticTestimonials = [
    {
     id: 17,
     rating: 5,
-    testimonial_text: "Thank you for the informative and engaging five days. You made English feel familiar to me again, and I love it! The content and topics you chose were very suitable. I found them informative and great for practising diﬀerent aspects of the language. What was especially helpful were your phrases. I also really appreciate your approach in the course. You keep an eye on everyone, and I value that. I enjoyed your stories and examples as well. I truly loved the course.",
+    testimonial_text: "Thank you for the informative and engaging five days. You made English feel familiar to me again, and I love it! The content and topics you chose were very suitable. I found them informative and great for practising different aspects of the language. What was especially helpful were your phrases. I also really appreciate your approach in the course. You keep an eye on everyone, and I value that. I enjoyed your stories and examples as well. I truly loved the course.",
     student_name: "Nada",
     student_country: "Germany",
   },
@@ -163,7 +163,7 @@ const staticTestimonials = [
    {
     id: 23,
     rating: 5,
-    testimonial_text: "I enjoyed teaching method you used, it suited me personally. It was aligned with my values and needs: to be funny, creative and stimulating. For me, doing something diﬀerently is always a bonus. I appreciate the personal touch, Dr Grey. The content was really appealing and relevant and it covered many everyday situations.",
+    testimonial_text: "I enjoyed teaching method you used, it suited me personally. It was aligned with my values and needs: to be funny, creative and stimulating. For me, doing something differently is always a bonus. I appreciate the personal touch, Dr Grey. The content was really appealing and relevant and it covered many everyday situations.",
     student_name: "Sonja",
     student_country: "Croatia",
   },
@@ -191,7 +191,7 @@ const staticTestimonials = [
   {
     id: 27,
     rating: 5,
-    testimonial_text: "Your course was really well-prepared and met all my expectations. You know exactly what you are talking about! My goal was to unlock my fluency and since you made us talk a lot about diﬀerent topics and diﬀerent methods, I did just that!",
+    testimonial_text: "Your course was really well-prepared and met all my expectations. You know exactly what you are talking about! My goal was to unlock my fluency and since you made us talk a lot about different topics and different methods, I did just that!",
     student_name: "Nicola",
     student_country: "Germany",
   },
@@ -212,7 +212,7 @@ const staticTestimonials = [
   {
     id: 30,
     rating: 5,
-    testimonial_text: "I really enjoyed your teaching method. You made us talk together in many diﬀerent ways using a great variety of terms. I also liked the pacing of the course. It was an encouraging restart for me!",
+    testimonial_text: "I really enjoyed your teaching method. You made us talk together in many different ways using a great variety of terms. I also liked the pacing of the course. It was an encouraging restart for me!",
     student_name: "Silvia",
     student_country: "Germany",
   },
