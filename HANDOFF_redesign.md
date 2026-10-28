@@ -21,7 +21,7 @@
 
 ## Decisions
 - **Summer retreat venues are not fixed:** each year it may be at a different college, but always within the University of Cambridge. The website names no specific college or hall; say "a Cambridge University College".
-- **Working agreement (from 2026-10-10):** copy edits are made and committed locally first; the owner checks them (`npm run dev`), and they are pushed live one step at a time only when the owner says so. Each commit gets a short, plain label saying what it changed (for example "Course inclusions update").
+- **Working agreement (from 2026-10-10, updated 2026-10-28):** while the owner and Claude go back and forth on adjustments, nothing is committed. Commit only when the owner says the changes are final. Every commit has a clear description of what it changed (for example "updated course prices"), never a vague one such as "updates" or "fixes". Changes are always made locally first for the owner to check (`npm run dev`), and commits are pushed live one step at a time only when the owner says so.
 - The About page quotes are correct; they come from the owner's offline records.
 - Experience is stated as "15 years of research and teaching" everywhere (teaching officially since 2012).
 - The method is for B1/B2 and above; the current online courses are all B2 and above. The FAQs say both.
@@ -61,6 +61,7 @@
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
 - Name for the planned news and professional fluency course (suggested: The Briefing).
 - Theatre photos, if any exist.
+- Check Google Search Console for the new site: is it submitted (with a sitemap), and how many pages are indexed? The February 2026 strategy found Google indexed only one page of the old site.
 
 ## Update log
 - 2026-10-09: Created the `redesign` worktree. Fixed the FAQ levels, Google course prices and lengths (they were out of date), standardised years of experience, and removed dashes from pages, Google text and emails. Build passes. Changes are not committed yet.
@@ -103,3 +104,5 @@
 - 2026-10-24: Courses page heading is "Courses that get you speaking" with the line "Choose how you unlock your English fluency" underneath (owner chose this order).
 - 2026-10-26: UK spelling audit fixes (owner's selection): The Method typical day "practice" to "practise" (verb, twice); summer retreat times "9.30am–3.30pm" (full stop, matching the other courses); testimonials "sceptical", "practising" (four times), "Dr Grey", and the copied "ﬀ" character replaced with "ff" in two quotes (lines 89 and 201). The same "ﬀ" character remains in four other testimonials (lines 75, 96, 194, 215). Built, committed as "updated UK spelling", and pushed live. Still open from the audit: the typical day differs between The Method page, the intensive's course page, and the decks (Jigsaw comes before lunch in the decks); Kristin's Suzuki violin quote on Home is listed as on hold in `ufm_context.md`, so check the consent register.
 - 2026-10-26: Replaced the copied "ﬀ" character with "ff" in the remaining seven testimonials (lines 75, 96, 124, 166, 194 (twice), and 215); no such characters remain anywhere on the site. Kristin's Suzuki violin quote stays as is: the owner confirmed consent (moved to the cleared list in `Company_brain/ufm_context.md`; still to be recorded in the consent register). The typical day is undecided: leave all three versions unchanged until the owner chooses. Committed locally as "Fixed ff characters"; not pushed.
+- 2026-10-26: Open question added: check Google Search Console for the new site (from the rescued marketing strategy chat).
+- 2026-10-28: Working agreement updated (owner's rule): no commits while adjustments are going back and forth; commit only once the owner says the changes are final, always with a clear description of what changed.
