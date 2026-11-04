@@ -1,6 +1,6 @@
 # Website redesign handoff
 
-**Status:** The redesign is the website: published from this folder (`unlock-fluency-website`, branch `main`) on 2026-10-10. Remaining: Setmore updates (rename Series Club to News Unlocked, add dates), LinkedIn company page website to /business, and a real test of the contact form and newsletter sign-up.
+**Status:** The redesign is the website: published from this folder (`unlock-fluency-website`, branch `main`) on 2026-10-10. Remaining: Setmore dates, LinkedIn company page website to /business, and a real test of the contact form and newsletter sign-up.
 
 ## Where things are
 - **Backup of the pre-redesign site:** `../unlock-fluency-website-original` (full copy of the live folder at commit 62b8ae4, made 2026-10-09). The same commit is tagged `pre-redesign` in the repository, so it can be restored with git as well.
@@ -54,7 +54,6 @@
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
-- Rename the Setmore class (still "SC01 - Series Club") to News Unlocked, and update its description.
 - Write the News Unlocked page copy in your own words if needed (first draft in `src/data/courses.json`).
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
 - Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Kat's Series Club quote (`Series_club/Series Club Evaluation.csv`) was removed with the course; both gave permission for first name only, so no job or country is shown.
@@ -110,3 +109,6 @@
 - 2026-11-02: Owner added unlockfluency.co.uk to Google Search Console as a domain property; ownership was verified automatically. Next: sitemap, indexing requests, and the indexed page count.
 - 2026-11-02: Owner submitted the sitemap in Search Console and requested indexing for the 9 key pages. Next: check the Pages report from 2026-11-05.
 - 2026-11-04: News Unlocked is now 4 weeks (was 8) and £220 (was £270), owner's decision: card, details page, Google text, and structured data in `index.html`. Built, committed as "News Unlocked: 4 weeks and £220", and pushed live. Setmore listing must match.
+- 2026-11-04: Owner updated the News Unlocked class in Setmore (renamed from Series Club; 4 weeks, £220). Removed it from the open questions.
+- 2026-11-04: New prices (owner's decision, from `Marketing/Price_audit_Nov2026.md`): Unlock English Fluency £495 (was £300), Maintain Fluency £395 (was £270), Weekend Boost £395 (was £270). Weekend Boost footnote and the FAQ answer now give the single weekend: Saturday and Sunday, 4 hours, £110, booked by getting in touch. Changed in `src/data/courses.json` (prices, Google descriptions, footnote), the JSON-LD in `index.html`, and `src/pages/faqs.jsx`; Google pages read prices from the JSON. Build passes. Not committed: the owner checks locally first. Setmore listings must match. "From £220" and "From £75" unchanged.
+- 2026-11-04: Owner checked the new prices locally and updated the three Setmore listings to match. Committed as "Updated course prices: intensive £495, Maintain Fluency and Weekend Boost £395, single weekend £110" and pushed live.

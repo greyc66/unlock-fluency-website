@@ -35,7 +35,7 @@ export default function FAQs() {
     },
     {
       question: "Can I book a single weekend from the Weekend Boost course?",
-      answer: "Yes, this is possible. Please get in touch with me directly to discuss booking a single weekend session."
+      answer: "Yes. A single weekend (Saturday and Sunday mornings, 4 hours) is £110. Please get in touch with me directly to book your place."
     },
     {
       question: "How do I sign up for the newsletter?",
