@@ -61,7 +61,7 @@
 - Setmore has no dates scheduled for Unlock English Fluency, Maintain Fluency, and Weekend Boost, so their booking pages look empty.
 - Name for the planned news and professional fluency course (suggested: The Briefing).
 - Theatre photos, if any exist.
-- Check Google Search Console for the new site: is it submitted (with a sitemap), and how many pages are indexed? The February 2026 strategy found Google indexed only one page of the old site.
+- Google Search Console: the domain property for unlockfluency.co.uk was added and verified on 2026-11-02 (it wasn't listed before). Sitemap submitted and indexing requested for the 9 key pages (Home, Courses, For Business, My Story, The Method, and the Unlock English Fluency, News Unlocked, Summer Retreat, and Book Club pages) on 2026-11-02. Still to do: from 2026-11-05, check Indexing, Pages for the indexed count and any reasons worth fixing (Not found (404), Crawled or Discovered but not indexed, Duplicate without user-selected canonical). The February 2026 strategy found Google indexed only one page of the old site.
 
 ## Update log
 - 2026-10-09: Created the `redesign` worktree. Fixed the FAQ levels, Google course prices and lengths (they were out of date), standardised years of experience, and removed dashes from pages, Google text and emails. Build passes. Changes are not committed yet.
@@ -106,3 +106,7 @@
 - 2026-10-26: Replaced the copied "ﬀ" character with "ff" in the remaining seven testimonials (lines 75, 96, 124, 166, 194 (twice), and 215); no such characters remain anywhere on the site. Kristin's Suzuki violin quote stays as is: the owner confirmed consent (moved to the cleared list in `Company_brain/ufm_context.md`; still to be recorded in the consent register). The typical day is undecided: leave all three versions unchanged until the owner chooses. Committed locally as "Fixed ff characters"; not pushed.
 - 2026-10-26: Open question added: check Google Search Console for the new site (from the rescued marketing strategy chat).
 - 2026-10-28: Working agreement updated (owner's rule): no commits while adjustments are going back and forth; commit only once the owner says the changes are final, always with a clear description of what changed.
+- 2026-10-28: Pushed "Fixed ff characters" and the handoff update live.
+- 2026-11-02: Owner added unlockfluency.co.uk to Google Search Console as a domain property; ownership was verified automatically. Next: sitemap, indexing requests, and the indexed page count.
+- 2026-11-02: Owner submitted the sitemap in Search Console and requested indexing for the 9 key pages. Next: check the Pages report from 2026-11-05.
+- 2026-11-04: News Unlocked is now 4 weeks (was 8) and £220 (was £270), owner's decision: card, details page, Google text, and structured data in `index.html`. Built, committed as "News Unlocked: 4 weeks and £220", and pushed live. Setmore listing must match.
