@@ -95,7 +95,7 @@ export default function Layout({ children, currentPageName }) {
     if (descTag) descTag.setAttribute('content', meta.description);
 
     let canonicalTag = document.querySelector('link[rel="canonical"]');
-    if (canonicalTag) canonicalTag.setAttribute('href', `https://www.unlockfluency.co.uk${pathname === '/' ? '' : pathname}`);
+    if (canonicalTag) canonicalTag.setAttribute('href', `https://www.unlockfluency.co.uk${pathname === '/' ? '/' : `${pathname}/`}`);
   }, [pathname]);
 
   return (

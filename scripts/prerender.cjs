@@ -246,7 +246,8 @@ for (const [route, meta] of Object.entries(ROUTES)) {
   );
 
   // Canonical URL
-  const canonical = route === '/' ? SITE_URL : `${SITE_URL}${route}`;
+  // Cloudflare serves each page at its trailing-slash address (/my-story/)
+  const canonical = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}/`;
   html = html.replace(
     /<link rel="canonical" href="[^"]*" \/>/,
     `<link rel="canonical" href="${canonical}" />`
