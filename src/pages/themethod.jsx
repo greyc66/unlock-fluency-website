@@ -18,21 +18,21 @@ import {
 } from "lucide-react";
 
 const principles = [
-  { icon: Headphones, title: "Listen first", text: "Real TED talks, podcasts, and stories build your instinct for how English sounds before you think about rules." },
-  { icon: MessageCircle, title: "Talk constantly", text: "Role-plays, discussion groups, and small breakout rooms. Most of the time, you are the one speaking." },
-  { icon: Briefcase, title: "Real situations", text: "Small talk, meetings, debates, and giving your opinion: the conversations that matter in work and life." },
-  { icon: Smile, title: "Feedback that builds confidence", text: "Personal, practical feedback and ready-made phrases, in a group where mistakes are part of learning." },
+  { icon: Headphones, title: "Listen first", text: "You listen to real TED talks, podcasts, and stories, so you get a feel for how English sounds before you worry about the rules." },
+  { icon: MessageCircle, title: "Talk constantly", text: "Role-plays, discussions, and small breakout rooms. Most of the time, you're the one talking." },
+  { icon: Briefcase, title: "Real situations", text: "We practise the conversations you actually have, like small talk, meetings, debates, and giving your opinion." },
+  { icon: Smile, title: "Feedback you can use", text: "I tell you what worked and what to try next, and give you ready-made phrases to lean on. Everyone makes mistakes, me included." },
 ];
 
 const stageSkills = ["Voice and pace", "Presence and body language", "Improvising when you don't know a word", "Handling nerves"];
 
 export default function TheMethod() {
   const dailySchedule = [
-  { time: "Morning", title: "Daily Overview", description: "Start with a daily overview and an icebreaker to warm-up.", icon: Coffee, color: "bg-brand-800" },
-  { time: "Mid-Morning", title: "Theme of the Day & Role-play Exercises", description: "Introduction of the theme of the day. Example themes include: food, culture, AI, work-life balance, social media, and money. Immersive discussions in breakout rooms.", icon: Users, color: "bg-brand-800" },
-  { time: "Lunch", title: "Break", description: "After a very engaging morning discussing the theme of the day, we take a lunch break to refuel and recharge.", icon: Utensils, color: "bg-brand-800" },
-  { time: "Afternoon", title: "Interactive Sessions", description: "Debates based on the theme of the day. Breakout rooms where learners have a chance to practise small-talk techniques.", icon: Presentation, color: "bg-brand-800" },
-  { time: "End of Day", title: "Interactive Practice & Reflection", description: "Practise real-life scenarios. Dynamic group activities, workshops, and debates. Round off with writing exercises.", icon: CheckCircle, color: "bg-brand-800" }];
+  { time: "Morning", title: "Overview and warm-up", description: "A look at the day ahead and an icebreaker to get everyone talking.", icon: Coffee, color: "bg-brand-800" },
+  { time: "Mid-morning", title: "Theme of the day and role-plays", description: "I introduce the theme, such as food, culture, AI, work-life balance, social media, or money, and you discuss it in breakout rooms.", icon: Users, color: "bg-brand-800" },
+  { time: "Lunch", title: "Lunch break", description: "After a morning of talking, you'll have earned it.", icon: Utensils, color: "bg-brand-800" },
+  { time: "Afternoon", title: "Debates and small talk", description: "Debates on the day's theme, and small talk practice in breakout rooms.", icon: Presentation, color: "bg-brand-800" },
+  { time: "End of day", title: "Practice and reflection", description: "Real-life scenarios and group activities, then a short writing task to round off the day.", icon: CheckCircle, color: "bg-brand-800" }];
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -82,7 +82,7 @@ export default function TheMethod() {
           <div>
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Skills from the stage</h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              I was on stage long before I became a linguist. Fluency is only half of speaking well; the other half is confidence. So alongside the English, I coach the skills actors and speakers rely on:
+              I was on stage long before I became a linguist, and every actor knows that learning your lines is only half the job. The other half is saying them while a room full of people looks at you. So alongside the English, I teach the skills actors and speakers rely on:
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {stageSkills.map((skill) => (
@@ -100,7 +100,7 @@ export default function TheMethod() {
       <section className="py-16 lg:py-24 bg-brand-50">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-4">A typical day on an intensive course</h2>
-          <p className="text-center text-gray-700 mb-10">All course content is created and delivered by Dr Christina Grey</p>
+          <p className="text-center text-gray-700 mb-10">I write and teach every lesson myself.</p>
 
           {/* Step tabs */}
           <div className="flex justify-between items-center mb-8 relative">
@@ -156,10 +156,10 @@ export default function TheMethod() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">The science, briefly</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            Psycholinguistics studies how the brain learns and uses language. The method follows the natural stages of language acquisition: meaningful input, active use, memory support, and a positive approach to mistakes.
+            When I tell my students that toddlers say things like ‘goed’ and ‘mouses’, they usually laugh. Then I tell them it's one of the best signs we have that a child is learning, because they've worked out the rules for the past tense and for plurals and are using them everywhere, even where English breaks its own rules. Adults do the same, so in my courses a mistake like that counts as progress.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            It grew out of my PhD research on how bilingual children learn languages naturally, and 15 years of teaching adults.
+            That's psycholinguistics, the study of how the brain learns and uses language. My PhD was on how bilingual children pick up language, and after 15 years of research and teaching, I teach adults in the same natural order: plenty of listening, plenty of speaking, help with remembering, and a relaxed attitude to mistakes.
           </p>
           <Link to="/my-story" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
             My story <ArrowRight className="w-4 h-4 ml-2" />
@@ -170,7 +170,7 @@ export default function TheMethod() {
       {/* CTA Section */}
       <section className="py-16 lg:py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl text-white mb-8">Ready to try it?</h2>
+          <h2 className="text-3xl lg:text-4xl text-white mb-8">Try it for yourself</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
               <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 h-11">

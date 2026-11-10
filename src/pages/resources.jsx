@@ -17,8 +17,8 @@ export default function Resources() {
   const premiumResources = [
     {
       title: "Germanisms",
-      subtitle: "Common Mistakes Germans Make in English",
-      description: "A comprehensive reference guide covering 20 common errors German speakers make in English, from false friends to tense confusion, each with psycholinguistic explanations, correction exercises, and a gap-fill with full answer keys.",
+      subtitle: "Common mistakes Germans make in English",
+      description: "20 common mistakes German speakers make in English, from false friends to mixed-up tenses, each with a short explanation of why it happens, exercises, and a gap-fill with answers.",
       price: "£10",
       tags: ["German speakers", "Grammar", "Reference"],
       buyButtonId: "buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm",
@@ -26,8 +26,8 @@ export default function Resources() {
     },
     {
       title: "Business English Essentials",
-      subtitle: "Common Mistakes & How to Fix Them",
-      description: "A professional reference guide covering 13 key business English areas, from polite requests and meeting language to email conventions and hedging, with exercises, a gap-fill, and complete answer keys.",
+      subtitle: "Common mistakes and how to fix them",
+      description: "13 areas of business English, from polite requests and meeting language to emails and softening what you say, with exercises, a gap-fill, and answers.",
       price: "£10",
       tags: ["Business English", "Professional", "Reference"],
       buyButtonId: "buy_btn_1TEFCf9rCOr3Bkkro9t31iGD",
@@ -35,8 +35,8 @@ export default function Resources() {
     },
     {
       title: "English Email Essentials",
-      subtitle: "Write Professional Emails with Confidence",
-      description: "A practical guide to writing clear, polite, and professional emails in English, covering openings, closings, requests, apologies, and tone, with exercises and a full answer key.",
+      subtitle: "Write professional emails with confidence",
+      description: "How to write clear, polite emails in English, from the opening line to requests, apologies, and getting the tone right. With exercises and answers.",
       price: "£10",
       tags: ["Email Writing", "Professional", "Reference"],
       buyButtonId: "buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh",
@@ -45,8 +45,8 @@ export default function Resources() {
   ];
 
   const whatsappResources = [
-    { title: "The Lexicon", icon: BookOpen, text: "Fascinating English words and their stories: usage, etymology, and cultural context." },
-    { title: "Phrases Unlocked", icon: BookMarked, text: "The quirky proverbs and idioms that make British English unique, and how to use them." },
+    { title: "The Lexicon", icon: BookOpen, text: "English words with a good story behind them, where they came from, and how to use them." },
+    { title: "Phrases Unlocked", icon: BookMarked, text: "British idioms and proverbs, what they really mean, and when to use them (and when not to)." },
     { title: "Break the Ice", icon: Lightbulb, text: "Conversation starters and small-talk tips for social and professional settings." },
   ];
 
@@ -79,7 +79,7 @@ export default function Resources() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl text-white mb-5">Resources</h1>
           <p className="text-lg text-gray-300">
-            Premium handouts and free resources to support your English journey.
+            Handouts you can buy and keep, and free resources I share with my community.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function Resources() {
       <section className="py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl text-brand-900 mb-2">Premium handouts</h2>
-          <p className="text-gray-600 mb-10">Downloadable handouts to boost your English awareness: buy once, keep forever.</p>
+          <p className="text-gray-600 mb-10">PDF handouts you buy once and keep.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {premiumResources.map((product, index) => (
@@ -130,7 +130,7 @@ export default function Resources() {
       <section className="py-16 lg:py-20 bg-brand-50">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl text-brand-900 mb-2">Free resources</h2>
-          <p className="text-gray-600 mb-10">Shared regularly with my community: no cost, no catch.</p>
+          <p className="text-gray-600 mb-10">Things I share with my community for free, on WhatsApp and by email.</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl border border-brand-200 p-6 sm:p-8 flex flex-col">
@@ -139,7 +139,6 @@ export default function Resources() {
               {resourceList(whatsappResources)}
               <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold h-11">
-                  <img src="/whatsapp.png" alt="" className="w-5 h-5 mr-2" />
                   Join the WhatsApp community
                 </Button>
               </a>

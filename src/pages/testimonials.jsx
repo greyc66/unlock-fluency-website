@@ -429,7 +429,7 @@ export default function Testimonials() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl text-white mb-5">Success Stories</h1>
           <p className="text-lg text-gray-300 mb-8">
-            Real results from real learners, in their own words.
+            What my students said after their courses, in their own words.
           </p>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-gray-300">
             <span><strong className="text-white">4.89/5</strong> satisfaction</span>
@@ -456,7 +456,7 @@ export default function Testimonials() {
                 <figure className="bg-white rounded-2xl border border-brand-100 p-8 md:p-12 text-center">
                   <Quote className="w-10 h-10 text-brand-400 mx-auto mb-6" />
                   <blockquote className="text-brand-900 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-                    "{testimonial.testimonial_text}"
+                    ‘{testimonial.testimonial_text}’
                   </blockquote>
                   <div className="flex justify-center mb-3">
                     {renderStars(testimonial.rating, "w-5 h-5")}
@@ -495,7 +495,7 @@ export default function Testimonials() {
               <figure key={testimonial.id} className="bg-brand-50 rounded-xl p-6 break-inside-avoid">
                 <div className="flex mb-3">{renderStars(testimonial.rating)}</div>
                 <blockquote className="text-gray-700 mb-4 leading-relaxed">
-                  "{testimonial.testimonial_text}"
+                  ‘{testimonial.testimonial_text}’
                 </blockquote>
                 <figcaption className="text-sm">
                   <span className="font-semibold text-brand-900">{testimonial.student_name}</span>

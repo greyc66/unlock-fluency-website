@@ -114,12 +114,12 @@ export default function RetreatRegistration() {
         <img src="/images/cambridge.jpg" alt="" className="absolute inset-0 -z-10 w-full h-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gray-900/70" aria-hidden="true"></div>
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-300 mb-4">Once a year, each summer</p>
+          <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-300 mb-4">Every summer</p>
           <h1 className="text-4xl lg:text-5xl text-white mb-5">
             Summer Retreat in Cambridge
           </h1>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Join me in Cambridge for an immersive week of real-world English practice, cultural exploration, and confidence-building in one of the world's most inspiring university cities.
+            Join me in Cambridge for a week of English lessons, college life, and very British traditions, from punting on the River Cam to a candlelit formal dinner. Be warned, Cambridge is a bubble, and once you're in, you never want to leave.
           </p>
           <p className="mt-5 text-gray-100 font-semibold">
             Dates for the next retreat will be announced. Register your interest below and I'll be in touch as soon as they're confirmed.

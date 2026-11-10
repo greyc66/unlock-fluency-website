@@ -91,7 +91,7 @@ export default function Courses() {
           <div className="bg-white border border-brand-200 rounded-xl p-8 text-center">
             <h2 className="text-3xl text-brand-900 mb-3">1-to-1 coaching</h2>
             <p className="text-gray-600 leading-relaxed mb-2">
-              Sessions built entirely around your goals, at any level, including beginners.
+              Just you and me, working on whatever you need. Any level, beginners included.
             </p>
             <p className="text-brand-700 font-semibold mb-6">From £75. Start with a free discovery call.</p>
             <BookingLink href={DISCOVERY_CALL_URL}>
@@ -108,10 +108,10 @@ export default function Courses() {
       <section className="py-16 lg:py-20 bg-gray-950">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl text-white mb-4">
-            Want to try The Unlock Fluency Method for your company?
+            Try The Unlock Fluency Method for your team
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Tailored courses, workshops, and retreats for teams, online or in person.
+            I also run tailored courses, workshops, and retreats for teams, online or in person.
           </p>
           <Link to="/business">
             <Button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11 px-6">

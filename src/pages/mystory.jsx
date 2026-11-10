@@ -46,7 +46,7 @@ function useCountUp(end, duration = 2000, startCounting = false) {
 const qualifications = [
   "PhD in Linguistics",
   "Drama training",
-  "15+ years of research and teaching",
+  "15 years of research and teaching",
 ];
 
 const chapters = [
@@ -58,8 +58,8 @@ const chapters = [
       { src: "/images/christina-award.jpg", alt: "Christina holding a research award" },
     ],
     text: [
-      "That curiosity became a career in linguistics: a BA in English Language and Linguistics, an MSc in Literature, an MA in Linguistics, and a PhD in Linguistics at Humboldt-Universität zu Berlin and the University of Cambridge.",
-      "For my PhD I studied how bilingual children acquire language naturally, and I kept asking myself: why can't adults learn with that same immersive joy? Along the way, my research has also been recognised with an award.",
+      "That curiosity turned into a career in linguistics, and quite a few graduations: a BA in English Language and Linguistics, an MSc in Literature, an MA in Linguistics, and a PhD in Linguistics at Humboldt-Universität zu Berlin and the University of Cambridge.",
+      "For my PhD I studied how bilingual children pick up language, and I kept wondering why adults can't learn with the same joy. That question is where my method started.",
     ],
   },
   {
@@ -69,7 +69,7 @@ const chapters = [
     ],
     text: [
       "I never really left the stage. I studied drama at the University of Kent, then spent a year at Tufts University in the US as a Fulbright scholar in Theatre Studies. Since then I've presented my work at conferences in the UK, the US, Greece, Germany, Ireland, the Netherlands, and beyond.",
-      "Theatre taught me what textbooks don't: how to use your voice, hold a room, and keep going when the nerves kick in. I bring those techniques into every course.",
+      "Theatre taught me how to use my voice, hold a room, and keep going when the nerves kick in, and I teach those same tricks in every course.",
     ],
   },
   {
@@ -79,7 +79,7 @@ const chapters = [
     ],
     text: [
       "I've taught English since 2012, from private tutoring and language schools to many years at the Volkshochschule (VHS) in Berlin.",
-      "Having lived in different countries and seen different education systems, I kept meeting the same learner: someone who could ace a grammar test but froze in a simple conversation.",
+      "I've lived in different countries and seen different school systems, and everywhere I kept meeting the same learner: someone who could ace a grammar test but froze when asked about their weekend.",
     ],
   },
 ];
@@ -203,7 +203,7 @@ export default function MyStory() {
           >
             <Quote className="w-7 h-7 text-brand-400 mb-3 mx-auto md:mx-0 flex-shrink-0" />
             <blockquote className="text-lg text-gray-800 italic leading-relaxed mb-3">
-              "{q.text}"
+              ‘{q.text}’
             </blockquote>
             <p className="text-gray-500 font-semibold text-sm">{q.name}, {q.country}</p>
           </div>
@@ -248,7 +248,7 @@ export default function MyStory() {
                 Meet Dr Christina Grey
               </h1>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                I help people speak English with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.
+                I help people speak English with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. With <span className="font-semibold text-white">The Unlock Fluency Method</span>, I bring all three together.
               </p>
               <ul className="space-y-3">
                 {qualifications.map((q) => (
@@ -270,24 +270,24 @@ export default function MyStory() {
             <div className="flex flex-col items-center">
               <Users className="w-8 h-8 text-brand-600 mb-2" />
               <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{studentsCount}+</div>
-              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Successful Students</p>
+              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Successful students</p>
             </div>
             <div className="flex flex-col items-center">
               <GraduationCap className="w-8 h-8 text-brand-600 mb-2" />
-              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{yearsCount}+</div>
-              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Years Experience</p>
+              <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{yearsCount}</div>
+              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Years of experience</p>
             </div>
             <div className="flex flex-col items-center">
               <Star className="w-8 h-8 text-brand-600 mb-2" />
               <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">
                 {typeof satisfactionCount === 'number' ? satisfactionCount.toFixed(2) : satisfactionCount}
               </div>
-              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Overall Satisfaction</p>
+              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Overall satisfaction</p>
             </div>
             <div className="flex flex-col items-center">
               <TrendingUp className="w-8 h-8 text-brand-600 mb-2" />
               <div className="text-4xl sm:text-5xl font-extrabold text-gray-900">{recommendCount}%</div>
-              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Recommendation Rate</p>
+              <p className="text-gray-700 font-semibold mt-1 text-sm sm:text-base">Recommendation rate</p>
             </div>
           </div>
         </div>
@@ -299,7 +299,7 @@ export default function MyStory() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">How it all started</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              I grew up with three languages and spent my childhood on stage as a child actor. Switching between languages every day made me curious about how the brain learns them, and the stage taught me that confidence is something you can practise.
+              I grew up with three languages and spent my childhood on stage. Switching between languages every day made me curious about how the brain learns them, and the stage taught me that confidence is something you can practise.
             </p>
           </div>
 
@@ -330,10 +330,10 @@ export default function MyStory() {
             <div className="bg-brand-50 rounded-2xl p-8 lg:p-12">
               <h3 className="font-display text-3xl text-brand-900 mb-4">The method</h3>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                The Unlock Fluency Method was born where those three paths meet. It follows the natural stages of language acquisition: meaningful input, lots of active speaking, memory support, and a positive approach to mistakes. Grammar comes along the way.
+                I built The Unlock Fluency Method from all three. You learn English in the order people naturally learn a language: lots of listening, lots of speaking, help with remembering, and a relaxed attitude to mistakes. Grammar comes along the way.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                My philosophy fits in one line: true language mastery is built on connection, not perfection. One of my favourite student reviews says, <em>"This isn't just an English course; it's a course about culture, life, and beyond."</em> That's exactly what I designed it to be, and I keep refining it with every group's feedback.
+                I also teach English and English culture together, because they go hand in hand. In some cultures, people get straight down to business, while in England we talk about the weather, ask about your weekend, apologise twice, and get to the point eventually. Knowing that is part of speaking English well. I keep refining the course with every group's feedback.
               </p>
               <Link to="/themethod" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
                 How the method works <ArrowRight className="w-4 h-4 ml-2" />
@@ -346,7 +346,7 @@ export default function MyStory() {
       {/* Academic and professional journey */}
       <section className="py-16 lg:py-24 bg-brand-50">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">Academic and professional journey</h2>
+          <h2 className="text-3xl lg:text-4xl text-brand-900 text-center mb-12">Where I've studied and taught</h2>
           <ol className="border-l-2 border-brand-200 space-y-5">
             {journey.map((item) => (
               <li key={`${item.year}-${item.title}`} className="pl-6 relative">
@@ -403,7 +403,7 @@ export default function MyStory() {
       {/* CTA */}
       <section className="py-16 lg:py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl text-white mb-8">Ready to start speaking?</h2>
+          <h2 className="text-3xl lg:text-4xl text-white mb-8">Join a course, or bring me to your team</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
               <Button size="lg" className="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11">

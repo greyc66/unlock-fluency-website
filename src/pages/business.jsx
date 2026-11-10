@@ -24,24 +24,24 @@ const results = [
 ];
 
 const principles = [
-  { icon: Headphones, title: "Listen first", text: "Listening builds the instinct before the rules." },
+  { icon: Headphones, title: "Listen first", text: "People listen to real talks and podcasts first, and get a feel for the language before the rules." },
   { icon: MessageCircle, title: "Talk constantly", text: "Every session is interactive and speaking-heavy." },
   { icon: Briefcase, title: "Real situations", text: "Meetings, calls, negotiations, and everyday workplace conversations." },
-  { icon: BookOpen, title: "Stories and scenarios", text: "Memorable stories and role-plays that stay with people." },
+  { icon: BookOpen, title: "Stories and scenarios", text: "Role-plays based on your team's own work, and stories that make the language stick." },
 ];
 
 const formats = [
   { name: "Intensive course", detail: "A focused week, typically 30 hours, for a big step forward." },
   { name: "Weekly course", detail: "Regular sessions that fit around work and build fluency over time." },
   { name: "Workshop", detail: "Half or full day on one skill, such as presenting, negotiating, or leading meetings." },
-  { name: "Retreat", detail: "Training and team experience together, in Cambridge or a destination you choose." },
+  { name: "Retreat", detail: "Training and time together as a team, in Cambridge or a destination you choose." },
   { name: "1-to-1 coaching", detail: "Individual sessions for leaders and managers." },
 ];
 
 const everyProgramme = [
   "Online, in person, or hybrid",
   "Content built around your team's work and industry",
-  "For B1/B2 level and above",
+  "Group courses for B2 and above, and 1-to-1 coaching at any level",
   "Group size to suit your team",
 ];
 
@@ -84,10 +84,10 @@ export default function Business() {
           <div>
             <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-300 mb-5">For business</p>
             <h1 className="text-4xl lg:text-5xl leading-tight text-white mb-6">
-              Your teams don't have an English problem. They have a confidence problem.
+              Your people are brilliant in their own language. I help them be brilliant in English too.
             </h1>
             <p className="text-lg text-gray-300 leading-relaxed mb-8 max-w-xl">
-              They already speak English. They know the grammar and the vocabulary. But when the meeting starts, they freeze, translate in their heads, and hold back. The Unlock Fluency Method changes that.
+              Think of the account manager who's wonderful with clients in their own language, sharp in the meeting and the best company at dinner afterwards. In English, they stick to the agenda, struggle to fill the silence before the meeting starts, and leave the charm at home. In my courses, they practise the negotiation and the small talk, until they're just as persuasive and just as good company in English.
             </p>
             {ctaButtons}
           </div>
@@ -122,7 +122,7 @@ export default function Business() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-5">A different way to learn English</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              I teach English the way children learn their first language: by listening, talking, and using it in real situations. English becomes a tool for getting work done, not a subject to be tested on.
+              I teach English the way children learn their first language, by listening, talking, and using it in real situations. Your team practises the English they need for the meetings and calls they deal with every week.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -143,9 +143,9 @@ export default function Business() {
               className="w-32 h-32 rounded-full object-cover object-top mx-auto"
             />
             <div>
-              <h3 className="text-xl font-semibold text-brand-900 mb-2">Presence, not just grammar</h3>
+              <h3 className="text-xl font-semibold text-brand-900 mb-2">Speaking with presence</h3>
               <p className="text-gray-700 leading-relaxed">
-                I design and teach every programme myself. I'm a psycholinguist with a PhD in Linguistics and more than 15 years of research and teaching. I also trained in drama and have spoken at conferences in the UK, the US, and across Europe, so alongside fluency I coach the skills that make a room listen: voice, pace, structure, and handling nerves.
+                I design and teach every programme myself. I'm a psycholinguist with a PhD in Linguistics and 15 years of research and teaching. I also trained in drama and have spoken at conferences in the UK, the US, and across Europe, so alongside the English I coach the skills that make a room listen: voice, pace, structure, and handling nerves.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function Business() {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-5">Built around your team</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              For international teams, leaders and managers, multinationals, and NGOs, on any topic from marketing, HR, and legal to finance and leadership.
+              I work with international teams, leaders and managers, multinationals, and NGOs, on anything from marketing, HR, and legal to finance and leadership.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 items-start">
@@ -215,7 +215,7 @@ export default function Business() {
             {quotes.map((q) => (
               <figure key={q.who} className="bg-brand-50 rounded-xl p-6">
                 <Quote className="w-7 h-7 text-brand-400 mb-3" />
-                <blockquote className="text-lg text-brand-900 italic leading-relaxed">"{q.text}"</blockquote>
+                <blockquote className="text-lg text-brand-900 italic leading-relaxed">‘{q.text}’</blockquote>
                 <figcaption className="mt-4 text-sm font-semibold text-gray-600">{q.who}</figcaption>
               </figure>
             ))}
@@ -228,7 +228,7 @@ export default function Business() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl text-white mb-4">Book a free 20-minute discovery call</h2>
           <p className="text-lg text-gray-300 mb-8">
-            Tell me about your team's goals, and we'll book your free 90-minute taster session so your team can experience the method first-hand.
+            Tell me about your team, and we'll set up a free 90-minute taster so they can try the method for themselves.
           </p>
           <div className="flex justify-center">{ctaButtons}</div>
         </div>

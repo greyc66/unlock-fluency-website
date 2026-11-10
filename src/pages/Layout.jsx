@@ -65,7 +65,7 @@ const PAGE_META = {
   },
   '/business': {
     title: 'Corporate English Training | Unlock Fluency for Business',
-    description: "Your teams don't have an English problem. They have a confidence problem. Tailored English fluency training by Dr Christina Grey: courses, workshops, and retreats, online or in person.",
+    description: "Your people are brilliant in their own language. I help them be brilliant in English too. Tailored English fluency training by Dr Christina Grey: courses, workshops, and retreats, online or in person.",
   },
 };
 

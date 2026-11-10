@@ -5,17 +5,17 @@ const points = [
   {
     icon: MessageCircle,
     title: "You do the talking",
-    text: "Most of every session is you speaking, not listening to a teacher. The more you speak, the faster your fluency grows.",
+    text: "You spend most of every session speaking, in pairs, in small groups, and with me. The more you speak, the more easily the words come when you need them.",
   },
   {
     icon: Newspaper,
-    title: "Real topics, not textbooks",
-    text: "We talk about things that matter: work, culture, technology, and life. You learn the English you actually need, in context.",
+    title: "Real topics",
+    text: "We talk about food, money, AI, work-life balance, and whatever's in the news, so the English you learn is the English you'll use on Monday morning.",
   },
   {
     icon: Sparkles,
     title: "Confidence first",
-    text: "Mistakes are welcome. Techniques from the stage help with your voice, presence, and nerves, so you speak up when it counts.",
+    text: "Mistakes are welcome, because they're a sign you're learning. I also teach a few tricks from the stage for your voice and your nerves, so you can speak up when it counts.",
   },
 ];
 

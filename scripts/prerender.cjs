@@ -26,19 +26,19 @@ const ROUTES = {
     description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £75, training for teams, and a summer retreat in Cambridge, UK.',
     content: `
       <h1>Unlock the English you already have.</h1>
-      <p>Most of my students don't need more grammar. They need the confidence to use what they know. In my courses, you start speaking from the first minute.</p>
+      <p>Most of my students already know plenty of grammar and vocabulary. They come to me for the confidence to use it, so in my courses you start speaking from the first minute.</p>
       <h2>What makes it different</h2>
       <ul>
-        <li>You do the talking: most of every session is you speaking, not listening to a teacher.</li>
-        <li>Real topics, not textbooks: work, culture, technology, and life.</li>
-        <li>Confidence first: mistakes are welcome, and techniques from the stage help with voice, presence, and nerves.</li>
+        <li>You do the talking: you spend most of every session speaking, in pairs, in small groups, and with me.</li>
+        <li>Real topics: food, money, AI, work-life balance, and whatever's in the news.</li>
+        <li>Confidence first: mistakes are welcome, because they're a sign you're learning, and I teach a few tricks from the stage for your voice and your nerves.</li>
       </ul>
       <h2>Ways to work with me</h2>
       <ul>
-        <li><a href="/courses">Online courses</a>: small-group courses, live online, from £220.</li>
-        <li>1-to-1 coaching: sessions built around your goals, from £75.</li>
+        <li><a href="/courses">Online courses</a>: small groups, live online, from £220.</li>
+        <li>1-to-1 coaching: just you and me, working on whatever you need, from £75.</li>
         <li><a href="/business">For business</a>: tailored training for teams, online or in person.</li>
-        <li><a href="/courses/summer-retreat">Summer retreat</a>: a week of English, culture, and confidence in Cambridge, UK. Dates to be announced.</li>
+        <li><a href="/courses/summer-retreat">Summer retreat</a>: a week of English in Cambridge, with punting and a formal college dinner along the way. Dates to be announced.</li>
       </ul>
       <h2>Meet Dr Christina Grey</h2>
       <p>A psycholinguist with a PhD in Linguistics who trained in drama at the University of Kent and at Tufts as a Fulbright scholar. Her courses combine the science of how we learn languages with the stage skills that help you speak with presence.</p>
@@ -49,7 +49,7 @@ const ROUTES = {
         <a href="/business">Corporate English Training</a> |
         <a href="/testimonials">Success Stories</a> |
         <a href="/resources">The Resource Room</a> |
-        <a href="/contact">Get in Touch</a>
+        <a href="/contact">Get in touch</a>
       </nav>
     `,
   },
@@ -59,17 +59,17 @@ const ROUTES = {
     description: 'Meet Dr Christina Grey: psycholinguist with a PhD in Linguistics, drama-trained speaker, and creator of The Unlock Fluency Method, with 15 years of research and teaching.',
     content: `
       <h1>Meet Dr Christina Grey</h1>
-      <p>I help people speak English with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. The Unlock Fluency Method brings all three together.</p>
-      <ul><li>PhD in Linguistics</li><li>Drama training</li><li>15+ years of research and teaching</li></ul>
+      <p>I help people speak English with confidence. I'm a language scientist, I trained in drama, and I've been teaching English since 2012. With The Unlock Fluency Method, I bring all three together.</p>
+      <ul><li>PhD in Linguistics</li><li>Drama training</li><li>15 years of research and teaching</li></ul>
       <h2>How it all started</h2>
-      <p>I grew up with three languages and spent my childhood on stage as a child actor.</p>
+      <p>I grew up with three languages and spent my childhood on stage.</p>
       <h3>The scientist</h3>
       <p>A BA in English Language and Linguistics, an MSc in Literature, an MA in Linguistics, and a PhD in Linguistics at Humboldt-Universität zu Berlin and the University of Cambridge, with award-winning research.</p>
       <h3>The performer</h3>
       <p>Drama at the University of Kent, then a year at Tufts University as a Fulbright scholar in Theatre Studies. Conference talks in the UK, the US, Greece, Germany, Ireland, the Netherlands, and beyond.</p>
       <h3>The teacher</h3>
       <p>Teaching English since 2012, including many years at the Volkshochschule (VHS) in Berlin.</p>
-      <h2>Academic and professional journey</h2>
+      <h2>Where I've studied and taught</h2>
       <ul>
         <li>2011: BA in English Language &amp; Linguistics, Aristotle University of Thessaloniki and University of Kent</li>
         <li>2011–12: English teacher, Kern Training</li>
@@ -90,13 +90,13 @@ const ROUTES = {
       <h1>The Unlock Fluency Method</h1>
       <p>I teach English the way you learned your first language: by listening, talking, and using it in real situations. Grammar comes along the way.</p>
       <h2>What makes it different</h2>
-      <p>You do the talking. Real topics, not textbooks. Confidence first.</p>
+      <p>You do the talking. Real topics. Confidence first.</p>
       <h2>How it works</h2>
-      <p>Listen first, talk constantly, practise real situations, and get feedback that builds confidence.</p>
+      <p>Listen first, talk constantly, practise real situations, and get feedback you can use.</p>
       <h2>Skills from the stage</h2>
       <p>Voice and pace, presence and body language, improvising when you don't know a word, and handling nerves.</p>
       <h2>The science, briefly</h2>
-      <p>The method follows the natural stages of language acquisition: meaningful input, active use, memory support, and a positive approach to mistakes.</p>
+      <p>Psycholinguistics is the study of how the brain learns and uses language. My PhD was on how bilingual children pick up language, and after 15 years of research and teaching, I teach adults in the same natural order: plenty of listening, plenty of speaking, help with remembering, and a relaxed attitude to mistakes.</p>
     `,
   },
 
@@ -112,22 +112,22 @@ const ROUTES = {
         ${courses.filter((c) => !c.hidden).map((c) => `<li><a href="/courses/${c.slug}">${c.title}</a>: ${c.hook} ${c.cardFacts.join(', ')}, ${c.price}</li>`).join('\n        ')}
       </ul>
       <h2>1-to-1 coaching</h2>
-      <p>Sessions built entirely around your goals, at any level, from £75. Start with a free discovery call.</p>
+      <p>Just you and me, working on whatever you need, at any level, from £75. Start with a free discovery call.</p>
       <h2>For Business</h2>
-      <p>Want to try The Unlock Fluency Method for your company? See <a href="/business">Corporate English Training</a> for tailored courses, workshops, and retreats, online or in person.</p>
+      <p>Try The Unlock Fluency Method for your team. See <a href="/business">Corporate English Training</a> for tailored courses, workshops, and retreats, online or in person.</p>
     `,
   },
 
   '/business': {
     title: 'Corporate English Training | Unlock Fluency for Business',
-    description: "Your teams don't have an English problem. They have a confidence problem. Tailored English fluency training by Dr Christina Grey: courses, workshops, and retreats, online or in person.",
+    description: "Your people are brilliant in their own language. I help them be brilliant in English too. Tailored English fluency training by Dr Christina Grey: courses, workshops, and retreats, online or in person.",
     content: `
-      <h1>Your teams don't have an English problem. They have a confidence problem.</h1>
-      <p>They already speak English. They know the grammar and the vocabulary. But when the meeting starts, they freeze, translate in their heads, and hold back. The Unlock Fluency Method changes that.</p>
+      <h1>Your people are brilliant in their own language. I help them be brilliant in English too.</h1>
+      <p>Think of the account manager who's wonderful with clients in their own language, sharp in the meeting and the best company at dinner afterwards. In English, they stick to the agenda, struggle to fill the silence before the meeting starts, and leave the charm at home. In my courses, they practise the negotiation and the small talk, until they're just as persuasive and just as good company in English.</p>
       <h2>Results participants report</h2>
       <p>96% report greater speaking confidence, 91% feel better prepared for professional communication, 9.7/10 average satisfaction, and 100% would recommend it to colleagues (self-reported, 300+ participant evaluations).</p>
       <h2>Built around your team</h2>
-      <p>Intensive courses (typically 30 hours), weekly courses, workshops on one skill, retreats in Cambridge or a destination you choose, and 1-to-1 coaching for leaders. Online, in person, or hybrid, for B1/B2 level and above.</p>
+      <p>Intensive courses (typically 30 hours), weekly courses, workshops on one skill, retreats in Cambridge or a destination you choose, and 1-to-1 coaching for leaders. Online, in person, or hybrid. Group courses are for B2 and above, and 1-to-1 coaching is for any level.</p>
       <h2>How it works</h2>
       <p>A free 20-minute discovery call, a free 90-minute taster session, a tailored programme, and a certificate and English level report for every participant.</p>
     `,
@@ -146,7 +146,7 @@ const ROUTES = {
     title: 'Get in Touch | The Unlock Fluency Method',
     description: 'Contact Dr Christina Grey about Unlock Fluency courses, 1-to-1 coaching, or corporate English training. Start your journey to unlock English fluency today.',
     content: `
-      <h1>Get in Touch</h1>
+      <h1>Get in touch</h1>
       <p>Have a question about The Unlock Fluency Method courses, 1-to-1 personalised coaching, or corporate English training for organisations? Contact Dr Christina Grey and start your fluency journey.</p>
     `,
   },

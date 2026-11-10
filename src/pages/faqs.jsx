@@ -7,15 +7,15 @@ export default function FAQs() {
   const faqs = [
     {
       question: "What level of English do I need for the courses?",
-      answer: "The Unlock Fluency Method is designed for intermediate to advanced learners (B1/B2 level and above). My current online courses are all for B2 level and above. If you're unsure about your level, please get in touch for a consultation."
+      answer: "My method works at any level, which is why I also offer 1-to-1 coaching for beginners. My current group courses are all for B2 and above. If you're not sure of your level, get in touch and we'll work it out together."
     },
     {
       question: "Are the courses suitable for complete beginners?",
-      answer: "The Unlock Fluency Method is designed for intermediate to advanced learners (B1/B2 level and above), and my current online courses are all for B2 level and above. However, I offer 1-to-1 personalised coaching sessions that I tailor for beginners. Get in touch to discuss your specific needs."
+      answer: "Not my group courses, which are all for B2 and above. For beginners, I offer 1-to-1 coaching built around you. Get in touch and tell me what you need."
     },
     {
       question: "How do I join a course?",
-      answer: <> On my <Link to="/courses" className="text-brand-600 hover:text-brand-700">Courses</Link> page you can browse all of my available courses. Click on 'Book now', follow the checkout process, and you will receive a Zoom link to join. If you don't see any available dates for specific courses, check back later as I add new course dates frequently (or join my <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">Newsletter</Link> and/or <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-brand-600 hover:text-brand-700">WhatsApp Community</a> if you want to be the first to receive updates!). </>
+      answer: <>Go to my <Link to="/courses" className="text-brand-600 hover:text-brand-700">Courses</Link> page, choose a course, and click ‘Book now’. Once you've paid, you'll get a link to join the class. If there are no dates yet for the course you want, check back soon, as I add new dates regularly. My <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">newsletter</Link> and <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" className="text-brand-600 hover:text-brand-700">WhatsApp community</a> hear about them first.</>
     },
     {
       question: "What happens if I need to cancel my booking?",
@@ -27,7 +27,7 @@ export default function FAQs() {
     },
     {
       question: "What makes The Unlock Fluency Method different?",
-      answer: <>The Unlock Fluency Method is based on psycholinguistic research and focuses on natural language acquisition through conversation and immersion, rather than traditional textbook learning. Psycholinguistics studies how our minds process language. In other words, it's the science of the "psychology of language." My method uses a psycholinguistic approach meaning that the lessons are aligned with how the brain naturally learns language rather than just drilling grammar rules. It's designed to build real-world communication confidence. Please refer to <Link to="/themethod" className="text-brand-600 hover:text-brand-700">The Method</Link> page for more details.</>
+      answer: <>I teach English the way the brain learns languages naturally, through listening, conversation, and real situations, with grammar coming along the way. It comes from my field, psycholinguistics, which studies how we learn and use language. Textbooks and grammar drills taught many of us a lot, and now we know more about how adults learn to speak. <Link to="/themethod" className="text-brand-600 hover:text-brand-700">The Method</Link> page has the details.</>
     },
     {
       question: "Do I get a certificate after completing a course?",
@@ -43,7 +43,7 @@ export default function FAQs() {
     },
     {
       question: "Do you offer courses for teams and organisations?",
-      answer: "Yes! I offer tailored courses for companies, NGOs, and organisations. I customise these to meet your team's specific needs and goals. Get in touch for a personalised quote."
+      answer: "Yes! I run courses, workshops, and retreats for companies, NGOs, and other organisations, built around what your team needs. Get in touch for a personalised quote, or book a free discovery call."
     }
   ];
 

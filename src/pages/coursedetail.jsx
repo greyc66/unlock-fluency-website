@@ -114,7 +114,7 @@ export default function CourseDetail() {
               <figure className="bg-brand-50 rounded-xl p-8">
                 <Quote className="w-8 h-8 text-brand-400 mb-4" />
                 <blockquote className="text-lg lg:text-xl text-brand-900 italic leading-relaxed">
-                  "{course.testimonial.text}"
+                  ‘{course.testimonial.text}’
                 </blockquote>
                 <figcaption className="mt-4 font-semibold text-gray-600">
                   {course.testimonial.name}{course.testimonial.country && `, ${course.testimonial.country}`}

@@ -102,8 +102,8 @@ export default function Contact() {
             <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center border border-green-500/20">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h1 className="text-3xl text-brand-900 mb-4">Message Sent Successfully!</h1>
-            <p className="text-lg text-gray-600">Thank you for your enquiry. I'll get back to you as soon as possible.</p>
+            <h1 className="text-3xl text-brand-900 mb-4">Message sent.</h1>
+            <p className="text-lg text-gray-600">Thanks for getting in touch. I'll reply as soon as I can.</p>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function Contact() {
     <div className="bg-white">
       <section className="bg-gray-900 py-16 lg:py-20 text-center">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl text-white mb-5">Get in Touch</h1>
+          <h1 className="text-4xl lg:text-5xl text-white mb-5">Get in touch</h1>
           <p className="text-lg text-gray-300">
             A question about my online courses, 1-to-1 coaching, or training for your team? I'd love to hear from you.
           </p>

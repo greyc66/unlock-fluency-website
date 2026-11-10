@@ -27,7 +27,7 @@ const ways = [
     image: "/images/christina-classroom.jpg",
     alt: "Christina in a classroom",
     title: "Online courses",
-    text: "Small-group courses, live online: intensive weeks, weekly evenings, weekends, and clubs.",
+    text: "Small groups, live online. Choose an intensive week, an evening a week, weekend mornings, or the book club.",
     meta: "From £220",
     link: "/courses",
     cta: "See courses",
@@ -36,7 +36,7 @@ const ways = [
     image: "/images/christina-tea.jpg",
     alt: "Christina having afternoon tea",
     title: "1-to-1 coaching",
-    text: "Sessions built entirely around your goals, at any level.",
+    text: "Just you and me, working on whatever you need, at any level.",
     meta: "From £75",
     href: DISCOVERY_CALL_URL,
     cta: "Book a free call",
@@ -45,7 +45,7 @@ const ways = [
     image: "/images/christina-conference.jpg",
     alt: "Christina presenting at a conference",
     title: "For business",
-    text: "Tailored training that helps teams speak up in meetings, presentations, and with clients.",
+    text: "Training for teams who need to speak up in meetings, presentations, and client calls.",
     meta: "Online or in person",
     link: "/business",
     cta: "Training for teams",
@@ -54,8 +54,8 @@ const ways = [
     image: "/images/cambridge.jpg",
     alt: "The Bridge of Sighs in Cambridge",
     title: "Summer retreat",
-    text: "A week of English, culture, and confidence in Cambridge, UK.",
-    meta: "Once a year, each summer",
+    text: "A week of English in Cambridge, with punting and a formal college dinner along the way.",
+    meta: "Every summer",
     link: "/courses/summer-retreat",
     cta: "Find out more",
   },
@@ -68,69 +68,69 @@ export default function Home() {
     {
       icon: Star,
       stat: "4.89 / 5.0",
-      label: "Overall Satisfaction",
+      label: "Overall satisfaction",
       color: "text-brand-600",
     },
     {
       icon: ThumbsUp,
       stat: "100%",
-      label: "Recommendation Rate",
+      label: "Recommendation rate",
       color: "text-brand-600",
     },
     {
       icon: TrendingUp,
       stat: "+45%",
-      label: "Speaking Confidence Increase in Just One Week",
+      label: "Speaking confidence in one week",
       color: "text-brand-600",
     },
     {
       icon: Award,
       stat: "83%",
-      label: 'Rated Course Impact as "Excellent"',
+      label: 'Rated course impact as ‘Excellent’',
       color: "text-brand-600",
     },
     {
       icon: Users,
       stat: "300+",
-      label: "Successful Students",
+      label: "Successful students",
       color: "text-brand-600",
     },
     {
       icon: GraduationCap,
-      stat: "15 Years",
-      label: "of Research & Teaching Experience",
+      stat: "15 years",
+      label: "of research and teaching experience",
       color: "text-brand-600",
     },
     {
       icon: Award,
       stat: "98.6%",
-      label: "\"Strongly Agreed\" the Instructor Was Efficient, Organised, and Stimulating",
+      label: "‘Strongly agreed’ I was efficient, organised, and stimulating",
       color: "text-brand-600",
     },
     {
       icon: MessageCircle,
-      stat: '"Best English course I\'ve ever attended!"',
+      stat: '‘Best English course I\'ve ever attended!’',
       label: null,
       color: "text-brand-400",
       isQuote: true,
     },
     {
       icon: MessageCircle,
-      stat: '"Your method is brilliant!"',
+      stat: '‘Your method is brilliant!’',
       label: null,
       color: "text-brand-400",
       isQuote: true,
     },
     {
       icon: MessageCircle,
-      stat: '"I had no fear to speak."',
+      stat: '‘I had no fear to speak.’',
       label: null,
       color: "text-brand-400",
       isQuote: true,
     },
     {
       icon: MessageCircle,
-      stat: '"Felt confident after just a few days."',
+      stat: '‘Felt confident after just a few days.’',
       label: null,
       color: "text-brand-400",
       isQuote: true,
@@ -204,8 +204,8 @@ export default function Home() {
   }, [testimonialPaused, goNextTestimonial]);
 
   const heroLines = [
-    "Most of my students don't need more grammar. They need the confidence to use what they know.",
-    "In my courses, you start speaking from the first minute.",
+    "Most of my students already know plenty of grammar and vocabulary.",
+    "They come to me for the confidence to use it, so in my courses you start speaking from the first minute.",
   ];
 
 return (
@@ -269,7 +269,7 @@ return (
       >
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <p className="text-base font-bold tracking-widest text-gray-700 uppercase mb-8 transition-opacity duration-500">
-            {statsSlides[activeStatSlide]?.isQuote ? "What Students Say" : "By The Numbers"}
+            {statsSlides[activeStatSlide]?.isQuote ? "What students say" : "By the numbers"}
           </p>
 
           <div className="relative h-52 sm:h-44 overflow-hidden">
@@ -310,7 +310,7 @@ return (
 
       {/* What makes it different */}
       <section className="py-16 sm:py-24 bg-white">
-        <WhatsDifferent intro="The Unlock Fluency Method, in plain words." />
+        <WhatsDifferent />
         <div className="text-center mt-12">
           <Link to="/themethod" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
             How the method works <ArrowRight className="w-4 h-4 ml-2" />
@@ -360,10 +360,10 @@ return (
           <div>
             <h2 className="text-3xl lg:text-4xl text-brand-900 mb-6">Meet Dr Christina Grey</h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              I'm a psycholinguist with a PhD in Linguistics, and I've been on stage since I was a child. I trained in drama at the University of Kent and at Tufts as a Fulbright scholar, and I've spoken at conferences across Europe and the US.
+              I'm a psycholinguist, which means I study how the brain learns and uses language, and I've been on stage since I was a child. I trained in drama at the University of Kent and at Tufts as a Fulbright scholar, and I've spoken at conferences across Europe and the US.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              My courses bring the two together: the science of how we learn languages, and the stage skills that help you speak with presence. Fluent English, and the confidence to use it.
+              In class I use both: what research tells us about how adults learn a language, and what the theatre taught me about speaking up when your knees are knocking.
             </p>
             <Link to="/my-story" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
               My story <ArrowRight className="w-4 h-4 ml-2" />
@@ -380,7 +380,7 @@ return (
         {...testimonialSwipe}
       >
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl text-brand-900 mb-10">What Students Say</h2>
+          <h2 className="text-3xl lg:text-4xl text-brand-900 mb-10">What students say</h2>
 
           <div className="relative h-72 sm:h-56 overflow-hidden">
             {homeTestimonials.map((t, index) => (
@@ -394,7 +394,7 @@ return (
               >
                 <Quote className="h-8 w-8 text-brand-400 mb-4" />
                 <blockquote className="text-lg lg:text-xl font-medium text-gray-800 leading-relaxed italic max-w-2xl">
-                  "{t.text}"
+                  ‘{t.text}’
                 </blockquote>
                 <footer className="mt-6">
                   <div className="text-base text-gray-800 font-semibold">{t.name}, {t.country}</div>

@@ -24,7 +24,11 @@
 - **Working agreement (from 2026-10-10, updated 2026-10-28):** while the owner and Claude go back and forth on adjustments, nothing is committed. Commit only when the owner says the changes are final. Every commit has a clear description of what it changed (for example "updated course prices"), never a vague one such as "updates" or "fixes". Changes are always made locally first for the owner to check (`npm run dev`), and commits are pushed live one step at a time only when the owner says so.
 - The About page quotes are correct; they come from the owner's offline records.
 - Experience is stated as "15 years of research and teaching" everywhere (teaching officially since 2012).
-- The method is for B1/B2 and above; the current online courses are all B2 and above. The FAQs say both.
+- Levels (updated 2026-11-10): the method works at any level; the current courses (all except custom 1-to-1) are B2 and above; beginners come to 1-to-1. No "B1" anywhere on the site. For Business says "Group courses for B2 and above, and 1-to-1 coaching at any level" (owner, 2026-11-10).
+- Middle dots are fine on the website (owner, 2026-11-10: they look good), even though the house style rules them out elsewhere.
+- Every testimonial on the website has consent (owner, 2026-11-10, from her records). Quote marks around testimonials are single British marks (‘…’).
+- New copy doesn't name the video platform (Zoom may be replaced); say "live online". Existing mentions of Zoom stay for now (owner, 2026-11-10): switching platforms will be one sitewide change.
+- Website copy is its own: don't reuse examples, stories, or lines from LinkedIn or other channels (owner, 2026-11-10).
 - Google prices: online courses from £220, 1-to-1 coaching from £75.
 - No em or en dashes in visitor-facing text, including the automated emails. The Germanisms handout source is out of scope.
 - Keep the carousels on the Home and About pages.
@@ -54,6 +58,8 @@
 - Owner is considering replacing Series Club with a weekly course on current news and professional fluency (business English with a twist). Not decided.
 
 ## Open questions for the owner
+- **Voice rewrite (cgfy), 2026-11-09:** 53 suggested copy changes across every page, coded S1 to X3, in a before and after page: https://claude.ai/artifact/TTUhKUvjVANxPszAqj5p18. Owner's choices (2026-11-10): skip S1, M8, C1; keep everything else, with these changes: S3 keeps the Home and Contact questions, and the Courses heading is "Try The Unlock Fluency Method for your team"; S4 only turns "15+" (and "more than 15") into "15 years", other true paraphrases stay; H6 and F3 without Zoom; M1 only changes the last sentence to "With The Unlock Fluency Method, I bring all three together."; M3 without the award sentence; M6 with "In some cultures… while in England" instead of Berlin and Cambridge; X2 "Message sent." with a full stop; F1 rewritten (the method is for any level). B1 needs a new example (the suggested one is a LinkedIn post). Applied locally on 2026-11-10 (16 files, including `scripts/prerender.cjs` and `index.html`); build passes; not committed. B1 replaced with a new presentation example (not used on LinkedIn); M6 reads "in England we talk about the weather, ask about your weekend, apologise twice, and get to the point eventually" (owner's merge). B1: the owner chose the client dinner example, mixed with the negotiation one so it covers business and small talk (2026-11-10). Next: the owner checks with `npm run dev`, then says when to commit and publish.
+- **Typical intensive day:** the order has changed; come back to it (owner, 2026-11-10). T3 changed the wording only.
 - Write the News Unlocked page copy in your own words if needed (first draft in `src/data/courses.json`).
 - Course details copy is a first draft for the owner to refine (especially the typical sessions for Maintain Fluency, Weekend Boost, and Series Club, and "starting in the morning" for the intensive).
 - Testimonials for Maintain Fluency: none on file yet. Book Club uses Laura (BC01 evaluation) and Kat's Series Club quote (`Series_club/Series Club Evaluation.csv`) was removed with the course; both gave permission for first name only, so no job or country is shown.
@@ -116,3 +122,12 @@
 - 2026-11-09: Reviewed the first Search Console indexing report and checked the live site's redirects and canonical tags; causes and proposed fix recorded under Open questions.
 - 2026-11-09: Search Console fixes made locally: trailing-slash addresses in the sitemap, canonical tags, and redirect targets. Built and tested on Cloudflare's local server (all redirects one hop, canonical tags match the served address). Waiting for the owner's go-ahead to commit and publish.
 - 2026-11-09: Owner added the Cloudflare non-www to www redirect rule (checked: 301 to www, query string kept). Committed the Search Console fixes and pushed them live.
+- 2026-11-09: Drafted a cgfy voice rewrite of the website copy as a before and after artifact (53 changes); no site files changed. Recorded under Open questions.
+- 2026-11-10: Applied the owner's cgfy choices locally (copy on every page, Google text, structured data); recorded the new decisions (dots fine on the website, every website testimonial has consent, any level for the method, no video platform name, own content per channel). Build passes. Not committed.
+- 2026-11-10: M6 weather line merged with the weekend and apologising details; For Business level line now invites B2 and above for group courses and any level for 1-to-1; Zoom mentions stay for now. Four more B1 options offered. Build passes. Not committed.
+- 2026-11-10: For Business opening (B1) is now the account manager example: the client dinner mixed with the negotiation (business and small talk). Build passes. Not committed.
+- 2026-11-10: B1 middle sentence now names small talk ("struggle to fill the silence before the meeting starts"). Build passes. Not committed.
+- 2026-11-10: My Story top text: the method's name stands out in white, semi-bold (owner's request). Build passes. Not committed.
+- 2026-11-10: For Business headline, its Google description, and the business page description in `Layout.jsx` now use the new core message "Your people are brilliant in their own language. I help them be brilliant in English too." (owner's choice). Build passes. Not committed.
+- 2026-11-10: Resources: removed the WhatsApp logo from the green join button (it wasn't showing properly). Build passes. Not committed.
+- 2026-11-10: Resources, free resources intro: "Things I share with my community for free, on WhatsApp and by email." (was "Shared regularly with my community: no cost, no catch."). Not committed.

@@ -2,7 +2,7 @@
   {
     "slug": "unlock-english-fluency",
     "title": "Unlock English Fluency",
-    "hook": "My five-day fluency sprint. Speak spontaneously and share your opinions with confidence.",
+    "hook": "Five days, 30 hours, and a lot of talking. My signature course, for a big step forward in one week.",
     "cardFacts": [
       "5 days",
       "6 hours daily",
@@ -35,10 +35,10 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Upper-intermediate and advanced learners who understand a lot of English but freeze, translate in their heads, or hold back when it's time to speak. Ideal if you want a big step forward in a single week.",
+    "whoFor": "You understand most of what you hear, but when it's your turn to speak, you translate in your head or say nothing at all. This week is for upper-intermediate and advanced learners (B2 and above) who want a big step forward, fast.",
     "practise": [
       "Speaking spontaneously on a new theme each day, such as culture, AI, work-life balance, or money",
-      "Linking your ideas with \"bridges\": ready-made phrases for agreeing, disagreeing, and buying time to think",
+      "Linking your ideas with ‘bridges’: ready-made phrases for agreeing, disagreeing, and buying time to think",
       "Listening to real TED talks and podcasts, then explaining the key points to your group",
       "Role-plays for real situations, using a simple way to acknowledge, respond, and close a conversation",
       "Small talk, debating, and giving your opinion with confidence"
@@ -80,7 +80,7 @@
   {
     "slug": "maintain-fluency",
     "title": "Maintain Fluency",
-    "hook": "A weekly evening course to keep your English active and your confidence growing.",
+    "hook": "One evening a week to keep your English in use between courses.",
     "cardFacts": [
       "8 weeks",
       "2 hours weekly",
@@ -113,7 +113,7 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Learners at B2 and above who want regular speaking practice alongside work, or who have done an intensive course and want to keep the momentum going.",
+    "whoFor": "Learners at B2 and above who want regular speaking practice alongside work, or who've done an intensive week and don't want to lose what they gained.",
     "practise": [
       "Conversations about real-life situations: work, travel, and everyday life",
       "Giving your opinion and discussing current topics",
@@ -148,7 +148,7 @@
   {
     "slug": "weekend-boost",
     "title": "Weekend Boost",
-    "hook": "Four weekends of relaxed, practical speaking practice to refresh your English.",
+    "hook": "Saturday and Sunday mornings for four weekends. A relaxed way to start your weekend in English.",
     "cardFacts": [
       "4 weekends",
       "2 hours daily",
@@ -182,7 +182,7 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Busy learners at B2 and above who want to refresh their English without a weekday commitment, and start their weekends with a smile.",
+    "whoFor": "Busy learners at B2 and above who can't fit a course into the working week. Bring a cup of tea (or coffee, I won't judge).",
     "practise": [
       "Everyday conversations and small talk",
       "Sharing opinions and stories naturally",
@@ -221,7 +221,7 @@
   {
     "slug": "news-unlocked",
     "title": "News Unlocked",
-    "hook": "A weekly evening course on the week's news, for confident, professional English.",
+    "hook": "One evening a week, we talk about the week's news, and you pick up the English of business and current affairs as we go.",
     "cardFacts": [
       "4 weeks",
       "2 hours weekly",
@@ -277,7 +277,7 @@
       },
       {
         "time": "Discussion",
-        "text": "Debates and role-plays in small groups: what does it mean for business and for us?"
+        "text": "Debates and role-plays in small groups about what the story means for business, and for you."
       }
     ],
     "included": [
@@ -289,7 +289,7 @@
   {
     "slug": "book-club",
     "title": "Book Club",
-    "hook": "Read a novel together over four weeks: stories, discussion, and new vocabulary.",
+    "hook": "We read a novel together over four weeks and talk about it. A lovely excuse to read in English.",
     "cardFacts": [
       "4 weeks",
       "2 hours weekly",
@@ -365,7 +365,7 @@
     "slug": "summer-retreat",
     "tba": true,
     "title": "Summer Retreat in Cambridge",
-    "hook": "A 5-day residential retreat: a week of intensive fluency training and a classic Cambridge experience.",
+    "hook": "My intensive course, taught in person in Cambridge, with five nights in a college, punting, and a formal dinner.",
     "cardFacts": [
       "5 days",
       "B2+"
@@ -374,7 +374,7 @@
     "format": "Cambridge, UK",
     "metaTitle": "Summer Retreat in Cambridge | Residential English Fluency Week",
     "metaDescription": "A 5-day residential English fluency retreat in Cambridge with Dr Christina Grey, for B2+ learners and international professionals. Dates for the next retreat will be announced: register your interest.",
-    "datesNote": "Dates for the next retreat will be announced soon. Register your interest and I'll contact you as soon as dates are confirmed. Places are limited and allocated on a first-come, first-served basis; if your registration is accepted, you'll be invited to secure your place with a non-refundable 50% deposit.",
+    "datesNote": "Dates for the next retreat will be announced soon. Register your interest and I'll contact you as soon as they're confirmed. Places are limited and go in the order people register. If I can offer you a place, I'll ask for a non-refundable 50% deposit to secure it.",
     "schedule": [
       {
         "label": "Dates",
@@ -397,7 +397,7 @@
         "value": "Cambridge, UK"
       }
     ],
-    "whoFor": "International professionals who want to communicate more confidently in English, learners who want to move from \"good\" English to natural fluency, and anyone looking for an immersive language and cultural experience in an inspiring academic setting. For upper-intermediate and advanced learners (B2 and above).",
+    "whoFor": "Professionals who want to speak English more confidently, learners ready to go from good English to natural English, and anyone who'd like a week of lessons, college life, and Cambridge traditions. For upper-intermediate and advanced learners (B2 and above).",
     "practise": [
       "Speaking spontaneously and confidently in a small, highly interactive group",
       "Everything in my Unlock English Fluency course, taught in person",
