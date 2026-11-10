@@ -102,9 +102,9 @@ export default function CourseDetail() {
                 <p className="text-gray-700 leading-relaxed mb-6">{course.datesNote}</p>
               ) : (
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Upcoming dates and times are in my booking calendar. I add new dates regularly; join my{" "}
+                  You'll find the next dates and times in my booking calendar. I add new ones regularly, and my{" "}
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:text-brand-700 font-semibold underline">WhatsApp community</a>{" "}
-                  to hear about them first.
+                  hears about them first.
                 </p>
               )}
               <BookButton course={course} />

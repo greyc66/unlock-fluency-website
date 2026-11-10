@@ -35,35 +35,39 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "You understand most of what you hear, but when it's your turn to speak, you translate in your head or say nothing at all. This week is for upper-intermediate and advanced learners (B2 and above) who want a big step forward, fast.",
+    "whoFor": "You understand most of what you hear, but when it's your turn to speak, you rehearse the sentence in your head until someone else has said it. This week is for upper-intermediate and advanced learners (B2 and above) who are ready to say it first.",
     "practise": [
       "Speaking spontaneously on a new theme each day, such as culture, AI, work-life balance, or money",
       "Linking your ideas with ‘bridges’: ready-made phrases for agreeing, disagreeing, and buying time to think",
-      "Listening to real TED talks and podcasts, then explaining the key points to your group",
+      "Listening to a TED talk or podcast, or reading an article, then explaining it to someone who didn't hear it",
       "Role-plays for real situations, using a simple way to acknowledge, respond, and close a conversation",
       "Small talk, debating, and giving your opinion with confidence"
     ],
     "sessionTitle": "A typical day",
     "session": [
       {
-        "time": "Morning",
-        "text": "A quick review of yesterday, warm-up questions, and the theme of the day with its key vocabulary."
+        "time": "Icebreaker",
+        "text": "A look at the day ahead, then an icebreaker or a game to get everyone talking, coffee optional."
       },
       {
-        "time": "Mid-morning",
-        "text": "Role-plays and discussions in small breakout rooms."
+        "time": "Warm-up",
+        "text": "You talk about the day's theme in pairs, in breakout rooms, with the day's bridges to hand. Cambridge has plenty of bridges, but none of them has saved as many conversations as ‘That's a fair point, but…’. No punt required."
       },
       {
-        "time": "Lunch",
-        "text": "A proper break to recharge."
+        "time": "Small talk",
+        "text": "After a short break, you practise the chat before a meeting starts or over coffee, in pairs. The British have had centuries of practice, and now it's your turn."
       },
       {
-        "time": "Afternoon",
-        "text": "Listening to a TED talk or podcast in two groups, then sharing what you heard and debating it."
+        "time": "Jigsaw",
+        "text": "Each team gets one piece of the day's theme (e.g. a TED talk or a podcast), and you put the picture together by explaining your piece to the other team. Like a jigsaw, but nobody has to do the sky."
       },
       {
-        "time": "End of day",
-        "text": "Real-life scenarios, reflection, and a short writing task."
+        "time": "Role-plays",
+        "text": "After lunch, you act out real situations from work and everyday life in pairs, with a simple way to acknowledge, respond, and close a conversation."
+      },
+      {
+        "time": "Debate",
+        "text": "We finish with a debate or a presentation in two teams. Each team prepares its case and takes the floor, and the other team is ready with tough questions. It's all very friendly, until someone mentions the prizes."
       }
     ],
     "included": [
@@ -113,12 +117,12 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Learners at B2 and above who want regular speaking practice alongside work, or who've done an intensive week and don't want to lose what they gained.",
+    "whoFor": "You've done an intensive week and don't want to lose what you gained, or you'd like to speak English every week, alongside work. For learners at B2 and above.",
     "practise": [
       "Conversations about real-life situations: work, travel, and everyday life",
       "Giving your opinion and discussing current topics",
       "Natural phrases and expressions you can use straight away",
-      "Speaking up with confidence, week after week"
+      "Speaking without overthinking it, a little more each week"
     ],
     "sessionTitle": "A typical session",
     "session": [
@@ -154,7 +158,7 @@
       "2 hours daily",
       "B2+"
     ],
-    "footnote": "Prefer a single weekend? Join one Saturday and Sunday (4 hours) for £110. Get in touch with me to book your place.",
+    "footnote": "You can also come for a single weekend (Saturday and Sunday, 4 hours in all) for £110. Get in touch and I'll book your place.",
     "price": "£395",
     "format": "Online",
     "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/9d3cefc5-a5fc-4caa-96a1-8d081f70a89b",
@@ -187,7 +191,7 @@
       "Everyday conversations and small talk",
       "Sharing opinions and stories naturally",
       "Useful phrases for work and life",
-      "Listening and responding without translating in your head"
+      "Listening and answering straight away, in English"
     ],
     "sessionTitle": "A typical session",
     "session": [
@@ -221,7 +225,7 @@
   {
     "slug": "news-unlocked",
     "title": "News Unlocked",
-    "hook": "One evening a week, we talk about the week's news, and you pick up the English of business and current affairs as we go.",
+    "hook": "One evening a week, we talk about a story in the news, and you pick up the English of business and current affairs as we go.",
     "cardFacts": [
       "4 weeks",
       "2 hours weekly",
@@ -231,7 +235,7 @@
     "format": "Online",
     "bookingUrl": "https://theunlockfluencymethod.setmore.com/classes/7e09c26d-d9d8-439a-8205-2fa95f19e666",
     "metaTitle": "News Unlocked | Weekly Business English Course on Current News, Online",
-    "metaDescription": "A 4-week online evening course with Dr Christina Grey: discuss the week's news and build professional English fluency in a small group of 6 to 12 (B2+). Wednesdays, 6pm–8pm UK time. £220.",
+    "metaDescription": "A 4-week online evening course with Dr Christina Grey: discuss a story in the news and build professional English fluency in a small group of 6 to 12 (B2+). Wednesdays, 6pm–8pm UK time. £220.",
     "schedule": [
       {
         "label": "Length",
@@ -254,35 +258,44 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Professionals at B2 and above who want to stay up to date and talk about current affairs, business, and work with confidence, in meetings, with clients, and over coffee.",
+    "whoFor": "You keep up with the news, and you'd like to talk about it just as easily in English, in meetings, with clients, and over coffee. For professionals at B2 and above.",
     "practise": [
       "Understanding real news articles, reports, and interviews",
       "The vocabulary of business, economics, technology, and current affairs",
       "Giving your opinion, agreeing, and disagreeing politely",
-      "Summarising a story clearly and explaining why it matters"
+      "Summarising a story clearly and explaining why it matters",
+      "Presenting a story you've prepared"
     ],
     "sessionTitle": "A typical session",
     "session": [
       {
-        "time": "Warm-up",
-        "text": "What caught your eye in the news this week?"
+        "time": "The News Desk",
+        "text": "You present the story you prepared at home and get feedback."
       },
       {
-        "time": "The story",
-        "text": "We read or listen to a news piece together and unpack it."
+        "time": "Hot takes",
+        "text": "Quick opinions on the week's story, to get everyone talking."
       },
       {
         "time": "Language",
-        "text": "Key vocabulary and phrases from the story, and how to use them at work."
+        "text": "The week's words and phrases, and how to use them at work."
+      },
+      {
+        "time": "The story",
+        "text": "You've read it at home, so we unpack it together: what happened, and why it matters."
       },
       {
         "time": "Discussion",
-        "text": "Debates and role-plays in small groups about what the story means for business, and for you."
+        "text": "A role-play or a debate about what the story means for business, and for you."
+      },
+      {
+        "time": "Phrases to keep",
+        "text": "Three phrases from the session you want to make your own."
       }
     ],
     "included": [
       "Certificate of Completion",
-      "Handouts for every session, with the news story, vocabulary, and phrases"
+      "A handout every week, with the story to read at home, the vocabulary, and the phrases"
     ],
     "testimonial": null
   },
@@ -322,11 +335,11 @@
         "value": "Online, live on Zoom"
       }
     ],
-    "whoFor": "Book lovers at B2 and above who want to read in English, talk about stories, and grow their vocabulary naturally.",
+    "whoFor": "You love a good book and would like to read more in English, with people to talk it over with every week. For learners at B2 and above.",
     "practise": [
       "Discussing key scenes: what happened, why, and what you think",
       "Vocabulary and phrases straight from the page",
-      "Phrases for talking about books: agreeing, disagreeing, and building on ideas",
+      "Bridges for talking about books: agreeing, disagreeing, and building on someone else's idea",
       "Connecting the story to your own life"
     ],
     "sessionTitle": "A typical session",
@@ -397,9 +410,9 @@
         "value": "Cambridge, UK"
       }
     ],
-    "whoFor": "Professionals who want to speak English more confidently, learners ready to go from good English to natural English, and anyone who'd like a week of lessons, college life, and Cambridge traditions. For upper-intermediate and advanced learners (B2 and above).",
+    "whoFor": "You'd like to go from good English to natural English, and you fancy doing it with a week of lessons, college life, and Cambridge traditions. For upper-intermediate and advanced learners (B2 and above).",
     "practise": [
-      "Speaking spontaneously and confidently in a small, highly interactive group",
+      "Speaking spontaneously in a small group",
       "Everything in my Unlock English Fluency course, taught in person",
       "Using your English straight away in real situations around Cambridge",
       "Natural conversation over meals, tours, and Cambridge traditions"
@@ -412,7 +425,7 @@
       },
       {
         "time": "9.30am–3.30pm",
-        "text": "The Unlock English Fluency course: discussions, role-plays, listening, and debates in small groups."
+        "text": "The Unlock English Fluency course, in person: small talk, role-plays, a listening task in two teams, and a debate."
       },
       {
         "time": "Afternoon and evening",

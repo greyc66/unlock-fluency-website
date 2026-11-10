@@ -10,7 +10,7 @@ import {
   CheckCircle,
   ArrowRight,
   BookOpen,
-  Utensils,
+  Puzzle,
   Headphones,
   MessageCircle,
   Briefcase,
@@ -28,11 +28,12 @@ const stageSkills = ["Voice and pace", "Presence and body language", "Improvisin
 
 export default function TheMethod() {
   const dailySchedule = [
-  { time: "Morning", title: "Overview and warm-up", description: "A look at the day ahead and an icebreaker to get everyone talking.", icon: Coffee, color: "bg-brand-800" },
-  { time: "Mid-morning", title: "Theme of the day and role-plays", description: "I introduce the theme, such as food, culture, AI, work-life balance, social media, or money, and you discuss it in breakout rooms.", icon: Users, color: "bg-brand-800" },
-  { time: "Lunch", title: "Lunch break", description: "After a morning of talking, you'll have earned it.", icon: Utensils, color: "bg-brand-800" },
-  { time: "Afternoon", title: "Debates and small talk", description: "Debates on the day's theme, and small talk practice in breakout rooms.", icon: Presentation, color: "bg-brand-800" },
-  { time: "End of day", title: "Practice and reflection", description: "Real-life scenarios and group activities, then a short writing task to round off the day.", icon: CheckCircle, color: "bg-brand-800" }];
+  { time: "Icebreaker", title: "Priming: getting ready", description: "A look at the day ahead, then an icebreaker or a game to get everyone talking, coffee optional.", icon: Smile, color: "bg-brand-800" },
+  { time: "Warm-up", title: "Activation: waking up what you know", description: "You talk about the day's theme in pairs, in breakout rooms, with the day's bridges to hand. Cambridge has plenty of bridges, but none of them has saved as many conversations as ‘That's a fair point, but…’. No punt required.", icon: MessageCircle, color: "bg-brand-800" },
+  { time: "Small talk", title: "Interaction: using it with someone else", description: "After a short break, you practise the chat before a meeting starts or over coffee, in pairs. The British have had centuries of practice, and now it's your turn.", icon: Coffee, color: "bg-brand-800" },
+  { time: "Jigsaw", title: "Input: taking in something new", description: "Each team gets one piece of the day's theme (e.g. a TED talk or a podcast), and you put the picture together by explaining your piece to the other team. Like a jigsaw, but nobody has to do the sky.", icon: Puzzle, color: "bg-brand-800" },
+  { time: "Role-plays", title: "Automatisation: practising until it's second nature", description: "After lunch, you act out real situations from work and everyday life in pairs, with a simple way to acknowledge, respond, and close a conversation.", icon: Users, color: "bg-brand-800" },
+  { time: "Debate", title: "Pushed output: putting it all together", description: "We finish with a debate or a presentation in two teams. Each team prepares its case and takes the floor, and the other team is ready with tough questions. It's all very friendly, until someone mentions the prizes.", icon: Presentation, color: "bg-brand-800" }];
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -103,7 +104,7 @@ export default function TheMethod() {
           <p className="text-center text-gray-700 mb-10">I write and teach every lesson myself.</p>
 
           {/* Step tabs */}
-          <div className="flex justify-between items-center mb-8 relative">
+          <div className="flex justify-between items-start mb-8 relative">
             {/* Connecting line */}
             <div className="absolute top-6 left-0 right-0 h-0.5 bg-gray-300" />
             {dailySchedule.map((item, index) => (
@@ -121,7 +122,7 @@ export default function TheMethod() {
                     index === activeStep ? "text-white" : "text-gray-500 group-hover:text-gray-700"
                   }`} />
                 </div>
-                <span className={`mt-2 text-xs sm:text-sm font-medium transition-colors duration-300 ${
+                <span className={`mt-2 text-xs sm:text-sm font-medium text-center leading-tight transition-colors duration-300 ${
                   index === activeStep ? "text-gray-900" : "text-gray-500"
                 }`}>
                   {item.time}
@@ -131,11 +132,11 @@ export default function TheMethod() {
           </div>
 
           {/* Content panel */}
-          <div className="relative h-48 sm:h-40 overflow-hidden">
+          <div className="grid">
             {dailySchedule.map((item, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                className={`col-start-1 row-start-1 transition-all duration-500 ease-in-out ${
                   index === activeStep
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4 pointer-events-none"
