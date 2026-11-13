@@ -1,0 +1,7 @@
+# Unlisted business card: never indexed, and its address is never sent to other sites
+/card-92a9kyfb2w0l/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+
+/card-92a9kyfb2w0l/Christina_Grey.vcf
+  Content-Type: text/vcard; charset=utf-8
