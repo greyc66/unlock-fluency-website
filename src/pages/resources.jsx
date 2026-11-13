@@ -134,7 +134,7 @@ export default function Resources() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl border border-brand-200 p-6 sm:p-8 flex flex-col">
-              <p className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every two weeks</p>
+              <p className="text-sm font-bold tracking-wider uppercase text-brand-600 mb-1">Every week</p>
               <h3 className="text-2xl text-brand-900 font-display mb-6">In my WhatsApp community</h3>
               {resourceList(whatsappResources)}
               <a href="https://chat.whatsapp.com/ChydClk2Z7X4UiVz5cwYD0" target="_blank" rel="noopener noreferrer">
