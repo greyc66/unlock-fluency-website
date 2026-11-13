@@ -19,19 +19,19 @@ const PRODUCTS = {
     filename: 'germanisms.pdf',
     subject: 'Your Germanisms Handout from The Unlock Fluency Method',
     title: 'Your Germanisms Handout',
-    description: 'Thank you for your purchase! Your <strong>Germanisms</strong> handout is attached below. It covers 20 common mistakes German speakers make in English, with psycholinguistic explanations, exercises, and a full answer key.',
+    description: 'Thank you for your purchase! Your <strong>Germanisms</strong> handout is ready to download below. It covers 24 common mistakes German speakers make in English, each with a short explanation of why it happens, plus exercises and a full answer key.',
   },
   'buy_btn_1TEFCf9rCOr3Bkkro9t31iGD': {
     filename: 'business-english-essentials.pdf',
     subject: 'Your Business English Essentials Handout from The Unlock Fluency Method',
     title: 'Your Business English Essentials Handout',
-    description: 'Thank you for your purchase! Your <strong>Business English Essentials</strong> handout is attached below. It covers 13 key business English areas with exercises and a full answer key.',
+    description: 'Thank you for your purchase! Your <strong>Business English Essentials</strong> handout is ready to download below. It covers 13 key business English areas with exercises and a full answer key.',
   },
   'buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh': {
     filename: 'english-email-essentials.pdf',
     subject: 'Your English Email Essentials Handout from The Unlock Fluency Method',
     title: 'Your English Email Essentials Handout',
-    description: 'Thank you for your purchase! Your <strong>English Email Essentials</strong> handout is attached below. It covers how to write clear, polite, and professional emails in English with exercises and a full answer key.',
+    description: 'Thank you for your purchase! Your <strong>English Email Essentials</strong> handout is ready to download below. It covers how to write clear, polite, and professional emails in English with exercises and a full answer key.',
   },
 };
 

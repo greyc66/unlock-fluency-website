@@ -18,7 +18,7 @@ export default function Resources() {
     {
       title: "Germanisms",
       subtitle: "Common mistakes Germans make in English",
-      description: "20 common mistakes German speakers make in English, from false friends to mixed-up tenses, each with a short explanation of why it happens, exercises, and a gap-fill with answers.",
+      description: "24 common mistakes German speakers make in English, from false friends to mixed-up tenses, each with a short explanation of why it happens, exercises, and a gap-fill with answers.",
       price: "£10",
       tags: ["German speakers", "Grammar", "Reference"],
       buyButtonId: "buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm",
