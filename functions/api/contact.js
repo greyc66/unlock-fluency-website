@@ -68,82 +68,38 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Build email content
-    let emailBody = `
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background-color: #0ea5e9; color: white; padding: 20px; text-align: center; }
-    .content { background-color: #f9fafb; padding: 30px; border: 1px solid #e5e7eb; }
-    .field { margin-bottom: 20px; }
-    .label { font-weight: bold; color: #1f2937; }
-    .value { margin-top: 5px; color: #4b5563; }
-    .footer { text-align: center; margin-top: 30px; padding: 20px; color: #6b7280; font-size: 14px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h2>New Contact Form Submission</h2>
-    </div>
-    <div class="content">
-      <div class="field">
-        <div class="label">Enquiry Type:</div>
-        <div class="value">${enquiry_type}</div>
-      </div>
-
-      <div class="field">
-        <div class="label">Name:</div>
-        <div class="value">${name}</div>
-      </div>
-
-      <div class="field">
-        <div class="label">Email:</div>
-        <div class="value">${email}</div>
-      </div>
-`;
-
-    if (enquiry_type === '1-to-1 Personalised Coaching' && current_english_level) {
-      emailBody += `
-      <div class="field">
-        <div class="label">Current English Level:</div>
-        <div class="value">${current_english_level}</div>
-      </div>
-`;
-    }
-
-    if (enquiry_type === 'Unlock Fluency for Business') {
-      emailBody += `
-      <div class="field">
-        <div class="label">Company or Organisation:</div>
-        <div class="value">${organisation}</div>
-      </div>
-
-      <div class="field">
-        <div class="label">Number of Participants:</div>
-        <div class="value">${team_size}</div>
-      </div>
-`;
-    }
-
-    emailBody += `
-      <div class="field">
-        <div class="label">Message:</div>
-        <div class="value">${message.replace(/\n/g, '<br>')}</div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <p>This email was sent from your website contact form.</p>
-      <p>Reply directly to this email to respond to ${name}.</p>
-    </div>
-  </div>
+    // Notification email for the site owner (new look, 14 Nov 2026)
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const font = `font-family:'DM Sans', Arial, Helvetica, sans-serif;`;
+    const field = (label, value) => `<p style="margin:16px 0 2px 0; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:#B23A48; font-weight:700;">${label}</p><p style="margin:0; line-height:1.5;">${value}</p>`;
+    const notification = (heading, fields, note) => `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0; padding:0; background-color:#F7F0EC;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F7F0EC;"><tr><td align="center" style="padding:24px 10px;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="560" style="width:100%; max-width:560px;">
+  <tr><td style="background-color:#221F2E; border-radius:12px 12px 0 0; padding:22px 28px; ${font}">
+    <p style="margin:0; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#86D2F5; font-weight:700;">The Unlock Fluency Method</p>
+    <h1 style="margin:6px 0 0 0; font-family:'DM Serif Display', Georgia, serif; font-weight:normal; font-size:24px; color:#FCF8F4;">${heading}</h1>
+  </td></tr>
+  <tr><td style="background-color:#FFFFFF; padding:8px 28px 22px 28px; ${font} font-size:15px; color:#221F2E;">
+    ${fields}
+  </td></tr>
+  <tr><td style="background-color:#FCF8F4; border-top:1px solid #E8DFDF; border-radius:0 0 12px 12px; padding:16px 28px; ${font} font-size:13px; line-height:1.5; color:#6E6878;">${note}</td></tr>
+</table>
+</td></tr></table>
 </body>
-</html>
-`;
+</html>`;
+
+    let fields = field('Enquiry', esc(enquiry_type)) + field('Name', esc(name)) + field('Email', esc(email));
+    if (enquiry_type === '1-to-1 Personalised Coaching' && current_english_level) {
+      fields += field('Current English level', esc(current_english_level));
+    }
+    if (enquiry_type === 'Unlock Fluency for Business') {
+      fields += field('Company or organisation', esc(organisation)) + field('Number of participants', esc(team_size));
+    }
+    fields += field('Message', esc(message).replace(/\n/g, '<br>'));
+    const emailBody = notification('New message from the contact form', fields, `Sent from your website's contact form. Reply to this email to answer ${esc(name)}.`);
 
     // Send email via Resend
     const resendResponse = await fetch('https://api.resend.com/emails', {
@@ -156,7 +112,7 @@ export async function onRequestPost(context) {
         from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
         to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
         reply_to: email,
-        subject: `Contact Form: ${enquiry_type}`,
+        subject: `Contact form: ${enquiry_type}`,
         html: emailBody
       })
     });

@@ -85,104 +85,39 @@ export async function onRequestPost(context) {
       ? dietary_other 
       : dietary_requirements;
 
-    // Build email content
-    const emailBody = `
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background-color: #0ea5e9; color: white; padding: 20px; text-align: center; }
-    .content { background-color: #f9fafb; padding: 30px; border: 1px solid #e5e7eb; }
-    .section { margin-bottom: 30px; }
-    .section-title { font-size: 18px; font-weight: bold; color: #1f2937; margin-bottom: 15px; border-bottom: 2px solid #0ea5e9; padding-bottom: 5px; }
-    .field { margin-bottom: 15px; }
-    .label { font-weight: bold; color: #1f2937; }
-    .value { margin-top: 5px; color: #4b5563; }
-    .footer { text-align: center; margin-top: 30px; padding: 20px; color: #6b7280; font-size: 14px; }
-    .highlight { background-color: #fef3c7; padding: 15px; border-left: 4px solid #f59e0b; margin-top: 20px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h2>🌟 New Summer Retreat Registration</h2>
-    </div>
-    <div class="content">
-      <div class="section">
-        <div class="section-title">Personal Details</div>
-        
-        <div class="field">
-          <div class="label">Full Name:</div>
-          <div class="value">${name}</div>
-        </div>
-
-        <div class="field">
-          <div class="label">Email:</div>
-          <div class="value">${email}</div>
-        </div>
-
-        <div class="field">
-          <div class="label">Country of Residence:</div>
-          <div class="value">${country}</div>
-        </div>
-
-        <div class="field">
-          <div class="label">Phone Number:</div>
-          <div class="value">${phone}</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Professional Background</div>
-        
-        <div class="field">
-          <div class="label">Current Profession / Industry:</div>
-          <div class="value">${profession}</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">English Level</div>
-        
-        <div class="field">
-          <div class="label">Current English Level:</div>
-          <div class="value">${english_level}</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Motivation</div>
-        
-        <div class="field">
-          <div class="label">What would you most like to improve about your spoken English?</div>
-          <div class="value">${motivation.replace(/\n/g, '<br>')}</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Dietary Requirements</div>
-        
-        <div class="field">
-          <div class="value">${finalDietaryRequirements}</div>
-        </div>
-      </div>
-
-      <div class="highlight">
-        <strong>✓ Deposit Agreement:</strong><br>
-        The applicant understands that a non-refundable 50% deposit is required to secure their place once accepted.
-      </div>
-    </div>
-
-    <div class="footer">
-      <p>This registration was submitted from The Unlock Fluency Method website.</p>
-      <p>Reply directly to this email to respond to ${name}.</p>
-    </div>
-  </div>
+    // Notification email for the site owner (new look, 14 Nov 2026)
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const font = `font-family:'DM Sans', Arial, Helvetica, sans-serif;`;
+    const field = (label, value) => `<p style="margin:16px 0 2px 0; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:#B23A48; font-weight:700;">${label}</p><p style="margin:0; line-height:1.5;">${value}</p>`;
+    const notification = (heading, fields, note) => `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0; padding:0; background-color:#F7F0EC;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F7F0EC;"><tr><td align="center" style="padding:24px 10px;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="560" style="width:100%; max-width:560px;">
+  <tr><td style="background-color:#221F2E; border-radius:12px 12px 0 0; padding:22px 28px; ${font}">
+    <p style="margin:0; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#86D2F5; font-weight:700;">The Unlock Fluency Method</p>
+    <h1 style="margin:6px 0 0 0; font-family:'DM Serif Display', Georgia, serif; font-weight:normal; font-size:24px; color:#FCF8F4;">${heading}</h1>
+  </td></tr>
+  <tr><td style="background-color:#FFFFFF; padding:8px 28px 22px 28px; ${font} font-size:15px; color:#221F2E;">
+    ${fields}
+  </td></tr>
+  <tr><td style="background-color:#FCF8F4; border-top:1px solid #E8DFDF; border-radius:0 0 12px 12px; padding:16px 28px; ${font} font-size:13px; line-height:1.5; color:#6E6878;">${note}</td></tr>
+</table>
+</td></tr></table>
 </body>
-</html>
-`;
+</html>`;
+
+    const fields = field('Full name', esc(name))
+      + field('Email', esc(email))
+      + field('Country of residence', esc(country))
+      + field('Phone', esc(phone))
+      + field('Profession or industry', esc(profession))
+      + field('Current English level', esc(english_level))
+      + field('What they most want to improve in their spoken English', esc(motivation).replace(/\n/g, '<br>'))
+      + field('Dietary requirements', esc(finalDietaryRequirements))
+      + field('Deposit', 'Agreed: a non-refundable 50% deposit secures their place once accepted.');
+    const emailBody = notification('New summer retreat registration', fields, `Sent from the retreat registration form on your website. Reply to this email to answer ${esc(name)}.`);
 
     // Send email via Resend
     const resendResponse = await fetch('https://api.resend.com/emails', {
@@ -195,7 +130,7 @@ export async function onRequestPost(context) {
         from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
         to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
         reply_to: email,
-        subject: `Summer Retreat Registration: ${name}`,
+        subject: `Summer retreat registration: ${name}`,
         html: emailBody
       })
     });

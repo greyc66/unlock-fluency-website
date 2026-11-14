@@ -35,58 +35,53 @@ async function markUnsubscribed(email, audienceId, apiKey) {
   return response.ok;
 }
 
-const successHtml = `<!DOCTYPE html>
-<html lang="en">
+// The page people see after unsubscribing (website look, 14 Nov 2026)
+function page(title, heading, body) {
+  return `<!DOCTYPE html>
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unsubscribed | The Unlock Fluency Method</title>
+  <meta name="robots" content="noindex">
+  <title>${title} | The Unlock Fluency Method</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=DM+Serif+Display&display=swap">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #111827; color: #d1d5db; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
-    .card { background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 48px 40px; max-width: 480px; width: 100%; text-align: center; }
-    .icon { width: 64px; height: 64px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 28px; }
-    h1 { color: #ffffff; font-size: 22px; margin-bottom: 16px; }
-    p { color: #9ca3af; line-height: 1.6; margin-bottom: 12px; }
-    a { color: #38bdf8; text-decoration: none; }
+    body { font-family: 'DM Sans', Arial, Helvetica, sans-serif; background: #FCF8F4; color: #221F2E; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px 16px; }
+    .card { background: #FFFFFF; border: 1px solid #E8DFDF; border-radius: 16px; padding: 40px 32px; max-width: 480px; width: 100%; text-align: center; }
+    .brand { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; color: #221F2E; margin-bottom: 28px; }
+    .brand img { width: 34px; height: auto; }
+    h1 { font-family: 'DM Serif Display', Georgia, serif; font-weight: normal; font-size: 30px; line-height: 1.2; margin-bottom: 16px; }
+    p { font-size: 16px; line-height: 1.6; color: #46425A; margin-bottom: 12px; }
+    a { color: #B23A48; font-weight: 700; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="icon">✓</div>
-    <h1>You've been unsubscribed</h1>
-    <p>You've been successfully removed from The Unlock Fluency Method newsletter.</p>
-    <p>Changed your mind? <a href="https://www.unlockfluency.co.uk">Visit the website</a> to sign up again.</p>
-  </div>
+  <main class="card">
+    <a class="brand" href="https://www.unlockfluency.co.uk" style="color:#221F2E;"><img src="/images/logo.png" alt="">The Unlock Fluency Method</a>
+    <h1>${heading}</h1>
+    ${body}
+  </main>
 </body>
 </html>`;
+}
+
+const successHtml = page(
+  'Unsubscribed',
+  "You've been unsubscribed",
+  `<p>You won't get my newsletter any more. Thank you for reading it!</p>
+    <p>If you change your mind, you can sign up again on my <a href="https://www.unlockfluency.co.uk/newsletter">newsletter page</a>.</p>`
+);
 
 function errorHtml(message) {
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Error | The Unlock Fluency Method</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #111827; color: #d1d5db; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
-    .card { background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 48px 40px; max-width: 480px; width: 100%; text-align: center; }
-    h1 { color: #ffffff; font-size: 22px; margin-bottom: 16px; }
-    p { color: #9ca3af; line-height: 1.6; margin-bottom: 12px; }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Something went wrong</h1>
-    <p>${message}</p>
-    <p>Please <a href="mailto:contact@unlockfluency.co.uk">email us directly</a> to be removed from the list.</p>
-  </div>
-</body>
-</html>`;
+  return page(
+    'Something went wrong',
+    'Something went wrong',
+    `<p>${message}</p>
+    <p>Please <a href="mailto:contact@unlockfluency.co.uk">email me</a> and I'll take you off the list myself.</p>`
+  );
 }
 
 async function handleUnsubscribe(context) {
@@ -96,7 +91,7 @@ async function handleUnsubscribe(context) {
   const token = url.searchParams.get('token');
 
   if (!email || !token) {
-    return new Response(errorHtml('This unsubscribe link is incomplete. Please use the link from your email.'), {
+    return new Response(errorHtml('This unsubscribe link is incomplete. Please use the link in your email.'), {
       status: 400,
       headers: { 'Content-Type': 'text/html' }
     });
@@ -111,7 +106,7 @@ async function handleUnsubscribe(context) {
   }
 
   if (!isValid) {
-    return new Response(errorHtml('This unsubscribe link is invalid or has already been used.'), {
+    return new Response(errorHtml("This unsubscribe link isn't valid."), {
       status: 403,
       headers: { 'Content-Type': 'text/html' }
     });
@@ -121,7 +116,7 @@ async function handleUnsubscribe(context) {
   const success = await markUnsubscribed(email, env.RESEND_AUDIENCE_ID, env.RESEND_API_KEY);
 
   if (!success) {
-    return new Response(errorHtml('We were unable to process your request. Please try again or contact us directly.'), {
+    return new Response(errorHtml("I couldn't process your request just now. Please try again in a few minutes."), {
       status: 500,
       headers: { 'Content-Type': 'text/html' }
     });

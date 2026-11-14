@@ -291,7 +291,7 @@ export default function RetreatRegistration() {
 
               {/* Agreement Section */}
               <div className="space-y-4">
-                <div className="flex items-start space-x-3 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                <div className="flex items-start space-x-3 p-4 bg-brand-50 border border-brand-200 rounded-lg">
                   <Checkbox 
                     id="agreement" 
                     checked={formData.agreement}

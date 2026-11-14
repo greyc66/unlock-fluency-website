@@ -17,23 +17,26 @@ const R2_BUCKET = 'handouts';
 const PRODUCTS = {
   'buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm': {
     filename: 'germanisms.pdf',
-    subject: 'Your Germanisms Handout from The Unlock Fluency Method',
-    title: 'Your Germanisms Handout',
-    description: 'Thank you for your purchase! Your <strong>Germanisms</strong> handout is ready to download below. It covers 24 common mistakes German speakers make in English, each with a short explanation of why it happens, plus exercises and a full answer key.',
+    name: 'Germanisms',
+    subject: 'Your Germanisms handout from The Unlock Fluency Method',
+    about: 'It covers 24 common mistakes German speakers make in English, each with a short explanation of why it happens, plus exercises and a full answer key.',
   },
   'buy_btn_1TEFCf9rCOr3Bkkro9t31iGD': {
     filename: 'business-english-essentials.pdf',
-    subject: 'Your Business English Essentials Handout from The Unlock Fluency Method',
-    title: 'Your Business English Essentials Handout',
-    description: 'Thank you for your purchase! Your <strong>Business English Essentials</strong> handout is ready to download below. It covers 13 key business English areas with exercises and a full answer key.',
+    name: 'Business English Essentials',
+    subject: 'Your Business English Essentials handout from The Unlock Fluency Method',
+    about: 'It covers 13 key areas of business English, with exercises and a full answer key.',
   },
   'buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh': {
     filename: 'english-email-essentials.pdf',
-    subject: 'Your English Email Essentials Handout from The Unlock Fluency Method',
-    title: 'Your English Email Essentials Handout',
-    description: 'Thank you for your purchase! Your <strong>English Email Essentials</strong> handout is ready to download below. It covers how to write clear, polite, and professional emails in English with exercises and a full answer key.',
+    name: 'English Email Essentials',
+    subject: 'Your English Email Essentials handout from The Unlock Fluency Method',
+    about: 'It shows you how to write clear, polite, and professional emails in English, with exercises and a full answer key.',
   },
 };
+
+// Escapes text from Stripe (the buyer's name) before it goes into an email
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 // ── AWS Sig V4 — generates a temporary signed URL to access the private R2 file ──
 
@@ -170,7 +173,7 @@ export async function onRequestPost(context) {
 
   const buyButtonId = session.metadata?.buy_button_id || 'buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm';
   const product = PRODUCTS[buyButtonId] || PRODUCTS['buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm'];
-  console.log('[webhook] Product:', product.title, '| File:', product.filename);
+  console.log('[webhook] Product:', product.name, '| File:', product.filename);
 
   // Generate a 1-hour temporary download link from R2
   let pdfUrl;
@@ -185,70 +188,100 @@ export async function onRequestPost(context) {
     return new Response('Failed to generate download link', { status: 500 });
   }
 
-  const greeting = customerName ? `Hi ${customerName.split(' ')[0]},` : 'Hi,';
+  const greeting = customerName ? `Hi ${esc(customerName.split(' ')[0])},` : 'Hi there,';
+  const font = `font-family:'DM Sans', Arial, Helvetica, sans-serif;`;
 
-  const customerEmailHtml = `
-<!DOCTYPE html>
-<html>
+  // Email to the buyer with the download link (new look, 14 Nov 2026)
+  const customerEmailHtml = `<!DOCTYPE html>
+<html lang="en">
 <head>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f3f4f6; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background-color: #0c4a6e; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0; }
-    .header h1 { color: white; margin: 0; font-size: 24px; }
-    .header p { color: #bae6fd; margin: 8px 0 0; font-size: 15px; }
-    .content { background-color: #ffffff; padding: 40px 30px; border-left: 1px solid #e5e7eb; border-right: 1px solid #e5e7eb; }
-    .content p { color: #374151; margin: 0 0 16px; }
-    .btn { display: inline-block; background-color: #0ea5e9; color: white; padding: 14px 28px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 16px; margin: 8px 0 24px; }
-    .note { background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 16px 20px; margin: 24px 0; border-radius: 0 6px 6px 0; font-size: 14px; color: #0c4a6e; }
-    .footer { background-color: #1f2937; padding: 30px; text-align: center; border-radius: 0 0 8px 8px; }
-    .footer p { color: #9ca3af; font-size: 13px; margin: 4px 0; }
-    .footer a { color: #38bdf8; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="x-apple-disable-message-reformatting">
+<title>${product.name}</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  a { text-decoration: none; }
+  @media only screen and (max-width: 620px) {
+    .container { width: 100% !important; }
+    .px { padding-left: 22px !important; padding-right: 22px !important; }
+    .h1 { font-size: 28px !important; }
+  }
+</style>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>${product.title}</h1>
-      <p>The Unlock Fluency Method</p>
-    </div>
-    <div class="content">
-      <p>${greeting}</p>
-      <p>${product.description}</p>
-      <p>Click the button below to download your handout:</p>
-      <p style="text-align: center;">
-        <a href="${pdfUrl}" class="btn">Download Your Handout</a>
-      </p>
-      <div class="note">
-        <strong>Note:</strong> This download link is valid for 24 hours. If it expires, simply reply to this email and I'll send you a fresh one.
-      </div>
-      <p>I hope you find it genuinely useful. If you have any questions or feedback, just reply to this email; I'd love to hear from you.</p>
-      <p>Best,<br><strong>Dr Christina Grey</strong><br>The Unlock Fluency Method</p>
-    </div>
-    <div class="footer">
-      <p><a href="${SITE_URL}">${SITE_URL.replace('https://', '')}</a></p>
-      <p style="margin-top: 12px;">© ${new Date().getFullYear()} The Unlock Fluency Method Ltd. Registered in England &amp; Wales.</p>
-    </div>
-  </div>
-</body>
-</html>
-`;
+<body style="margin:0; padding:0; background-color:#F7F0EC;">
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">Your download link is inside. It works for 24 hours.</div>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F7F0EC;">
+<tr><td align="center" style="padding:24px 10px;">
+<table role="presentation" class="container" border="0" cellpadding="0" cellspacing="0" width="600" style="width:600px; max-width:600px;">
 
-  const ownerEmailHtml = `
-<!DOCTYPE html>
-<html>
-<body style="font-family: Arial, sans-serif; color: #333;">
-  <div style="max-width: 500px; margin: 0 auto; padding: 20px;">
-    <h2 style="color: #0c4a6e;">New Sale 🎉</h2>
-    <p><strong>Product:</strong> ${product.title}</p>
-    <p><strong>Buyer:</strong> ${customerName || '(no name)'}</p>
-    <p><strong>Email:</strong> ${customerEmail}</p>
-    <p><strong>Session ID:</strong> ${session.id}</p>
-    <p style="color: #6b7280; font-size: 13px;">A download link has been automatically sent to the buyer.</p>
-  </div>
+  <tr><td class="px" style="background-color:#221F2E; border-radius:14px 14px 0 0; padding:28px 40px 34px 40px;">
+    <p style="margin:0; ${font} font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#86D2F5; font-weight:700; white-space:nowrap;"><img src="${SITE_URL}/images/logo.png" width="38" alt="" style="display:inline-block; width:38px; height:auto; vertical-align:middle; margin-right:8px; border:0;">The Unlock Fluency Method</p>
+    <p style="margin:26px 0 0 0; ${font} font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#D46A76; font-weight:700;">Your handout</p>
+    <h1 class="h1" style="margin:8px 0 0 0; font-family:'DM Serif Display', Georgia, 'Times New Roman', serif; font-weight:normal; font-size:34px; line-height:1.2; color:#FCF8F4;">${product.name}</h1>
+  </td></tr>
+
+  <tr><td class="px" style="background-color:#FFFFFF; padding:32px 40px 36px 40px;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td style="vertical-align:top; width:84px;"><img src="${SITE_URL}/images/christina-portrait.jpg" width="68" alt="Christina" style="display:block; width:68px; height:auto; border-radius:10px;"></td>
+        <td style="vertical-align:top; ${font} font-size:15px; line-height:1.65; color:#221F2E;">
+          <p style="margin:0 0 10px 0;">${greeting}</p>
+          <p style="margin:0 0 18px 0;">Thank you for buying ${product.name}! ${product.about}</p>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+            <tr><td style="background-color:#B23A48; border-radius:8px;"><a href="${pdfUrl}" style="text-decoration:none; display:inline-block; padding:11px 22px; ${font} font-size:14px; font-weight:700; color:#FFFFFF;">Download your handout &rarr;</a></td></tr>
+          </table>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top:20px; background-color:#FCF8F4; border-left:3px solid #B23A48; border-radius:0 8px 8px 0;">
+            <tr><td style="padding:12px 16px; ${font} font-size:14px; line-height:1.6; color:#221F2E;">The link works for 24 hours. If it runs out, just reply to this email and I'll send you a new one.</td></tr>
+          </table>
+          <p style="margin:18px 0 10px 0;">I hope you find it useful. If you have any questions or feedback, reply to this email and it comes straight to me.</p>
+          <p style="margin:0; font-family:'DM Serif Display', Georgia, serif; font-size:20px; color:#B23A48;">Christina</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td class="px" align="center" style="background-color:#221F2E; border-radius:0 0 14px 14px; padding:30px 40px; ${font}">
+    <p style="margin:0 0 12px 0; font-size:13px;">
+      <a href="https://www.instagram.com/theunlockfluencymethod" style="text-decoration:none; color:#86D2F5;">Instagram</a> &nbsp;&nbsp;&nbsp;
+      <a href="https://www.linkedin.com/company/unlock-fluency-method" style="text-decoration:none; color:#86D2F5;">LinkedIn</a> &nbsp;&nbsp;&nbsp;
+      <a href="https://www.facebook.com/share/1BYLcyoiMe/?mibextid=wwXIfr" style="text-decoration:none; color:#86D2F5;">Facebook</a> &nbsp;&nbsp;&nbsp;
+      <a href="${SITE_URL}" style="text-decoration:none; color:#86D2F5;">Website</a>
+    </p>
+    <p style="margin:0 0 10px 0; font-size:12px; line-height:1.6; color:#A8A1B0;">&copy; ${new Date().getFullYear()} The Unlock Fluency Method Ltd. All rights reserved.</p>
+    <p style="margin:0 0 10px 0; font-size:12px; line-height:1.6; color:#A8A1B0;">The Unlock Fluency Method Ltd | 182-184 High Street North, Office 14834 | East Ham, London | E6 2JA UK<br>Registered in England &amp; Wales | Company No. 16740967</p>
+    <p style="margin:0; font-size:12px; line-height:1.6; color:#A8A1B0;">You're receiving this email because you bought a handout at unlockfluency.co.uk.</p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
 </body>
-</html>
-`;
+</html>`;
+
+  // Notification email for the site owner (new look, 14 Nov 2026)
+  const field = (label, value) => `<p style="margin:16px 0 2px 0; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:#B23A48; font-weight:700;">${label}</p><p style="margin:0; line-height:1.5;">${value}</p>`;
+  const ownerEmailHtml = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0; padding:0; background-color:#F7F0EC;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F7F0EC;"><tr><td align="center" style="padding:24px 10px;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="560" style="width:100%; max-width:560px;">
+  <tr><td style="background-color:#221F2E; border-radius:12px 12px 0 0; padding:22px 28px; ${font}">
+    <p style="margin:0; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#86D2F5; font-weight:700;">The Unlock Fluency Method</p>
+    <h1 style="margin:6px 0 0 0; font-family:'DM Serif Display', Georgia, serif; font-weight:normal; font-size:24px; color:#FCF8F4;">New sale</h1>
+  </td></tr>
+  <tr><td style="background-color:#FFFFFF; padding:8px 28px 22px 28px; ${font} font-size:15px; color:#221F2E;">
+    ${field('Handout', product.name)}
+    ${field('Buyer', customerName ? esc(customerName) : '(no name)')}
+    ${field('Email', esc(customerEmail))}
+    ${field('Stripe session', esc(session.id))}
+  </td></tr>
+  <tr><td style="background-color:#FCF8F4; border-top:1px solid #E8DFDF; border-radius:0 0 12px 12px; padding:16px 28px; ${font} font-size:13px; line-height:1.5; color:#6E6878;">The buyer has been sent their download link automatically.</td></tr>
+</table>
+</td></tr></table>
+</body>
+</html>`;
 
   console.log('[webhook] Sending emails via Resend. API key set:', !!env.RESEND_API_KEY);
 
@@ -270,7 +303,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
         to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
-        subject: `New Sale: ${product.title}`,
+        subject: `New sale: ${product.name}`,
         html: ownerEmailHtml,
       })
     })
@@ -285,6 +318,6 @@ export async function onRequestPost(context) {
     return new Response('Failed to send email to customer', { status: 500 });
   }
 
-  console.log(`[webhook] Sale processed: ${product.title} → ${customerEmail}`);
+  console.log(`[webhook] Sale processed: ${product.name} → ${customerEmail}`);
   return new Response('OK', { status: 200 });
 }
