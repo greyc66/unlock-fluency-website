@@ -160,7 +160,7 @@ export default function Layout({ children, currentPageName }) {
               <Link to="/contact">
                 <Button className="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 text-sm font-semibold inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-10">
                   <Calendar className="w-4 h-4 mr-2" />
-                  Get in Touch
+                  Get in touch
                 </Button>
               </Link>
             </div>
@@ -192,7 +192,7 @@ export default function Layout({ children, currentPageName }) {
                   <Link to="/contact">
                     <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 text-sm font-semibold">
                       <Calendar className="w-4 h-4 mr-2" />
-                      Get in Touch
+                      Get in touch
                     </Button>
                   </Link>
                 </div>
@@ -223,7 +223,7 @@ export default function Layout({ children, currentPageName }) {
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-md mb-6">
-                Immersive English coaching that builds real confidence and fluency.
+                English courses and coaching where you do most of the talking.
               </p>
               <div className="flex gap-2">
                 <a href="https://www.facebook.com/share/1BYLcyoiMe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">

@@ -46,10 +46,10 @@ export default function PrivacyPolicy() {
                 <div>
                   <h2 className="text-2xl text-brand-900 mb-2">Legal Information</h2>
                   <p>
-                    <strong> Company Registration Number:</strong> 16740967
+                    <strong> Company registration number:</strong> 16740967
                   </p>
                   <p>
-                    <strong> Registered Address:</strong> 182-184 High Street North, Office 14834, East Ham, London, E6 2JA, UK
+                    <strong> Registered address:</strong> 182-184 High Street North, Office 14834, East Ham, London, E6 2JA, UK
                   </p>
                 </div>
                 

@@ -22,7 +22,7 @@ export default function FAQs() {
       answer: <>If you need to cancel, please email <a href="mailto:contact@unlockfluency.co.uk" className="text-brand-600 hover:text-brand-700">contact@unlockfluency.co.uk</a> as soon as possible. Cancellations made a week before the course start date receive a full refund. Please read the <Link to="/cancellationpolicy" className="text-brand-600 hover:text-brand-700">Cancellation Policy</Link> for more details.</>
     },
     {
-      question: "Are the courses available online or in-person?",
+      question: "Are the courses available online or in person?",
       answer: "My online courses and 1-to-1 coaching take place live on Zoom. For organisations, I deliver courses, workshops, and retreats online or in person. Once a year, I also run a summer retreat in Cambridge, UK. Please get in touch to discuss your preferences."
     },
     {
@@ -73,7 +73,7 @@ export default function FAQs() {
             ))}
           </Accordion>
           <p className="mt-12 text-center text-gray-600">
-            Still have a question? <Link to="/contact" className="text-brand-600 hover:text-brand-700 font-semibold">Get in touch</Link>.
+            If your question isn't here, <Link to="/contact" className="text-brand-600 hover:text-brand-700 font-semibold">get in touch</Link>.
           </p>
         </div>
       </section>

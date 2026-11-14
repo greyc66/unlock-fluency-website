@@ -116,7 +116,7 @@ export default function Contact() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl text-white mb-5">Get in touch</h1>
           <p className="text-lg text-gray-300">
-            A question about my online courses, 1-to-1 coaching, or training for your team? I'd love to hear from you.
+            Whether it's about my online courses, 1-to-1 coaching, or training for your team, I'd love to hear from you.
           </p>
         </div>
       </section>
@@ -127,11 +127,11 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-brand-900 font-semibold">Full Name *</Label>
-                  <Input id="name" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.name} onChange={(e) => handleInputChange("name", e.target.value)} placeholder="Your Name" />
+                  <Label htmlFor="name" className="text-brand-900 font-semibold">Full name *</Label>
+                  <Input id="name" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.name} onChange={(e) => handleInputChange("name", e.target.value)} placeholder="Your name" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-brand-900 font-semibold">Email Address *</Label>
+                  <Label htmlFor="email" className="text-brand-900 font-semibold">Email address *</Label>
                   <Input id="email" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} placeholder="your.email@example.com" />
                 </div>
               </div>
@@ -149,8 +149,8 @@ export default function Contact() {
               {/* Extra field for 1-to-1 coaching */}
               {formData.enquiry_type === "1-to-1 Personalised Coaching" && (
                 <div className="space-y-2">
-                  <Label htmlFor="current_english_level" className="text-brand-900 font-semibold">Current English Level *</Label>
-                  <Input id="current_english_level" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.current_english_level} onChange={(e) => handleInputChange("current_english_level", e.target.value)} placeholder="e.g., Intermediate, B2" />
+                  <Label htmlFor="current_english_level" className="text-brand-900 font-semibold">Current English level *</Label>
+                  <Input id="current_english_level" className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400" value={formData.current_english_level} onChange={(e) => handleInputChange("current_english_level", e.target.value)} placeholder="e.g. intermediate, B2" />
                 </div>
               )}
 
@@ -190,7 +190,7 @@ export default function Contact() {
               <div className="text-right">
                 <Button type="submit" disabled={isSubmitting} size="lg" className="bg-brand-600 hover:bg-brand-700 text-white font-semibold">
                   {isSubmitting ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <Mail className="w-5 h-5 mr-2" />}
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send message"}
                 </Button>
               </div>
             </form>
@@ -198,7 +198,7 @@ export default function Contact() {
 
           <aside className="space-y-6">
             <div className="bg-white rounded-2xl border border-brand-100 p-6">
-              <h2 className="text-2xl text-brand-900 mb-2">Prefer to talk?</h2>
+              <h2 className="text-2xl text-brand-900 mb-2">Talk it through first</h2>
               <p className="text-gray-600 mb-4">Book a free 20-minute discovery call at a time that suits you.</p>
               <BookingLink href={DISCOVERY_CALL_URL} className="block">
                 <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">

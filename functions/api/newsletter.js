@@ -124,7 +124,7 @@ export async function onRequestPost(context) {
         <td style="vertical-align:top; width:84px;"><img src="${SITE_URL}/images/christina-portrait.jpg" width="68" alt="Christina" style="display:block; width:68px; height:auto; border-radius:10px;"></td>
         <td style="vertical-align:top; ${font} font-size:15px; line-height:1.65; color:#221F2E;">
           <p style="margin:0 0 10px 0;">Hi there,</p>
-          <p class="just" style="margin:0 0 10px 0; text-align:justify;">Thank you for signing up, I'm so glad you're here! I'm writing from Cambridge, which is a bit of a bubble: once you're in, you never leave. My newsletter is much easier to leave, but I hope you'll stay. As promised, your free guide is attached. It has the podcasts, websites, and habits I recommend to my students, and a small talk starter kit to get you chatting.</p>
+          <p class="just" style="margin:0 0 10px 0; text-align:justify;">Thank you for signing up, I'm so glad you're here! I'm writing from Cambridge, where people still nod to each other in the street, so think of this email as my nod to you. As promised, your free guide is attached. It has the podcasts, websites, and habits I recommend to my students, and a small talk starter kit to get you chatting.</p>
           <p style="margin:0; font-family:'DM Serif Display', Georgia, serif; font-size:20px; color:#B23A48;">Christina</p>
         </td>
       </tr>

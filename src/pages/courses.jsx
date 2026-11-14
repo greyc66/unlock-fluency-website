@@ -116,7 +116,7 @@ export default function Courses() {
           <Link to="/business">
             <Button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11 px-6">
               <Building2 className="w-4 h-4 mr-2" />
-              Visit For Business
+              For business
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

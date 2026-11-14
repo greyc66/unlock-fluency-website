@@ -38,7 +38,7 @@ export default function Resources() {
       subtitle: "Write professional emails with confidence",
       description: "How to write clear, polite emails in English, from the opening line to requests, apologies, and getting the tone right. With exercises and answers.",
       price: "£10",
-      tags: ["Email Writing", "Professional", "Reference"],
+      tags: ["Email writing", "Professional", "Reference"],
       buyButtonId: "buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh",
       publishableKey: "pk_live_51S8Rvg9rCOr3BkkrPYdnWicDCfJZ7LmSZsV9zzUXDEUQFTkTJrHH4BAwON8NqPyzAaI7ICOhPGkK5qK3DEAa7Q5x00Xu1GCvCI",
     },
@@ -117,7 +117,7 @@ export default function Resources() {
                 ) : (
                   <Button size="sm" disabled className="w-full bg-gray-200 text-gray-600 font-semibold cursor-not-allowed">
                     <Lock className="w-4 h-4 mr-2" />
-                    Coming Soon
+                    Coming soon
                   </Button>
                 )}
               </div>

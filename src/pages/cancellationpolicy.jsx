@@ -28,7 +28,7 @@ export default function CancellationPolicy() {
                     Cancellations made a week before the course start date will receive a full refund. <br />
                     Cancellations made up to 48 hours before the course start date will receive a 50% refund. <br />
                     Cancellations made within 48 hours before the course start date are non-refundable. <br />
-                    Refunds will be processed within 5-7 business days of the cancellation request.
+                    Refunds will be processed within 5–7 working days of the cancellation request.
                     </p>
                     <p>
                         <strong> All refunds will be subject to a 2.5% processing fee. </strong>
@@ -38,14 +38,14 @@ export default function CancellationPolicy() {
                 <div>
                     <h2 className="text-2xl text-brand-900 mb-2">Course Changes</h2>
                     <p>
-                    We reserve the right to cancel or reschedule courses due to insufficient enrolment or unforeseen circumstances. In such cases, you will receive a full refund or the option to transfer to another course.
+                    If too few people book, or something unexpected comes up, I may need to cancel or move a course. If that happens, you'll get a full refund or a place on another course.
                     </p>
                 </div>
                 
                 <div>
                     <h2 className="text-2xl text-brand-900 mb-2">No-Shows</h2>
                     <p>
-                    Students who fail to attend their scheduled course without prior notice will not be eligible for a refund.
+                    If you miss your course without letting me know beforehand, you won't be eligible for a refund.
                     </p>
                 </div>
                 

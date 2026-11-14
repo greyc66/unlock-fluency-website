@@ -140,17 +140,17 @@ export default function RetreatRegistration() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-brand-900 font-semibold">Full Name *</Label>
+                    <Label htmlFor="name" className="text-brand-900 font-semibold">Full name *</Label>
                     <Input 
                       className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="name" 
                       value={formData.name} 
                       onChange={(e) => handleInputChange("name", e.target.value)} 
-                      placeholder="Your Full Name"
+                      placeholder="Your full name"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-brand-900 font-semibold">Email Address *</Label>
+                    <Label htmlFor="email" className="text-brand-900 font-semibold">Email address *</Label>
                     <Input 
                       className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="email" 
@@ -164,17 +164,17 @@ export default function RetreatRegistration() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="country" className="text-brand-900 font-semibold">Country of Residence *</Label>
+                    <Label htmlFor="country" className="text-brand-900 font-semibold">Country of residence *</Label>
                     <Input 
                       className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="country" 
                       value={formData.country} 
                       onChange={(e) => handleInputChange("country", e.target.value)} 
-                      placeholder="Your Country"
+                      placeholder="Your country"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-brand-900 font-semibold">Phone Number *</Label>
+                    <Label htmlFor="phone" className="text-brand-900 font-semibold">Phone number *</Label>
                     <Input 
                       className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                       id="phone" 
@@ -194,13 +194,13 @@ export default function RetreatRegistration() {
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="profession" className="text-brand-900 font-semibold">Current Profession / Industry *</Label>
+                  <Label htmlFor="profession" className="text-brand-900 font-semibold">Current profession or industry *</Label>
                   <Input 
                     className="bg-white border-brand-200 text-brand-900 placeholder:text-gray-400"
                     id="profession" 
                     value={formData.profession} 
                     onChange={(e) => handleInputChange("profession", e.target.value)} 
-                    placeholder="e.g., Marketing Manager, Software Engineer, Teacher"
+                    placeholder="e.g. marketing manager, software engineer, teacher"
                   />
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function RetreatRegistration() {
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="english_level" className="text-brand-900 font-semibold">Current English Level *</Label>
+                  <Label htmlFor="english_level" className="text-brand-900 font-semibold">Current English level *</Label>
                   <Select 
                     value={formData.english_level} 
                     onValueChange={(value) => handleInputChange("english_level", value)}
@@ -221,9 +221,9 @@ export default function RetreatRegistration() {
                       <SelectValue placeholder="Select your level" />
                     </SelectTrigger>
                     <SelectContent className="bg-white text-brand-900 border-brand-200">
-                      <SelectItem value="B2 - Upper Intermediate">B2 - Upper Intermediate</SelectItem>
-                      <SelectItem value="C1 - Advanced">C1 - Advanced</SelectItem>
-                      <SelectItem value="C2 - Proficient">C2 - Proficient</SelectItem>
+                      <SelectItem value="B2 (upper intermediate)">B2 (upper intermediate)</SelectItem>
+                      <SelectItem value="C1 (advanced)">C1 (advanced)</SelectItem>
+                      <SelectItem value="C2 (proficient)">C2 (proficient)</SelectItem>
                       <SelectItem value="Not sure">Not sure</SelectItem>
                     </SelectContent>
                   </Select>
@@ -258,7 +258,7 @@ export default function RetreatRegistration() {
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="dietary_requirements" className="text-brand-900 font-semibold">Dietary Requirements *</Label>
+                  <Label htmlFor="dietary_requirements" className="text-brand-900 font-semibold">Dietary requirements *</Label>
                   <Select 
                     value={formData.dietary_requirements} 
                     onValueChange={(value) => handleInputChange("dietary_requirements", value)}
@@ -328,7 +328,7 @@ export default function RetreatRegistration() {
                   ) : (
                     <>
                       <Calendar className="w-5 h-5 mr-2" />
-                      Register Your Interest
+                      Register your interest
                     </>
                   )}
                 </Button>

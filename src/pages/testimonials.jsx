@@ -382,7 +382,7 @@ const staticTestimonials = [
     rating: 5,
     testimonial_text: "Christina's willingness to clarify any doubts, always with a smile on her face was what I liked most about the course! It was perfect. I would only think it would be better if next time we did the course in Cambridge ;-) Now I think I can start doing news in English!",
     student_name: "Ximena",
-    student_country: "Columbia",
+    student_country: "Colombia",
   },
 ];
 
@@ -510,7 +510,7 @@ export default function Testimonials() {
       <section className="py-16 lg:py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl text-white mb-8">
-            Ready to write your own success story?
+            Join the next course
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/courses">
