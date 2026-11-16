@@ -13,21 +13,22 @@
 const SITE_URL = 'https://www.unlockfluency.co.uk';
 const R2_BUCKET = 'handouts';
 
-// Map of Stripe buy-button IDs → R2 file details and email content
+// Map of Stripe payment link IDs (plink_…, sent with every sale as session.payment_link) → R2 file and email content.
+// New links from 16 Nov 2026 (new prices); the old links are deactivated.
 const PRODUCTS = {
-  'buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm': {
+  'plink_1UcSwc9rCOr3BkkrkhPMnCpv': {
     filename: 'germanisms.pdf',
     name: 'Germanisms',
     subject: 'Your Germanisms handout from The Unlock Fluency Method',
     about: 'It covers 24 common mistakes German speakers make in English, each with a short explanation of why it happens, plus exercises and a full answer key.',
   },
-  'buy_btn_1TEFCf9rCOr3Bkkro9t31iGD': {
+  'plink_1UcSvD9rCOr3Bkkr5KdPMMvW': {
     filename: 'business-english-essentials.pdf',
     name: 'Business English Essentials',
     subject: 'Your Business English Essentials handout from The Unlock Fluency Method',
     about: 'It covers 13 key areas of business English, with exercises and a full answer key.',
   },
-  'buy_btn_1TEWwy9rCOr3BkkrIUcfAeOh': {
+  'plink_1UcSmD9rCOr3BkkrUEbCVbkl': {
     filename: 'english-email-essentials.pdf',
     name: 'English Email Essentials',
     subject: 'Your English Email Essentials handout from The Unlock Fluency Method',
@@ -171,8 +172,22 @@ export async function onRequestPost(context) {
     return new Response('No customer email found', { status: 400 });
   }
 
-  const buyButtonId = session.metadata?.buy_button_id || 'buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm';
-  const product = PRODUCTS[buyButtonId] || PRODUCTS['buy_btn_1TEDqS9rCOr3Bkkr2VWFDHhm'];
+  const product = PRODUCTS[session.payment_link];
+  if (!product) {
+    // Never guess: tell the owner so she can send the right handout by hand
+    console.error('[webhook] Unknown payment link:', session.payment_link, '| Session:', session.id);
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${env.RESEND_API_KEY}` },
+      body: JSON.stringify({
+        from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
+        to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
+        subject: 'Sale needs a handout sent by hand',
+        html: `<p>A sale came in from a payment link the website doesn't recognise (${esc(session.payment_link || 'none')}), so no handout was sent.</p><p>Buyer: ${esc(customerName || '(no name)')}, ${esc(customerEmail)}<br>Stripe session: ${esc(session.id)}</p><p>Check the product in Stripe, send the handout by hand, and add the payment link to PRODUCTS in functions/api/stripe-webhook.js.</p>`,
+      })
+    });
+    return new Response('OK', { status: 200 });
+  }
   console.log('[webhook] Product:', product.name, '| File:', product.filename);
 
   // Generate a 1-hour temporary download link from R2
