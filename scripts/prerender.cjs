@@ -27,7 +27,7 @@ const ROUTES = {
     content: `
       <h1>Unlock the English you already have.</h1>
       <p>Most of my students already know plenty of grammar and vocabulary. They come to me for the confidence to use it, so in my courses you start speaking from the first minute.</p>
-      <h2>What makes it different</h2>
+      <h2>What makes The Unlock Fluency Method different</h2>
       <ul>
         <li>You do the talking: you spend most of every session speaking, in pairs, in small groups, and with me.</li>
         <li>Real topics: food, money, AI, work-life balance, and whatever's in the news.</li>

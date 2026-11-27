@@ -226,7 +226,7 @@ export default function Layout({ children, currentPageName }) {
                 English courses and coaching where you do most of the talking.
               </p>
               <div className="flex gap-2">
-                <a href="https://www.facebook.com/share/1BYLcyoiMe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=61580510683270" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a href="https://www.instagram.com/theunlockfluencymethod?igsh=YWUydnNwazEwOTZl&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">

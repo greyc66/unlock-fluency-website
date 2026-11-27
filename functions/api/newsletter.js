@@ -163,7 +163,7 @@ export async function onRequestPost(context) {
     <p style="margin:0 0 12px 0; font-size:13px;">
       <a href="https://www.instagram.com/theunlockfluencymethod" style="text-decoration:none; color:#86D2F5;">Instagram</a> &nbsp;&nbsp;&nbsp;
       <a href="https://www.linkedin.com/company/unlock-fluency-method" style="text-decoration:none; color:#86D2F5;">LinkedIn</a> &nbsp;&nbsp;&nbsp;
-      <a href="https://www.facebook.com/share/1BYLcyoiMe/?mibextid=wwXIfr" style="text-decoration:none; color:#86D2F5;">Facebook</a> &nbsp;&nbsp;&nbsp;
+      <a href="https://www.facebook.com/profile.php?id=61580510683270" style="text-decoration:none; color:#86D2F5;">Facebook</a> &nbsp;&nbsp;&nbsp;
       <a href="${SITE_URL}" style="text-decoration:none; color:#86D2F5;">Website</a>
     </p>
     <p style="margin:0 0 10px 0; font-size:12px; line-height:1.6; color:#A8A1B0;">&copy; ${new Date().getFullYear()} The Unlock Fluency Method Ltd. All rights reserved.</p>

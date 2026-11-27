@@ -310,7 +310,7 @@ return (
 
       {/* What makes it different */}
       <section className="py-16 sm:py-24 bg-white">
-        <WhatsDifferent />
+        <WhatsDifferent heading="What makes The Unlock Fluency Method different" />
         <div className="text-center mt-12">
           <Link to="/themethod" className="inline-flex items-center font-semibold text-brand-600 hover:text-brand-800">
             How the method works <ArrowRight className="w-4 h-4 ml-2" />
