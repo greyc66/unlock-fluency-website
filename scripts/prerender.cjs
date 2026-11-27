@@ -23,7 +23,7 @@ const courses = require('../src/data/courses.json');
 const ROUTES = {
   '/': {
     title: 'The Unlock Fluency Method | Immersive English Fluency Courses & Coaching',
-    description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £75, training for teams, and a summer retreat in Cambridge, UK.',
+    description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £90, training for teams, and a summer retreat in Cambridge, UK.',
     content: `
       <h1>Unlock the English you already have.</h1>
       <p>Most of my students already know plenty of grammar and vocabulary. They come to me for the confidence to use it, so in my courses you start speaking from the first minute.</p>
@@ -36,7 +36,7 @@ const ROUTES = {
       <h2>Ways to work with me</h2>
       <ul>
         <li><a href="/courses">Online courses</a>: small groups, live online, from £220.</li>
-        <li>1-to-1 coaching: just you and me, working on whatever you need, from £75.</li>
+        <li>1-to-1 coaching: just you and me, working on whatever you need, from £90.</li>
         <li><a href="/business">For business</a>: tailored training for teams, online or in person.</li>
         <li><a href="/courses/summer-retreat">Summer retreat</a>: a week of English in Cambridge, with punting and a formal college dinner along the way. Dates to be announced.</li>
       </ul>
@@ -102,17 +102,17 @@ const ROUTES = {
 
   '/courses': {
     title: 'English Courses Online and in Cambridge | The Unlock Fluency Method',
-    description: 'Online English courses from £220, 1-to-1 coaching from £75, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
+    description: 'Online English courses from £220, 1-to-1 coaching from £90, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
     content: `
       <h1>Courses that get you speaking</h1>
       <p>Choose how you unlock your English fluency.</p>
       <p>Explore immersive online English fluency courses designed by Dr Christina Grey using The Unlock Fluency Method. Choose from small-group courses (6 to 12 participants) or personalised 1-to-1 coaching.</p>
       <h2>Group courses</h2>
       <ul>
-        ${courses.filter((c) => !c.hidden).map((c) => `<li><a href="/courses/${c.slug}">${c.title}</a>: ${c.hook} ${c.cardFacts.join(', ')}, ${c.price}</li>`).join('\n        ')}
+        ${courses.filter((c) => !c.hidden && !c.oneToOne).map((c) => `<li><a href="/courses/${c.slug}">${c.title}</a>: ${c.hook} ${c.cardFacts.join(', ')}, ${c.price}</li>`).join('\n        ')}
       </ul>
       <h2>1-to-1 coaching</h2>
-      <p>Just you and me, working on whatever you need, at any level, from £75. Start with a free discovery call.</p>
+      <p>Just you and me, working on whatever you need: interview preparation, proofreading, or a big project coming up. Any level, beginners included. From £90. Start with a free discovery call. See <a href="/courses/1-to-1-coaching">1-to-1 coaching</a>.</p>
       <h2>For Business</h2>
       <p>Try The Unlock Fluency Method for your team. See <a href="/business">Corporate English Training</a> for tailored courses, workshops, and retreats, online or in person.</p>
     `,
@@ -194,7 +194,7 @@ const ROUTES = {
 
   '/cancellationpolicy': {
     title: 'Cancellation Policy | The Unlock Fluency Method',
-    description: 'Cancellation and refund policy for The Unlock Fluency Method courses. Full refund for cancellations 1+ week before the course start date.',
+    description: 'Cancellation and refund policy for The Unlock Fluency Method courses and 1-to-1 coaching. Full refund for cancellations 1+ week before the course start date.',
     content: `<h1>Cancellation Policy</h1><p>Cancellation and refund policy for The Unlock Fluency Method English fluency courses.</p>`,
   },
 };
@@ -209,13 +209,13 @@ for (const c of courses.filter((course) => !course.hidden)) {
       <p>${c.hook}</p>
       <h2>Who it's for</h2>
       <p>${c.whoFor}</p>
-      <h2>What you'll practise</h2>
+      <h2>${c.practiseTitle || "What you'll practise"}</h2>
       <ul>${c.practise.map((item) => `<li>${item}</li>`).join('')}</ul>
       <h2>${c.sessionTitle}</h2>
       <ul>${c.session.map((s) => `<li>${s.time}: ${s.text}</li>`).join('')}</ul>
-      <h2>What's included</h2>
+      <h2>${c.includedTitle || "What's included"}</h2>
       <ul>${c.included.map((item) => `<li>${item}</li>`).join('')}</ul>
-      <p>${c.schedule.map((s) => `${s.label}: ${s.value}`).join('. ')}.${c.tba ? '' : ` Price: ${c.price}.`}</p>
+      <p>${c.schedule.map((s) => `${s.label}: ${s.value}`).join('. ')}.${c.tba ? '' : ` Price: ${c.price}.`}${c.earlyBird ? ` Early bird: book at least 6 weeks before the course starts and get 10% off; email me before you book, and I'll apply the discount and reserve your spot.` : ''}</p>
     `,
   };
 }

@@ -21,7 +21,7 @@ const navigationItems = [
 const PAGE_META = {
   '/': {
     title: 'The Unlock Fluency Method | Immersive English Fluency Courses & Coaching',
-    description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £75, training for teams, and a summer retreat in Cambridge, UK.',
+    description: 'Unlock the English you already have with Dr Christina Grey. Online English courses from £220, 1-to-1 coaching from £90, training for teams, and a summer retreat in Cambridge, UK.',
   },
   '/my-story': {
     title: 'My Story: Dr Christina Grey | Creator of The Unlock Fluency Method',
@@ -33,7 +33,7 @@ const PAGE_META = {
   },
   '/courses': {
     title: 'English Courses Online and in Cambridge | The Unlock Fluency Method',
-    description: 'Online English courses from £220, 1-to-1 coaching from £75, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
+    description: 'Online English courses from £220, 1-to-1 coaching from £90, and a summer retreat in Cambridge with Dr Christina Grey. Small groups that get you speaking English with confidence.',
   },
   '/testimonials': {
     title: 'Success Stories | Unlock Fluency Student Testimonials',

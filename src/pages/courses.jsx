@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, ArrowRight, Building2 } from "lucide-react";
+import { ArrowRight, Building2 } from "lucide-react";
 import courses from "@/data/courses.json";
 
 
@@ -78,7 +78,7 @@ export default function Courses() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl text-brand-900 text-center mb-10">Group courses</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {courses.filter((course) => !course.hidden).map((course) => (
+            {courses.filter((course) => !course.hidden && !course.oneToOne).map((course) => (
               <CourseCard key={course.slug} course={course} />
             ))}
           </div>
@@ -91,15 +91,21 @@ export default function Courses() {
           <div className="bg-white border border-brand-200 rounded-xl p-8 text-center">
             <h2 className="text-3xl text-brand-900 mb-3">1-to-1 coaching</h2>
             <p className="text-gray-600 leading-relaxed mb-2">
-              Just you and me, working on whatever you need. Any level, beginners included.
+              Just you and me, working on whatever you need: interview preparation, proofreading, or a big project coming up. Any level, beginners included.
             </p>
-            <p className="text-brand-700 font-semibold mb-6">From £75. Start with a free discovery call.</p>
-            <BookingLink href={DISCOVERY_CALL_URL}>
-              <Button className="bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11 px-6">
-                <Calendar className="w-4 h-4 mr-2" />
-                Book a discovery call
-              </Button>
-            </BookingLink>
+            <p className="text-brand-700 font-semibold mb-6">From £90</p>
+            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
+              <Link to="/courses/1-to-1-coaching">
+                <Button className="w-full bg-transparent border-2 border-brand-900 text-brand-900 hover:bg-brand-900 hover:text-white font-semibold">
+                  See details
+                </Button>
+              </Link>
+              <BookingLink href={DISCOVERY_CALL_URL}>
+                <Button className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold">
+                  Book a discovery call
+                </Button>
+              </BookingLink>
+            </div>
           </div>
         </div>
       </section>

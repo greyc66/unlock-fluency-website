@@ -12,7 +12,7 @@ const BookButton = ({ course, className = "" }) => {
   const button = (
     <Button className={`bg-brand-600 hover:bg-brand-700 text-white font-semibold h-11 px-6 ${className}`}>
       <Calendar className="w-4 h-4 mr-2" />
-      {course.tba ? "Register your interest" : "See dates and book"}
+      {course.tba ? "Register your interest" : course.bookLabel || "See dates and book"}
     </Button>
   );
   return course.tba
@@ -60,7 +60,7 @@ export default function CourseDetail() {
             </div>
 
             <div>
-              <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">What you'll practise</h2>
+              <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">{course.practiseTitle || "What you'll practise"}</h2>
               <ul className="space-y-3">
                 {course.practise.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-gray-700 leading-relaxed">
@@ -97,8 +97,10 @@ export default function CourseDetail() {
             </div>
 
             <div>
-              <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">Dates</h2>
-              {course.tba ? (
+              <h2 className="text-2xl lg:text-3xl text-brand-900 mb-4">{course.oneToOne ? "Get started" : "Dates"}</h2>
+              {course.oneToOne ? (
+                <p className="text-gray-700 leading-relaxed mb-6">{course.startNote}</p>
+              ) : course.tba ? (
                 <p className="text-gray-700 leading-relaxed mb-6">{course.datesNote}</p>
               ) : (
                 <p className="text-gray-700 leading-relaxed mb-6">
@@ -126,6 +128,12 @@ export default function CourseDetail() {
           {/* At a glance */}
           <aside className="lg:sticky lg:top-28 self-start bg-white border border-brand-200 rounded-xl p-6">
             <p className="font-display text-3xl text-brand-900 mb-4">{course.price}</p>
+            {course.earlyBird && (
+              <p className="text-sm text-brand-800 bg-brand-50 rounded-lg px-3 py-2 mb-4">
+                <span className="font-semibold">Early bird:</span> book at least 6 weeks before the course starts and get 10% off.{" "}
+                <a href={`mailto:contact@unlockfluency.co.uk?subject=${encodeURIComponent(`Early bird: ${course.title}`)}&body=${encodeURIComponent(`Hi Christina,\n\nI'd like the early bird discount for ${course.title}.\n\nStart date: \n`)}`} className="font-semibold text-brand-600 hover:text-brand-800">Email me</a> before you book, and I'll apply the discount and reserve your spot.
+              </p>
+            )}
             <dl className="space-y-3 mb-6">
               {course.schedule.map((item) => (
                 <div key={item.label}>

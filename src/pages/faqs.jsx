@@ -2,6 +2,7 @@
 import React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
+import BookingLink, { DISCOVERY_CALL_URL } from "@/components/BookingLink";
 
 export default function FAQs() {
   const faqs = [
@@ -23,7 +24,7 @@ export default function FAQs() {
     },
     {
       question: "Are the courses available online or in person?",
-      answer: "My online courses and 1-to-1 coaching take place live on Zoom. For organisations, I deliver courses, workshops, and retreats online or in person. Once a year, I also run a summer retreat in Cambridge, UK. Please get in touch to discuss your preferences."
+      answer: "My courses and 1-to-1 coaching take place online. For organisations, I deliver courses, workshops, and retreats online or in person. Once a year, I also run a summer retreat in Cambridge, UK. Please get in touch to discuss your preferences."
     },
     {
       question: "What makes The Unlock Fluency Method different?",
@@ -35,15 +36,23 @@ export default function FAQs() {
     },
     {
       question: "Can I book a single weekend from the Weekend Boost course?",
-      answer: "Yes. A single weekend (Saturday and Sunday mornings, 4 hours) is £110. Please get in touch with me directly to book your place."
+      answer: <>Yes. A single weekend (Saturday and Sunday mornings, 4 hours) is £110. Please <Link to="/contact" className="text-brand-600 hover:text-brand-700">get in touch with me</Link> directly to book your place.</>
     },
     {
       question: "How do I sign up for the newsletter?",
       answer: <>Visit my <Link to="/newsletter" className="text-brand-600 hover:text-brand-700">Newsletter</Link> page, or use the sign-up box at the bottom of any page. You'll get a free PDF of English learning tips straight away, then one email a month.</>
     },
     {
+      question: "How does the early bird discount work?",
+      answer: "Book at least six weeks before a course starts and you get 10% off. Email me before you book, telling me the course and its start date, and I'll apply the discount and reserve your spot.",
+    },
+    {
+      question: "How does 1-to-1 coaching work?",
+      answer: <>We start with a free 20-minute discovery call, where you tell me what you need. Sessions are two hours, online, at times that suit you: £90 for a single session, £400 for five (to use within three months), or £750 for ten (within six months). I invoice packages directly, to you or to your employer. You'll find more on the <Link to="/courses/1-to-1-coaching" className="text-brand-600 hover:text-brand-700">1-to-1 coaching page</Link>.</>,
+    },
+    {
       question: "Do you offer courses for teams and organisations?",
-      answer: "Yes! I run courses, workshops, and retreats for companies, NGOs, and other organisations, built around what your team needs. Get in touch for a personalised quote, or book a free discovery call."
+      answer: <>Yes! I run courses, workshops, and retreats for companies, NGOs, and other organisations, built around what your team needs. <Link to="/contact" className="text-brand-600 hover:text-brand-700">Get in touch</Link> for a personalised quote, or <BookingLink href={DISCOVERY_CALL_URL} className="text-brand-600 hover:text-brand-700">book a free discovery call</BookingLink>.</>
     }
   ];
 

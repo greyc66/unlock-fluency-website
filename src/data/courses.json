@@ -32,7 +32,7 @@
       },
       {
         "label": "Where",
-        "value": "Online, live on Zoom"
+        "value": "Online"
       }
     ],
     "whoFor": "You understand most of what you hear, but when it's your turn to speak, you rehearse the sentence in your head until someone else has said it. This week is for upper-intermediate and advanced learners (B2 and above) who are ready to say it first.",
@@ -79,7 +79,8 @@
       "text": "The week with you was totally different! I felt much more confident speaking English after just a few days. I was really surprised how comfortable I was speaking English by day 5.",
       "name": "Hannah",
       "country": "Germany"
-    }
+    },
+    "earlyBird": true
   },
   {
     "slug": "maintain-fluency",
@@ -114,7 +115,7 @@
       },
       {
         "label": "Where",
-        "value": "Online, live on Zoom"
+        "value": "Online"
       }
     ],
     "whoFor": "You've done an intensive week and don't want to lose what you gained, or you'd like to speak English every week, alongside work. For learners at B2 and above.",
@@ -147,7 +148,8 @@
       "Certificate of Completion",
       "Handouts for every session, with vocabulary and phrases"
     ],
-    "testimonial": null
+    "testimonial": null,
+    "earlyBird": true
   },
   {
     "slug": "weekend-boost",
@@ -183,7 +185,7 @@
       },
       {
         "label": "Where",
-        "value": "Online, live on Zoom"
+        "value": "Online"
       }
     ],
     "whoFor": "Busy learners at B2 and above who can't fit a course into the working week. Bring a cup of tea (or coffee, I won't judge).",
@@ -220,7 +222,8 @@
       "text": "I really enjoyed the Weekend Boost course. It was a great way to refresh my skills and learn new conversational techniques in a supportive environment.",
       "name": "Fatima",
       "country": "UAE"
-    }
+    },
+    "earlyBird": true
   },
   {
     "slug": "news-unlocked",
@@ -255,7 +258,7 @@
       },
       {
         "label": "Where",
-        "value": "Online, live on Zoom"
+        "value": "Online"
       }
     ],
     "whoFor": "You keep up with the news, and you'd like to talk about it just as easily in English, in meetings, with clients, and over coffee. For professionals at B2 and above.",
@@ -269,35 +272,36 @@
     "sessionTitle": "A typical session",
     "session": [
       {
+        "time": "Warm-up",
+        "text": "A few questions on the week's topic, from your own life to the bigger picture."
+      },
+      {
         "time": "The News Desk",
-        "text": "You present the story you prepared at home and get feedback."
-      },
-      {
-        "time": "Hot takes",
-        "text": "Quick opinions on the week's story, to get everyone talking."
-      },
-      {
-        "time": "Language",
-        "text": "The week's words and phrases, and how to use them at work."
+        "text": "No notes: you report each of the two stories you read at home, in a minute each."
       },
       {
         "time": "The story",
-        "text": "You've read it at home, so we unpack it together: what happened, and why it matters."
+        "text": "We read between the lines: how two newspapers tell the same story, and where each one stands."
       },
       {
-        "time": "Discussion",
-        "text": "A role-play or a debate about what the story means for business, and for you."
+        "time": "Listen",
+        "text": "A short clip or podcast on the same story, with a few questions."
       },
       {
-        "time": "Phrases to keep",
-        "text": "Three phrases from the session you want to make your own."
+        "time": "Language",
+        "text": "The words and phrases from the stories, then you use them to talk about your own life and work."
+      },
+      {
+        "time": "Speaking",
+        "text": "Small talk, a role-play, a press conference, or a debate: a different one each week."
       }
     ],
     "included": [
       "Certificate of Completion",
       "A handout every week, with the story to read at home, the vocabulary, and the phrases"
     ],
-    "testimonial": null
+    "testimonial": null,
+    "earlyBird": true
   },
   {
     "slug": "book-club",
@@ -332,7 +336,7 @@
       },
       {
         "label": "Where",
-        "value": "Online, live on Zoom"
+        "value": "Online"
       }
     ],
     "whoFor": "You love a good book and would like to read more in English, with people to talk it over with every week. For learners at B2 and above.",
@@ -372,7 +376,74 @@
     "testimonial": {
       "text": "It's a very interesting and funny book club to improve your English, without feeling like an English course.",
       "name": "Laura"
-    }
+    },
+    "earlyBird": true
+  },
+  {
+    "slug": "1-to-1-coaching",
+    "title": "1-to-1 Coaching",
+    "oneToOne": true,
+    "hook": "Just you and me, working on whatever you need next in English. Any level, beginners included.",
+    "cardFacts": [
+      "2-hour sessions",
+      "Any level"
+    ],
+    "price": "From £90",
+    "format": "Online",
+    "bookingUrl": "https://theunlockfluencymethod.setmore.com/services/9273b47e-a6d3-4413-8922-d4ccb8b666e7",
+    "bookLabel": "Book a free discovery call",
+    "metaTitle": "1-to-1 English Coaching Online | The Unlock Fluency Method",
+    "metaDescription": "1-to-1 English coaching with Dr Christina Grey: interview preparation, proofreading, and support for a big project, at any level. 2-hour sessions online, from £90. Start with a free discovery call.",
+    "schedule": [
+      {
+        "label": "Sessions",
+        "value": "2 hours, at times that suit you"
+      },
+      {
+        "label": "Level",
+        "value": "Any level, beginners included"
+      },
+      {
+        "label": "Where",
+        "value": "Online"
+      },
+      {
+        "label": "Start",
+        "value": "A free 20-minute discovery call"
+      }
+    ],
+    "whoFor": "Some things are easier one to one. You might have a job interview in English next month, a report or a thesis that needs a careful pair of eyes, or a big project coming up where you'll have to present, negotiate, or lead meetings in English. Or you're just starting out, and a group course would be too much too soon. Either way, we work on exactly what you need, at your pace.",
+    "practiseTitle": "What we work on",
+    "practise": [
+      "Interview preparation: the questions you're likely to get, telling your story well, and practising until it feels natural",
+      "Proofreading and feedback: your CV, cover letter, report, thesis, or presentation, with explanations, so the same mistake doesn't come back",
+      "A big project coming up: presentations, negotiations, meetings, or a conference talk, rehearsed with honest feedback",
+      "Everyday English at any level, including complete beginners"
+    ],
+    "sessionTitle": "How it works",
+    "session": [
+      {
+        "time": "Discovery call",
+        "text": "A free 20-minute chat: you tell me what you need and what you'd like to achieve."
+      },
+      {
+        "time": "Your plan",
+        "text": "I put together a plan around your goal, whether that's one interview or a few months of steady progress."
+      },
+      {
+        "time": "Sessions",
+        "text": "Two hours each, online, at times that suit you."
+      }
+    ],
+    "includedTitle": "Prices",
+    "included": [
+      "Single session (2 hours): £90",
+      "5 sessions: £400, to use within 3 months",
+      "10 sessions: £750, to use within 6 months",
+      "Packages are invoiced directly, to you or to your employer",
+      "Cancel or move a single session at least 24 hours before it starts. To cancel a package, let me know at least a week before your first session"
+    ],
+    "startNote": "Book a free 20-minute discovery call, tell me what you need, and we'll take it from there."
   },
   {
     "slug": "summer-retreat",
@@ -436,7 +507,7 @@
     "included": [
       "The Unlock English Fluency course, Monday to Friday",
       "5 nights in a single en-suite room at a Cambridge University College",
-      "Daily breakfast at a Cambridge University College",
+      "Daily breakfast and lunch at a Cambridge University College",
       "A professional guided walking tour of Cambridge",
       "A guided punting experience on the River Cam",
       "A 3-course candlelit formal dinner in a historic Old Dining Hall at a Cambridge University College"

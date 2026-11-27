@@ -37,9 +37,9 @@ const ways = [
     alt: "Christina having afternoon tea",
     title: "1-to-1 coaching",
     text: "Just you and me, working on whatever you need, at any level.",
-    meta: "From £75",
-    href: DISCOVERY_CALL_URL,
-    cta: "Book a free call",
+    meta: "From £90",
+    link: "/courses/1-to-1-coaching",
+    cta: "See 1-to-1 coaching",
   },
   {
     image: "/images/christina-conference.jpg",
