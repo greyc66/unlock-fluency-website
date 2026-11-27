@@ -41,7 +41,11 @@ export async function onRequestPost(context) {
 
     // Parse the incoming form data
     const formData = await request.json();
-    const { email, name } = formData;
+    const { email, name, source } = formData;
+    // Where the sign-up came from (from links such as /newsletter?from=linkedin); short labels only
+    const SOURCES = { 'linkedin': 'LinkedIn (Featured link on your profile)', 'linkedin-post': 'LinkedIn (a post)' };
+    const src = typeof source === 'string' && /^[a-z0-9-]{1,30}$/.test(source) ? source : null;
+    const cameFrom = src ? (SOURCES[src] || src) : 'Not tagged (the website, a search, or a direct visit)';
 
     if (!email) {
       return new Response(
@@ -78,6 +82,7 @@ export async function onRequestPost(context) {
     ${name ? field('Name', esc(name)) : ''}
     ${field('Email', esc(email))}
     ${field('Signed up', new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' }))}
+    ${field('Came from', esc(cameFrom))}
   </td></tr>
   <tr><td style="background-color:#FCF8F4; border-top:1px solid #E8DFDF; border-radius:0 0 12px 12px; padding:16px 28px; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:13px; line-height:1.5; color:#6E6878;">They've been added to your Resend audience and sent the welcome email with the free PDF.</td></tr>
 </table>
@@ -190,7 +195,7 @@ export async function onRequestPost(context) {
           from: 'The Unlock Fluency Method <noreply@unlockfluency.co.uk>',
           to: env.CONTACT_EMAIL || 'contact@unlockfluency.co.uk',
           reply_to: email,
-          subject: 'New newsletter subscription',
+          subject: src ? `New newsletter subscription (from ${src})` : 'New newsletter subscription',
           html: ownerEmailHtml
         })
       }),

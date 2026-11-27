@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +14,15 @@ export default function NewsletterForm({ id = "newsletter-email", tone = "light"
 
   const dark = tone === "dark";
 
+  // Where the visitor came from: a link such as /newsletter?from=linkedin is remembered for the visit
+  // (the footer form is on every page) and sent with the sign-up, so the owner's email can say so.
+  useEffect(() => {
+    try {
+      const from = new URLSearchParams(window.location.search).get("from");
+      if (from && /^[a-z0-9-]{1,30}$/.test(from)) sessionStorage.setItem("ufm_from", from);
+    } catch { /* storage blocked: sign-up still works, just untagged */ }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -26,7 +35,7 @@ export default function NewsletterForm({ id = "newsletter-email", tone = "light"
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, source: (() => { try { return sessionStorage.getItem("ufm_from") || undefined; } catch { return undefined; } })() }),
       });
       const result = await response.json();
       if (!response.ok || !result.success) {
