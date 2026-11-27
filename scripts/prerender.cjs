@@ -214,7 +214,7 @@ for (const c of courses.filter((course) => !course.hidden)) {
       <h2>${c.sessionTitle}</h2>
       <ul>${c.session.map((s) => `<li>${s.time}: ${s.text}</li>`).join('')}</ul>
       <h2>${c.includedTitle || "What's included"}</h2>
-      <ul>${c.included.map((item) => `<li>${item}</li>`).join('')}</ul>
+      <ul>${c.included.map((item) => `<li>${item.replace(/\[([^\]]+)\]\(([^)]+)\)/, '<a href="$2">$1</a>')}</li>`).join('')}</ul>
       <p>${c.schedule.map((s) => `${s.label}: ${s.value}`).join('. ')}.${c.tba ? '' : ` Price: ${c.price}.`}${c.earlyBird ? ` Early bird: book at least 6 weeks before the course starts and get 10% off; email me before you book, and I'll apply the discount and reserve your spot.` : ''}</p>
     `,
   };

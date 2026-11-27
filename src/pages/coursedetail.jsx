@@ -20,6 +20,13 @@ const BookButton = ({ course, className = "" }) => {
     : <BookingLink href={course.bookingUrl} className="block">{button}</BookingLink>;
 };
 
+// Turns "[text](/path)" inside a data string into a site link (used in the 1-to-1 prices list)
+const withLink = (text) => {
+  const m = text.match(/^(.*)\[([^\]]+)\]\(([^)]+)\)(.*)$/);
+  if (!m) return text;
+  return <>{m[1]}<Link to={m[3]} className="text-brand-600 hover:text-brand-700 font-semibold">{m[2]}</Link>{m[4]}</>;
+};
+
 export default function CourseDetail() {
   const { slug } = useParams();
   const course = courses.find((c) => c.slug === slug && !c.hidden);
@@ -90,7 +97,7 @@ export default function CourseDetail() {
                 {course.included.map((item) => (
                   <li key={item} className="flex items-start gap-3 bg-brand-50 rounded-lg p-4 text-gray-700">
                     <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 shrink-0" />
-                    <span>{item}</span>
+                    <span>{withLink(item)}</span>
                   </li>
                 ))}
               </ul>
